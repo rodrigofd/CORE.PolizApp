@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems NavigationStyle="TreeList">
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Apariencia" ViewId="ModelDifference_ListView" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options Skin="Office 2016 Colorful" UIType="TabbedMDI" FormStyle="Ribbon">
+    <RibbonOptions RibbonControlStyle="Office2013" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="15.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="15.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="15.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

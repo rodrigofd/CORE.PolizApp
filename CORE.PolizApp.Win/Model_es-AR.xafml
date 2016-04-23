@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default" Caption="Seguridad">
+        <Items>
+          <Item Id="Apariencia" Caption="Apariencia" ToolTip="Apariencia." />
+          <Item Id="SecuritySystemRole_ListView" Caption="Rol" />
+          <Item Id="SecuritySystemUser_ListView" Caption="Usuario" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Copyright="2015" Company="FD-IT Soluciones">
+  <NavigationItems RelatedViewVariantsGroupCaption="Variantes">
+    <Items>
+      <Item Id="Escribania" Caption="Escribanía">
+        <Items>
+          <Item Id="@bf5f051e-b8db-4429-b1d4-b0fb3286af61" Caption="Notariales" />
+          <Item Id="@e807a685-aa9b-427a-a80e-76ae666d02a0" Caption="Gestoría">
+            <Items>
+              <Item Id="@174619fc-0d27-47bf-b135-1a32ed400d19" Caption="Configuración" />
+            </Items>
+          </Item>
+          <Item Id="@994c9b73-9e39-4429-a7b5-56a9ea70dbc5" Caption="Configuración" />
+        </Items>
+      </Item>
+      <Item Id="@2b7e8064-b14d-429f-8384-f194fb218abc" Caption="Administración">
+        <Items>
+          <Item Id="@1f68b0ac-2c41-4db9-8e48-46e4bea8fe9b" Caption="Ventas">
+            <Items>
+              <Item Id="@a35ea9ff-6753-4a7a-8ca3-1cb7b8ecc27d">
+                <Items>
+                  <Item Id="@c9744f6b-869a-4309-b160-37fb1ca720e4" Caption="Subdiario de IVA" />
+                  <Item Id="@c9744f6b-869a-4309-b160-37fb1ca720e4_Copy" Caption="Ventas CUBO" />
+                </Items>
+              </Item>
+              <Item Id="@6be358ef-727c-4218-821e-ffad13be8034" Caption="Cobranza" />
+              <Item Id="@5f91f6b2-9792-4afb-8c9e-d5cf896d9f72" Caption="Proformas" />
+            </Items>
+          </Item>
+          <Item Id="@d19fd705-45a2-4461-9664-9099a2e8ede4" Caption="Compras">
+            <Items>
+              <Item Id="@a35ea9ff-6753-4a7a-8ca3-1cb7b8ecc27d">
+                <Items>
+                  <Item Id="@e9e69cdb-a84f-4138-af57-120170efb24d" Caption="Subdiario de IVA" />
+                  <Item Id="@e9e69cdb-a84f-4138-af57-120170efb24d_Copy" Caption="Compras CUBO" />
+                </Items>
+              </Item>
+              <Item Id="@6be358ef-727c-4218-821e-ffad13be8034" Caption="Pagos" />
+            </Items>
+          </Item>
+          <Item Id="@3e2929ba-5ffe-4f58-88c8-aba83d181f05" Caption="Impuestos" />
+          <Item Id="@32798138-1066-483e-a711-974cb2f38af0" Caption="Contabilidad">
+            <Items>
+              <Item Id="@792bcc53-dfc4-452a-a443-adee73016c43" Caption="Configuración" />
+            </Items>
+          </Item>
+          <Item Id="@792bcc53-dfc4-452a-a443-adee73016c43" Caption="Configuración">
+            <Items>
+              <Item Id="@e84ba457-5b05-41e6-be4a-83a8a5c455bf" Caption="AFIP" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+      <Item Id="@499f3abe-a7aa-4ef6-a114-23e8822ce3b2" Caption="Valores">
+        <Items>
+          <Item Id="@d28cf5d5-9ec4-4b2c-afce-16d6760d62aa" Caption="Configuración" />
+        </Items>
+      </Item>
+      <Item Id="@48a5757f-59a5-44cf-9866-237d158d3a08" Caption="Personas">
+        <Items>
+          <Item Id="@ad1828d7-1c5d-4d37-ad8d-c11998cfbbb1" Caption="Configuración" />
+        </Items>
+      </Item>
+      <Item Id="@277e9a29-7c5f-4098-9c24-26232aa72567" Caption="Regionales" />
+      <Item Id="@c377dc29-f460-44df-ac82-b10cc634ae47" Caption="Sistema" />
+    </Items>
+  </NavigationItems>
+  <Views>
+    <DetailView Id="AboutInfo_DetailView">
+      <Items>
+        <StaticText Id="AboutText" Text="CORE.ES&lt;br&gt;Versión 1.0.5932&lt;br&gt;2015" />
+      </Items>
+    </DetailView>
+    <DetailView Id="Concepto_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="escribania_ActoItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="ItemsProformas" Caption="Proformas" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="escribania_ClieComprobante_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <TabbedGroup Id="Item1">
+              <LayoutGroup Id="escribania_ClieComprobante" Caption="ClieComprobante">
+                <LayoutGroup Id="escribania_ClieComprobante_col1">
+                  <LayoutGroup Id="Auto1f7105f5-f81e-4be9-a0d9-d592f18725a3" Caption="Auto1f7105f5-f81e-4be9-a0d9-d592f18725a3(5)">
+                    <LayoutGroup Id="Autoa5a32727-4e5e-43f8-b634-03ce9c28c428" Caption="" />
+                    <LayoutGroup Id="Auto3e26b025-25eb-44d9-83db-4d528ea83b17" Caption="">
+                      <LayoutGroup Id="Autodee743fe-6c22-4270-9ea8-2e02f58ee467" Caption="" />
+                      <LayoutGroup Id="Auto7219145b-74db-4aee-bb17-39270d2d74a3" Caption="">
+                        <LayoutGroup Id="Auto56d82157-eb6b-4bee-b4ff-1585a769c034" Caption="" />
+                      </LayoutGroup>
+                    </LayoutGroup>
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto60e7683c-462e-40f1-9738-6b524f08bc4e" Caption="" />
+                </LayoutGroup>
+                <LayoutGroup Id="escribania_ClieComprobante_col2">
+                  <LayoutGroup Id="Autof15ece4b-74d5-4a64-bbcb-d585e1b09905" Caption="">
+                    <LayoutGroup Id="Autobabe95ec-0575-4210-a996-d197069c8e94" Caption="" />
+                    <LayoutGroup Id="Auto82fe5143-2a2e-481e-be00-5f11685e9c2d" Caption="" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item2" Caption="AFIP">
+                <LayoutGroup Id="Auto2b077289-c3d3-425d-b36a-bccc4f831fa4" Caption="">
+                  <LayoutGroup Id="Autof4c3e773-bbda-4fc2-9f7d-7374fc196c1d" Caption="" />
+                  <LayoutGroup Id="Auto8c224784-0461-4237-8114-c0d7ad308210" Caption="">
+                    <LayoutGroup Id="Auto1a20b95e-e6a9-4f78-b821-20fdf19203a4" Caption="" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </TabbedGroup>
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+            <LayoutGroup Id="escribania_ClieComprobante">
+              <LayoutGroup Id="escribania_ClieComprobante_col1">
+                <LayoutGroup Id="Auto1f7105f5-f81e-4be9-a0d9-d592f18725a3" Caption="" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="escribania_ClieComprobanteProforma_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="escribania_ClieComprobanteProforma" Caption="Proforma">
+              <LayoutGroup Id="escribania_ClieComprobanteProforma_col1">
+                <LayoutGroup Id="Autod736ec19-1c64-48a3-83e1-6db18c663114" Caption="" />
+                <LayoutGroup Id="Auto95ef905c-122e-41bd-adc4-c691598569b3" Caption="">
+                  <LayoutGroup Id="Auto9f10d4c9-cc25-40a7-a5aa-376b0d9062e4" Caption="" />
+                  <LayoutGroup Id="Auto6b8260f8-1814-4596-a96b-86bfbbf7a093" Caption="">
+                    <LayoutGroup Id="Auto6d81d449-00c7-4800-9cb1-0d045020fa60" Caption="" />
+                    <LayoutGroup Id="Autod2790ff1-6f6a-4e7e-a16b-6d61dae83d97" Caption="">
+                      <LayoutGroup Id="Autodfe07bfd-8edd-4f7b-9a31-600a4da3e7b8" Caption="" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="escribania_ClieComprobanteProforma_col2">
+                <LayoutGroup Id="Autoe814daa9-2f93-4099-b1f8-a478a5de41e0" Caption="" />
+                <LayoutGroup Id="Autoc6afdf46-4150-4e35-843a-c42b749efd15" Caption="">
+                  <LayoutGroup Id="Autoea1b1adb-a19e-4355-84a2-b3d0ce34df51" Caption="" />
+                  <LayoutGroup Id="Auto685ee93d-34e8-42e8-9305-0876f7f6ea55" Caption="">
+                    <LayoutGroup Id="Auto313373ca-b948-4797-b4bc-d50d4a617c75" Caption="" />
+                    <LayoutGroup Id="Auto4d9a4294-bd7d-4622-b217-b111354c7205" Caption="">
+                      <LayoutGroup Id="Auto9797b295-69e9-4d58-991a-6f4a2318fa1c" Caption="Auto9797b295-69e9-4d58-991a-6f4a2318fa1c(28)">
+                        <LayoutGroup Id="Autob8fb27fa-a102-4856-b214-95b267bb1b48" Caption="Autob8fb27fa-a102-4856-b214-95b267bb1b48(32)">
+                          <LayoutGroup Id="Autoe4ae81b9-8009-48f4-9f30-141c87aa282f" Caption="Autoe4ae81b9-8009-48f4-9f30-141c87aa282f(36)">
+                            <LayoutGroup Id="Auto02a9e7f2-3620-4b79-a501-30ffb1432fac" Caption="Auto02a9e7f2-3620-4b79-a501-30ffb1432fac(39)" />
+                          </LayoutGroup>
+                        </LayoutGroup>
+                      </LayoutGroup>
+                      <LayoutGroup Id="Auto50334d23-0c3b-4d37-a3df-5a9d9cfae295" Caption="" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="ProformasItems" Caption="ActosItems" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="personas_Persona_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <TabbedGroup Id="Item1">
+              <LayoutGroup Id="personas_Persona" Caption="Persona">
+                <LayoutGroup Id="personas_Persona_col1">
+                  <LayoutGroup Id="Autoab7a3304-72b1-41b5-80dc-a0b177b157d8" Caption="Autoab7a3304-72b1-41b5-80dc-a0b177b157d8(6)" />
+                </LayoutGroup>
+                <LayoutGroup Id="personas_Persona_col2">
+                  <LayoutGroup Id="Auto266a8284-8db9-4539-932c-d5aa8bd28a43" Caption="Auto266a8284-8db9-4539-932c-d5aa8bd28a43(21)" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item3" Caption="Cliente" />
+              <LayoutGroup Id="Item2" Caption="Proveedor" />
+            </TabbedGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="SizeableEditors" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
