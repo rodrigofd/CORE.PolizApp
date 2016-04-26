@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Linq;
-using CORE.General.Modulos.Regionales;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Regionales;
+using CORE.PolizApp.Sistema;
 using CORE.PolizApp.Seguridad;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
@@ -32,16 +32,15 @@ namespace CORE.PolizApp.Controllers.Sistema
         {
             base.OnActivated();
 
-            if (!SecuritySystem.IsAuthenticated || CoreAppLogonParameters.Instance == null ||
-                !(ObjectSpace is XPObjectSpace)) return;
+            if (!SecuritySystem.IsAuthenticated || CoreLogonParameters.Instance == null || !(ObjectSpace is XPObjectSpace)) return;
 
-            CoreAppLogonParameters.Instance.ObjectSpace = ObjectSpace;
+            CoreLogonParameters.Instance.ObjectSpace = ObjectSpace;
 
             CargarListaEmpresas();
 
             MarcarEmpresaActual();
 
-            FiltrarVistaPorGrupoYEmpresa();
+            FiltrarVistaPorEmpresa();
             FiltrarVistaPorPais();
 
             var logoffController = Frame.GetController<LogoffController>();
@@ -82,16 +81,16 @@ namespace CORE.PolizApp.Controllers.Sistema
         {
             var objetoPorEmpresa = e.CreatedObject as IObjetoPorEmpresa;
             if (objetoPorEmpresa != null)
-                objetoPorEmpresa.Empresa = CoreAppLogonParameters.Instance.EmpresaActual(e.ObjectSpace);
+                objetoPorEmpresa.Empresa = CoreLogonParameters.Instance.EmpresaActual(e.ObjectSpace);
 
             //TODO proponer tambien pais predeterminado? o en cada caso?
         }
 
-        private void FiltrarVistaPorGrupoYEmpresa()
+        private void FiltrarVistaPorEmpresa()
         {
             if (!(View is ListView)) return;
 
-            var empresaActualId = CoreAppLogonParameters.Instance.EmpresaActualId;
+            var empresaActualId = CoreLogonParameters.Instance.EmpresaActualId;
             var filtroPorEmpresaAttribute = View.ObjectTypeInfo.FindAttribute<FiltroPorEmpresaAttribute>();
 
             if (typeof (IObjetoPorEmpresa).IsAssignableFrom(View.ObjectTypeInfo.Type))
@@ -135,7 +134,7 @@ namespace CORE.PolizApp.Controllers.Sistema
             _cambiarEmpresaActualAction.Items.Clear();
 
             foreach (
-                var empresaParaUsuarioActual in CoreAppLogonParameters.Instance.EmpresasParaUsuarioActual(ObjectSpace))
+                var empresaParaUsuarioActual in CoreLogonParameters.Instance.EmpresasParaUsuarioActual(ObjectSpace))
                 _cambiarEmpresaActualAction.Items.Add(new ChoiceActionItem(empresaParaUsuarioActual.Persona.Nombre,
                     empresaParaUsuarioActual.Oid));
         }
@@ -145,7 +144,7 @@ namespace CORE.PolizApp.Controllers.Sistema
         /// </summary>
         private void MarcarEmpresaActual()
         {
-            var item = _cambiarEmpresaActualAction.Items.Find(CoreAppLogonParameters.Instance.EmpresaActualId);
+            var item = _cambiarEmpresaActualAction.Items.Find(CoreLogonParameters.Instance.EmpresaActualId);
             if (item != null)
                 _cambiarEmpresaActualAction.SelectedItem = item;
         }
@@ -178,17 +177,15 @@ namespace CORE.PolizApp.Controllers.Sistema
             // CambiarEmpresaActual
             // 
             _cambiarEmpresaActualAction.Caption = "Empresa actual";
-            _cambiarEmpresaActualAction.Category = "Appearance";
+            _cambiarEmpresaActualAction.Category = "Tools";
             _cambiarEmpresaActualAction.ConfirmationMessage = null;
             _cambiarEmpresaActualAction.Id = "CambiarEmpresaActualAction";
             _cambiarEmpresaActualAction.ImageName = null;
-            _cambiarEmpresaActualAction.PaintStyle = ActionItemPaintStyle.Default;
             _cambiarEmpresaActualAction.Shortcut = null;
             _cambiarEmpresaActualAction.Tag = null;
             _cambiarEmpresaActualAction.TargetObjectsCriteria = null;
             _cambiarEmpresaActualAction.TargetViewId = null;
             _cambiarEmpresaActualAction.ToolTip = null;
-            _cambiarEmpresaActualAction.TypeOfView = null;
             _cambiarEmpresaActualAction.Execute += CambiarEmpresaActualAction_Execute;
         }
 
@@ -196,8 +193,8 @@ namespace CORE.PolizApp.Controllers.Sistema
 
         private void CambiarEmpresaActualAction_Execute(object sender, SingleChoiceActionExecuteEventArgs e)
         {
-            CoreAppLogonParameters.Instance.EmpresaActualId = (int) e.SelectedChoiceActionItem.Data;
-            FiltrarVistaPorGrupoYEmpresa();
+            CoreLogonParameters.Instance.EmpresaActualId = (int) e.SelectedChoiceActionItem.Data;
+            FiltrarVistaPorEmpresa();
 
             var refreshTemplate = Frame.Template as IRefreshable;
             refreshTemplate?.Refresh();

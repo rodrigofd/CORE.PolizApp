@@ -4,7 +4,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.SystemModule;
 
-namespace CORE.Modulos.Controllers
+namespace CORE.PolizApp.Controllers
 {
     public static class ControllerExtensions
     {
@@ -17,13 +17,13 @@ namespace CORE.Modulos.Controllers
         public static object GetMasterObject(this ViewController controller, ListView listView)
         {
             var collectionSource = listView.CollectionSource as PropertyCollectionSource;
-            return collectionSource != null ? collectionSource.MasterObject : null;
+            return collectionSource?.MasterObject;
         }
 
         public static Type GetMasterType(this ViewController controller, ListView listView)
         {
-            object masterObject = GetMasterObject(controller, listView);
-            return masterObject != null ? masterObject.GetType() : null;
+            var masterObject = GetMasterObject(controller, listView);
+            return masterObject?.GetType();
         }
 
         public static T GetMasterObject<T>(this ViewController controller)

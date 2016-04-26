@@ -1,11 +1,11 @@
 using System;
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Xpo;
 
-namespace CORE.General.Modulos.Controllers
+namespace CORE.PolizApp.Controllers.Sistema
 {
     public class ArchivosAdjuntosController : ViewController<ListView>
     {

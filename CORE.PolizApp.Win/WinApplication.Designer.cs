@@ -1,4 +1,6 @@
-﻿namespace CORE.PolizApp.Win {
+﻿using CORE.PolizApp.Seguridad;
+
+namespace CORE.PolizApp.Win {
     partial class WinApplication {
         /// <summary> 
         /// Required designer variable.
@@ -46,22 +48,19 @@
             this.validationModule = new DevExpress.ExpressApp.Validation.ValidationModule();
             this.validationWindowsFormsModule = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
             this.viewVariantsModule = new DevExpress.ExpressApp.ViewVariantsModule.ViewVariantsModule();
-            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
+            this.coreAuthentication1 = new CoreAuthentication();
+            
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // securityStrategyComplex1
             // 
-            this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
-            this.securityStrategyComplex1.RoleType = typeof(DevExpress.ExpressApp.Security.Strategy.SecuritySystemRole);
-            this.securityStrategyComplex1.UserType = typeof(DevExpress.ExpressApp.Security.Strategy.SecuritySystemUser);
+            this.securityStrategyComplex1.Authentication = this.coreAuthentication1;
+            this.securityStrategyComplex1.RoleType = typeof(Rol);
+            this.securityStrategyComplex1.UserType = typeof(Usuario);
             // 
             // securityModule1
             // 
             this.securityModule1.UserType = typeof(DevExpress.ExpressApp.Security.Strategy.SecuritySystemUser);
-            // 
-            // authenticationStandard1
-            // 
-            this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
             //
             // auditTrailModule
             //
@@ -126,7 +125,7 @@
         private CORE.PolizApp.Module.Win.WinModule module4;
         private DevExpress.ExpressApp.Security.SecurityModule securityModule1;
         private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;
-        private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;
+        private CoreAuthentication coreAuthentication1;
         private DevExpress.ExpressApp.AuditTrail.AuditTrailModule auditTrailModule;
         private DevExpress.ExpressApp.Objects.BusinessClassLibraryCustomizationModule objectsModule;
         private DevExpress.ExpressApp.Chart.ChartModule chartModule;

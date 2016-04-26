@@ -1,16 +1,15 @@
 using System;
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Fondos
+namespace CORE.PolizApp.Fondos
 {
     [Persistent(@"fondos.Especie")]
     //[DefaultClassOptions]
-    [DefaultProperty("EspecieID")]
     [System.ComponentModel.DisplayName(@"Especies")]
-    public class fondos_Especie : BasicObject
+    public class Especie : BasicObject
     {
         private string fCodigo;
         private string fEspecie;
@@ -18,34 +17,25 @@ namespace CORE.General.Modulos.Fondos
         private bool fExigeValor;
         private bool fExpresaMoneda;
 
-        private fondos_EspecieInstrumento fInstrumento;
-        private fondos_Moneda fMoneda;
+        private EspecieInstrumento fInstrumento;
+        private Moneda fMoneda;
         private int fOrden;
         //private string fTipoValor;
         //private Dictionary<string, string> fTiposValoresPosibles;
 
-        public fondos_Especie(Session session)
+        public Especie(Session session)
             : base(session)
         {
         }
-
-        [VisibleInDetailView(false)]
-        [System.ComponentModel.DisplayName(@"Especie")]
-        //[PersistentAlias("concat(EscribanoRegistro.EscribanoRegistroID, '-', ToStr(Numero), '-', ToStr(escribania_Protocolo.MIN(Folio)), ' (', Trim(SubString(ToStr(Fecha), 0, 10)), ') ')")]
-        [PersistentAlias("Codigo")]
-        public string EspecieID
-        {
-            get { return Convert.ToString(EvaluateAlias("EspecieID")); }
-        }
-
-        public fondos_Moneda Moneda
+        
+        public Moneda Moneda
         {
             get { return fMoneda; }
             set { SetPropertyValue("Moneda", ref fMoneda, value); }
         }
 
         [Association(@"EspeciesReferencesEspeciesInstrumentos")]
-        public fondos_EspecieInstrumento Instrumento
+        public EspecieInstrumento Instrumento
         {
             get { return fInstrumento; }
             set { SetPropertyValue("Instrumento", ref fInstrumento, value); }
@@ -124,17 +114,11 @@ namespace CORE.General.Modulos.Fondos
             set { SetPropertyValue<int>("Orden", ref fOrden, value); }
         }
 
-        [Association(@"fondos_CuentaReferencesfondos_Especie", typeof (fondos_Cuenta))]
-        public XPCollection<fondos_Cuenta> fondos_Cuenta
-        {
-            get { return GetCollection<fondos_Cuenta>("fondos_Cuenta"); }
-        }
+        [Association(@"fondos_CuentaReferencesfondos_Especie", typeof (Cuenta))]
+        public XPCollection<Cuenta> Cuentas => GetCollection<Cuenta>("Cuentas");
 
-        [Association(@"fondos_ValorReferencesfondos_Especie", typeof (fondos_Valor))]
-        public XPCollection<fondos_Valor> fondos_Valor
-        {
-            get { return GetCollection<fondos_Valor>("fondos_Valor"); }
-        }
+        [Association(@"fondos_ValorReferencesfondos_Especie", typeof (Valor))]
+        public XPCollection<Valor> Valores => GetCollection<Valor>("Valores");
 
         public override void AfterConstruction()
         {

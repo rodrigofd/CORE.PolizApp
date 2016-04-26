@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using CORE.General.Modulos.Regionales;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Regionales;
+using CORE.PolizApp.Sistema;
 using CORE.PolizApp.Regionales;
 using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Editors;
@@ -18,7 +18,7 @@ namespace CORE.PolizApp.Personas
     public class Direccion : BasicObject //, IObjetoPorGrupo
     {
         private string fCalle;
-        private regionales_Ciudad fCiudad;
+        private Ciudad fCiudad;
         private string fCiudadOtra;
         private string fCodigo;
         private string fCodigoPostal;
@@ -35,15 +35,15 @@ namespace CORE.PolizApp.Personas
         private DateTime fHasta;
 
         //private Grupo fGrupo;
-        private regionales_Localidad fLocalidad;
+        private Localidad fLocalidad;
         private string fLocalidadOtra;
         private string fNotas;
         private string fNumero;
-        private regionales_Pais fPais;
+        private Pais fPais;
         private string fPaisOtro;
         private Persona fPersona;
         private string fPiso;
-        private regionales_Provincia fProvincia;
+        private Provincia fProvincia;
         private string fProvinciaOtra;
         private string fTelefono;
 
@@ -132,7 +132,7 @@ namespace CORE.PolizApp.Personas
         //[ImmediatePostData]
         [DataSourceProperty("Localidad.Ciudades")]
         [System.ComponentModel.DisplayName(@"Ciudad")]
-        public regionales_Ciudad Ciudad
+        public Ciudad Ciudad
         {
             get { return fCiudad; }
             set { SetPropertyValue("Ciudad", ref fCiudad, value); }
@@ -151,7 +151,7 @@ namespace CORE.PolizApp.Personas
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [DataSourceProperty("Provincia.Localidades")]
         [System.ComponentModel.DisplayName(@"Localidad")]
-        public regionales_Localidad Localidad
+        public Localidad Localidad
         {
             get { return fLocalidad; }
             set { SetPropertyValue("Localidad", ref fLocalidad, value); }
@@ -170,7 +170,7 @@ namespace CORE.PolizApp.Personas
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [DataSourceProperty("Pais.Provincias")]
         [System.ComponentModel.DisplayName(@"Provincia")]
-        public regionales_Provincia Provincia
+        public Provincia Provincia
         {
             get { return fProvincia; }
             set { SetPropertyValue("Provincia", ref fProvincia, value); }
@@ -188,7 +188,7 @@ namespace CORE.PolizApp.Personas
         //[ImmediatePostData]
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [System.ComponentModel.DisplayName(@"País")]
-        public regionales_Pais Pais
+        public Pais Pais
         {
             get { return fPais; }
             set { SetPropertyValue("Pais", ref fPais, value); }

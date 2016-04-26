@@ -1,28 +1,27 @@
 using System.ComponentModel;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Regionales
+namespace CORE.PolizApp.Regionales
 {
     [Persistent(@"regionales.Localidad")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Localidad")]
-    public class regionales_Localidad : BasicObject
+    public class Localidad : BasicObject
     {
         private string fCodigo;
         private string fCodigoPostal;
 
         private string fLocalidad;
-        private regionales_Provincia fProvincia;
+        private Provincia fProvincia;
 
-        public regionales_Localidad(Session session) : base(session)
+        public Localidad(Session session) : base(session)
         {
         }
 
         [Association(@"LocalidadesReferencesProvincias")]
-        public regionales_Provincia Provincia
+        public Provincia Provincia
         {
             get { return fProvincia; }
             set { SetPropertyValue("Provincia", ref fProvincia, value); }
@@ -52,11 +51,8 @@ namespace CORE.General.Modulos.Regionales
             set { SetPropertyValue("CodigoPostal", ref fCodigoPostal, value); }
         }
 
-        [Association(@"CiudadesReferencesLocalidades", typeof (regionales_Ciudad))]
-        public XPCollection<regionales_Ciudad> Ciudades
-        {
-            get { return GetCollection<regionales_Ciudad>("Ciudades"); }
-        }
+        [Association(@"CiudadesReferencesLocalidades", typeof (Ciudad))]
+        public XPCollection<Ciudad> Ciudades => GetCollection<Ciudad>("Ciudades");
 
         public override void AfterConstruction()
         {

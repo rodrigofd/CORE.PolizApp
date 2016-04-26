@@ -1,26 +1,26 @@
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Fondos
+namespace CORE.PolizApp.Fondos
 {
     [NonPersistent]
     [System.ComponentModel.DisplayName(@"Boleta de Depósito")]
-    public class fondos_ValorDeposito : BasicObject
+    public class ValorDeposito : BasicObject
     {
         //[VisibleInDetailView(false)]
-        private fondos_Cuenta fCuentaADepositar;
+        private Cuenta fCuentaADepositar;
         //[Association(@"fondos_ValorReferencesfondos_Cuenta")]
 
         private int fNumero;
 
-        public fondos_ValorDeposito(Session session) : base(session)
+        public ValorDeposito(Session session) : base(session)
         {
         }
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
-        public fondos_Cuenta CuentaADepositar
+        public Cuenta CuentaADepositar
         {
             get { return fCuentaADepositar; }
             set { SetPropertyValue("CuentaADepositar", ref fCuentaADepositar, value); }

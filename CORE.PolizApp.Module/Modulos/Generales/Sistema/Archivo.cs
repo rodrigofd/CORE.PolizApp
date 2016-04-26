@@ -8,7 +8,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Sistema
+namespace CORE.PolizApp.Sistema
 {
     [DefaultProperty("FileName")]
     [DeferredDeletion(false), OptimisticLocking(false)]
@@ -44,10 +44,16 @@ namespace CORE.General.Modulos.Sistema
             get
             {
                 if (!string.IsNullOrEmpty(FileName) && Oid != Guid.Empty)
-                    return Path.Combine(FileSystemStoreLocation, string.Format("{0}-{1}", Oid, FileName));
+                    return Path.Combine(FileSystemStoreLocation, $"{Oid}-{FileName}");
                 return null;
             }
         }
+
+        #region IEmptyCheckable Members
+
+        public bool IsEmpty => FileDataHelper.IsFileDataEmpty(this) || !File.Exists(RealFileName);
+
+        #endregion
 
         public override void AfterConstruction()
         {
@@ -226,15 +232,6 @@ namespace CORE.General.Modulos.Sistema
         {
             get { return GetPropertyValue<int>("Size"); }
             private set { SetPropertyValue("Size", value); }
-        }
-
-        #endregion
-
-        #region IEmptyCheckable Members
-
-        public bool IsEmpty
-        {
-            get { return FileDataHelper.IsFileDataEmpty(this) || !File.Exists(RealFileName); }
         }
 
         #endregion

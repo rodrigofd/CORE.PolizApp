@@ -1,16 +1,14 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
-
-//using CORE.General.Modulos.Sistema;
 
 namespace CORE.PolizApp.Personas
 {
     [Persistent(@"personas.DireccionTipo")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Tipo de dirección")]
-    public class DireccionTipo : BasicObject //, IObjetoPorGrupo
+    public class DireccionTipo : BasicObject
     {
         private string fCodigo;
         private string fDireccionTipo;

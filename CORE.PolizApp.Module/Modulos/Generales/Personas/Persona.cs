@@ -2,9 +2,9 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
-using CORE.General.Modulos.Gestion;
-using CORE.General.Modulos.Regionales;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Gestion;
+using CORE.PolizApp.Regionales;
+using CORE.PolizApp.Sistema;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.ConditionalAppearance;
@@ -22,7 +22,7 @@ namespace CORE.PolizApp.Personas
     [DefaultProperty("NombreCompleto")]
     [Persistent(@"personas.Persona")]
     //[DefaultClassOptions]
-    [XafDisplayName(@"Persona")]
+    [System.ComponentModel.DisplayName(@"Persona")]
     [FiltroPorPais]
     //<Appearance("BoldRule", AppearanceItemType := "ViewItem", FontStyle:=FontStyle.Bold, FontColor:="Yellow", TargetItems:="Name", Context:="DetailView")>
     //[Appearance("BoldRule", AppearanceItemType = "ViewItem", TargetItems = "*", Criteria = "Price>50", Context = "ListView", BackColor = "Red", FontColor = "Maroon", Priority = 2)]
@@ -43,11 +43,11 @@ namespace CORE.PolizApp.Personas
         private Direccion fDireccionPrimaria;
         private int? fEdad;
         private DateTime fFallecimientoFecha;
-        private regionales_Pais fFallecimientoPais;
+        private Pais fFallecimientoPais;
         private Identificacion fIdentificacionPrimaria;
         private DateTime? fNacimientoFecha;
-        private regionales_Pais fNacimientoPais;
-        private regionales_Pais fNacionalidad;
+        private Pais fNacimientoPais;
+        private Pais fNacionalidad;
         private string fNombre;
         private string fNombreCompleto;
         private string fNombreFantasia;
@@ -57,10 +57,10 @@ namespace CORE.PolizApp.Personas
         private Direccion fProveedorDireccionRetiro;
         private Identificacion fProveedorEmailAvisoPago;
         private string fProveedorNota;
-        private XPCollection<personas_Relacion> fRelaciones;
+        private XPCollection<Relacion> fRelaciones;
         //private BindingList<personas_Rol> fRoles;
-        private personas_Sexo? fSexo;
-        private personas_TipoPersona fTipo;
+        private Sexo? fSexo;
+        private TipoPersona fTipo;
         private string fTratamiento;
 
         public Persona(Session session)
@@ -75,7 +75,7 @@ namespace CORE.PolizApp.Personas
         {
             get
             {
-                var descriptor = new EnumDescriptor(typeof (personas_TipoPersona));
+                var descriptor = new EnumDescriptor(typeof (TipoPersona));
                 var imageInfo = descriptor.GetImageInfo(Tipo);
                 return imageInfo.Image;
             }
@@ -84,7 +84,7 @@ namespace CORE.PolizApp.Personas
         [ImmediatePostData]
         [RuleRequiredField]
         [System.ComponentModel.DisplayName(@"Tipo")]
-        public personas_TipoPersona Tipo
+        public TipoPersona Tipo
         {
             get { return fTipo; }
             set { SetPropertyValue("Tipo", ref fTipo, value); }
@@ -215,7 +215,7 @@ namespace CORE.PolizApp.Personas
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [System.ComponentModel.DisplayName(@"País de nacimiento")]
-        public regionales_Pais NacimientoPais
+        public Pais NacimientoPais
         {
             get { return fNacimientoPais; }
             set { SetPropertyValue("NacimientoPais", ref fNacimientoPais, value); }
@@ -224,7 +224,7 @@ namespace CORE.PolizApp.Personas
         [Appearance("personeria_nacionalidad", "Tipo <> 'Fisica'", Visibility = ViewItemVisibility.Hide)]
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [System.ComponentModel.DisplayName(@"Nacionalidad")]
-        public regionales_Pais Nacionalidad
+        public Pais Nacionalidad
         {
             get { return fNacionalidad; }
             set { SetPropertyValue("Nacionalidad", ref fNacionalidad, value); }
@@ -233,7 +233,7 @@ namespace CORE.PolizApp.Personas
         [Appearance("personeria_sexo", "Tipo <> 'Fisica'", Visibility = ViewItemVisibility.Hide)]
         [ImmediatePostData]
         [System.ComponentModel.DisplayName(@"Sexo")]
-        public personas_Sexo? Sexo
+        public Sexo? Sexo
         {
             get { return fSexo; }
             set { SetPropertyValue("Sexo", ref fSexo, value); }
@@ -249,7 +249,7 @@ namespace CORE.PolizApp.Personas
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [System.ComponentModel.DisplayName(@"País de fallecimiento")]
-        public regionales_Pais FallecimientoPais
+        public Pais FallecimientoPais
         {
             get { return fFallecimientoPais; }
             set { SetPropertyValue("FallecimientoPais", ref fFallecimientoPais, value); }
@@ -431,75 +431,51 @@ namespace CORE.PolizApp.Personas
         [DevExpress.Xpo.Aggregated]
         [Association(@"DireccionesReferencesPersonas")]
         [System.ComponentModel.DisplayName(@"Direcciones")]
-        public XPCollection<Direccion> Direcciones
-        {
-            get { return GetCollection<Direccion>("Direcciones"); }
-        }
+        public XPCollection<Direccion> Direcciones => GetCollection<Direccion>("Direcciones");
 
         [DevExpress.Xpo.Aggregated]
         [Association(@"IdentificacionesReferencesPersonas", typeof (Identificacion))]
         [System.ComponentModel.DisplayName(@"Identificaciones")]
-        public XPCollection<Identificacion> Identificaciones
-        {
-            get { return GetCollection<Identificacion>("Identificaciones"); }
-        }
+        public XPCollection<Identificacion> Identificaciones => GetCollection<Identificacion>("Identificaciones");
 
         [DevExpress.Xpo.Aggregated]
-        [Association(@"PersonasContactosReferencesPersonas", typeof (personas_PersonaContacto))]
+        [Association(@"PersonasContactosReferencesPersonas", typeof (PersonaContacto))]
         [System.ComponentModel.DisplayName(@"Contactos")]
-        public XPCollection<personas_PersonaContacto> Contactos
-        {
-            get { return GetCollection<personas_PersonaContacto>("Contactos"); }
-        }
+        public XPCollection<PersonaContacto> Contactos => GetCollection<PersonaContacto>("Contactos");
 
         [DevExpress.Xpo.Aggregated]
-        [Association(@"PersonasImpuestosReferencesPersonas", typeof (personas_PersonaImpuesto))]
+        [Association(@"PersonasImpuestosReferencesPersonas", typeof (PersonaImpuesto))]
         [System.ComponentModel.DisplayName(@"Datos impositivos")]
-        public XPCollection<personas_PersonaImpuesto> DatosImpositivos
-        {
-            get { return GetCollection<personas_PersonaImpuesto>("DatosImpositivos"); }
-        }
+        public XPCollection<PersonaImpuesto> DatosImpositivos => GetCollection<PersonaImpuesto>("DatosImpositivos");
 
         [DevExpress.Xpo.Aggregated]
-        [Association(@"PersonasPropiedadesReferencesPersonas", typeof (personas_PersonaPropiedad))]
+        [Association(@"PersonasPropiedadesReferencesPersonas", typeof (PersonaPropiedad))]
         [System.ComponentModel.DisplayName(@"Propiedades")]
-        public XPCollection<personas_PersonaPropiedad> Propiedades
-        {
-            get { return GetCollection<personas_PersonaPropiedad>("Propiedades"); }
-        }
+        public XPCollection<PersonaPropiedad> Propiedades => GetCollection<PersonaPropiedad>("Propiedades");
 
         [Browsable(false)]
-        [Association(@"RelacionesReferencesPersonas-Vinculante", typeof (personas_Relacion))]
+        [Association(@"RelacionesReferencesPersonas-Vinculante", typeof (Relacion))]
         [System.ComponentModel.DisplayName(@"Relaciones (vinculante)")]
-        public XPCollection<personas_Relacion> RelacionesVinculante
-        {
-            get { return GetCollection<personas_Relacion>("RelacionesVinculante"); }
-        }
+        public XPCollection<Relacion> RelacionesVinculante => GetCollection<Relacion>("RelacionesVinculante");
 
         [VisibleInListView(false)]
         [VisibleInDetailView(false)]
         [CollectionOperationSet(AllowAdd = false, AllowRemove = false)]
-        [Association(@"vRelacionesReferencesPersonas-Vinculante", typeof (personas_vRelacion))]
+        [Association(@"vRelacionesReferencesPersonas-Vinculante", typeof (vRelacion))]
         [System.ComponentModel.DisplayName(@"RelacionesPersonas")]
-        public XPCollection<personas_vRelacion> vRelacionesVinculante
-        {
-            get { return GetCollection<personas_vRelacion>("vRelacionesVinculante"); }
-        }
+        public XPCollection<vRelacion> vRelacionesVinculante => GetCollection<vRelacion>("vRelacionesVinculante");
 
         [Browsable(false)]
-        [Association(@"RelacionesReferencesPersonas-Vinculado", typeof (personas_Relacion))]
+        [Association(@"RelacionesReferencesPersonas-Vinculado", typeof (Relacion))]
         [System.ComponentModel.DisplayName(@"Relaciones (vinculado)")]
-        public XPCollection<personas_Relacion> RelacionesVinculado
-        {
-            get { return GetCollection<personas_Relacion>("RelacionesVinculado"); }
-        }
+        public XPCollection<Relacion> RelacionesVinculado => GetCollection<Relacion>("RelacionesVinculado");
 
         //[Browsable(false)]
         [DevExpress.Xpo.Aggregated]
         [CollectionOperationSet(AllowAdd = true, AllowRemove = true)]
         [VisibleInListView(false)]
         //[VisibleInDetailView(false)]
-        public XPCollection<personas_Relacion> Relaciones
+        public XPCollection<Relacion> Relaciones
         {
             get
             {
@@ -507,45 +483,15 @@ namespace CORE.PolizApp.Personas
                 {
                     var criteria = GroupOperator.Combine(GroupOperatorType.Or,
                         RelacionesVinculante.GetRealFetchCriteria(), RelacionesVinculado.GetRealFetchCriteria());
-                    fRelaciones = new XPCollection<personas_Relacion>(Session, criteria);
+                    fRelaciones = new XPCollection<Relacion>(Session, criteria);
                 }
                 return fRelaciones;
             }
         }
 
-        /*
-        [System.ComponentModel.DisplayName(@"Roles")]
-        public BindingList<personas_Rol> Roles
-        {
-            get
-            {
-                if (fRoles == null)
-                {
-                    fRoles = new BindingList<personas_Rol>();
-
-                    foreach (
-                        personas_Rol item in
-                            Session.TypesManager.AllTypes.Where(
-                                type =>
-                                    type.Key.BaseClass != null && type.Key.BaseClass.ClassType == typeof (personas_Rol))
-                                .Select(
-                                    type =>
-                                        Session.GetObjects(type.Key, new BinaryOperator("Persona.Oid", Oid), null, 0,
-                                            true, false))
-                                .SelectMany(roles => roles.Cast<personas_Rol>()))
-                    {
-                        fRoles.Add(item);
-                    }
-                }
-
-                return fRoles;
-            }
-        }
-        */
-
         public void ActualizarNombreCompleto()
         {
-            if (Tipo == personas_TipoPersona.Fisica)
+            if (Tipo == TipoPersona.Fisica)
             {
                 var apellidos = ApellidosPaterno;
                 // Para funcion Propper() = ToTitleCase()
@@ -567,18 +513,18 @@ namespace CORE.PolizApp.Personas
         }
 
         /*
-            private void ActualizarNombreCompletoAlias( )
-            {
-              NombreCompletoAlias = Nombre + ( string.IsNullOrWhiteSpace( NombreFantasia ) ? "" : " (" + NombreFantasia + ")" );
-            }
+        private void ActualizarNombreCompletoAlias( )
+        {
+            NombreCompletoAlias = Nombre + ( string.IsNullOrWhiteSpace( NombreFantasia ) ? "" : " (" + NombreFantasia + ")" );
+        }
         */
 
         public override void AfterConstruction()
         {
             base.AfterConstruction();
 
-            Tipo = personas_TipoPersona.Fisica;
-            //if( CoreAppLogonParameters.Instance.EmpresaActual(Session) != null )
+            Tipo = TipoPersona.Fisica;
+            //if( CoreLogonParameters.Instance.EmpresaActual(Session) != null )
             //  NacimientoPais = Identificadores.GetInstance( Session ).PaisPredeterminado;
         }
     }

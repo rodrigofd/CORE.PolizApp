@@ -1,7 +1,6 @@
 using System;
 using System.ComponentModel;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
@@ -10,20 +9,21 @@ namespace CORE.PolizApp.Personas
     [Persistent(@"personas.PersonaPropiedad")]
     [DefaultProperty("PersonaPropiedadID")]
     [System.ComponentModel.DisplayName(@"Propiedad de la persona")]
-    public class personas_PersonaPropiedad : BasicObject
+    public class PersonaPropiedad : BasicObject
     {
         private DateTime fDesde;
         private DateTime fHasta;
         private string fNotas;
         private Persona fPersona;
-        private personas_Propiedad fPropiedad;
-        private personas_PropiedadValor fPropiedadValor;
+        private Propiedad fPropiedad;
+        private PropiedadValor fPropiedadValor;
         private string fValor;
 
-        public personas_PersonaPropiedad(Session session) : base(session)
+        public PersonaPropiedad(Session session) : base(session)
         {
         }
 
+        //TODO: que es esto?
         [VisibleInDetailView(false)]
         [PersistentAlias("ToStr(IsNull(PropiedadValor.Valor, Valor))")]
         //[PersistentAlias("concat('(', ToStr(Registro.RegistroID), '-', ToStr(Escribano.EscribanoID), ')')")]
@@ -43,7 +43,7 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Propiedad")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [ImmediatePostData]
-        public personas_Propiedad Propiedad
+        public Propiedad Propiedad
         {
             get { return fPropiedad; }
             set { SetPropertyValue("Propiedad", ref fPropiedad, value); }
@@ -54,7 +54,7 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Valor (predefinido)")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [ImmediatePostData]
-        public personas_PropiedadValor PropiedadValor
+        public PropiedadValor PropiedadValor
         {
             get { return fPropiedadValor; }
             set { SetPropertyValue("PropiedadValor", ref fPropiedadValor, value); }
@@ -74,10 +74,7 @@ namespace CORE.PolizApp.Personas
         [VisibleInDetailView(false)]
         [PersistentAlias("IIF(ISNULL(Valor), PropiedadValor, Valor)")]
         [System.ComponentModel.DisplayName(@"Valor")]
-        public string ValorDefinido
-        {
-            get { return Convert.ToString(EvaluateAlias("ValorDefinido")); }
-        }
+        public string ValorDefinido => Convert.ToString(EvaluateAlias("ValorDefinido"));
 
         public DateTime Desde
         {

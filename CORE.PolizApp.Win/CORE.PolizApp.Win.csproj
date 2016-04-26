@@ -72,7 +72,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.ExpressApp.AuditTrail.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -326,8 +326,9 @@
       <DependentUpon>WinApplication.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="App.config" />
-    <None Include="CORE.ES.FM.Win_ClaveTemporal.pfx" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Model.xafml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

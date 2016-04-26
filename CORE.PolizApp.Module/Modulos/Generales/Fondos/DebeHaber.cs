@@ -1,4 +1,4 @@
-namespace CORE.General.Modulos.Fondos
+namespace CORE.PolizApp.Fondos
 {
     public enum DebeHaber
     {

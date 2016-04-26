@@ -1,45 +1,35 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Regionales;
+using CORE.PolizApp.Personas;
+using CORE.PolizApp.Regionales;
+using CORE.PolizApp.Seguridad;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using DevExpress.Xpo.Metadata;
-//using Rol = CORE.PolizApp.Personas.personas_Rol;
-using CORE.PolizApp.Personas;
 
-//using CORE.General.Modulos.Seguridad;
-
-namespace CORE.General.Modulos.Sistema
+namespace CORE.PolizApp.Sistema
 {
-    public enum TipoLicencia
-    {
-        Trial = 1,
-        Completa = 2,
-        UsoInterno = 3
-    }
-
     //[DefaultClassOptions]
     [DefaultProperty("Descripcion")]
     [Persistent(@"sistema.Empresa")]
     [System.ComponentModel.DisplayName(@"Empresa")]
     public class Empresa : BasicObject
     {
+        private PersonaImpuesto fAfipCondicionIVA;
+        private Identificacion fAfipCUIT;
+        private Direccion fAfipDomicilio;
+        private Identificacion fAfipIIBB;
+        private DateTime fAfipInicioActividad;
         private string fColorFondo;
-        private regionales_PaisIdioma fCulturaPredeterminada;
-        private regionales_Idioma fIdiomaPredeterminado;
+        private PaisIdioma fCulturaPredeterminada;
+        private Idioma fIdiomaPredeterminado;
         private DateTime fLicenciaDesde;
         private DateTime fLicenciaHasta;
         private int fMaxAccesosErroneos;
+        private Persona fPersona;
         private string fPieInformesGral;
         private TipoLicencia fTipoLicencia;
-        private Persona fPersona;
-        private Direccion fAfipDomicilio;
-        private Identificacion fAfipCUIT;
-        private DateTime fAfipInicioActividad;
-        private personas_PersonaImpuesto fAfipCondicionIVA;
-        private Identificacion fAfipIIBB;
 
         public Empresa(Session session)
             : base(session)
@@ -48,10 +38,7 @@ namespace CORE.General.Modulos.Sistema
 
         [VisibleInDetailView(false)]
         [PersistentAlias("Persona.NombreCompleto")]
-        public string Descripcion
-        {
-            get { return Convert.ToString(EvaluateAlias("Descripcion")); }
-        }
+        public string Descripcion => Convert.ToString(EvaluateAlias("Descripcion"));
 
         [Association(@"EmpresaReferencespersonas_Persona")]
         public Persona Persona
@@ -100,14 +87,14 @@ namespace CORE.General.Modulos.Sistema
             set { SetDelayedPropertyValue("ImagenLogo", value); }
         }
 
-        public regionales_Idioma IdiomaPredeterminado
+        public Idioma IdiomaPredeterminado
         {
             get { return fIdiomaPredeterminado; }
             set { SetPropertyValue("IdiomaPredeterminado", ref fIdiomaPredeterminado, value); }
         }
 
-        public regionales_PaisIdioma CulturaPredeterminada
-        { 
+        public PaisIdioma CulturaPredeterminada
+        {
             get { return fCulturaPredeterminada; }
             set { SetPropertyValue("CulturaPredeterminada", ref fCulturaPredeterminada, value); }
         }
@@ -128,7 +115,7 @@ namespace CORE.General.Modulos.Sistema
         }
 
         [DataSourceProperty("Persona.DatosImpositivos")]
-        public personas_PersonaImpuesto AfipCondicionIVA
+        public PersonaImpuesto AfipCondicionIVA
         {
             get { return fAfipCondicionIVA; }
             set { SetPropertyValue("AfipCondicionIVA", ref fAfipCondicionIVA, value); }
@@ -153,14 +140,9 @@ namespace CORE.General.Modulos.Sistema
             get { return fAfipIIBB; }
             set { SetPropertyValue("AfipIIBB", ref fAfipIIBB, value); }
         }
-
-        /*
+        
         [Association(@"seguridad.UsuarioEmpresa", typeof(Usuario), UseAssociationNameAsIntermediateTableName = true)]
-        public XPCollection<Usuario> Usuarios
-        {
-            get { return GetCollection<Usuario>("Usuarios"); }
-        }
-        */
+        public XPCollection<Usuario> Usuarios => GetCollection<Usuario>("Usuarios");
 
         public override void AfterConstruction()
         {

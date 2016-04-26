@@ -1,5 +1,5 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
@@ -8,38 +8,38 @@ namespace CORE.PolizApp.Regionales
     [Persistent(@"regionales.Ciudad")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Ciudad")]
-    public class regionales_Ciudad : BasicObject
+    public class Ciudad : BasicObject
     {
         private string fCodigo;
         private string fGeoLatitud;
         private string fGeoLongitud;
-        private regionales_Localidad fLocalidad;
+        private Localidad fLocalidad;
         private string fNombre;
 
-        private regionales_Pais fPais;
+        private Pais fPais;
         private int fPoblacion;
-        private regionales_Provincia fProvincia;
+        private Provincia fProvincia;
 
-        public regionales_Ciudad(Session session) : base(session)
+        public Ciudad(Session session) : base(session)
         {
         }
 
         [Association(@"CiudadesReferencesPaises")]
-        public regionales_Pais Pais
+        public Pais Pais
         {
             get { return fPais; }
             set { SetPropertyValue("Pais", ref fPais, value); }
         }
 
         [Association(@"CiudadesReferencesProvincias")]
-        public regionales_Provincia Provincia
+        public Provincia Provincia
         {
             get { return fProvincia; }
             set { SetPropertyValue("Provincia", ref fProvincia, value); }
         }
 
         [Association(@"CiudadesReferencesLocalidades")]
-        public regionales_Localidad Localidad
+        public Localidad Localidad
         {
             get { return fLocalidad; }
             set { SetPropertyValue("Localidad", ref fLocalidad, value); }

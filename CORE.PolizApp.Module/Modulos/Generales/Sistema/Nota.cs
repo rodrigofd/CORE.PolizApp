@@ -5,7 +5,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Sistema
+namespace CORE.PolizApp.Sistema
 {
     [ImageName("sticky-note-pin")]
     [Persistent("sistema.Nota")]

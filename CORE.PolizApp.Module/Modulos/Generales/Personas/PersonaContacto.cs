@@ -1,23 +1,20 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Xpo;
-
-//using CORE.General.Modulos.Sistema;
 
 namespace CORE.PolizApp.Personas
 {
     [Persistent(@"personas.PersonaContacto")]
     [System.ComponentModel.DisplayName("Contacto de persona")]
-    public class personas_PersonaContacto : BasicObject //, IObjetoPorGrupo
+    public class PersonaContacto : BasicObject //, IObjetoPorGrupo
     {
         private ContactoTipo fContactoTipo;
         private string fNombre;
-        //private Grupo fGrupo;
         private int fOrden;
         private Persona fPersona;
         private string fUbicacion;
 
-        public personas_PersonaContacto(Session session)
+        public PersonaContacto(Session session)
             : base(session)
         {
         }

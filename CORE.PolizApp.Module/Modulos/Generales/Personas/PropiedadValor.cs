@@ -1,5 +1,5 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Xpo;
 
 namespace CORE.PolizApp.Personas
@@ -7,19 +7,19 @@ namespace CORE.PolizApp.Personas
     [Persistent(@"personas.PropiedadValor")]
     [DefaultProperty("Valor")]
     [System.ComponentModel.DisplayName("Valor predefinido de propiedad")]
-    public class personas_PropiedadValor : BasicObject
+    public class PropiedadValor : BasicObject
     {
         private int fOrden;
-        private personas_Propiedad fPropiedad;
+        private Propiedad fPropiedad;
         private string fValor;
 
-        public personas_PropiedadValor(Session session)
+        public PropiedadValor(Session session)
             : base(session)
         {
         }
 
         [Association(@"PropiedadesValoresReferencesPropiedades")]
-        public personas_Propiedad Propiedad
+        public Propiedad Propiedad
         {
             get { return fPropiedad; }
             set { SetPropertyValue("Propiedad", ref fPropiedad, value); }

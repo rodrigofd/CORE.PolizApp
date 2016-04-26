@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using CORE.PolizApp.Seguridad;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Xpo;
 
@@ -18,6 +19,11 @@ namespace CORE.PolizApp.Win
         {
             args.ObjectSpaceProvider = new XPObjectSpaceProvider(args.ConnectionString, args.Connection, false);
             args.ObjectSpaceProviders.Add(new NonPersistentObjectSpaceProvider(TypesInfo, null));
+        }
+
+        protected override IObjectSpace CreateLogonWindowObjectSpace(object logonParameters)
+        {
+            return ((CoreLogonParameters)logonParameters).ObjectSpace = CreateObjectSpace();
         }
 
         private void FMWindowsFormsApplication_CustomizeLanguagesList(object sender, CustomizeLanguagesListEventArgs e)

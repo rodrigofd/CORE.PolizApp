@@ -1,7 +1,6 @@
-//using CORE.General.Modulos.Sistema;
 using System;
-using CORE.General.Modulos.Impuestos;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Impuestos;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using System.ComponentModel;
@@ -12,19 +11,19 @@ namespace CORE.PolizApp.Personas
     [Persistent(@"personas.PersonaImpuesto")]
     [System.ComponentModel.DisplayName("Datos impositivos")]
     [DefaultProperty("Categoria")]
-    public class personas_PersonaImpuesto : BasicObject
+    public class PersonaImpuesto : BasicObject
     {
-        private impuestos_Categoria fCategoria;
+        private Categoria fCategoria;
         private DateTime fDesde;
         private DateTime fHasta;
-        private impuestos_Impuesto fImpuesto;
+        private Impuesto _f;
         private string fNotas;
         private bool fPercepcion;
         private Persona fPersona;
-        private impuestos_Regimen fRegimen;
+        private Regimen fRegimen;
         private bool fRetencion;
 
-        public personas_PersonaImpuesto(Session session)
+        public PersonaImpuesto(Session session)
             : base(session)
         {
         }
@@ -42,16 +41,16 @@ namespace CORE.PolizApp.Personas
 //    public Impuesto Impuesto{ get; set; }
 
         [ImmediatePostData]
-        public impuestos_Impuesto Impuesto 
+        public Impuesto Impuesto 
         {
-            get { return fImpuesto; }
-            set { SetPropertyValue("Impuesto", ref fImpuesto, value); }
+            get { return _f; }
+            set { SetPropertyValue("Impuesto", ref _f, value); }
         }
 
         [DataSourceProperty("Impuesto.Categorias")]
         [System.ComponentModel.DisplayName(@"Categoría de impuesto")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
-        public impuestos_Categoria Categoria
+        public Categoria Categoria
         {
             get { return fCategoria; }
             set
@@ -65,7 +64,7 @@ namespace CORE.PolizApp.Personas
         [DataSourceProperty("Impuesto.Regimenes")]
         [System.ComponentModel.DisplayName(@"Regimen del impuesto")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
-        public impuestos_Regimen Regimen
+        public Regimen Regimen
         {
             get { return fRegimen; }
             set { SetPropertyValue("Regimen", ref fRegimen, value); }

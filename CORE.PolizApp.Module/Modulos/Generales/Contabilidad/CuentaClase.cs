@@ -1,4 +1,4 @@
-namespace CORE.General.Modulos.Contabilidad
+namespace CORE.PolizApp.Contabilidad
 {
     public enum CuentaClase
     {

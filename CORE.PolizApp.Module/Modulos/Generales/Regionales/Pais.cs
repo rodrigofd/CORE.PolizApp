@@ -1,34 +1,19 @@
-using System;
 using System.ComponentModel;
 using System.Drawing;
-using CORE.General.Modulos.Impuestos;
+using CORE.PolizApp.Impuestos;
 using CORE.PolizApp.Personas;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using DevExpress.Xpo.Metadata;
 
-namespace CORE.General.Modulos.Regionales
+namespace CORE.PolizApp.Regionales
 {
-    public class FiltroPorPaisAttribute : Attribute
-    {
-        public bool Filtrar = true;
-
-        public FiltroPorPaisAttribute()
-        {
-        }
-
-        public FiltroPorPaisAttribute(bool filtrar)
-        {
-            Filtrar = filtrar;
-        }
-    }
-
     [Persistent(@"regionales.Pais")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"País")]
-    public class regionales_Pais : BasicObject
+    public class Pais : BasicObject
     {
         private string fCapital;
         private string fCodigo;
@@ -37,13 +22,13 @@ namespace CORE.General.Modulos.Regionales
         private string fCodigoNum;
         private string fCodigoPstn;
         private string fCodigoTld;
-        private regionales_Continente fContinente;
+        private Continente fContinente;
         private string fFormatoCodigoPostal;
         private string fGeoCodeAddr;
         private string fGeoLatitud;
         private string fGeoLongitud;
         private string fGeoNameid;
-        private regionales_PaisIdioma fIdiomaNativo;
+        private PaisIdioma fIdiomaNativo;
         private Image fImagenBandera;
         private Image fImagenBanderaChica;
         private string fPais;
@@ -54,7 +39,7 @@ namespace CORE.General.Modulos.Regionales
         private decimal fSuperficie;
         private string fUrlBuscadorCodigoPostal;
 
-        public regionales_Pais(Session session) : base(session)
+        public Pais(Session session) : base(session)
         {
         }
 
@@ -97,7 +82,7 @@ namespace CORE.General.Modulos.Regionales
 
         [Association(@"PaisesReferencesContinentes")]
         [Index(4)]
-        public regionales_Continente Continente
+        public Continente Continente
         {
             get { return fContinente; }
             set { SetPropertyValue("Continente", ref fContinente, value); }
@@ -111,7 +96,7 @@ namespace CORE.General.Modulos.Regionales
         }
 
         [Index(6)]
-        public regionales_PaisIdioma IdiomaNativo
+        public PaisIdioma IdiomaNativo
         {
             get { return fIdiomaNativo; }
             set { SetPropertyValue("IdiomaNativo", ref fIdiomaNativo, value); }
@@ -258,40 +243,25 @@ namespace CORE.General.Modulos.Regionales
             set { SetPropertyValue("PaisEng", ref fPaisEng, value); }
         }
 
-        [Association(@"ProvinciasReferencesPaises", typeof (regionales_Provincia))]
+        [Association(@"ProvinciasReferencesPaises", typeof (Provincia))]
         [Index(0)]
-        public XPCollection<regionales_Provincia> Provincias
-        {
-            get { return GetCollection<regionales_Provincia>("Provincias"); }
-        }
+        public XPCollection<Provincia> Provincias => GetCollection<Provincia>("Provincias");
 
-        [Association(@"CiudadesReferencesPaises", typeof (regionales_Ciudad))]
+        [Association(@"CiudadesReferencesPaises", typeof (Ciudad))]
         [Index(1)]
-        public XPCollection<regionales_Ciudad> Ciudades
-        {
-            get { return GetCollection<regionales_Ciudad>("Ciudades"); }
-        }
+        public XPCollection<Ciudad> Ciudades => GetCollection<Ciudad>("Ciudades");
 
-        [Association(@"PaisesIdiomasReferencesPaises", typeof (regionales_PaisIdioma))]
+        [Association(@"PaisesIdiomasReferencesPaises", typeof (PaisIdioma))]
         [Index(2)]
-        public XPCollection<regionales_PaisIdioma> IdiomasAsociados
-        {
-            get { return GetCollection<regionales_PaisIdioma>("IdiomasAsociados"); }
-        }
+        public XPCollection<PaisIdioma> IdiomasAsociados => GetCollection<PaisIdioma>("IdiomasAsociados");
 
-        [Association(@"IdentificacionesTiposReferencesPaises", typeof (personas_IdentificacionTipo))]
+        [Association(@"IdentificacionesTiposReferencesPaises", typeof (IdentificacionTipo))]
         [Index(3)]
-        public XPCollection<personas_IdentificacionTipo> IdentificacionesTiposAsociados
-        {
-            get { return GetCollection<personas_IdentificacionTipo>("IdentificacionesTiposAsociados"); }
-        }
+        public XPCollection<IdentificacionTipo> IdentificacionesTiposAsociados => GetCollection<IdentificacionTipo>("IdentificacionesTiposAsociados");
 
-        [Association(@"ImpuestosReferencesPaises", typeof (impuestos_Impuesto))]
+        [Association(@"ImpuestosReferencesPaises", typeof (Impuesto))]
         [Index(4)]
-        public XPCollection<impuestos_Impuesto> ImpuestosAsociados
-        {
-            get { return GetCollection<impuestos_Impuesto>("ImpuestosAsociados"); }
-        }
+        public XPCollection<Impuesto> ImpuestosAsociados => GetCollection<Impuesto>("ImpuestosAsociados");
 
         public override void AfterConstruction()
         {

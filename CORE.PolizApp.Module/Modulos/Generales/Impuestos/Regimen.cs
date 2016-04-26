@@ -1,34 +1,34 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Impuestos
+namespace CORE.PolizApp.Impuestos
 {
     [Persistent(@"impuestos.Regimen")]
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Regímenes de impuestos")]
-    public class impuestos_Regimen : BasicObject
+    public class Regimen : BasicObject
     {
         private decimal fAlicuotaInscripto;
         private decimal fAlicuotaNoInscripto;
         private string fCodigo;
-        private impuestos_Impuesto fImpuesto;
+        private Impuesto _fImpuesto;
         private decimal fMinimoNoImponible;
         private string fNombre;
 
-        public impuestos_Regimen(Session session)
+        public Regimen(Session session)
             : base(session)
         {
         }
 
         [Association(@"RegimenesReferencesImpuestos")]
-        public impuestos_Impuesto Impuesto
+        public Impuesto Impuesto
         {
-            get { return fImpuesto; }
-            set { SetPropertyValue("Impuesto", ref fImpuesto, value); }
+            get { return _fImpuesto; }
+            set { SetPropertyValue("Impuesto", ref _fImpuesto, value); }
         }
 
         [Size(50)]

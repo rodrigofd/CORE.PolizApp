@@ -5,7 +5,7 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 
-namespace CORE.General.Modulos.Controllers.Globales
+namespace CORE.PolizApp.Controllers.Sistema
 {
     public class CambiarIdiomaController : WindowController
     {

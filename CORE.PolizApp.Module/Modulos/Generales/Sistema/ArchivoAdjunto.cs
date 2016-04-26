@@ -4,7 +4,7 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Sistema
+namespace CORE.PolizApp.Sistema
 {
     [ImageName("attach")]
     //[DefaultClassOptions]

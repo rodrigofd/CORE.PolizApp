@@ -1,26 +1,24 @@
 using System;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
-
-//using CORE.General.Modulos.Sistema;
 
 namespace CORE.PolizApp.Personas
 {
     [ImageName("group_link")]
     [Persistent(@"personas.vRelacion")]
     [System.ComponentModel.DisplayName("Relación")]
-    public class personas_vRelacion : BasicObject
+    public class vRelacion : BasicObject
     {
         private DateTime fDesde;
         private DateTime fHasta;
         private string fNotas;
         private Persona fPersonaVinculado;
         private Persona fPersonaVinculante;
-        private personas_RelacionTipo fRelacionTipo;
+        private RelacionTipo fRelacionTipo;
 
-        public personas_vRelacion(Session session) : base(session)
+        public vRelacion(Session session) : base(session)
         {
         }
 
@@ -44,7 +42,7 @@ namespace CORE.PolizApp.Personas
         [RuleRequiredField]
         [System.ComponentModel.DisplayName(@"'Es' (Relación)")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
-        public personas_RelacionTipo RelacionTipo
+        public RelacionTipo RelacionTipo
         {
             get { return fRelacionTipo; }
             set { SetPropertyValue("RelacionTipo", ref fRelacionTipo, value); }

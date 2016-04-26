@@ -1,5 +1,5 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Xpo;
 
 namespace CORE.General.Modulos.AFIP

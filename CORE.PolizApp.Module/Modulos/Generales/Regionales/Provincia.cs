@@ -1,26 +1,25 @@
 using System.ComponentModel;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Regionales
+namespace CORE.PolizApp.Regionales
 {
     [Persistent(@"regionales.Provincia")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Provincia")]
-    public class regionales_Provincia : BasicObject
+    public class Provincia : BasicObject
     {
         private string fCodigo;
-        private regionales_Pais fPais;
+        private Pais fPais;
         private string fProvincia;
 
-        public regionales_Provincia(Session session) : base(session)
+        public Provincia(Session session) : base(session)
         {
         }
 
         [Association(@"ProvinciasReferencesPaises")]
-        public regionales_Pais Pais
+        public Pais Pais
         {
             get { return fPais; }
             set { SetPropertyValue("Pais", ref fPais, value); }
@@ -43,17 +42,11 @@ namespace CORE.General.Modulos.Regionales
             set { SetPropertyValue("Nombre", ref fProvincia, value); }
         }
 
-        [Association(@"CiudadesReferencesProvincias", typeof (regionales_Ciudad))]
-        public XPCollection<regionales_Ciudad> Ciudades
-        {
-            get { return GetCollection<regionales_Ciudad>("Ciudades"); }
-        }
+        [Association(@"CiudadesReferencesProvincias", typeof (Ciudad))]
+        public XPCollection<Ciudad> Ciudades => GetCollection<Ciudad>("Ciudades");
 
-        [Association(@"LocalidadesReferencesProvincias", typeof (regionales_Localidad))]
-        public XPCollection<regionales_Localidad> Localidades
-        {
-            get { return GetCollection<regionales_Localidad>("Localidades"); }
-        }
+        [Association(@"LocalidadesReferencesProvincias", typeof (Localidad))]
+        public XPCollection<Localidad> Localidades => GetCollection<Localidad>("Localidades");
 
         public override void AfterConstruction()
         {

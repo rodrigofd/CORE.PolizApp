@@ -3,7 +3,7 @@ using System.ComponentModel;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Sistema
+namespace CORE.PolizApp.Sistema
 {
     [ImageName("link")]
     [Persistent("sistema.Vinculo")]

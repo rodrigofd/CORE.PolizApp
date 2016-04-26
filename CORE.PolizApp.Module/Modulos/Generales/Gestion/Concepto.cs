@@ -1,12 +1,11 @@
 using System.ComponentModel;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Contabilidad;
-using CORE.General.Modulos.Impuestos;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Contabilidad;
+using CORE.PolizApp.Impuestos;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Gestion
+namespace CORE.PolizApp.Gestion
 {
     [Persistent(@"gestion.Concepto")]
     //[DefaultClassOptions]
@@ -25,9 +24,9 @@ namespace CORE.General.Modulos.Gestion
         private bool fDetallaCantidad;
         private bool fEsIndice;
         private ConceptoGrupoFacturacion fGrupoFacturacion;
-        private impuestos_ImpuestoTipo fImpuestoTipoIVA;
+        private ImpuestoTipo fImpuestoTipoIVA;
         private string fNombre;
-        private impuestos_Regimen fRegimen;
+        private Regimen fRegimen;
         private decimal fValor;
         private string fValorFormula;
         private decimal fValorMaximo;
@@ -71,7 +70,7 @@ namespace CORE.General.Modulos.Gestion
         }
 
         [Association(@"ConceptosReferencesimpuestos_ImpuestoTipo")]
-        public impuestos_ImpuestoTipo ImpuestoTipoIVA
+        public ImpuestoTipo ImpuestoTipoIVA
         {
             get { return fImpuestoTipoIVA; }
             set { SetPropertyValue("ImpuestoTipoIVA", ref fImpuestoTipoIVA, value); }
@@ -89,7 +88,7 @@ namespace CORE.General.Modulos.Gestion
             set { SetPropertyValue("Automatico", ref fAutomatico, value); }
         }
 
-        public impuestos_Regimen Regimen
+        public Regimen Regimen
         {
             get { return fRegimen; }
             set { SetPropertyValue("Regimen", ref fRegimen, value); }
@@ -172,37 +171,6 @@ namespace CORE.General.Modulos.Gestion
         {
             get { return fVenta; }
             set { SetPropertyValue("Venta", ref fVenta, value); }
-        }
-
-        //escribania_ProvComprobanteItemReferencesgestion_Concepto
-
-        /*[Browsable(false)]
-    [Aggregated]
-    [Association(@"escribania_ProvComprobanteItemReferencesgestion_Concepto", typeof(escribania_ProvComprobanteItem))]
-    public XPCollection<escribania_ProvComprobanteItem> ProvComprobanteItemConcepto
-    {
-        get { return GetCollection<escribania_ProvComprobanteItem>("ProvComprobanteItemConcepto"); }
-    }*/
-        /*[Browsable(false)]
-    [Aggregated]
-    [Association(@"escribania_ClieComprobanteItemReferencesgestion_Concepto", typeof(escribania_ClieComprobanteItem))]
-    public XPCollection<escribania_ClieComprobanteItem> ClieComprobanteItemConcepto
-    {
-        get { return GetCollection<escribania_ClieComprobanteItem>("ClieComprobanteItemConcepto"); }
-    }*/
-
-        /*
-    [ Association( @"ConceptosVinculosReferencesConceptos", typeof( ConceptoVinculo ) ) ]
-    public XPCollection< ConceptoVinculo > ConceptosVinculados
-    {
-      get { return GetCollection< ConceptoVinculo >( "ConceptosVinculados" ); }
-    }
-    */
-
-        public override void AfterConstruction()
-        {
-            base.AfterConstruction();
-            //Clase = ConceptoClase.Gravado;
         }
     }
 }

@@ -1,24 +1,22 @@
 using System;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Xpo;
 
-//using CORE.General.Modulos.Sistema;
-
-namespace CORE.General.Modulos.Fondos
+namespace CORE.PolizApp.Fondos
 {
     [Persistent(@"fondos.EspecieCotizacion")]
     [System.ComponentModel.DisplayName("Cotización de especie")]
-    public class fondos_EspecieCotizacion : BasicObject
+    public class EspecieCotizacion : BasicObject
     {
         private decimal fComprador;
-        private fondos_Especie fEspecieDestino;
-        private fondos_Especie fEspecieOrigen;
+        private Especie fEspecieDestino;
+        private Especie fEspecieOrigen;
         private DateTime fFecha;
         private decimal fPromedio;
         private decimal fVendedor;
 
-        public fondos_EspecieCotizacion(Session session)
+        public EspecieCotizacion(Session session)
             : base(session)
         {
         }
@@ -29,7 +27,7 @@ namespace CORE.General.Modulos.Fondos
             set { SetPropertyValue<DateTime>("Fecha", ref fFecha, value); }
         }
 
-        public fondos_Especie EspecieOrigen
+        public Especie EspecieOrigen
         {
             get { return fEspecieOrigen; }
             set { SetPropertyValue("EspecieOrigen", ref fEspecieOrigen, value); }
@@ -56,7 +54,7 @@ namespace CORE.General.Modulos.Fondos
             set { SetPropertyValue<decimal>("Promedio", ref fPromedio, value); }
         }
 
-        public fondos_Especie EspecieDestino
+        public Especie EspecieDestino
         {
             get { return fEspecieDestino; }
             set { SetPropertyValue("EspecieDestino", ref fEspecieDestino, value); }

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="CloneObject" Caption="Duplicar" ToolTip="Duplicar el elemento seleccionado" />
+      <Action Id="DialogClose" Caption="Cerrar" />
+      <Action Id="FullTextSearch" ShortCaption="Buscar" NullValuePrompt="Texto a buscar..." />
+      <Action Id="Link" Caption="Asociar" />
+      <Action Id="Logoff" Caption="Cerrar sesión" />
+      <Action Id="Logon" Caption="Ingresar" />
+      <Action Id="ResetViewSettings" Caption="Restablecer vista" ToolTip="Restablecer la configuración de la vista &quot;{0}&quot;." ConfirmationMessage="Está por restablecer la configuración de la vista &quot;{0}&quot;. Confirma?" />
+      <Action Id="ShowItemsOnDashboard" Caption="Mostrar en el Tablero de Control" />
+      <Action Id="Unlink" Caption="Desasociar" ConfirmationMessage="Está a punto de desasociar el registro seleccionado(s). ¿Desea continuar?" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="DevExpress.ExpressApp.Editors.CriteriaProvider">
+      <OwnMembers>
+        <Member Name="FilteredObjectsType" Caption="Tipo de objetos a filtrar" />
+        <Member Name="FilterString" Caption="Cadena de filtro" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Security.Strategy.PermissionMatrix.TypePermissionMatrixItem" Caption="Matriz de permisos por objeto" />
+    <Class Name="DevExpress.ExpressApp.Security.Strategy.SecuritySystemRole">
+      <OwnMembers>
+        <Member Name="ChildRoles" Caption="Roles heredados" />
+        <Member Name="ParentRoles" Caption="Roles maestros" />
+        <Member Name="Users" Caption="Miembros del rol" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Security.Strategy.SecuritySystemRoleBase">
+      <OwnMembers>
+        <Member Name="CanEditModel" Caption="Puede editar el modelo" />
+        <Member Name="IsAdministrative" Caption="Es administrador" />
+        <Member Name="Name" Caption="Nombre" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Security.Strategy.SecuritySystemTypePermissionObject" Caption="Permisos de operación en objeto" />
+    <Class Name="DevExpress.ExpressApp.Security.Strategy.SecuritySystemUserBase">
+      <OwnMembers>
+        <Member Name="ChangePasswordOnFirstLogon" Caption="Cambiar contraseña en próximo inicio" />
+        <Member Name="IsActive" Caption="Habilitado" />
+        <Member Name="UserName" Caption="Nombre de usuario" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Localization>
+    <LocalizationGroup Name="AuditTrail">
+      <LocalizationItem Name="BlobDataString" Value="Datos binarios" />
+      <LocalizationItem Name="NullValueString" Value="Sin valor" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Captions">
+      <LocalizationItem Name="DiagnosticChildWindowAddition" Value="(ventana auxiliar)" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="DevExpress.Data.Filtering.Aggregate" Value="Agregado">
+        <LocalizationItem Name="Single" Value="Unico" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.Editors.ViewItemVisibility" Value="Visibilidad de item">
+        <LocalizationItem Name="Hide" Value="Ocultar" />
+        <LocalizationItem Name="Show" Value="Mostrar" />
+        <LocalizationItem Name="ShowEmptySpace" Value="Espacio vacío" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValueComparisonType" Value="Tipo de comparación de valor" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Exceptions">
+      <LocalizationGroup Name="UserVisibleExceptions">
+        <LocalizationItem Name="ActionIsNotSingleChoiceAction" Value="No se puede registrar la Acción '{0}' en el Contenedor de acción '{1}'. La acción '{0}' no es del tipo '{2}'." />
+        <LocalizationItem Name="ApplicationUpdateError" Value="La actualización ha sido realizada correctamente. Sin embargo, la versión de base de datos es aún mayor que la versión de la aplicación. Póngase en contacto con el administrador del sistema." />
+        <LocalizationItem Name="CriteriaEditorsDataTypeIsNull" Value="Por favor, indique el tipo de objeto para el que desea crear una condición." />
+        <LocalizationItem Name="FieldValueSizeExceedsMaxLength" Value="La longitud de este valor no puede superar {0}" />
+        <LocalizationItem Name="LogonAttemptsAmountedToLimitWin" Value="Después de tres intentos fallidos de ingresar, la aplicación se cerrará. Por favor, considere contactar al administrador por sus datos de acceso." />
+        <LocalizationItem Name="MaskValidationErrorMessage" Value="Faltan ingresar símbolos" />
+        <LocalizationItem Name="ObjectAccessPermissionCannotBeEmpty" Value="El campo 'Object Type' no debe estar vacío y al menos un campo de acceso debe tener un valor diferente de None." />
+        <LocalizationItem Name="ObjectToSaveWasChanged" Value="El objeto que está tratando de guardar fue cambiado por otro usuario. Por favor, vuelva a cargar los datos." />
+        <LocalizationItem Name="RequestedObjectIsNotFound" Value="El objeto solicitado no se encuentra y no puede ser procesado." />
+        <LocalizationItem Name="SimultaneousChangeDataMessage" Value="Advertencia: Se detectan modificaciones simultáneas de la misma información en diferentes ventanas/vistas:\n&#xD;&#xA;{0}\n &#xD;&#xA;Es posible guardar las modificaciones en una sola ventana/vista ." />
+        <LocalizationGroup Name="Validation">
+          <LocalizationItem Name="ActionErrorMessageHeaderFormat" Value="Se encontraron problemas durante la validación de datos. Por favor, lea la siguiente información para entender cuáles son los problemas y cómo se pueden corregir." />
+          <LocalizationItem Name="AllContextsErrorMessageHeader" Value="Se encontraron problemas durante la validación de datos. Por favor, lea la siguiente información para entender cuáles son los problemas y cómo se pueden corregir." />
+          <LocalizationItem Name="DeleteErrorMessageHeader" Value="Se encontraron problemas durante la validación de datos. Por favor, lea la siguiente información para entender cuáles son los problemas y cómo se pueden corregir." />
+          <LocalizationItem Name="SaveErrorMessageHeader" Value="Se encontraron problemas durante la validación de datos. Por favor, lea la siguiente información para entender cuáles son los problemas y cómo se pueden corregir." />
+          <LocalizationItem Name="ValidationSucceededMessageHeader" Value="No se encontraron problemas." />
+        </LocalizationGroup>
+      </LocalizationGroup>
+    </LocalizationGroup>
+    <LocalizationGroup Name="Security">
+      <LocalizationItem Name="EmpresaNotNull" Value="Debe indicar la empresa" />
+      <LocalizationItem Name="GrupoNotNull" Value="Debe indicar un código de grupo válido" />
+      <LocalizationItem Name="UsuarioNotNull" Value="Debe ingresar el nombre de usuario" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Texts">
+      <LocalizationItem Name="DefaultCulture" Value="(cultura predet.)" />
+      <LocalizationItem Name="NullValueText" Value="Sin valor" />
+      <LocalizationItem Name="Warning" Value="Advertencia" />
+    </LocalizationGroup>
+  </Localization>
+  <Views>
+    <DashboardView Id="Dashboard1">
+      <Items>
+        <StaticText Id="Texto" Caption="Texto" Text="qwqw" />
+      </Items>
+    </DashboardView>
+  </Views>
+</Application>

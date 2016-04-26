@@ -1,45 +1,35 @@
 using System;
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Fondos
+namespace CORE.PolizApp.Fondos
 {
     [Persistent(@"fondos.Cuenta")]
-    [DefaultProperty("CuentaID")]
     [System.ComponentModel.DisplayName(@"Cuentas")]
-    public class fondos_Cuenta : BasicObject
+    public class Cuenta : BasicObject
     {
-        private fondos_Banco fBanco;
+        private Banco fBanco;
         private CuentaClase fClase;
         private string fCodigo;
         private bool fControlaChequera;
         private int fCuentaContable;
         private bool fDisponibilidad;
         private bool fEmiteCheque;
-        private fondos_Especie fEspeciePredeterminada;
+        private Especie fEspeciePredeterminada;
         private bool fExigeApertura;
-        private fondos_Moneda fMoneda;
+        private Moneda fMoneda;
         private string fNombre;
         private string fNotas;
         private string fNumeroCuenta;
         private int fOrden;
         private string fSucursal;
 
-        public fondos_Cuenta(Session session) : base(session)
+        public Cuenta(Session session) : base(session)
         {
         }
-
-        [VisibleInDetailView(false)]
-        [System.ComponentModel.DisplayName(@"Cuenta")]
-        //[PersistentAlias("concat(EscribanoRegistro.EscribanoRegistroID, '-', ToStr(Numero), '-', ToStr(escribania_Protocolo.MIN(Folio)), ' (', Trim(SubString(ToStr(Fecha), 0, 10)), ') ')")]
-        [PersistentAlias("Nombre")]
-        public string CuentaID
-        {
-            get { return Convert.ToString(EvaluateAlias("CuentaID")); }
-        }
-
+        
         public CuentaClase Clase
         {
             get { return fClase; }
@@ -60,7 +50,7 @@ namespace CORE.General.Modulos.Fondos
         }
 
         [Association(@"fondos_CuentaReferencesfondos_Banco")]
-        public fondos_Banco Banco
+        public Banco Banco
         {
             get { return fBanco; }
             set { SetPropertyValue("Banco", ref fBanco, value); }
@@ -82,7 +72,7 @@ namespace CORE.General.Modulos.Fondos
 
         [Indexed(Name = @"iMoneda_fondos_Cuenta_3A53ABF1")]
         [Association(@"fondos_CuentaReferencesfondos_Moneda")]
-        public fondos_Moneda Moneda
+        public Moneda Moneda
         {
             get { return fMoneda; }
             set { SetPropertyValue("Moneda", ref fMoneda, value); }
@@ -90,7 +80,7 @@ namespace CORE.General.Modulos.Fondos
 
         [Indexed(Name = @"iEspeciePredeterminada_fondos_Cuenta_B372CC91")]
         [Association(@"fondos_CuentaReferencesfondos_Especie")]
-        public fondos_Especie EspeciePredeterminada
+        public Especie EspeciePredeterminada
         {
             get { return fEspeciePredeterminada; }
             set { SetPropertyValue("EspeciePredeterminada", ref fEspeciePredeterminada, value); }
@@ -139,17 +129,11 @@ namespace CORE.General.Modulos.Fondos
             set { SetPropertyValue<int>("CuentaContable", ref fCuentaContable, value); }
         }
 
-        [Association(@"fondos_CuentaChequeraReferencesfondos_Cuenta", typeof (fondos_CuentaChequera))]
-        public XPCollection<fondos_CuentaChequera> fondos_CuentaChequera
-        {
-            get { return GetCollection<fondos_CuentaChequera>("fondos_CuentaChequera"); }
-        }
+        [Association(@"fondos_CuentaChequeraReferencesfondos_Cuenta", typeof (CuentaChequera))]
+        public XPCollection<CuentaChequera> Chequeras => GetCollection<CuentaChequera>("Chequeras");
 
-        [Association(@"fondos_ValorReferencesfondos_Cuenta", typeof (fondos_Valor))]
-        public XPCollection<fondos_Valor> fondos_Valor
-        {
-            get { return GetCollection<fondos_Valor>("fondos_Valor"); }
-        }
+        [Association(@"fondos_ValorReferencesfondos_Cuenta", typeof (Valor))]
+        public XPCollection<Valor> Valores => GetCollection<Valor>("Valores");
 
         public override void AfterConstruction()
         {

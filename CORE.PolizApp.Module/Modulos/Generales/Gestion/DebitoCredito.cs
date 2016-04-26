@@ -1,4 +1,4 @@
-namespace CORE.General.Modulos.Gestion
+namespace CORE.PolizApp.Gestion
 {
     public enum DebitoCredito
     {

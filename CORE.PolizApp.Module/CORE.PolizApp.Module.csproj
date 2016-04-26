@@ -251,6 +251,7 @@
     <Compile Include="Modulos\Generales\Fondos\EspecieInstrumento.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Modulos\Generales\Fondos\EspecieInstrumentoClase.cs" />
     <Compile Include="Modulos\Generales\Fondos\Moneda.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -272,7 +273,7 @@
     <Compile Include="Modulos\Generales\Gestion\ConceptoClase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Modulos\Generales\Gestion\ConceptoGrupo.cs">
+    <Compile Include="Modulos\Generales\Gestion\ConceptoGrupoFacturacion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Modulos\Generales\Gestion\CondicionDePago.cs">
@@ -283,6 +284,7 @@
     </Compile>
     <Compile Include="Modulos\Generales\Impuestos\Categoria.cs" />
     <Compile Include="Modulos\Generales\Impuestos\Impuesto.cs" />
+    <Compile Include="Modulos\Generales\Impuestos\Impuestos.cs" />
     <Compile Include="Modulos\Generales\Impuestos\ImpuestoTipo.cs" />
     <Compile Include="Modulos\Generales\Impuestos\Padron.cs" />
     <Compile Include="Modulos\Generales\Impuestos\Regimen.cs" />
@@ -306,24 +308,28 @@
     <Compile Include="Modulos\Generales\Personas\vRelacion.cs" />
     <Compile Include="Modulos\Generales\Regionales\Ciudad.cs" />
     <Compile Include="Modulos\Generales\Regionales\Continente.cs" />
+    <Compile Include="Modulos\Generales\Regionales\FiltroPorPaisAttribute.cs" />
     <Compile Include="Modulos\Generales\Regionales\Identificadores.cs" />
+    <Compile Include="Modulos\Generales\Sistema\IdentificadoresBase.cs" />
     <Compile Include="Modulos\Generales\Regionales\Idioma.cs" />
     <Compile Include="Modulos\Generales\Regionales\Localidad.cs" />
     <Compile Include="Modulos\Generales\Regionales\Pais.cs" />
     <Compile Include="Modulos\Generales\Regionales\PaisIdioma.cs" />
     <Compile Include="Modulos\Generales\Regionales\Provincia.cs" />
-    <Compile Include="Modulos\Generales\Seguridad\AuthenticationCoreApp.cs">
+    <Compile Include="Modulos\Generales\Seguridad\CoreAuthentication.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Modulos\Generales\Seguridad\CoreAppLogonParameters.cs" />
+    <Compile Include="Modulos\Generales\Seguridad\CoreLogonParameters.cs" />
     <Compile Include="Modulos\Generales\Seguridad\Rol.cs" />
     <Compile Include="Modulos\Generales\Seguridad\Usuario.cs" />
     <Compile Include="Modulos\Generales\Sistema\Archivo.cs" />
     <Compile Include="Modulos\Generales\Sistema\ArchivoAdjunto.cs" />
     <Compile Include="Modulos\Generales\Sistema\BasicObject.cs" />
     <Compile Include="Modulos\Generales\Sistema\Empresa.cs" />
+    <Compile Include="Modulos\Generales\Sistema\FiltroPorEmpresaAttribute.cs" />
     <Compile Include="Modulos\Generales\Sistema\IObjetoPorEmpresa.cs" />
     <Compile Include="Modulos\Generales\Sistema\Nota.cs" />
+    <Compile Include="Modulos\Generales\Sistema\TipoLicencia.cs" />
     <Compile Include="Modulos\Generales\Sistema\Vinculo.cs" />
     <Compile Include="Modulos\Generales\Util\CPA.cs" />
     <Compile Include="Modulos\Generales\Util\XpoExtensions.cs" />
@@ -333,7 +339,6 @@
     <EmbeddedResource Include="Controllers\FDIT_MigrarController.resx">
       <DependentUpon>FDIT_MigrarController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Module.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Module.cs</DependentUpon>
@@ -358,14 +363,8 @@
   <ItemGroup>
     <None Include="FunctionalTests\sample.ets" />
     <None Include="Images\ReadMe.txt" />
-    <EmbeddedResource Include="Model.DesignedDiffs.Localization.es-AR.xafml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Model.DesignedDiffs.Localization.es-ES.xafml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.es.xafml" />
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -376,18 +375,6 @@
     <EmbeddedResource Include="Images\BO_Unknown_32x32.png" />
     <EmbeddedResource Include="Images\ExpressAppLogo.png" />
     <Content Include="Images\fdit.ico" />
-    <None Include="UnusableNodes1.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes2.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes4.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
     <EmbeddedResource Include="Images\fdit_banner_1842x368.png" />
     <EmbeddedResource Include="Images\fdit_banner_442x88.png" />
     <EmbeddedResource Include="Images\fdit_logo.png" />
@@ -395,67 +382,15 @@
     <EmbeddedResource Include="Images\fdit_logo_350x392.png" />
     <EmbeddedResource Include="Images\fdit_logo_12x12.png" />
     <EmbeddedResource Include="Images\fdit_logo_48x48.png" />
-    <None Include="UnusableNodes6.xml">
+    <None Include="UnusableNodes.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>
-    <None Include="UnusableNodes11.xml">
+    <None Include="UnusableNodes_es.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>
-    <None Include="UnusableNodes3_es-AR.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes15.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes21.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes23.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes25.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes29.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes31.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes32.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes33.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes34.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes37.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes39.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes41.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UnusableNodes5_es-AR.xml">
+    <None Include="UnusableNodes1.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

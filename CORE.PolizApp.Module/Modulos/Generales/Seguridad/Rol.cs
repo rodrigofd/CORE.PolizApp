@@ -7,8 +7,7 @@ namespace CORE.PolizApp.Seguridad
     [System.ComponentModel.DisplayName("Rol del sistema")]
     public class Rol : SecuritySystemRole
     {
-        public Rol(Session session) :
-            base(session)
+        public Rol(Session session) : base(session)
         {
         }
     }

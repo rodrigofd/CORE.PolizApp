@@ -13,49 +13,41 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using DevExpress.Xpo.Metadata;
 
-namespace CORE.General.Modulos.Sistema
+namespace CORE.PolizApp.Sistema
 {
-    [Appearance("DetailViewBoldRule", AppearanceItemType = "ViewItem", TargetItems = "*", FontStyle = FontStyle.Bold,
-        Context = "DetailView", Priority = 0)]
+    [Appearance("DetailViewBoldRule", AppearanceItemType = "ViewItem", TargetItems = "*", FontStyle = FontStyle.Bold, Context = "DetailView", Priority = 0)]
     [NonPersistent]
     [DefaultProperty("Descripcion")]
     public abstract class BasicObject : XPObject
     {
-        [NonPersistent] [Browsable(false)] public bool IgnoreOnChanged = false;
-
         private XPCollection<AuditDataItemPersistent> auditTrail;
         private XPMemberInfo defaultPropertyMemberInfo;
         private XPCollection<ArchivoAdjunto> fArchivosAsociados;
         private XPCollection<Nota> fNotas;
         private XPCollection<Vinculo> fVinculos;
+        [NonPersistent] [Browsable(false)] public bool IgnoreOnChanged;
         private bool isDefaultPropertyAttributeInit;
         protected Dictionary<string, int> tempKeys = new Dictionary<string, int>();
 
-        public BasicObject()
+        protected BasicObject()
         {
         }
 
-        public BasicObject(Session session)
+        protected BasicObject(Session session)
             : base(session)
         {
         }
 
         [NonPersistent]
         [Browsable(false)]
-        public bool CanRaiseOnChanged
-        {
-            get { return !IsLoading && !IsSaving && !IgnoreOnChanged; }
-        }
+        public bool CanRaiseOnChanged => !IsLoading && !IsSaving && !IgnoreOnChanged;
 
         [Browsable(false)]
         [VisibleInListView(false)]
         [VisibleInDetailView(false)]
         [ModelDefault("ImageSizeMode", "Normal")]
         [ModelDefault("Caption", " ")]
-        public virtual Image Icono
-        {
-            get { return null; }
-        }
+        public virtual Image Icono => null;
 
         [VisibleInListView(false)]
         [VisibleInDetailView(false)]
@@ -67,7 +59,7 @@ namespace CORE.General.Modulos.Sistema
             {
                 if (fNotas == null)
                 {
-                    CriteriaOperator criteria =
+                    var criteria =
                         CriteriaOperator.Parse("OriginanteKey = " + Oid + " and OriginanteType.Oid = " +
                                                Session.GetObjectType(this).Oid);
                     fNotas = new XPCollection<Nota>(Session, criteria);
@@ -86,7 +78,7 @@ namespace CORE.General.Modulos.Sistema
             {
                 if (fArchivosAsociados == null)
                 {
-                    CriteriaOperator criteria =
+                    var criteria =
                         CriteriaOperator.Parse("OriginanteKey = " + Oid + " and OriginanteType.Oid = " +
                                                Session.GetObjectType(this).Oid);
                     fArchivosAsociados = new XPCollection<ArchivoAdjunto>(Session, criteria);
@@ -105,7 +97,7 @@ namespace CORE.General.Modulos.Sistema
             {
                 if (fVinculos == null)
                 {
-                    CriteriaOperator criteria = GroupOperator.Combine(GroupOperatorType.Or,
+                    var criteria = GroupOperator.Combine(GroupOperatorType.Or,
                         CriteriaOperator.Parse("OriginanteKey = " + Oid + " and OriginanteType.Oid = " +
                                                Session.GetObjectType(this).Oid),
                         CriteriaOperator.Parse("DestinatarioKey = " + Oid + " and DestinatarioType.Oid = " +
@@ -120,14 +112,12 @@ namespace CORE.General.Modulos.Sistema
         [VisibleInDetailView(false)]
         [System.ComponentModel.DisplayName(@"Auditoría")]
         public XPCollection<AuditDataItemPersistent> AuditTrail
-        {
-            get { return auditTrail ?? (auditTrail = AuditedObjectWeakReference.GetAuditTrail(Session, this)); }
-        }
+            => auditTrail ?? (auditTrail = AuditedObjectWeakReference.GetAuditTrail(Session, this));
 
         protected override XPCollection<T> CreateCollection<T>(XPMemberInfo property)
         {
             //interceptar la creación de colecciones; para actuar ante cualquier A/B/M de los mismos (ids)
-            XPCollection<T> collection = base.CreateCollection<T>(property);
+            var collection = base.CreateCollection<T>(property);
             collection.ListChanged += (o, args) => collection_ListChanged(o, args, property.Name);
             return collection;
         }
@@ -136,11 +126,11 @@ namespace CORE.General.Modulos.Sistema
         {
             if (e.ListChangedType == ListChangedType.ItemAdded)
             {
-                int tempKey = tempKeys.ContainsKey(collectionName) ? tempKeys[collectionName] : 0;
+                var tempKey = tempKeys.ContainsKey(collectionName) ? tempKeys[collectionName] : 0;
 
                 tempKey--;
 
-                var xpObject = (((IList) sender)[e.NewIndex] as XPObject);
+                var xpObject = ((IList) sender)[e.NewIndex] as XPObject;
                 if (xpObject == null || xpObject.Oid != -1) return;
 
                 xpObject.Oid = tempKey;
@@ -154,7 +144,7 @@ namespace CORE.General.Modulos.Sistema
             IgnoreOnChanged = ignoreOnChanged;
 
             foreach (
-                BasicObject child in
+                var child in
                     ClassInfo.Members.Where(xpMemberInfo => xpMemberInfo.IsCollection && xpMemberInfo.IsAggregated)
                         .SelectMany(xpMemberInfo => ((IEnumerable) xpMemberInfo.GetValue(this)).Cast<BasicObject>()))
             {
@@ -168,7 +158,7 @@ namespace CORE.General.Modulos.Sistema
             {
                 if (!isDefaultPropertyAttributeInit)
                 {
-                    string memberName = string.Empty;
+                    var memberName = string.Empty;
                     var attribute1 =
                         XafTypesInfo.Instance.FindTypeInfo(GetType()).FindAttribute<XafDefaultPropertyAttribute>();
                     if (attribute1 != null)
@@ -189,7 +179,7 @@ namespace CORE.General.Modulos.Sistema
 
                 if (defaultPropertyMemberInfo != null)
                 {
-                    object obj = defaultPropertyMemberInfo.GetValue(this);
+                    var obj = defaultPropertyMemberInfo.GetValue(this);
                     if (obj != null)
                         return obj.ToString();
                 }
@@ -200,8 +190,9 @@ namespace CORE.General.Modulos.Sistema
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            //Setear las propiedades de tipo bool, el valor inicial a FALSE (el null lo maneja mal la pantalla)
-            foreach (XPMemberInfo mem in ClassInfo.Members.Where(mem => mem.MemberType == typeof (bool)))
+
+            // Set las propiedades de tipo bool, el valor inicial a FALSE (el null lo maneja mal la pantalla)
+            foreach (var mem in ClassInfo.Members.Where(mem => mem.MemberType == typeof (bool)))
                 mem.SetValue(this, false);
         }
 
@@ -215,10 +206,4 @@ namespace CORE.General.Modulos.Sistema
             return obj;
         }
     }
-
-    /*
-    public class BasicObject
-    {
-    }
-     * */
 }

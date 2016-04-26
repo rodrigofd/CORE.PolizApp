@@ -1,12 +1,12 @@
 using System;
 using System.Drawing;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 
-//using CORE.General.Modulos.Sistema;
+//using CORE.PolizApp.Sistema;
 
 namespace CORE.PolizApp.Personas
 {
@@ -14,11 +14,9 @@ namespace CORE.PolizApp.Personas
     [Persistent(@"personas.Relacion")]
     [System.ComponentModel.DisplayName("Relación")]
     //[Appearance("CriteriaRelacionDelete", "Padre < 0 ", AppearanceItemType = "Action", Enabled = false, TargetItems = "Delete")]
-    [Appearance("CriteriaRelacionBold", "Padre < 0 ", AppearanceItemType = "ViewItem", FontStyle = FontStyle.Bold,
-        TargetItems = "PersonaVinculadoID")]
-    [RuleCriteria("RuleCriteriaNotNulls", DefaultContexts.Save, "Not (PersonaVinculado is null AND Notas is null)",
-        "Persona Vinculada o Notas debe Informarse.", SkipNullOrEmptyValues = false)]
-    public class personas_Relacion : BasicObject
+    [Appearance("CriteriaRelacionBold", "Padre < 0 ", AppearanceItemType = "ViewItem", FontStyle = FontStyle.Bold, TargetItems = "PersonaVinculadoID")]
+    [RuleCriteria("RuleCriteriaNotNulls", DefaultContexts.Save, "Not (PersonaVinculado is null AND Notas is null)", "Persona Vinculada o Notas debe Informarse.", SkipNullOrEmptyValues = false)]
+    public class Relacion : BasicObject
     {
         private DateTime fDesde;
         private DateTime fHasta;
@@ -26,9 +24,9 @@ namespace CORE.PolizApp.Personas
         private Persona fPadre;
         private Persona fPersonaVinculado;
         private Persona fPersonaVinculante;
-        private personas_RelacionTipo fRelacionTipo;
+        private RelacionTipo fRelacionTipo;
 
-        public personas_Relacion(Session session) : base(session)
+        public Relacion(Session session) : base(session)
         {
         }
 
@@ -61,7 +59,7 @@ namespace CORE.PolizApp.Personas
         [RuleRequiredField]
         [System.ComponentModel.DisplayName(@"Tipo de relación")] 
         [LookupEditorMode(LookupEditorMode.AllItems)]
-        public personas_RelacionTipo RelacionTipo
+        public RelacionTipo RelacionTipo
         {
             get { return fRelacionTipo; }
             set { SetPropertyValue("RelacionTipo", ref fRelacionTipo, value); }
@@ -106,9 +104,9 @@ namespace CORE.PolizApp.Personas
         [VisibleInDetailView(false)]
         [System.ComponentModel.DisplayName(@"'Es' (Relación)")]
         [PersistentAlias("Iif(Padre == PersonaVinculado, RelacionTipo, RelacionTipo.RelacionTipoInverso)")]
-        public personas_RelacionTipo RelacionID
+        public RelacionTipo RelacionID
         {
-            get { return (personas_RelacionTipo) (EvaluateAlias("RelacionID")); }
+            get { return (RelacionTipo) (EvaluateAlias("RelacionID")); }
         }
 
         [VisibleInDetailView(false)]

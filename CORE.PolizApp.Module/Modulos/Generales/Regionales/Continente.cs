@@ -1,19 +1,19 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Regionales
+namespace CORE.PolizApp.Regionales
 {
     [Persistent(@"regionales.Continente")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Continente")]
-    public class regionales_Continente : BasicObject
+    public class Continente : BasicObject
     {
         private string fCodigo;
         private string fNombre;
 
-        public regionales_Continente(Session session) : base(session)
+        public Continente(Session session) : base(session)
         {
         }
 
@@ -33,11 +33,8 @@ namespace CORE.General.Modulos.Regionales
             set { SetPropertyValue("Nombre", ref fNombre, value); }
         }
 
-        [Association(@"PaisesReferencesContinentes", typeof (regionales_Pais))]
-        public XPCollection<regionales_Pais> Paises
-        {
-            get { return GetCollection<regionales_Pais>("Paises"); }
-        }
+        [Association(@"PaisesReferencesContinentes", typeof (Pais))]
+        public XPCollection<Pais> Paises => GetCollection<Pais>("Paises");
 
         public override void AfterConstruction()
         {

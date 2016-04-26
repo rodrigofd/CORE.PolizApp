@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
+using CORE.PolizApp.Fondos;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo.DB;
 
-namespace CORE.General.Modulos.Fondos.Controllers
+namespace CORE.PolizApp.Controllers.Fondos
 {
     public class ValorDepositoController : ViewController
     {
-        private DetailView popupDetailView;
+        private DetailView _popupDetailView;
 
         public ValorDepositoController()
         {
@@ -20,10 +21,12 @@ namespace CORE.General.Modulos.Fondos.Controllers
                 this,
                 "ValorDepositoController",
                 PredefinedCategory.View
-                );
-            showPopupAction.Caption = "Deposito";
-            showPopupAction.TargetViewId = "fondos_Valor_ListView_ADepositar";
-            showPopupAction.ActionMeaning = ActionMeaning.Unknown;
+                )
+            {
+                Caption = "Deposito",
+                TargetViewId = "fondos_Valor_ListView_ADepositar",
+                ActionMeaning = ActionMeaning.Unknown
+            };
 
             showPopupAction.CustomizePopupWindowParams += popupWindowShowAction_CustomizePopupWindowParams;
             showPopupAction.Execute += popupWindowShowAction_Execute;
@@ -35,15 +38,15 @@ namespace CORE.General.Modulos.Fondos.Controllers
             IObjectSpace objSpace = e.Application.CreateObjectSpace();
             e.View = e.Application.CreateDetailView(objSpace, "fondos_ValorDeposito_DetailView", false);
             var detailView = (DetailView) e.View;
-            detailView.CurrentObject = e.View.ObjectSpace.CreateObject<fondos_ValorDeposito>();
-            popupDetailView = detailView;
+            detailView.CurrentObject = e.View.ObjectSpace.CreateObject<ValorDeposito>();
+            _popupDetailView = detailView;
         }
 
         private void popupWindowShowAction_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
         {
             // sample code when OK button is pressed
 
-            var PopupDetailWinObj = (fondos_ValorDeposito) popupDetailView.CurrentObject;
+            var popupDetailWinObj = (ValorDeposito) _popupDetailView.CurrentObject;
             //var xos = View.ObjectSpace.GetObject(escribania_LibroRequerimiento)Oid);
 
             //var LibroRequerimiento = PopupDetailWinObj..GetParentObject(escribania_LibroRequerimiento_escribania_LibroRequerimientoActa_ListView)..LibroRequerimiento.Oid;
@@ -67,12 +70,12 @@ namespace CORE.General.Modulos.Fondos.Controllers
 
             if (valoresSeleccionados.Count < 1) return;
 
-            int BoletaDepositoNumero = PopupDetailWinObj.Numero;
-            int CuentaADepositar = PopupDetailWinObj.CuentaADepositar.Oid;
+            int BoletaDepositoNumero = popupDetailWinObj.Numero;
+            int CuentaADepositar = popupDetailWinObj.CuentaADepositar.Oid;
 
             var os = (XPObjectSpace) ObjectSpace;
 
-            foreach (fondos_Valor i in valoresSeleccionados)
+            foreach (Valor i in valoresSeleccionados)
             {
                 try
                 {

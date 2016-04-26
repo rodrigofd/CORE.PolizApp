@@ -1,17 +1,15 @@
 using System;
 using System.ComponentModel;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Fondos
+namespace CORE.PolizApp.Fondos
 {
     [Persistent(@"fondos.Moneda")]
     //[DefaultClassOptions]
-    [DefaultProperty("MonedaID")]
     [System.ComponentModel.DisplayName(@"Moneda")]
-    public class fondos_Moneda : BasicObject
+    public class Moneda : BasicObject
     {
         private string fCodigo;
         private string fFraccional;
@@ -20,19 +18,10 @@ namespace CORE.General.Modulos.Fondos
         private string fMonedaEng;
         private string fSimbolo;
 
-        public fondos_Moneda(Session session) : base(session)
+        public Moneda(Session session) : base(session)
         {
         }
-
-        [VisibleInDetailView(false)]
-        [System.ComponentModel.DisplayName(@"Moneda")]
-        //[PersistentAlias("concat(EscribanoRegistro.EscribanoRegistroID, '-', ToStr(Numero), '-', ToStr(escribania_Protocolo.MIN(Folio)), ' (', Trim(SubString(ToStr(Fecha), 0, 10)), ') ')")]
-        [PersistentAlias("Simbolo")]
-        public string MonedaID
-        {
-            get { return Convert.ToString(EvaluateAlias("MonedaID")); }
-        }
-
+        
         [Size(50)]
         [Index(0)]
         public string Codigo
@@ -80,11 +69,8 @@ namespace CORE.General.Modulos.Fondos
             set { SetPropertyValue<int>("FraccionalRelacion", ref fFraccionalRelacion, value); }
         }
 
-        [Association(@"fondos_CuentaReferencesfondos_Moneda", typeof (fondos_Cuenta))]
-        public XPCollection<fondos_Cuenta> fondos_Cuenta
-        {
-            get { return GetCollection<fondos_Cuenta>("fondos_Cuenta"); }
-        }
+        [Association(@"fondos_CuentaReferencesfondos_Moneda", typeof (Cuenta))]
+        public XPCollection<Cuenta> Cuentas => GetCollection<Cuenta>("Cuentas");
 
         public override void AfterConstruction()
         {

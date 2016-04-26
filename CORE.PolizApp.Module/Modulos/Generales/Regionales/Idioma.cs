@@ -1,14 +1,14 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Regionales
+namespace CORE.PolizApp.Regionales
 {
     [Persistent(@"regionales.Idioma")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Idioma")]
-    public class regionales_Idioma : BasicObject
+    public class Idioma : BasicObject
     {
         private string fCodigo;
         private string fCodigo1;
@@ -18,7 +18,7 @@ namespace CORE.General.Modulos.Regionales
         private string fNombre;
         private string fNombreEng;
 
-        public regionales_Idioma(Session session) : base(session)
+        public Idioma(Session session) : base(session)
         {
         }
 

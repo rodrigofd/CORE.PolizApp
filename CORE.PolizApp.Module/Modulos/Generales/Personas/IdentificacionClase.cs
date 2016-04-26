@@ -1,5 +1,5 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
@@ -8,12 +8,12 @@ namespace CORE.PolizApp.Personas
     [Persistent(@"personas.IdentificacionClase")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Clase de identificación")]
-    public class personas_IdentificacionClase : BasicObject
+    public class IdentificacionClase : BasicObject
     {
         private string fCodigo;
         private string fNombre;
 
-        public personas_IdentificacionClase(Session session)
+        public IdentificacionClase(Session session)
             : base(session)
         {
         }
@@ -35,11 +35,8 @@ namespace CORE.PolizApp.Personas
             set { SetPropertyValue("Nombre", ref fNombre, value); }
         }
 
-        [Association(@"IdentificacionesTiposReferencesIdentificacionesClases", typeof (personas_IdentificacionTipo))]
-        public XPCollection<personas_IdentificacionTipo> IdentificacionesTipos
-        {
-            get { return GetCollection<personas_IdentificacionTipo>("IdentificacionesTipos"); }
-        }
+        [Association(@"IdentificacionesTiposReferencesIdentificacionesClases", typeof (IdentificacionTipo))]
+        public XPCollection<IdentificacionTipo> IdentificacionesTipos => GetCollection<IdentificacionTipo>("IdentificacionesTipos");
 
         public override void AfterConstruction()
         {

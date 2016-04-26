@@ -1,35 +1,34 @@
 using System.ComponentModel;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Impuestos
+namespace CORE.PolizApp.Impuestos
 {
     [Persistent(@"impuestos.Categoria")]
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Categorías")]
-    public class impuestos_Categoria : BasicObject
+    public class Categoria : BasicObject
     {
         private string fCodigo;
         //private int fCodigoAfip;
         //private int fIdCategoria; 
-        private impuestos_Impuesto fImpuesto;
+        private Impuesto _f;
         private string fNombre;
 
         private int fOrden;
 
-        public impuestos_Categoria(Session session)
+        public Categoria(Session session)
             : base(session)
         {
         }
 
         [Association(@"CategoriasReferencesImpuestos")]
-        public impuestos_Impuesto Impuesto
+        public Impuesto Impuesto
         {
-            get { return fImpuesto; }
-            set { SetPropertyValue("Impuesto", ref fImpuesto, value); }
+            get { return _f; }
+            set { SetPropertyValue("Impuesto", ref _f, value); }
         }
 
         [Size(10)]

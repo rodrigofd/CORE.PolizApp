@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Base
+namespace CORE.PolizApp
 {
     /// <summary>
     ///     Define un objeto contenedor, que posee una colección de 'hijos' de un tipo determinado (agregados)

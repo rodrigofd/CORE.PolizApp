@@ -1,7 +1,8 @@
 using System;
+using CORE.PolizApp.Fondos;
 using DevExpress.ExpressApp.Xpo;
 
-namespace CORE.General.Modulos.Fondos.Controllers
+namespace CORE.PolizApp.Controllers.Fondos
 {
     partial class ValorAcreditacionController
     {
@@ -48,7 +49,7 @@ namespace CORE.General.Modulos.Fondos.Controllers
             this.parametrizedAction1.Shortcut = null;
             this.parametrizedAction1.Tag = null;
             this.parametrizedAction1.TargetObjectsCriteria = null;
-            this.parametrizedAction1.TargetObjectType = typeof(fondos_Valor);
+            this.parametrizedAction1.TargetObjectType = typeof(Valor);
             this.parametrizedAction1.TargetViewId = null;
             this.parametrizedAction1.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
             this.parametrizedAction1.ToolTip = null;
@@ -58,7 +59,7 @@ namespace CORE.General.Modulos.Fondos.Controllers
             // 
             // AcreditacionValorController
             // 
-            this.TargetObjectType = typeof(fondos_Valor);
+            this.TargetObjectType = typeof(Valor);
             this.TargetViewId = "fondos_Valor_ListView_AAcreditar";
             this.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
             this.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
@@ -73,7 +74,7 @@ namespace CORE.General.Modulos.Fondos.Controllers
 
             var os = (XPObjectSpace)ObjectSpace; 
 
-            foreach (fondos_Valor i in valoresSeleccionados)
+            foreach (Valor i in valoresSeleccionados)
             {
                 try
                 {

@@ -1,12 +1,12 @@
 using System;
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Base.General;
 using DevExpress.Xpo;
 using FDIT.Core.Sistema;
 
-namespace CORE.General.Modulos.Contabilidad
+namespace CORE.PolizApp.Contabilidad
 {
     [Persistent(@"contabilidad.Cuenta")]
     //[DefaultClassOptions]
@@ -29,10 +29,7 @@ namespace CORE.General.Modulos.Contabilidad
         [VisibleInDetailView(false)]
         [VisibleInLookupListView(false)]
         [PersistentAlias("ISNULL(Codigo, '') + ' - ' + Nombre")]
-        public string Descripcion
-        {
-            get { return Convert.ToString(EvaluateAlias("Descripcion")); }
-        }
+        public string Descripcion => Convert.ToString(EvaluateAlias("Descripcion"));
 
         [Size(50)]
         [Index(0)]
@@ -60,10 +57,7 @@ namespace CORE.General.Modulos.Contabilidad
         }
 
         [Association]
-        public XPCollection<Cuenta> CuentasHijas
-        {
-            get { return GetCollection<Cuenta>("CuentasHijas"); }
-        }
+        public XPCollection<Cuenta> CuentasHijas => GetCollection<Cuenta>("CuentasHijas");
 
         public CuentaRubro CuentaRubro
         {
@@ -84,22 +78,13 @@ namespace CORE.General.Modulos.Contabilidad
             set { SetPropertyValue("Empresa", ref fEmpresa, value); }
         }
 
-        public string Name
-        {
-            get { return Descripcion; }
-        }
+        string ITreeNode.Name => Descripcion;
 
         [Browsable(false)]
-        public ITreeNode Parent
-        {
-            get { return CuentaPadre; }
-        }
+        ITreeNode ITreeNode.Parent => CuentaPadre;
 
         [Browsable(false)]
-        public IBindingList Children
-        {
-            get { return CuentasHijas; }
-        }
+        IBindingList ITreeNode.Children => CuentasHijas;
 
         public override void AfterConstruction()
         {

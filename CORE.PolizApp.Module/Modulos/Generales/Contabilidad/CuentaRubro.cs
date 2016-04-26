@@ -1,10 +1,10 @@
 using System;
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Contabilidad
+namespace CORE.PolizApp.Contabilidad
 {
     [Persistent("contabilidad.CuentaRubro")]
     [DefaultProperty("Descripcion")]
@@ -26,10 +26,7 @@ namespace CORE.General.Modulos.Contabilidad
         [VisibleInDetailView(false)]
         [VisibleInLookupListView(false)]
         [PersistentAlias("ISNULL(Codigo, '') + ' - ' + Nombre")]
-        public string Descripcion
-        {
-            get { return Convert.ToString(EvaluateAlias("Descripcion")); }
-        }
+        public string Descripcion => Convert.ToString(EvaluateAlias("Descripcion"));
 
         [Size(50)]
         [Index(0)]

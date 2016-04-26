@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Model;
@@ -12,19 +12,18 @@ namespace CORE.PolizApp.Seguridad
 {
     [NonPersistent]
     [ModelDefault("Caption", "Log On")]
-    public class CoreAppLogonParameters : ICustomObjectSerialize, ISupportResetLogonParameters
+    public class CoreLogonParameters : ICustomObjectSerialize, ISupportResetLogonParameters
     {
         private Empresa _loginEmpresa;
-        private string _loginGrupoCodigo;
         private string _loginUserName;
 
         private XPCollection<Empresa> _seleccionEmpresa;
 
-        [Browsable(false)] public int EmpresaActualId = -1;
+        [Browsable(false)]
+        public int EmpresaActualId = -1;
 
-        [Browsable(false)] public int GrupoActualId = -1;
-
-        [Browsable(false)] public Guid UsuarioActualId = Guid.Empty;
+        [Browsable(false)]
+        public Guid UsuarioActualId = Guid.Empty;
 
         [Browsable(false)]
         public IObjectSpace ObjectSpace { get; set; }
@@ -46,30 +45,23 @@ namespace CORE.PolizApp.Seguridad
             }
         }
 
-        public static CoreAppLogonParameters Instance => (CoreAppLogonParameters) SecuritySystem.LogonParameters;
+        public static CoreLogonParameters Instance => (CoreLogonParameters) SecuritySystem.LogonParameters;
 
         void ICustomObjectSerialize.ReadPropertyValues(SettingsStorage storage)
         {
             if (!string.IsNullOrWhiteSpace(storage.LoadOption("", "UserName")))
                 LoginUserName = storage.LoadOption("", "UserName");
-            if (!string.IsNullOrWhiteSpace(storage.LoadOption("", "IdGrupo")))
-            {
-                var grupo = ObjectSpace.FindObject<Grupo>(new BinaryOperator("Oid", storage.LoadOption("", "IdGrupo")));
-                LoginGrupoCodigo = grupo == null ? "" : grupo.Codigo;
 
-                if (!string.IsNullOrWhiteSpace(storage.LoadOption("", "IdEmpresa")))
-                {
-                    var empresa = SeleccionEmpresa.Lookup(Convert.ToInt32(storage.LoadOption("", "IdEmpresa")));
-                    LoginEmpresa = empresa;
-                }
+            if (!string.IsNullOrWhiteSpace(storage.LoadOption("", "IdEmpresa")))
+            {
+                var empresa = SeleccionEmpresa.Lookup(Convert.ToInt32(storage.LoadOption("", "IdEmpresa")));
+                LoginEmpresa = empresa;
             }
         }
 
         void ICustomObjectSerialize.WritePropertyValues(SettingsStorage storage)
         {
             storage.SaveOption("", "UserName", LoginUserName);
-            if (GrupoActualId != -1)
-                storage.SaveOption("", "IdGrupo", GrupoActualId.ToString());
             if (EmpresaActualId != -1)
                 storage.SaveOption("", "IdEmpresa", EmpresaActualId.ToString());
         }
@@ -83,7 +75,6 @@ namespace CORE.PolizApp.Seguridad
             }
 
             LoginUserName = null;
-            LoginGrupoCodigo = null;
             LoginEmpresa = null;
             Password = null;
 
@@ -128,16 +119,14 @@ namespace CORE.PolizApp.Seguridad
         {
             var empresas = (XPCollection<Empresa>) objSpace.GetObjects<Empresa>();
             empresas.BindingBehavior = CollectionBindingBehavior.AllowNone;
-            filtrarEmpresasDelGrupoYUsuario(empresas, GrupoActual(objSpace), UsuarioActual(objSpace));
+            filtrarEmpresasDelGrupoYUsuario(empresas, UsuarioActual(objSpace));
             return empresas;
         }
 
-        private void filtrarEmpresasDelGrupoYUsuario(XPCollection<Empresa> empresas, Grupo grupo, Usuario usuario)
+        private void filtrarEmpresasDelGrupoYUsuario(XPCollection<Empresa> empresas, Usuario usuario)
         {
-            //TODO: estamos filtrando empresas del grupo actual, pero no las del usuario actual (las permitidas)
-            empresas.Criteria = usuario == null || grupo == null
-                ? new BinaryOperator("Oid", -1)
-                : new BinaryOperator("Persona.Grupo.Oid", grupo.Oid);
+            // TODO: estamos filtrando empresas del grupo actual, pero no las del usuario actual (las permitidas)
+            empresas.Criteria = null;
         }
 
         #region Campos de la pantalla login
@@ -151,24 +140,9 @@ namespace CORE.PolizApp.Seguridad
             {
                 _loginUserName = value;
                 var usuario = ObjectSpace.FindObject<Usuario>(new BinaryOperator("UserName", _loginUserName));
-                UsuarioActualId = usuario == null ? Guid.Empty : usuario.Oid;
+                UsuarioActualId = usuario?.Oid ?? Guid.Empty;
 
-                filtrarEmpresasDelGrupoYUsuario(SeleccionEmpresa, GrupoActual(), UsuarioActual());
-            }
-        }
-
-        [ImmediatePostData]
-        [Index(1)]
-        public string LoginGrupoCodigo
-        {
-            get { return _loginGrupoCodigo; }
-            set
-            {
-                _loginGrupoCodigo = value;
-                var grupo = ObjectSpace.FindObject<Grupo>(new BinaryOperator("Codigo", value));
-                GrupoActualId = grupo == null ? -1 : grupo.Oid;
-
-                filtrarEmpresasDelGrupoYUsuario(SeleccionEmpresa, GrupoActual(), UsuarioActual());
+                filtrarEmpresasDelGrupoYUsuario(SeleccionEmpresa, UsuarioActual());
             }
         }
 
@@ -180,7 +154,7 @@ namespace CORE.PolizApp.Seguridad
             set
             {
                 _loginEmpresa = value;
-                EmpresaActualId = value == null ? -1 : value.Oid;
+                EmpresaActualId = value?.Oid ?? -1;
             }
         }
 

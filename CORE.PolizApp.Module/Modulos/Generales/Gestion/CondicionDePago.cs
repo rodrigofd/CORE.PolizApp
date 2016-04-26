@@ -1,10 +1,9 @@
 using System.ComponentModel;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Gestion
+namespace CORE.PolizApp.Gestion
 {
     [Persistent(@"gestion.CondicionDePago")]
     //[DefaultClassOptions]

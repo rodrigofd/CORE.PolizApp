@@ -1,26 +1,22 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp.Model;
-using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Fondos
+namespace CORE.PolizApp.Fondos
 {
     [Persistent(@"fondos.Valor")]
-    [DefaultProperty("ValorID")]
     [System.ComponentModel.DisplayName(@"Valores")]
-    public class fondos_Valor : BasicObject
+    public class Valor : BasicObject
     {
         private DateTime fAnulado;
         private string fAnuladoMotivo;
         private int fBoletaDeposito;
         private int fBoletaDepositoNumero;
         private decimal fCambio;
-        private fondos_Banco fChBanco;
+        private Banco fChBanco;
         private bool fChDevuelto;
         private DateTime fChFecha;
         private DateTime fChFechaDep;
@@ -29,28 +25,19 @@ namespace CORE.General.Modulos.Fondos
         private string fChSerie;
         private string fChSucursal;
         private string fConcepto;
-        private fondos_Valor fContrapartida;
-        private fondos_Cuenta fCuenta;
-        private fondos_Especie fEspecie;
+        private Valor fContrapartida;
+        private Cuenta fCuenta;
+        private Especie fEspecie;
         private DateTime fFechaAcreditado;
         private DateTime fFechaAlta;
         private decimal fImporte;
 
-        public fondos_Valor(Session session) : base(session)
+        public Valor(Session session) : base(session)
         {
         }
-
-        [VisibleInDetailView(false)]
-        [System.ComponentModel.DisplayName(@"Valor")]
-        //[PersistentAlias("concat(EscribanoRegistro.EscribanoRegistroID, '-', ToStr(Numero), '-', ToStr(escribania_Protocolo.MIN(Folio)), ' (', Trim(SubString(ToStr(Fecha), 0, 10)), ') ')")]
-        [PersistentAlias("Cuenta.Nombre")]
-        public string ValorID
-        {
-            get { return Convert.ToString(EvaluateAlias("ValorID")); }
-        }
-
+        
         [Association(@"fondos_ValorReferencesfondos_Cuenta")]
-        public fondos_Cuenta Cuenta
+        public Cuenta Cuenta
         {
             get { return fCuenta; }
             set { SetPropertyValue("Cuenta", ref fCuenta, value); }
@@ -70,8 +57,8 @@ namespace CORE.General.Modulos.Fondos
 
         [Indexed(Name = @"iEspecie_fondos_Valor_DD7B7E6B")]
         [Association(@"fondos_ValorReferencesfondos_Especie")]
-        //  [ImmediatePostData]
-        public fondos_Especie Especie
+        //[ImmediatePostData]
+        public Especie Especie
         {
             get { return fEspecie; }
             set { SetPropertyValue("Especie", ref fEspecie, value); }
@@ -85,7 +72,7 @@ namespace CORE.General.Modulos.Fondos
         }
 
         [ModelDefault("DisplayFormat", "{0:n4}"), ModelDefault("EditMask", "n4")]
-        // [Appearance("fCambio", "Especie.Instrumento.Clase == 'Cheque'", BackColor = "Red")]
+        //[Appearance("fCambio", "Especie.Instrumento.Clase == 'Cheque'", BackColor = "Red")]
         public decimal Cambio
         {
             get { return fCambio; }
@@ -101,7 +88,7 @@ namespace CORE.General.Modulos.Fondos
 
         [Association(@"fondos_ValorReferencesfondos_Banco")]
         // [Appearance("fChBanco", "Especie.Instrumento.Clase == 'Cheque'", Visibility = ViewItemVisibility.Hide)]
-        public fondos_Banco ChBanco
+        public Banco ChBanco
         {
             get { return fChBanco; }
             set { SetPropertyValue("ChBanco", ref fChBanco, value); }
@@ -177,7 +164,7 @@ namespace CORE.General.Modulos.Fondos
         }
 
         [Association(@"fondos_ValorReferencesfondos_Valor")]
-        public fondos_Valor Contrapartida
+        public Valor Contrapartida
         {
             get { return fContrapartida; }
             set { SetPropertyValue("Contrapartida", ref fContrapartida, value); }
@@ -207,10 +194,10 @@ namespace CORE.General.Modulos.Fondos
         */
 
         [Aggregated, Browsable(false)]
-        [Association(@"fondos_ValorReferencesfondos_Valor", typeof (fondos_Valor))]
-        public XPCollection<fondos_Valor> fondos_ValorCollection
+        [Association(@"fondos_ValorReferencesfondos_Valor", typeof (Valor))]
+        public XPCollection<Valor> fondos_ValorCollection
         {
-            get { return GetCollection<fondos_Valor>("fondos_ValorCollection"); }
+            get { return GetCollection<Valor>("fondos_ValorCollection"); }
         }
 
         public override void AfterConstruction()
@@ -218,8 +205,8 @@ namespace CORE.General.Modulos.Fondos
             base.AfterConstruction();
 
             //Empresa = Session.FindObject<Empresa>(new BinaryOperator("Persona.Oid", 1));
-            Especie = Session.FindObject<fondos_Especie>(new BinaryOperator("Oid", 1));
-            //Especie = fondos_Especie;
+            Especie = Session.FindObject<Especie>(new BinaryOperator("Oid", 1));
+            //Especie = Especie;
             Cambio = 1;
             FechaAlta = DateTime.Today;
         }

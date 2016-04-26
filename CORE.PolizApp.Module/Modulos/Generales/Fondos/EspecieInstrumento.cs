@@ -1,34 +1,22 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Fondos
+namespace CORE.PolizApp.Fondos
 {
-    public enum EspecieInstrumentoClase
-    {
-        Billete = 1,
-        Cheque = 2,
-        TarjetaCredito = 3,
-        TarjetaDebito = 4,
-        Retenciones = 5,
-        Indice = 6,
-        Titulo = 10,
-        Documento = 11
-    }
-
     [Persistent(@"fondos.EspecieInstrumento")]
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Instrumento de pago")]
-    public class fondos_EspecieInstrumento : BasicObject
+    public class EspecieInstrumento : BasicObject
     {
         private EspecieInstrumentoClase fClase;
         private string fCodigo;
         private string fEspecieInstrumento;
 
-        public fondos_EspecieInstrumento(Session session)
+        public EspecieInstrumento(Session session)
             : base(session)
         {
         }
@@ -56,11 +44,8 @@ namespace CORE.General.Modulos.Fondos
             set { SetPropertyValue("Clase", ref fClase, value); }
         }
 
-        [Association(@"EspeciesReferencesEspeciesInstrumentos", typeof (fondos_Especie))]
-        public XPCollection<fondos_Especie> Especies
-        {
-            get { return GetCollection<fondos_Especie>("Especies"); }
-        }
+        [Association(@"EspeciesReferencesEspeciesInstrumentos", typeof (Especie))]
+        public XPCollection<Especie> Especies => GetCollection<Especie>("Especies");
 
         public override void AfterConstruction()
         {

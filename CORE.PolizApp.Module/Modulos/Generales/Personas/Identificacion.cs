@@ -1,10 +1,8 @@
 using System;
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
-
-//using CORE.General.Modulos.Sistema;
 
 namespace CORE.PolizApp.Personas
 {
@@ -19,7 +17,7 @@ namespace CORE.PolizApp.Personas
         private string fValor;
         private string fNotas;
         private Persona fPersona;
-        private personas_IdentificacionTipo fTipo;
+        private IdentificacionTipo fTipo;
 
         public Identificacion(Session session)
             : base(session)
@@ -28,10 +26,7 @@ namespace CORE.PolizApp.Personas
 
         [VisibleInDetailView(false)]
         [PersistentAlias("concat(Tipo.Codigo, ' - ' , Valor)")]
-        public string Descripcion
-        {
-            get { return Convert.ToString(EvaluateAlias("Descripcion")); }
-        }
+        public string Descripcion => Convert.ToString(EvaluateAlias("Descripcion"));
 
         [Association(@"IdentificacionesReferencesPersonas")]
         public Persona Persona
@@ -42,7 +37,7 @@ namespace CORE.PolizApp.Personas
 
         [System.ComponentModel.DisplayName(@"Tipo")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
-        public personas_IdentificacionTipo Tipo
+        public IdentificacionTipo Tipo
         {
             get { return fTipo; }
             set { SetPropertyValue("Tipo", ref fTipo, value); }

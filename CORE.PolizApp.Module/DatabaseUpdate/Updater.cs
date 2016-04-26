@@ -1,4 +1,5 @@
 ﻿using System;
+using CORE.PolizApp.Seguridad;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
@@ -6,7 +7,7 @@ using DevExpress.ExpressApp.Security.Strategy;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.Persistent.BaseImpl;
 
-namespace CORE.PolizApp.Module.DatabaseUpdate
+namespace CORE.PolizApp.DatabaseUpdate
 {
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppUpdatingModuleUpdatertopic.aspx
     public class Updater : ModuleUpdater
@@ -19,6 +20,29 @@ namespace CORE.PolizApp.Module.DatabaseUpdate
         public override void UpdateDatabaseAfterUpdateSchema()
         {
             base.UpdateDatabaseAfterUpdateSchema();
+
+            var administrativeRole = ObjectSpace.FindObject<Rol>(new BinaryOperator("Name", "Administradores"));
+            if (administrativeRole == null)
+            {
+                administrativeRole = ObjectSpace.CreateObject<Rol>();
+                administrativeRole.Name = "Administradores";
+                administrativeRole.IsAdministrative = true;
+            }
+
+            const string adminName = "admin";
+
+            var administratorUser = ObjectSpace.FindObject<Usuario>(new BinaryOperator("UserName", adminName));
+            if (administratorUser == null)
+            {
+                administratorUser = ObjectSpace.CreateObject<Usuario>();
+                administratorUser.UserName = adminName;
+                administratorUser.IsActive = true;
+                administratorUser.SetPassword("$");
+                administratorUser.Roles.Add(administrativeRole);
+            }
+
+            ObjectSpace.CommitChanges(); //This line persists created object(s).
+
             //string name = "MyName";
             //DomainObject1 theObject = ObjectSpace.FindObject<DomainObject1>(CriteriaOperator.Parse("Name=?", name));
             //if(theObject == null) {

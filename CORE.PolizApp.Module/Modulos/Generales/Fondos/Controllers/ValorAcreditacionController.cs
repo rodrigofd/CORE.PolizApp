@@ -1,7 +1,7 @@
 using System;
 using DevExpress.ExpressApp;
 
-namespace CORE.General.Modulos.Fondos.Controllers
+namespace CORE.PolizApp.Controllers.Fondos
 {
     // For more typical usage scenarios, be sure to check out http://documentation.devexpress.com/#Xaf/clsDevExpressExpressAppViewControllertopic.
     public partial class ValorAcreditacionController : ViewController

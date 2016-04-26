@@ -1,31 +1,31 @@
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Impuestos
+namespace CORE.PolizApp.Impuestos
 {
     [Persistent(@"impuestos.RetencionEscala")]
     //[DefaultClassOptions]
     [System.ComponentModel.DisplayName(@"Escala de retenciones")]
-    public class impuestos_RetencionEscala : BasicObject
+    public class RetencionEscala : BasicObject
     {
+        private Impuesto _fImpuesto;
         private decimal fImporte;
         private decimal fImporteMaximo;
         private decimal fImporteMinimo;
-        private impuestos_Impuesto fImpuesto;
         private decimal fMontoExcedente;
         private decimal fPorcentajeExcedente;
 
-        public impuestos_RetencionEscala(Session session)
+        public RetencionEscala(Session session)
             : base(session)
         {
         }
 
         [Association(@"RetencionesEscalaReferencesImpuestos")]
-        public impuestos_Impuesto Impuesto
+        public Impuesto Impuesto
         {
-            get { return fImpuesto; }
-            set { SetPropertyValue("Impuesto", ref fImpuesto, value); }
+            get { return _fImpuesto; }
+            set { SetPropertyValue("Impuesto", ref _fImpuesto, value); }
         }
 
         [ModelDefault("DisplayFormat", "n2")]

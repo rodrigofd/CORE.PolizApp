@@ -1,12 +1,12 @@
 using System;
 using System.ComponentModel;
 using CORE.ES.Module.Modulos.Escribania;
-using CORE.General.Modulos.Impuestos;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Impuestos;
+using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Gestion
+namespace CORE.PolizApp.Gestion
 {
     [Persistent(@"gestion.ComprobanteTipo")]
     //[DefaultClassOptions]
@@ -16,7 +16,7 @@ namespace CORE.General.Modulos.Gestion
     {
         private bool fActivo;
         private bool fAutomatico;
-        private impuestos_Categoria fCategoriaDeIvaPredet;
+        private Categoria fCategoriaDeIvaPredet;
         private string fClase;
         private string fCodigo;
         private int fCopiasImpresion;
@@ -25,7 +25,7 @@ namespace CORE.General.Modulos.Gestion
         private bool fDiscriminaImpuestos;
         private bool fGestionFinanciera;
 
-        //private personas_IdentificacionTipo fIdentificacionTipoPredet;
+        //private IdentificacionTipo fIdentificacionTipoPredet;
         private bool fIncluyeIva;
         private bool fIncluyePercepciones;
         private bool fLibroIvaCompras;
@@ -48,10 +48,7 @@ namespace CORE.General.Modulos.Gestion
         [VisibleInLookupListView(false)]
         //[ PersistentAlias( "ISNULL('(' + Codigo + ') ' + Nombre, '****')" ) ] 
         [PersistentAlias("ISNULL(Codigo, Nombre)")]
-        public string Descripcion
-        {
-            get { return Convert.ToString(EvaluateAlias("Descripcion")); }
-        }
+        public string Descripcion => Convert.ToString(EvaluateAlias("Descripcion"));
 
         [Index(0)]
         [VisibleInLookupListView(true)]
@@ -76,14 +73,6 @@ namespace CORE.General.Modulos.Gestion
             get { return fClase; }
             set { SetPropertyValue("Clase", ref fClase, value); }
         }
-
-        /*
-    public ComprobanteTipoModulo Modulo
-    {
-      get { return fModulo; }
-      set { SetPropertyValue( "Modulo", ref fModulo, value ); }
-    }
-    */
 
         public DebitoCredito DebitoCredito
         {
@@ -127,19 +116,19 @@ namespace CORE.General.Modulos.Gestion
             set { SetPropertyValue<int>("CopiasImpresion", ref fCopiasImpresion, value); }
         }
 
-        public impuestos_Categoria CategoriaDeIvaPredet
+        public Categoria CategoriaDeIvaPredet
         {
             get { return fCategoriaDeIvaPredet; }
             set { SetPropertyValue("CategoriaDeIvaPredet", ref fCategoriaDeIvaPredet, value); }
         }
 
         /*
-    public IdentificacionTipo IdentificacionTipoPredet
-    {
-      get { return fIdentificacionTipoPredet; }
-      set { SetPropertyValue( "IdentificacionTipoPredet", ref fIdentificacionTipoPredet, value ); }
-    }
-    */
+        public IdentificacionTipo IdentificacionTipoPredet
+        {
+          get { return fIdentificacionTipoPredet; }
+          set { SetPropertyValue( "IdentificacionTipoPredet", ref fIdentificacionTipoPredet, value ); }
+        }
+        */
 
         public bool Activo
         {
@@ -196,32 +185,31 @@ namespace CORE.General.Modulos.Gestion
         }
 
         /*
-    [ Aggregated ]
-    [ Association( @"ComprobantesTiposCategoriasReferencesComprobantesTipos", typeof( ComprobanteTipoCategoria ) ) ]
-    public XPCollection< ComprobanteTipoCategoria > CategoriasValidas
-    {
-      get { return GetCollection< ComprobanteTipoCategoria >( "CategoriasValidas" ); }
-    }
+        [ Aggregated ]
+        [ Association( @"ComprobantesTiposCategoriasReferencesComprobantesTipos", typeof( ComprobanteTipoCategoria ) ) ]
+        public XPCollection< ComprobanteTipoCategoria > CategoriasValidas
+        {
+          get { return GetCollection< ComprobanteTipoCategoria >( "CategoriasValidas" ); }
+        }
 
-    [ Aggregated ]
-    [ Association( @"ComprobantesTiposCategoriasReferencesIdentificacionesTipos" ) ]
-    public XPCollection< ComprobantesTipoIdentificacionTipo > IdentificacionesTiposValidos
-    {
-      get { return GetCollection< ComprobantesTipoIdentificacionTipo >( "IdentificacionesTiposValidos" ); }
-    }
+        [ Aggregated ]
+        [ Association( @"ComprobantesTiposCategoriasReferencesIdentificacionesTipos" ) ]
+        public XPCollection< ComprobantesTipoIdentificacionTipo > IdentificacionesTiposValidos
+        {
+          get { return GetCollection< ComprobantesTipoIdentificacionTipo >( "IdentificacionesTiposValidos" ); }
+        }
 
-    [ Association ]
-    public XPCollection< Talonario > Talonarios
-    {
-      get { return GetCollection< Talonario >( "Talonarios" ); }
-    }
-    */
+        [ Association ]
+        public XPCollection< Talonario > Talonarios
+        {
+          get { return GetCollection< Talonario >( "Talonarios" ); }
+        }
+        */
 
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-
-            //Modulo = ComprobanteTipoModulo.Gestion;
+            
             DebitoCredito = DebitoCredito.Debito;
         }
     }

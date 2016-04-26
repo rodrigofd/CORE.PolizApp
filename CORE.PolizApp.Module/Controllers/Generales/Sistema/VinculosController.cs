@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Linq;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.DC;
@@ -11,7 +11,7 @@ using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Templates;
 using DevExpress.Persistent.Base;
 
-namespace CORE.General.Modulos.Controllers
+namespace CORE.PolizApp.Controllers.Sistema
 {
     public class VinculosController : ViewController<ListView>
     {

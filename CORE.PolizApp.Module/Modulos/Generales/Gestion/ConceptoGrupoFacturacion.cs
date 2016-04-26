@@ -1,9 +1,8 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Sistema;
-using DevExpress.Persistent.Base;
+using CORE.PolizApp.Sistema;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Gestion
+namespace CORE.PolizApp.Gestion
 {
     [Persistent(@"gestion.ConceptoGrupoFacturacion")]
     //[DefaultClassOptions]
@@ -24,10 +23,7 @@ namespace CORE.General.Modulos.Gestion
         }
 
         [Association(@"ConceptosReferencesConceptosGruposFacturacion", typeof (Concepto))]
-        public XPCollection<Concepto> Conceptos
-        {
-            get { return GetCollection<Concepto>("Conceptos"); }
-        }
+        public XPCollection<Concepto> Conceptos => GetCollection<Concepto>("Conceptos");
 
         public override void AfterConstruction()
         {

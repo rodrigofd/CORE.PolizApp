@@ -1,4 +1,4 @@
-namespace CORE.General.Modulos.Sistema
+namespace CORE.PolizApp.Sistema
 {
     public interface IRefreshable
     {

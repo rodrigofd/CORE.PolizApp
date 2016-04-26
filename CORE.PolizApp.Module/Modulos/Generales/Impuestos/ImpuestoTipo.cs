@@ -1,30 +1,32 @@
 using System.ComponentModel;
-using CORE.General.Modulos.Gestion;
-using CORE.General.Modulos.Sistema;
+using CORE.PolizApp.Gestion;
+using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Impuestos
+namespace CORE.PolizApp.Impuestos
 {
     [Persistent(@"impuestos.ImpuestoTipo")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Impuesto Tipo")]
-    public class impuestos_ImpuestoTipo : BasicObject
+    public class ImpuestoTipo : BasicObject
     {
-        private impuestos_Impuesto fImpuesto;
+        private Impuesto _fImpuesto;
         private string fNombre;
+
+        private int fOrden;
         private decimal fValor;
 
-        public impuestos_ImpuestoTipo(Session session)
+        public ImpuestoTipo(Session session)
             : base(session)
         {
         }
 
         [Association(@"ImpuestoTipoReferencesImpuestos")]
-        public impuestos_Impuesto Impuesto
+        public Impuesto Impuesto
         {
-            get { return fImpuesto; }
-            set { SetPropertyValue("Impuesto", ref fImpuesto, value); }
+            get { return _fImpuesto; }
+            set { SetPropertyValue("Impuesto", ref _fImpuesto, value); }
         }
 
         public string Nombre
@@ -40,7 +42,6 @@ namespace CORE.General.Modulos.Impuestos
             set { SetPropertyValue("Valor", ref fValor, value); }
         }
 
-        private int fOrden;
         public int Orden
         {
             get { return fOrden; }
@@ -50,26 +51,8 @@ namespace CORE.General.Modulos.Impuestos
 
         [Browsable(false)]
         [Association(@"ConceptosReferencesimpuestos_ImpuestoTipo", typeof (Concepto))]
-        public XPCollection<Concepto> Conceptos
-        {
-            get { return GetCollection<Concepto>("Conceptos"); }
-        }
-
-        /*
-        [Association(@"escribania_ClieComprobanteItemReferencesimpuestos_Alicuota", typeof(escribania_ClieComprobanteItem))]
-        public XPCollection<escribania_ClieComprobanteItem> ClieComprobanteItem
-        {
-            get { return GetCollection<escribania_ClieComprobanteItem>("ClieComprobanteItem"); }
-        }
-        [Browsable(false)]
-        [Aggregated]
-        [Association(@"escribania_ClieComprobanteProformaItemReferencesimpuestos_Alicuota")]
-        public XPCollection<escribania_ClieComprobanteProformaItem> EscribaniaClieComprobanteProformaItem
-        {
-            get { return GetCollection<escribania_ClieComprobanteProformaItem>("EscribaniaClieComprobanteProformaItem"); }
-        }
-        */
-
+        public XPCollection<Concepto> Conceptos => GetCollection<Concepto>("Conceptos");
+        
         public override void AfterConstruction()
         {
             base.AfterConstruction();

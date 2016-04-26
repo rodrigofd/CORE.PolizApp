@@ -2,14 +2,15 @@ using System;
 using System.ComponentModel;
 using DevExpress.Xpo;
 
-namespace CORE.General.Modulos.Impuestos
+namespace CORE.PolizApp.Impuestos
 {
     [Persistent(@"impuestos.Padron")]
     //[DefaultClassOptions]
     [DefaultProperty("IdentificacionNro")]
     [System.ComponentModel.DisplayName(@"Padrón por impuesto")]
-    public class impuestos_Padron : XPLiteObject
+    public class Padron : XPLiteObject
     {
+        private Impuesto _fImpuesto;
         private decimal fAlicuotaPercepcion;
         private decimal fAlicuotaRetencion;
         private DateTime fFechaPublicacion;
@@ -18,13 +19,12 @@ namespace CORE.General.Modulos.Impuestos
         private int fGrupoPercepcion;
         private int fGrupoRetencion;
         private long fIdentificacionNro;
-        private impuestos_Impuesto fImpuesto;
         private char fMarcaCbioAlicuota;
         private char fMarcaSujeto;
         private long fOid;
         private string fTipoContribuyente;
 
-        public impuestos_Padron(Session session)
+        public Padron(Session session)
             : base(session)
         {
         }
@@ -37,10 +37,10 @@ namespace CORE.General.Modulos.Impuestos
         }
 
         [Association(@"PadronReferencesImpuestos")]
-        public impuestos_Impuesto Impuesto
+        public Impuesto Impuesto
         {
-            get { return fImpuesto; }
-            set { SetPropertyValue("Impuesto", ref fImpuesto, value); }
+            get { return _fImpuesto; }
+            set { SetPropertyValue("Impuesto", ref _fImpuesto, value); }
         }
 
         public long IdentificacionNro
