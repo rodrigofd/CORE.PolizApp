@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using DevExpress.XtraCharts.Native;
 using CORE.Modulos.Stock;
 using CORE.Modulos.Sistema;
@@ -12,7 +12,8 @@ namespace CORE.Modulos.CRM
   [Persistent(@"crm.ContratoItem")]
   [DefaultProperty(@"Descripcion")]
   [System.ComponentModel.DisplayName("Item del contrato")]
-  public class ContratoItem : BasicObject
+  [DefaultClassOptions]
+public class ContratoItem : BasicObject
   {
     private Articulo fArticulo;
     private decimal fCantidadExcedenteMax;

@@ -1,2 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application />
+<Application>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="@3ff4dcc5-e2b9-44ca-b73a-a842c784188c">
+            <Items>
+              <Item Id="@e3f44202-d490-4a6e-bd61-d1601120943c_Copy">
+                <Items>
+                  <Item Id="MyDetails" Caption="Mis datos" />
+                </Items>
+              </Item>
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

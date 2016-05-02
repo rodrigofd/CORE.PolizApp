@@ -1,12 +1,13 @@
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Fondos
 {
   [ Persistent( @"fondos.ComprobanteItemApertura" ) ]
   [ System.ComponentModel.DisplayName( "Apertura por item" ) ]
-  public class ComprobanteItemApertura : BasicObject
+  [DefaultClassOptions]
+public class ComprobanteItemApertura : BasicObject
   {
     private CentroDeCosto fCentroDeCosto;
     private ComprobanteItem fItem;

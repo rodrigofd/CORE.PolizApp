@@ -6,7 +6,7 @@ using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Seguridad;
 using CORE.Modulos.Sistema;
 using CORE.Modulos.Ventas;
@@ -25,7 +25,8 @@ namespace CORE.Modulos.CRM
   [ Persistent( @"crm.Actividad" ) ]
   [ DefaultClassOptions ]
   [ System.ComponentModel.DisplayName( "Actividad" ) ]
-  public class Actividad : BasicObject, IObjetoPorGrupo
+  [DefaultClassOptions]
+public class Actividad : BasicObject, IObjetoPorGrupo
   {
     private string fAsunto;
     private Cliente fCliente;

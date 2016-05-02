@@ -5,7 +5,7 @@ using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Personas;
 
 namespace FDIT.Core.Fondos
@@ -14,7 +14,8 @@ namespace FDIT.Core.Fondos
   [ System.ComponentModel.DisplayName( "Cheque" ) ]
   [ ImageName( "Cheque" ) ]
   //[DefaultProperty("Nombre")]
-    public class Cheque : Valor
+    [DefaultClassOptions]
+public class Cheque : Valor
   {
     private DateTime fAnulado;
     private string fAnuladoMotivo;

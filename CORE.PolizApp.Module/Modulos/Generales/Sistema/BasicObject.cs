@@ -20,14 +20,14 @@ namespace CORE.PolizApp.Sistema
     [DefaultProperty("Descripcion")]
     public abstract class BasicObject : XPObject
     {
-        private XPCollection<AuditDataItemPersistent> auditTrail;
-        private XPMemberInfo defaultPropertyMemberInfo;
-        private XPCollection<ArchivoAdjunto> fArchivosAsociados;
-        private XPCollection<Nota> fNotas;
-        private XPCollection<Vinculo> fVinculos;
+        private XPCollection<AuditDataItemPersistent> _auditTrail;
+        private XPMemberInfo _defaultPropertyMemberInfo;
+        private XPCollection<ArchivoAdjunto> _fArchivosAsociados;
+        private XPCollection<Nota> _fNotas;
+        private XPCollection<Vinculo> _fVinculos;
         [NonPersistent] [Browsable(false)] public bool IgnoreOnChanged;
-        private bool isDefaultPropertyAttributeInit;
-        protected Dictionary<string, int> tempKeys = new Dictionary<string, int>();
+        private bool _isDefaultPropertyAttributeInit;
+        protected Dictionary<string, int> TempKeys = new Dictionary<string, int>();
 
         protected BasicObject()
         {
@@ -57,14 +57,14 @@ namespace CORE.PolizApp.Sistema
         {
             get
             {
-                if (fNotas == null)
+                if (_fNotas == null)
                 {
                     var criteria =
                         CriteriaOperator.Parse("OriginanteKey = " + Oid + " and OriginanteType.Oid = " +
                                                Session.GetObjectType(this).Oid);
-                    fNotas = new XPCollection<Nota>(Session, criteria);
+                    _fNotas = new XPCollection<Nota>(Session, criteria);
                 }
-                return fNotas;
+                return _fNotas;
             }
         }
 
@@ -76,14 +76,14 @@ namespace CORE.PolizApp.Sistema
         {
             get
             {
-                if (fArchivosAsociados == null)
+                if (_fArchivosAsociados == null)
                 {
                     var criteria =
                         CriteriaOperator.Parse("OriginanteKey = " + Oid + " and OriginanteType.Oid = " +
                                                Session.GetObjectType(this).Oid);
-                    fArchivosAsociados = new XPCollection<ArchivoAdjunto>(Session, criteria);
+                    _fArchivosAsociados = new XPCollection<ArchivoAdjunto>(Session, criteria);
                 }
-                return fArchivosAsociados;
+                return _fArchivosAsociados;
             }
         }
 
@@ -95,16 +95,16 @@ namespace CORE.PolizApp.Sistema
         {
             get
             {
-                if (fVinculos == null)
+                if (_fVinculos == null)
                 {
                     var criteria = GroupOperator.Combine(GroupOperatorType.Or,
                         CriteriaOperator.Parse("OriginanteKey = " + Oid + " and OriginanteType.Oid = " +
                                                Session.GetObjectType(this).Oid),
                         CriteriaOperator.Parse("DestinatarioKey = " + Oid + " and DestinatarioType.Oid = " +
                                                Session.GetObjectType(this).Oid));
-                    fVinculos = new XPCollection<Vinculo>(Session, criteria);
+                    _fVinculos = new XPCollection<Vinculo>(Session, criteria);
                 }
-                return fVinculos;
+                return _fVinculos;
             }
         }
 
@@ -112,7 +112,7 @@ namespace CORE.PolizApp.Sistema
         [VisibleInDetailView(false)]
         [System.ComponentModel.DisplayName(@"Auditoría")]
         public XPCollection<AuditDataItemPersistent> AuditTrail
-            => auditTrail ?? (auditTrail = AuditedObjectWeakReference.GetAuditTrail(Session, this));
+            => _auditTrail ?? (_auditTrail = AuditedObjectWeakReference.GetAuditTrail(Session, this));
 
         protected override XPCollection<T> CreateCollection<T>(XPMemberInfo property)
         {
@@ -126,7 +126,7 @@ namespace CORE.PolizApp.Sistema
         {
             if (e.ListChangedType == ListChangedType.ItemAdded)
             {
-                var tempKey = tempKeys.ContainsKey(collectionName) ? tempKeys[collectionName] : 0;
+                var tempKey = TempKeys.ContainsKey(collectionName) ? TempKeys[collectionName] : 0;
 
                 tempKey--;
 
@@ -134,7 +134,7 @@ namespace CORE.PolizApp.Sistema
                 if (xpObject == null || xpObject.Oid != -1) return;
 
                 xpObject.Oid = tempKey;
-                tempKeys[collectionName] = tempKey;
+                TempKeys[collectionName] = tempKey;
             }
         }
 
@@ -156,7 +156,7 @@ namespace CORE.PolizApp.Sistema
         {
             if (!BaseObject.IsXpoProfiling)
             {
-                if (!isDefaultPropertyAttributeInit)
+                if (!_isDefaultPropertyAttributeInit)
                 {
                     var memberName = string.Empty;
                     var attribute1 =
@@ -173,13 +173,13 @@ namespace CORE.PolizApp.Sistema
                             memberName = attribute2.Name;
                     }
                     if (!string.IsNullOrEmpty(memberName))
-                        defaultPropertyMemberInfo = ClassInfo.FindMember(memberName);
-                    isDefaultPropertyAttributeInit = true;
+                        _defaultPropertyMemberInfo = ClassInfo.FindMember(memberName);
+                    _isDefaultPropertyAttributeInit = true;
                 }
 
-                if (defaultPropertyMemberInfo != null)
+                if (_defaultPropertyMemberInfo != null)
                 {
-                    var obj = defaultPropertyMemberInfo.GetValue(this);
+                    var obj = _defaultPropertyMemberInfo.GetValue(this);
                     if (obj != null)
                         return obj.ToString();
                 }

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using DevExpress.Xpo.Metadata;
 
 namespace FDIT.Core.Gestion
 {
   [ Persistent( @"gestion.Pago" ) ]
   [ System.ComponentModel.DisplayName( "Pago" ) ]
-  public class Pago : Fondos.Comprobante
+  [DefaultClassOptions]
+public class Pago : Fondos.Comprobante
   {
     private Comprobante fComprobanteAnticipo;
 

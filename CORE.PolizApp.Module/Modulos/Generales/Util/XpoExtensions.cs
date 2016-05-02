@@ -5,7 +5,7 @@ using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Xpo;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.General.Modulos.Util
 {
@@ -17,11 +17,12 @@ namespace CORE.General.Modulos.Util
         }
     }
 
-    public class XPViewCollectionSource : CollectionSourceBase
+    [DefaultClassOptions]
+public class XPViewCollectionSource : CollectionSourceBase
     {
-        private readonly CriteriaOperator fixedCriteria;
-        private readonly Type objectType;
-        private readonly IList<ViewProperty> properties;
+        private readonly CriteriaOperator _fixedCriteria;
+        private readonly Type _objectType;
+        private readonly IList<ViewProperty> _properties;
 
         public XPViewCollectionSource(IObjectSpace objectSpace) : base(objectSpace)
         {
@@ -31,26 +32,26 @@ namespace CORE.General.Modulos.Util
             CriteriaOperator criteria)
             : this(objectSpace)
         {
-            this.objectType = objectType;
-            this.properties = properties;
-            fixedCriteria = criteria;
+            this._objectType = objectType;
+            this._properties = properties;
+            _fixedCriteria = criteria;
         }
 
         public override ITypeInfo ObjectTypeInfo
         {
-            get { return XafTypesInfo.Instance.FindTypeInfo(objectType); }
+            get { return XafTypesInfo.Instance.FindTypeInfo(_objectType); }
         }
 
         protected override object CreateCollection()
         {
-            var xpv = new XPView(((XPObjectSpace) ObjectSpace).Session, objectType) {Criteria = fixedCriteria};
-            xpv.Properties.AddRange(properties.ToArray());
+            var xpv = new XPView(((XPObjectSpace) ObjectSpace).Session, _objectType) {Criteria = _fixedCriteria};
+            xpv.Properties.AddRange(_properties.ToArray());
             return xpv;
         }
 
         protected override void ApplyCriteriaCore(CriteriaOperator criteria)
         {
-            ((XPView) originalCollection).Criteria = GroupOperator.Combine(GroupOperatorType.And, fixedCriteria,
+            ((XPView) originalCollection).Criteria = GroupOperator.Combine(GroupOperatorType.And, _fixedCriteria,
                 criteria);
         }
     }

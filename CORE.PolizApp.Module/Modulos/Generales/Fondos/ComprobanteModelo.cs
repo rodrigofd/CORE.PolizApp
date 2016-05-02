@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Gestion;
 using FDIT.Core.Sistema;
 
@@ -9,7 +9,8 @@ namespace FDIT.Core.Fondos
   [ Persistent( "fondos.ComprobanteModelo" ) ]
   [ DefaultClassOptions ]
   [DefaultProperty("Tipo")]
-    public class ComprobanteModelo : BasicObject, IObjetoPorEmpresa
+    [DefaultClassOptions]
+public class ComprobanteModelo : BasicObject, IObjetoPorEmpresa
   {
     private Empresa fEmpresa;
     private ComprobanteTipo fTipo;

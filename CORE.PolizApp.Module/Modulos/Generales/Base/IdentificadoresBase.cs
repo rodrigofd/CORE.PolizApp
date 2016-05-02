@@ -5,7 +5,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.General.Modulos.Base
 {
@@ -13,7 +13,8 @@ namespace CORE.General.Modulos.Base
     [ImageName("information")]
     [NonPersistent]
     [System.ComponentModel.DisplayName("Preferencias")]
-    public class IdentificadoresBase<T> : XPLiteObject where T : XPLiteObject
+    [DefaultClassOptions]
+public class IdentificadoresBase<T> : XPLiteObject where T : XPLiteObject
     {
         private int fEmpresa;
 

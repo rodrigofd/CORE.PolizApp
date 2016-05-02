@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Gestion
 {
@@ -8,7 +8,8 @@ namespace FDIT.Core.Gestion
   [DefaultClassOptions]
   [DefaultProperty( "Nombre" )]
   [System.ComponentModel.DisplayName( "Marca comercial" )]
-  public class MarcaComercial : BasicObject
+  [DefaultClassOptions]
+public class MarcaComercial : BasicObject
   {
     private string fNombre;
 

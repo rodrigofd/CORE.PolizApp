@@ -2,7 +2,7 @@
 
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Gestion;
 
 using CORE.Modulos.Stock;
@@ -16,7 +16,8 @@ namespace CORE.Modulos.Compras
   [ DefaultClassOptions ]
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Proveedor" ) ]
-  public class Proveedor : Rol
+  [DefaultClassOptions]
+public class Proveedor : Rol
   {
     private bool fActivo;
     private ComprobanteTipo fComprobanteTipoPredeterminado;

@@ -9,7 +9,8 @@ namespace WinWebSolution.Module
     /// <summary>
     /// Dennis: This class contains the logic of data import for each class. For instance, you may code here the algorithm of importing data objects from Excel using a popular and free FileHelpers library.
     /// </summary>
-    public class ImportDataLogic
+    [DefaultClassOptions]
+public class ImportDataLogic
     {
         public static ValidateDataDelegate<PhoneNumber> CreateDummyPhoneNumberValidateDataDelegate()
         {

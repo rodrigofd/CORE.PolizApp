@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Gestion
 {
@@ -8,9 +8,10 @@ namespace CORE.PolizApp.Gestion
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName("Grupos de conceptos para Facturación")]
-    public class ConceptoGrupoFacturacion : BasicObject
+    [DefaultClassOptions]
+public class ConceptoGrupoFacturacion : BasicObject
     {
-        private string fNombre;
+        private string _fNombre;
 
         public ConceptoGrupoFacturacion(Session session) : base(session)
         {
@@ -18,8 +19,8 @@ namespace CORE.PolizApp.Gestion
 
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         [Association(@"ConceptosReferencesConceptosGruposFacturacion", typeof (Concepto))]

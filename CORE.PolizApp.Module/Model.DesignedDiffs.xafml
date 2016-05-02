@@ -13,6 +13,261 @@
       <LocalizationItem Name="DefaultCulture" Value="(default culture)" IsNewNode="True" />
     </LocalizationGroup>
   </Localization>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="@e903c376-b437-407f-a127-c57177a4491f" Caption="PolizApp" Index="0" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="CORE.PolizApp.PolizApp.Documento_ListView" ViewId="CORE.PolizApp.PolizApp.Documento_ListView" ObjectKey="" Index="0" IsNewNode="True" />
+              <Item Id="CORE.PolizApp.PolizApp.Siniestro_ListView" ViewId="CORE.PolizApp.PolizApp.Siniestro_ListView" ObjectKey="" Index="1" IsNewNode="True" />
+              <Item Id="CORE.PolizApp.PolizApp.Refacturacion_ListView" ViewId="CORE.PolizApp.PolizApp.Refacturacion_ListView" ObjectKey="" Index="2" IsNewNode="True" />
+              <Item Id="CORE.PolizApp.PolizApp.Liquidacion_ListView" Index="3" ViewId="CORE.PolizApp.PolizApp.Liquidacion_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="CORE.PolizApp.PolizApp.Rendicion_ListView" ViewId="CORE.PolizApp.PolizApp.Rendicion_ListView" ObjectKey="" Index="4" IsNewNode="True" />
+              <Item Id="CORE.PolizApp.PolizApp.RendicionART_ListView" ViewId="CORE.PolizApp.PolizApp.RendicionART_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="CORE.PolizApp.PolizApp.RendicionVO_ListView" ViewId="CORE.PolizApp.PolizApp.RendicionVO_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="@3ff4dcc5-e2b9-44ca-b73a-a842c784188c" Caption="Configuración" Index="1" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="@2c2688d5-a681-4dfe-bc63-3781013881e7" Caption="Pólizas" Index="0" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.PolizApp.Aseguradora_ListView" ViewId="CORE.PolizApp.PolizApp.Aseguradora_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.Cobertura_ListView" ViewId="CORE.PolizApp.PolizApp.Cobertura_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.CoberturaPlan_ListView" ViewId="CORE.PolizApp.PolizApp.CoberturaPlan_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.CoberturaTipo_ListView" ViewId="CORE.PolizApp.PolizApp.CoberturaTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.DocumentoClase_ListView" ViewId="CORE.PolizApp.PolizApp.DocumentoClase_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.DocumentoClaseTipo_ListView" ViewId="CORE.PolizApp.PolizApp.DocumentoClaseTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.DocumentoEstado_ListView" ViewId="CORE.PolizApp.PolizApp.DocumentoEstado_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.DocumentoItemTipo_ListView" ViewId="CORE.PolizApp.PolizApp.DocumentoItemTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.DocumentoTipo_ListView" ViewId="CORE.PolizApp.PolizApp.DocumentoTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.FacturaPeriodicidad_ListView" ViewId="CORE.PolizApp.PolizApp.FacturaPeriodicidad_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.FacturaTipo_ListView" ViewId="CORE.PolizApp.PolizApp.FacturaTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.FormaPago_ListView" ViewId="CORE.PolizApp.PolizApp.FormaPago_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.Identificadores_ListView" ViewId="CORE.PolizApp.PolizApp.Identificadores_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.IntermediarioComision_ListView" ViewId="CORE.PolizApp.PolizApp.IntermediarioComision_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.Negocio_ListView" ViewId="CORE.PolizApp.PolizApp.Negocio_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.NegocioLinea_ListView" ViewId="CORE.PolizApp.PolizApp.NegocioLinea_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.NegocioRamo_ListView" ViewId="CORE.PolizApp.PolizApp.NegocioRamo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.NegocioRamoPlan_ListView" ViewId="CORE.PolizApp.PolizApp.NegocioRamoPlan_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.Ramo_ListView" ViewId="CORE.PolizApp.PolizApp.Ramo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.RamoClase_ListView" ViewId="CORE.PolizApp.PolizApp.RamoClase_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.RamoTipo_ListView" ViewId="CORE.PolizApp.PolizApp.RamoTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.RefacturacionFormato_ListView" ViewId="CORE.PolizApp.PolizApp.RefacturacionFormato_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.RendicionFormato_ListView" ViewId="CORE.PolizApp.PolizApp.RendicionFormato_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.Rol_ListView" ViewId="CORE.PolizApp.PolizApp.Rol_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.SiniestroEstado_ListView" ViewId="CORE.PolizApp.PolizApp.SiniestroEstado_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.SiniestroLiquidacionTipoMovimiento_ListView" ViewId="CORE.PolizApp.PolizApp.SiniestroLiquidacionTipoMovimiento_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.SiniestroTipo_ListView" ViewId="CORE.PolizApp.PolizApp.SiniestroTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.SiniestroTipoPerdida_ListView" ViewId="CORE.PolizApp.PolizApp.SiniestroTipoPerdida_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.TasaRiesgoUm_ListView" ViewId="CORE.PolizApp.PolizApp.TasaRiesgoUm_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.VehiculoMarca_ListView" ViewId="CORE.PolizApp.PolizApp.VehiculoMarca_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.VehiculoModelo_ListView" ViewId="CORE.PolizApp.PolizApp.VehiculoModelo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.VehiculoPrecio_ListView" ViewId="CORE.PolizApp.PolizApp.VehiculoPrecio_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.VehiculoTipo_ListView" ViewId="CORE.PolizApp.PolizApp.VehiculoTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.PolizApp.VehiculoUso_ListView" ViewId="CORE.PolizApp.PolizApp.VehiculoUso_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@f6451d6a-f597-428b-acb8-b3c973fb1a54" Caption="Personas" Index="1" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.Personas.ContactoTipo_ListView" ViewId="CORE.PolizApp.Personas.ContactoTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Personas.DireccionTipo_ListView" ViewId="CORE.PolizApp.Personas.DireccionTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Personas.IdentificacionClase_ListView" ViewId="CORE.PolizApp.Personas.IdentificacionClase_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Personas.IdentificacionTipo_ListView" ViewId="CORE.PolizApp.Personas.IdentificacionTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Personas.Propiedad_ListView" ViewId="CORE.PolizApp.Personas.Propiedad_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Personas.PropiedadValor_ListView" ViewId="CORE.PolizApp.Personas.PropiedadValor_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Personas.RelacionTipo_ListView" ViewId="CORE.PolizApp.Personas.RelacionTipo_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@760602ba-c523-4b7f-9b1a-465aceb83b7f" Caption="Impuestos" Index="2" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.Impuestos.Categoria_ListView" ViewId="CORE.PolizApp.Impuestos.Categoria_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Impuestos.Impuesto_ListView" ViewId="CORE.PolizApp.Impuestos.Impuesto_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Impuestos.ImpuestoTipo_ListView" ViewId="CORE.PolizApp.Impuestos.ImpuestoTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Impuestos.Padron_ListView" ViewId="CORE.PolizApp.Impuestos.Padron_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Impuestos.Regimen_ListView" ViewId="CORE.PolizApp.Impuestos.Regimen_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Impuestos.RetencionEscala_ListView" ViewId="CORE.PolizApp.Impuestos.RetencionEscala_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@8fc09206-d94f-406b-b916-a11a84d5d16b" Caption="Regionales" Index="3" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.Regionales.Ciudad_ListView" ViewId="CORE.PolizApp.Regionales.Ciudad_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Regionales.Continente_ListView" ViewId="CORE.PolizApp.Regionales.Continente_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Regionales.Identificadores_ListView" ViewId="CORE.PolizApp.Regionales.Identificadores_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Regionales.Idioma_ListView" ViewId="CORE.PolizApp.Regionales.Idioma_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Regionales.Localidad_ListView" ViewId="CORE.PolizApp.Regionales.Localidad_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Regionales.Pais_ListView" ViewId="CORE.PolizApp.Regionales.Pais_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Regionales.Provincia_ListView" ViewId="CORE.PolizApp.Regionales.Provincia_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@5b004d21-d54d-4158-aa87-d140abc34755" Caption="Contabilidad" Index="4" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.Contabilidad.Cuenta_ListView" ViewId="CORE.PolizApp.Contabilidad.Cuenta_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Contabilidad.CuentaRubro_ListView" ViewId="CORE.PolizApp.Contabilidad.CuentaRubro_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@8aa0a824-e6e9-4c4a-8cf4-a2288cc29932" Caption="Fondos" Index="5" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.Fondos.Banco_ListView" ViewId="CORE.PolizApp.Fondos.Banco_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Fondos.Cuenta_ListView" ViewId="CORE.PolizApp.Fondos.Cuenta_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Fondos.CuentaChequera_ListView" ViewId="CORE.PolizApp.Fondos.CuentaChequera_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Fondos.Especie_ListView" ViewId="CORE.PolizApp.Fondos.Especie_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Fondos.EspecieCotizacion_ListView" ViewId="CORE.PolizApp.Fondos.EspecieCotizacion_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Fondos.EspecieInstrumento_ListView" ViewId="CORE.PolizApp.Fondos.EspecieInstrumento_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Fondos.Moneda_ListView" ViewId="CORE.PolizApp.Fondos.Moneda_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Fondos.PaisMoneda_ListView" ViewId="CORE.PolizApp.Fondos.PaisMoneda_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Fondos.ValorDeposito_ListView" ViewId="CORE.PolizApp.Fondos.ValorDeposito_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@5a65d55d-0178-4a0b-b3a5-74ef51c78797" Caption="Gestión" Index="6" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.Gestion.ComprobanteTipo_ListView" ViewId="CORE.PolizApp.Gestion.ComprobanteTipo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Gestion.Concepto_ListView" ViewId="CORE.PolizApp.Gestion.Concepto_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Gestion.ConceptoClase_ListView" ViewId="CORE.PolizApp.Gestion.ConceptoClase_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Gestion.ConceptoGrupoFacturacion_ListView" ViewId="CORE.PolizApp.Gestion.ConceptoGrupoFacturacion_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Gestion.CondicionDePago_ListView" ViewId="CORE.PolizApp.Gestion.CondicionDePago_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@2ccc9325-9751-41cb-bfd7-4f8a0fc27fa2" Caption="AFIP" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.General.Modulos.AFIP.AfipCaeMotivo_ListView" ViewId="CORE.General.Modulos.AFIP.AfipCaeMotivo_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.General.Modulos.AFIP.AfipCodigoDestinacion_ListView" ViewId="CORE.General.Modulos.AFIP.AfipCodigoDestinacion_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.General.Modulos.AFIP.AfipImpuestoCategoria_ListView" ViewId="CORE.General.Modulos.AFIP.AfipImpuestoCategoria_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.General.Modulos.AFIP.AfipMoneda_ListView" ViewId="CORE.General.Modulos.AFIP.AfipMoneda_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@e3f44202-d490-4a6e-bd61-d1601120943c" Caption="Sistema" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.Sistema.Empresa_ListView" ViewId="CORE.PolizApp.Sistema.Empresa_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@e3f44202-d490-4a6e-bd61-d1601120943c_Copy" Caption="Seguridad" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="CORE.PolizApp.Seguridad.Rol_ListView" ViewId="CORE.PolizApp.Seguridad.Rol_ListView" ObjectKey="" IsNewNode="True" />
+                  <Item Id="CORE.PolizApp.Seguridad.Usuario_ListView" ViewId="CORE.PolizApp.Seguridad.Usuario_ListView" ObjectKey="" IsNewNode="True" />
+                </Items>
+              </Item>
+              <Item Id="@f064c1fb-5ba7-4c34-a272-3229f967fa00" Caption="SSN" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="CORE.PolizApp.PolizApp.Liquidacion_ListView" Index="2" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.LiquidacionIntermadiarioItem_ListView" Index="3" />
+          <Item Id="CORE.PolizApp.PolizApp.LiquidacionIntermediario_ListView" Index="4" />
+          <Item Id="CORE.General.Modulos.AFIP.AfipCaeMotivo_ListView" Removed="True" />
+          <Item Id="CORE.General.Modulos.AFIP.AfipCodigoDestinacion_ListView" Removed="True" />
+          <Item Id="CORE.General.Modulos.AFIP.AfipImpuestoCategoria_ListView" Removed="True" />
+          <Item Id="CORE.General.Modulos.AFIP.AfipMoneda_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Contabilidad.Cuenta_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Contabilidad.CuentaRubro_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.Banco_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.Cuenta_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.CuentaChequera_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.Especie_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.EspecieCotizacion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.EspecieInstrumento_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.Moneda_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.PaisMoneda_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Fondos.ValorDeposito_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Gestion.ComprobanteTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Gestion.Concepto_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Gestion.ConceptoClase_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Gestion.ConceptoGrupoFacturacion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Gestion.CondicionDePago_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Impuestos.Categoria_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Impuestos.Impuesto_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Impuestos.ImpuestoTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Impuestos.Padron_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Impuestos.Regimen_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Impuestos.RetencionEscala_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.ContactoTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.Direccion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.DireccionTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.Identificacion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.IdentificacionClase_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.IdentificacionTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.Persona_ListView" Caption="Maestro de Personas" />
+          <Item Id="CORE.PolizApp.Personas.PersonaContacto_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.PersonaImpuesto_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.PersonaPropiedad_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.Propiedad_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.PropiedadValor_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.Relacion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.RelacionTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.VRelacion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Aseguradora_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.AseguradoraProductor_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Cobertura_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.CoberturaPlan_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.CoberturaTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Documento_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoClase_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoClaseTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoCuota_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoEstado_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoInterviniente_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoItem_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoItemCobertura_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoItemTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.DocumentoTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.FacturaPeriodicidad_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.FacturaTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.FormaPago_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Identificadores_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.IntermediarioComision_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.LiquidacionItem_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Negocio_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.NegocioLinea_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.NegocioRamo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.NegocioRamoPlan_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Ramo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RamoClase_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RamoTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Refacturacion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RefacturacionFormato_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RefacturacionItem_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Rendicion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RendicionART_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RendicionARTItem_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RendicionFormato_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RendicionItem_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RendicionItemImportado_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RendicionVO_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.RendicionVOItem_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Rol_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.Siniestro_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.SiniestroEstado_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.SiniestroLiquidacionTipoMovimiento_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.SiniestroTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.SiniestroTipoPerdida_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.TasaRiesgoUm_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.VehiculoMarca_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.VehiculoModelo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.VehiculoPrecio_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.VehiculoTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.PolizApp.VehiculoUso_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Regionales.Ciudad_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Regionales.Continente_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Regionales.Identificadores_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Regionales.Idioma_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Regionales.Localidad_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Regionales.Pais_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Regionales.PaisIdioma_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Regionales.Provincia_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Seguridad.CoreLogonParameters_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Seguridad.Rol_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Seguridad.Usuario_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.Archivo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.ArchivoAdjunto_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.Empresa_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.IdentificadoresBase`1[[CORE.PolizApp.Regionales.Identificadores, CORE.PolizApp.Module, Version=1.0.5962.27000, Culture=neutral, PublicKeyToken=null]]_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.Nota_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.Vinculo_ListView" Removed="True" />
+          <Item Id="CpaResultItem_ListView" Removed="True" />
+          <Item Id="LocalidadResultItem_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options DataAccessMode="Server">
     <Dashboards EnableCreation="True" />
   </Options>

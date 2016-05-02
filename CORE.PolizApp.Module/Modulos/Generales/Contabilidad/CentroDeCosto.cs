@@ -1,12 +1,13 @@
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Contabilidad
 {
   [ Persistent( @"contabilidad.CentroDeCosto" ) ]
   [ DefaultClassOptions ]
   [ System.ComponentModel.DisplayName( "Centros de costo" ) ]
-  public class CentroDeCosto : BasicObject
+  [DefaultClassOptions]
+public class CentroDeCosto : BasicObject
   {
     private bool fActivo;
     private string fCentroDeCosto;

@@ -1,5 +1,5 @@
 using System;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Stock;
 using CORE.Modulos.Sistema;
 
@@ -7,7 +7,8 @@ namespace CORE.Modulos.CRM
 {
   [Persistent(@"crm.ContratoPeriodo")]
   [System.ComponentModel.DisplayName("Item del contrato")]
-  public class ContratoPeriodo : BasicObject
+  [DefaultClassOptions]
+public class ContratoPeriodo : BasicObject
   {
     private Contrato fContrato;
     private int fNumero;

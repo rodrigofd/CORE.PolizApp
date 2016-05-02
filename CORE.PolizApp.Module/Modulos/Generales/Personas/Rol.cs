@@ -1,6 +1,6 @@
 using CORE.General.Modulos.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using DisplayNameAttribute = System.ComponentModel.DisplayNameAttribute;
 
 namespace CORE.General.Modulos.Personas
@@ -8,7 +8,8 @@ namespace CORE.General.Modulos.Personas
     [ImageName("user-worker")]
     [NonPersistent]
     [System.ComponentModel.DisplayName(@"Rol de persona")]
-    public class personas_Rol : BasicObject
+    [DefaultClassOptions]
+public class personas_Rol : BasicObject
     {
         private personas_Persona fPersona;
 

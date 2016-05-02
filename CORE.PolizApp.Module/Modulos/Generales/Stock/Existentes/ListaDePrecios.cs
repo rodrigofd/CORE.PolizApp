@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Sistema;
 
 namespace CORE.Modulos.Stock
@@ -10,7 +10,8 @@ namespace CORE.Modulos.Stock
   [DefaultClassOptions]
   [DefaultProperty( "Nombre" )]
   [System.ComponentModel.DisplayName( "Lista de precios" )]
-  public class ListaDePrecios : BasicObject
+  [DefaultClassOptions]
+public class ListaDePrecios : BasicObject
   {
     private decimal fAlicuota;
     private decimal fCoeficienteListaBase;

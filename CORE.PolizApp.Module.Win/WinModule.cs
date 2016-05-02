@@ -32,7 +32,7 @@ namespace CORE.PolizApp.Module.Win
             e.Handled = true;
         }
 
-        public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
+        public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDb)
         {
             return ModuleUpdater.EmptyModuleUpdaters;
         }

@@ -1,5 +1,5 @@
 using System;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Validation;
@@ -18,7 +18,8 @@ namespace ImportData
     /// <summary>
     /// Dennis: This class provides a generic logic to import and validate persistent objects in ListView.
     /// </summary>
-    public class ImportDataManager
+    [DefaultClassOptions]
+public class ImportDataManager
     {
         private XafApplication app;
         public ImportDataManager(XafApplication application)

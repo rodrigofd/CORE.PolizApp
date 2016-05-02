@@ -4,7 +4,8 @@ using DevExpress.Xpo.DB;
 
 namespace FDIT.Core.Util
 {
-  public class ConvertToStrFunction : ICustomFunctionOperatorFormattable
+  [DefaultClassOptions]
+public class ConvertToStrFunction : ICustomFunctionOperatorFormattable
   {
     string ICustomFunctionOperatorFormattable.Format( Type providerType, params string[ ] operands )
     {

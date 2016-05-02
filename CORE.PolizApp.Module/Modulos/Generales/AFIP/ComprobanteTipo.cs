@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using CORE.General.Modulos.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.General.Modulos.AFIP
 {
@@ -8,7 +8,8 @@ namespace CORE.General.Modulos.AFIP
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Tipos de comprobantes AFIP")]
-    public class afip_ComprobanteTipo : BasicObject
+    [DefaultClassOptions]
+public class afip_ComprobanteTipo : BasicObject
     {
         private short fCodigo;
         private string fComprobanteTipo;

@@ -1,10 +1,11 @@
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
   [ System.ComponentModel.DisplayName( "Articulo Serie" ) ]
   [ Persistent( @"stock.ArticuloSerie" ) ]
-  public class ArticuloSerie : BasicObject
+  [DefaultClassOptions]
+public class ArticuloSerie : BasicObject
   {
     private Articulo fArticulo;
     private Partida fPartida;

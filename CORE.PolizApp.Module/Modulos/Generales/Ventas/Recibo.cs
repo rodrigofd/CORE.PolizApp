@@ -6,7 +6,7 @@ using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Fondos;
 using CORE.Modulos.Gestion;
 using CORE.Modulos.Personas;
@@ -19,7 +19,8 @@ namespace CORE.Modulos.Ventas
   [ ImageName( "receipt_invoice" ) ]
   [ Persistent( @"ventas.Recibo" ) ]
   [ System.ComponentModel.DisplayName( "Recibo de cobranza" ) ]
-  public class Recibo : Pago
+  [DefaultClassOptions]
+public class Recibo : Pago
   {
     public Recibo( Session session )
       : base( session )

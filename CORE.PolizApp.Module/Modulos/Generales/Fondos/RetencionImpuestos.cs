@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Impuestos;
 
 namespace FDIT.Core.Fondos
@@ -8,7 +8,8 @@ namespace FDIT.Core.Fondos
   [ Persistent( "fondos.RetencionImpuestos" ) ]
   [ System.ComponentModel.DisplayName( "Retención de impuestos" ) ]
   [ DefaultClassOptions ]
-  public class RetencionImpuestos : Valor
+  [DefaultClassOptions]
+public class RetencionImpuestos : Valor
   {
     private Impuesto fImpuesto;
     private int fNumero;

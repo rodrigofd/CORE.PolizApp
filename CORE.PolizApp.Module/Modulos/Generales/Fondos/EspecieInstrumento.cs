@@ -2,7 +2,7 @@ using System.ComponentModel;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Fondos
 {
@@ -10,11 +10,12 @@ namespace CORE.PolizApp.Fondos
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Instrumento de pago")]
-    public class EspecieInstrumento : BasicObject
+    [DefaultClassOptions]
+public class EspecieInstrumento : BasicObject
     {
-        private EspecieInstrumentoClase fClase;
-        private string fCodigo;
-        private string fEspecieInstrumento;
+        private EspecieInstrumentoClase _fClase;
+        private string _fCodigo;
+        private string _fEspecieInstrumento;
 
         public EspecieInstrumento(Session session)
             : base(session)
@@ -25,23 +26,23 @@ namespace CORE.PolizApp.Fondos
         [Index(0)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(50)]
         [Index(1)]
         public string Nombre
         {
-            get { return fEspecieInstrumento; }
-            set { SetPropertyValue("Nombre", ref fEspecieInstrumento, value); }
+            get { return _fEspecieInstrumento; }
+            set { SetPropertyValue("Nombre", ref _fEspecieInstrumento, value); }
         }
 
         [RuleRequiredField]
         public EspecieInstrumentoClase Clase
         {
-            get { return fClase; }
-            set { SetPropertyValue("Clase", ref fClase, value); }
+            get { return _fClase; }
+            set { SetPropertyValue("Clase", ref _fClase, value); }
         }
 
         [Association(@"EspeciesReferencesEspeciesInstrumentos", typeof (Especie))]

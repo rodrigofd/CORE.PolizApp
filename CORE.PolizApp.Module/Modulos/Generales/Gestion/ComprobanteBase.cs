@@ -5,7 +5,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.General.Modulos.Sistema;
 using FDIT.Core.Sistema;
 using FDIT.Core.Gestion;
@@ -18,7 +18,8 @@ namespace CORE.Modulos.Gestion
   [ Persistent("gestion.ComprobanteBase") ]
   [ DefaultProperty( "Descripcion" ) ]
   [System.ComponentModel.DisplayName( "Comprobante" )]
-  public class ComprobanteBase : BasicObject, IObjetoPorEmpresa
+  [DefaultClassOptions]
+public class ComprobanteBase : BasicObject, IObjetoPorEmpresa
   {
     protected string fAnuladaNotas;
     protected ComprobanteSector fComprobanteSector;

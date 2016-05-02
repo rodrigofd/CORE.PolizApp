@@ -28,7 +28,7 @@ namespace CORE.PolizApp.Web
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            WebApplication.SetInstance(Session, new FMAspNetApplication());
+            WebApplication.SetInstance(Session, new FmAspNetApplication());
             WebApplication.Instance.SwitchToNewStyle();
             if (ConfigurationManager.ConnectionStrings["ConnectionString"] != null)
             {

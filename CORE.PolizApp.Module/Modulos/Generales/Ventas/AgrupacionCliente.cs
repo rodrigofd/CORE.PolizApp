@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Ventas
 {
@@ -9,7 +9,8 @@ namespace CORE.Modulos.Ventas
   [DefaultClassOptions]
   [DefaultProperty( "Nombre" )]
   [System.ComponentModel.DisplayName( "Agrupación de clientes" )]
-  public class AgrupacionCliente : BaseObject
+  [DefaultClassOptions]
+public class AgrupacionCliente : BaseObject
   {
     private string fNombre;
 

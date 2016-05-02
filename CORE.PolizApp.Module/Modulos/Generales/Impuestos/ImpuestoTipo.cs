@@ -2,20 +2,21 @@ using System.ComponentModel;
 using CORE.PolizApp.Gestion;
 using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Impuestos
 {
     [Persistent(@"impuestos.ImpuestoTipo")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Impuesto Tipo")]
-    public class ImpuestoTipo : BasicObject
+    [DefaultClassOptions]
+public class ImpuestoTipo : BasicObject
     {
         private Impuesto _fImpuesto;
-        private string fNombre;
+        private string _fNombre;
 
-        private int fOrden;
-        private decimal fValor;
+        private int _fOrden;
+        private decimal _fValor;
 
         public ImpuestoTipo(Session session)
             : base(session)
@@ -31,21 +32,21 @@ namespace CORE.PolizApp.Impuestos
 
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
         public decimal Valor
         {
-            get { return fValor; }
-            set { SetPropertyValue("Valor", ref fValor, value); }
+            get { return _fValor; }
+            set { SetPropertyValue("Valor", ref _fValor, value); }
         }
 
         public int Orden
         {
-            get { return fOrden; }
-            set { SetPropertyValue<int>("Orden", ref fOrden, value); }
+            get { return _fOrden; }
+            set { SetPropertyValue<int>("Orden", ref _fOrden, value); }
         }
 
 

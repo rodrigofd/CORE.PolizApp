@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Stock;
 using CORE.Modulos.Sistema;
 
@@ -9,7 +9,8 @@ namespace CORE.Modulos.Compras
   [ Persistent( @"compras.ArticuloProveedor" ) ]
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Art. según proveedor" ) ]
-  public class ArticuloProveedor : BasicObject
+  [DefaultClassOptions]
+public class ArticuloProveedor : BasicObject
   {
     private Articulo fArticulo;
     private string fCodigo;

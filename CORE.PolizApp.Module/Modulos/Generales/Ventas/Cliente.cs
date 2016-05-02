@@ -4,7 +4,7 @@ using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.CRM;
 using CORE.Modulos.Gestion;
 using CORE.Modulos.Personas;
@@ -25,7 +25,8 @@ namespace CORE.Modulos.Ventas
   [ Appearance( "personeria_nombre", Criteria = "Persona.Tipo <> 'Juridica'", Enabled = false, TargetItems = "Persona.Nombre" ) ]
   [ Appearance( "tratamiento_nombre_fantasia", Criteria = "Persona.Tipo <> 'Juridica'", Visibility = ViewItemVisibility.Hide, TargetItems = "Persona.NombreFantasia" ) ]
   [ Appearance( "personeria_sexo", Criteria = "Persona.Tipo <> 'Fisica'", Visibility = ViewItemVisibility.Hide, TargetItems = "Persona.Sexo" ) ]
-  public class Cliente : Rol
+  [DefaultClassOptions]
+public class Cliente : Rol
   {
     private bool fActivo;
     private AgrupacionCliente fAgrupacionCliente;

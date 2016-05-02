@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Sistema;
 
 namespace FDIT.Core.Gestion
@@ -10,7 +10,8 @@ namespace FDIT.Core.Gestion
   [ Persistent( "gestion.ComprobanteCuota" ) ]
   [ DefaultProperty( "Descripcion" ) ]
   [ System.ComponentModel.DisplayName( "Cuotas" ) ]
-  public class ComprobanteCuota : BasicObject
+  [DefaultClassOptions]
+public class ComprobanteCuota : BasicObject
   {
     private Comprobante fComprobante;
     private DateTime fFecha;

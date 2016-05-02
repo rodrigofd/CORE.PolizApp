@@ -5,7 +5,7 @@ using CORE.PolizApp.Personas;
 using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using DevExpress.Xpo.Metadata;
 
 namespace CORE.PolizApp.Regionales
@@ -13,31 +13,32 @@ namespace CORE.PolizApp.Regionales
     [Persistent(@"regionales.Pais")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"País")]
-    public class Pais : BasicObject
+    [DefaultClassOptions]
+public class Pais : BasicObject
     {
-        private string fCapital;
-        private string fCodigo;
-        private string fCodigo3;
-        private string fCodigoFips;
-        private string fCodigoNum;
-        private string fCodigoPstn;
-        private string fCodigoTld;
-        private Continente fContinente;
-        private string fFormatoCodigoPostal;
-        private string fGeoCodeAddr;
-        private string fGeoLatitud;
-        private string fGeoLongitud;
-        private string fGeoNameid;
-        private PaisIdioma fIdiomaNativo;
-        private Image fImagenBandera;
-        private Image fImagenBanderaChica;
-        private string fPais;
-        private string fPaisEng;
-        private string fPaisesLimitrofes;
-        private string fPatronCodigoPostal;
-        private int fPoblacion;
-        private decimal fSuperficie;
-        private string fUrlBuscadorCodigoPostal;
+        private string _fCapital;
+        private string _fCodigo;
+        private string _fCodigo3;
+        private string _fCodigoFips;
+        private string _fCodigoNum;
+        private string _fCodigoPstn;
+        private string _fCodigoTld;
+        private Continente _fContinente;
+        private string _fFormatoCodigoPostal;
+        private string _fGeoCodeAddr;
+        private string _fGeoLatitud;
+        private string _fGeoLongitud;
+        private string _fGeoNameid;
+        private PaisIdioma _fIdiomaNativo;
+        private Image _fImagenBandera;
+        private Image _fImagenBanderaChica;
+        private string _fPais;
+        private string _fPaisEng;
+        private string _fPaisesLimitrofes;
+        private string _fPatronCodigoPostal;
+        private int _fPoblacion;
+        private decimal _fSuperficie;
+        private string _fUrlBuscadorCodigoPostal;
 
         public Pais(Session session) : base(session)
         {
@@ -49,8 +50,8 @@ namespace CORE.PolizApp.Regionales
         [ValueConverter(typeof (ImageValueConverter))]
         public Image ImagenBanderaChica
         {
-            get { return fImagenBanderaChica; }
-            set { SetPropertyValue("ImagenBanderaChica", ref fImagenBanderaChica, value); }
+            get { return _fImagenBanderaChica; }
+            set { SetPropertyValue("ImagenBanderaChica", ref _fImagenBanderaChica, value); }
         }
 
         [VisibleInListView(false)]
@@ -60,62 +61,62 @@ namespace CORE.PolizApp.Regionales
         [Size(SizeAttribute.Unlimited)]
         public Image ImagenBandera
         {
-            get { return fImagenBandera; }
-            set { SetPropertyValue("ImagenBandera", ref fImagenBandera, value); }
+            get { return _fImagenBandera; }
+            set { SetPropertyValue("ImagenBandera", ref _fImagenBandera, value); }
         }
 
         [Index(2)]
         [Size(2)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Index(3)]
         [System.ComponentModel.DisplayName(@"País")]
         public string Nombre
         {
-            get { return fPais; }
-            set { SetPropertyValue("Nombre", ref fPais, value); }
+            get { return _fPais; }
+            set { SetPropertyValue("Nombre", ref _fPais, value); }
         }
 
         [Association(@"PaisesReferencesContinentes")]
         [Index(4)]
         public Continente Continente
         {
-            get { return fContinente; }
-            set { SetPropertyValue("Continente", ref fContinente, value); }
+            get { return _fContinente; }
+            set { SetPropertyValue("Continente", ref _fContinente, value); }
         }
 
         [Index(5)]
         public string Capital
         {
-            get { return fCapital; }
-            set { SetPropertyValue("Capital", ref fCapital, value); }
+            get { return _fCapital; }
+            set { SetPropertyValue("Capital", ref _fCapital, value); }
         }
 
         [Index(6)]
         public PaisIdioma IdiomaNativo
         {
-            get { return fIdiomaNativo; }
-            set { SetPropertyValue("IdiomaNativo", ref fIdiomaNativo, value); }
+            get { return _fIdiomaNativo; }
+            set { SetPropertyValue("IdiomaNativo", ref _fIdiomaNativo, value); }
         }
 
         [Index(7)]
         [Size(15)]
         public string CodigoPstn
         {
-            get { return fCodigoPstn; }
-            set { SetPropertyValue("CodigoPstn", ref fCodigoPstn, value); }
+            get { return _fCodigoPstn; }
+            set { SetPropertyValue("CodigoPstn", ref _fCodigoPstn, value); }
         }
 
         [Index(8)]
         [Size(SizeAttribute.Unlimited)]
         public string UrlBuscadorCodigoPostal
         {
-            get { return fUrlBuscadorCodigoPostal; }
-            set { SetPropertyValue("UrlBuscadorCodigoPostal", ref fUrlBuscadorCodigoPostal, value); }
+            get { return _fUrlBuscadorCodigoPostal; }
+            set { SetPropertyValue("UrlBuscadorCodigoPostal", ref _fUrlBuscadorCodigoPostal, value); }
         }
 
         [VisibleInListView(false)]
@@ -123,8 +124,8 @@ namespace CORE.PolizApp.Regionales
         [Size(60)]
         public string FormatoCodigoPostal
         {
-            get { return fFormatoCodigoPostal; }
-            set { SetPropertyValue("FormatoCodigoPostal", ref fFormatoCodigoPostal, value); }
+            get { return _fFormatoCodigoPostal; }
+            set { SetPropertyValue("FormatoCodigoPostal", ref _fFormatoCodigoPostal, value); }
         }
 
         [VisibleInListView(false)]
@@ -132,16 +133,16 @@ namespace CORE.PolizApp.Regionales
         [Size(SizeAttribute.Unlimited)]
         public string PatronCodigoPostal
         {
-            get { return fPatronCodigoPostal; }
-            set { SetPropertyValue("PatronCodigoPostal", ref fPatronCodigoPostal, value); }
+            get { return _fPatronCodigoPostal; }
+            set { SetPropertyValue("PatronCodigoPostal", ref _fPatronCodigoPostal, value); }
         }
 
         [VisibleInListView(false)]
         [Index(11)]
         public int Poblacion
         {
-            get { return fPoblacion; }
-            set { SetPropertyValue<int>("Poblacion", ref fPoblacion, value); }
+            get { return _fPoblacion; }
+            set { SetPropertyValue<int>("Poblacion", ref _fPoblacion, value); }
         }
 
         [VisibleInListView(false)]
@@ -149,8 +150,8 @@ namespace CORE.PolizApp.Regionales
         [ModelDefault("DisplayFormat", "{0:N0}"), ModelDefault("EditMask", "N0")]
         public decimal Superficie
         {
-            get { return fSuperficie; }
-            set { SetPropertyValue<decimal>("Superficie", ref fSuperficie, value); }
+            get { return _fSuperficie; }
+            set { SetPropertyValue<decimal>("Superficie", ref _fSuperficie, value); }
         }
 
         [VisibleInListView(false)]
@@ -158,8 +159,8 @@ namespace CORE.PolizApp.Regionales
         [Size(50)]
         public string PaisesLimitrofes
         {
-            get { return fPaisesLimitrofes; }
-            set { SetPropertyValue("Limitrofes", ref fPaisesLimitrofes, value); }
+            get { return _fPaisesLimitrofes; }
+            set { SetPropertyValue("Limitrofes", ref _fPaisesLimitrofes, value); }
         }
 
         [VisibleInListView(false)]
@@ -167,8 +168,8 @@ namespace CORE.PolizApp.Regionales
         [Size(50)]
         public string GeoLatitud
         {
-            get { return fGeoLatitud; }
-            set { SetPropertyValue("GeoLatitud", ref fGeoLatitud, value); }
+            get { return _fGeoLatitud; }
+            set { SetPropertyValue("GeoLatitud", ref _fGeoLatitud, value); }
         }
 
         [VisibleInListView(false)]
@@ -176,8 +177,8 @@ namespace CORE.PolizApp.Regionales
         [Size(50)]
         public string GeoLongitud
         {
-            get { return fGeoLongitud; }
-            set { SetPropertyValue("GeoLongitud", ref fGeoLongitud, value); }
+            get { return _fGeoLongitud; }
+            set { SetPropertyValue("GeoLongitud", ref _fGeoLongitud, value); }
         }
 
         [VisibleInListView(false)]
@@ -185,8 +186,8 @@ namespace CORE.PolizApp.Regionales
         [Size(255)]
         public string GeoCodeAddr
         {
-            get { return fGeoCodeAddr; }
-            set { SetPropertyValue("GeoCodeAddr", ref fGeoCodeAddr, value); }
+            get { return _fGeoCodeAddr; }
+            set { SetPropertyValue("GeoCodeAddr", ref _fGeoCodeAddr, value); }
         }
 
         [VisibleInListView(false)]
@@ -194,8 +195,8 @@ namespace CORE.PolizApp.Regionales
         [Size(10)]
         public string GeoNameid
         {
-            get { return fGeoNameid; }
-            set { SetPropertyValue("GeoNameid", ref fGeoNameid, value); }
+            get { return _fGeoNameid; }
+            set { SetPropertyValue("GeoNameid", ref _fGeoNameid, value); }
         }
 
         [VisibleInListView(false)]
@@ -203,8 +204,8 @@ namespace CORE.PolizApp.Regionales
         [Size(3)]
         public string Codigo3
         {
-            get { return fCodigo3; }
-            set { SetPropertyValue("Codigo3", ref fCodigo3, value); }
+            get { return _fCodigo3; }
+            set { SetPropertyValue("Codigo3", ref _fCodigo3, value); }
         }
 
         [VisibleInListView(false)]
@@ -212,8 +213,8 @@ namespace CORE.PolizApp.Regionales
         [Size(3)]
         public string CodigoNum
         {
-            get { return fCodigoNum; }
-            set { SetPropertyValue("CodigoNum", ref fCodigoNum, value); }
+            get { return _fCodigoNum; }
+            set { SetPropertyValue("CodigoNum", ref _fCodigoNum, value); }
         }
 
         [VisibleInListView(false)]
@@ -221,8 +222,8 @@ namespace CORE.PolizApp.Regionales
         [Size(2)]
         public string CodigoFips
         {
-            get { return fCodigoFips; }
-            set { SetPropertyValue("CodigoFips", ref fCodigoFips, value); }
+            get { return _fCodigoFips; }
+            set { SetPropertyValue("CodigoFips", ref _fCodigoFips, value); }
         }
 
         [VisibleInListView(false)]
@@ -230,8 +231,8 @@ namespace CORE.PolizApp.Regionales
         [Size(2)]
         public string CodigoTld
         {
-            get { return fCodigoTld; }
-            set { SetPropertyValue("CodigoTld", ref fCodigoTld, value); }
+            get { return _fCodigoTld; }
+            set { SetPropertyValue("CodigoTld", ref _fCodigoTld, value); }
         }
 
         [VisibleInListView(false)]
@@ -239,8 +240,8 @@ namespace CORE.PolizApp.Regionales
         [Size(50)]
         public string PaisEng
         {
-            get { return fPaisEng; }
-            set { SetPropertyValue("PaisEng", ref fPaisEng, value); }
+            get { return _fPaisEng; }
+            set { SetPropertyValue("PaisEng", ref _fPaisEng, value); }
         }
 
         [Association(@"ProvinciasReferencesPaises", typeof (Provincia))]

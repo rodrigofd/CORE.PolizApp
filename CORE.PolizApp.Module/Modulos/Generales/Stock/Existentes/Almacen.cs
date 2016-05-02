@@ -1,7 +1,7 @@
 //using System;
 //using System.ComponentModel;
 //using DevExpress.Persistent.Base;
-//using DevExpress.Xpo;
+//using DevExpress.Xpo; using DevExpress.Persistent.Base;
 //
 //using CORE.Modulos.Sistema;
 
@@ -11,7 +11,8 @@
 //  [DefaultClassOptions]
 //  [DefaultProperty( "Nombre" )]
 //  [System.ComponentModel.DisplayName( "Almacén" )]
-//  public class Almacen : BasicObject, IObjetoPorEmpresa
+//  [DefaultClassOptions]
+public class Almacen : BasicObject, IObjetoPorEmpresa
 //  {
 //    private int fCalificacion;
 //    private Direccion fDireccion;

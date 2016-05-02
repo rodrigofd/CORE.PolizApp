@@ -1,5 +1,5 @@
 using System.ComponentModel;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp
 {

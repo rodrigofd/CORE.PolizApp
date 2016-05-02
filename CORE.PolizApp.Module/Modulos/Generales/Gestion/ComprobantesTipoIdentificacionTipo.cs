@@ -1,12 +1,13 @@
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Personas;
 
 namespace FDIT.Core.Gestion
 {
   [Persistent( @"gestion.ComprobantesTipoIdentificacionTipo" )]
   [System.ComponentModel.DisplayName( "Tipo de identificación por tipo de comprobante" )]
-  public class ComprobantesTipoIdentificacionTipo : BasicObject
+  [DefaultClassOptions]
+public class ComprobantesTipoIdentificacionTipo : BasicObject
   {
     private ComprobanteTipo fComprobanteTipo;
     private IdentificacionTipo fIdentificacionTipo;

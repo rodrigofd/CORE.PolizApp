@@ -9,7 +9,8 @@ using DevExpress.Xpo.DB;
 
 namespace CORE.PolizApp.Controllers.Fondos
 {
-    public class ValorDepositoController : ViewController
+    [DefaultClassOptions]
+public class ValorDepositoController : ViewController
     {
         private DetailView _popupDetailView;
 
@@ -70,8 +71,8 @@ namespace CORE.PolizApp.Controllers.Fondos
 
             if (valoresSeleccionados.Count < 1) return;
 
-            int BoletaDepositoNumero = popupDetailWinObj.Numero;
-            int CuentaADepositar = popupDetailWinObj.CuentaADepositar.Oid;
+            int boletaDepositoNumero = popupDetailWinObj.Numero;
+            int cuentaADepositar = popupDetailWinObj.CuentaADepositar.Oid;
 
             var os = (XPObjectSpace) ObjectSpace;
 
@@ -80,8 +81,8 @@ namespace CORE.PolizApp.Controllers.Fondos
                 try
                 {
                     //Actualizar
-                    SelectedData sd = os.Session.ExecuteSproc("fondos.spValorADepositar", i.Oid, CuentaADepositar,
-                        BoletaDepositoNumero);
+                    SelectedData sd = os.Session.ExecuteSproc("fondos.spValorADepositar", i.Oid, cuentaADepositar,
+                        boletaDepositoNumero);
                 }
                 catch (Exception exc)
                 {

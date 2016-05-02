@@ -1,11 +1,12 @@
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Fondos;
 
 namespace FDIT.Core.Gestion
 {
   [ Persistent( @"gestion.ConceptoApertura" ) ]
   [ System.ComponentModel.DisplayName( "Apertura por conceptos" ) ]
-  public class ConceptoApertura : BasicObject
+  [DefaultClassOptions]
+public class ConceptoApertura : BasicObject
   {
     private CentroDeCosto fCentroDeCosto;
     private Concepto fConcepto;

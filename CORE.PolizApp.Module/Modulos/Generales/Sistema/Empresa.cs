@@ -10,26 +10,25 @@ using DevExpress.Xpo.Metadata;
 
 namespace CORE.PolizApp.Sistema
 {
-    //[DefaultClassOptions]
     [DefaultProperty("Descripcion")]
     [Persistent(@"sistema.Empresa")]
     [System.ComponentModel.DisplayName(@"Empresa")]
     public class Empresa : BasicObject
     {
-        private PersonaImpuesto fAfipCondicionIVA;
-        private Identificacion fAfipCUIT;
-        private Direccion fAfipDomicilio;
-        private Identificacion fAfipIIBB;
-        private DateTime fAfipInicioActividad;
-        private string fColorFondo;
-        private PaisIdioma fCulturaPredeterminada;
-        private Idioma fIdiomaPredeterminado;
-        private DateTime fLicenciaDesde;
-        private DateTime fLicenciaHasta;
-        private int fMaxAccesosErroneos;
-        private Persona fPersona;
-        private string fPieInformesGral;
-        private TipoLicencia fTipoLicencia;
+        private PersonaImpuesto _fAfipCondicionIVA;
+        private Identificacion _fAfipCuit;
+        private Direccion _fAfipDomicilio;
+        private Identificacion _fAfipIibb;
+        private DateTime _fAfipInicioActividad;
+        private string _fColorFondo;
+        private PaisIdioma _fCulturaPredeterminada;
+        private Idioma _fIdiomaPredeterminado;
+        private DateTime _fLicenciaDesde;
+        private DateTime _fLicenciaHasta;
+        private int _fMaxAccesosErroneos;
+        private Persona _fPersona;
+        private string _fPieInformesGral;
+        private TipoLicencia _fTipoLicencia;
 
         public Empresa(Session session)
             : base(session)
@@ -39,43 +38,42 @@ namespace CORE.PolizApp.Sistema
         [VisibleInDetailView(false)]
         [PersistentAlias("Persona.NombreCompleto")]
         public string Descripcion => Convert.ToString(EvaluateAlias("Descripcion"));
-
-        [Association(@"EmpresaReferencespersonas_Persona")]
+        
         public Persona Persona
         {
-            get { return fPersona; }
-            set { SetPropertyValue("Persona", ref fPersona, value); }
+            get { return _fPersona; }
+            set { SetPropertyValue("Persona", ref _fPersona, value); }
         }
 
         public TipoLicencia TipoLicencia
         {
-            get { return fTipoLicencia; }
-            set { SetPropertyValue("TipoLicencia", ref fTipoLicencia, value); }
+            get { return _fTipoLicencia; }
+            set { SetPropertyValue("TipoLicencia", ref _fTipoLicencia, value); }
         }
 
         public DateTime LicenciaDesde
         {
-            get { return fLicenciaDesde; }
-            set { SetPropertyValue<DateTime>("Inicio", ref fLicenciaDesde, value); }
+            get { return _fLicenciaDesde; }
+            set { SetPropertyValue<DateTime>("Inicio", ref _fLicenciaDesde, value); }
         }
 
         public DateTime LicenciaHasta
         {
-            get { return fLicenciaHasta; }
-            set { SetPropertyValue<DateTime>("Fin", ref fLicenciaHasta, value); }
+            get { return _fLicenciaHasta; }
+            set { SetPropertyValue<DateTime>("Fin", ref _fLicenciaHasta, value); }
         }
 
         public int MaxAccesosErroneos
         {
-            get { return fMaxAccesosErroneos; }
-            set { SetPropertyValue<int>("MaxAccesosErroneos", ref fMaxAccesosErroneos, value); }
+            get { return _fMaxAccesosErroneos; }
+            set { SetPropertyValue<int>("MaxAccesosErroneos", ref _fMaxAccesosErroneos, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         public string PieInformesGral
         {
-            get { return fPieInformesGral; }
-            set { SetPropertyValue("PieInformesGral", ref fPieInformesGral, value); }
+            get { return _fPieInformesGral; }
+            set { SetPropertyValue("PieInformesGral", ref _fPieInformesGral, value); }
         }
 
         [Delayed(true)]
@@ -89,59 +87,59 @@ namespace CORE.PolizApp.Sistema
 
         public Idioma IdiomaPredeterminado
         {
-            get { return fIdiomaPredeterminado; }
-            set { SetPropertyValue("IdiomaPredeterminado", ref fIdiomaPredeterminado, value); }
+            get { return _fIdiomaPredeterminado; }
+            set { SetPropertyValue("IdiomaPredeterminado", ref _fIdiomaPredeterminado, value); }
         }
 
         public PaisIdioma CulturaPredeterminada
         {
-            get { return fCulturaPredeterminada; }
-            set { SetPropertyValue("CulturaPredeterminada", ref fCulturaPredeterminada, value); }
+            get { return _fCulturaPredeterminada; }
+            set { SetPropertyValue("CulturaPredeterminada", ref _fCulturaPredeterminada, value); }
         }
 
         public string ColorFondo
         {
-            get { return fColorFondo; }
-            set { SetPropertyValue("ColorFondo", ref fColorFondo, value); }
+            get { return _fColorFondo; }
+            set { SetPropertyValue("ColorFondo", ref _fColorFondo, value); }
         }
 
         [DataSourceProperty("Persona.Identificaciones")]
         [DataSourceCriteria("[Tipo.Clase.Oid] = 1 Or [Tipo.Clase.Oid] = 6")] // Clase DOC o FISCAL
         [LookupEditorMode(LookupEditorMode.AllItems)]
-        public Identificacion AfipCUIT
+        public Identificacion AfipCuit
         {
-            get { return fAfipCUIT; }
-            set { SetPropertyValue("AfipCUIT", ref fAfipCUIT, value); }
+            get { return _fAfipCuit; }
+            set { SetPropertyValue("AfipCUIT", ref _fAfipCuit, value); }
         }
 
         [DataSourceProperty("Persona.DatosImpositivos")]
         public PersonaImpuesto AfipCondicionIVA
         {
-            get { return fAfipCondicionIVA; }
-            set { SetPropertyValue("AfipCondicionIVA", ref fAfipCondicionIVA, value); }
+            get { return _fAfipCondicionIVA; }
+            set { SetPropertyValue("AfipCondicionIVA", ref _fAfipCondicionIVA, value); }
         }
 
         [DataSourceProperty("Persona.Direcciones")]
         public Direccion AfipDomicilio
         {
-            get { return fAfipDomicilio; }
-            set { SetPropertyValue("AfipDomicilio", ref fAfipDomicilio, value); }
+            get { return _fAfipDomicilio; }
+            set { SetPropertyValue("AfipDomicilio", ref _fAfipDomicilio, value); }
         }
 
         public DateTime AfipInicioActividad
         {
-            get { return fAfipInicioActividad; }
-            set { SetPropertyValue<DateTime>("AfipInicioActividad", ref fAfipInicioActividad, value); }
+            get { return _fAfipInicioActividad; }
+            set { SetPropertyValue<DateTime>("AfipInicioActividad", ref _fAfipInicioActividad, value); }
         }
 
         [DataSourceProperty("Persona.Identificaciones")]
-        public Identificacion AfipIIBB
+        public Identificacion AfipIibb
         {
-            get { return fAfipIIBB; }
-            set { SetPropertyValue("AfipIIBB", ref fAfipIIBB, value); }
+            get { return _fAfipIibb; }
+            set { SetPropertyValue("AfipIIBB", ref _fAfipIibb, value); }
         }
-        
-        [Association(@"seguridad.UsuarioEmpresa", typeof(Usuario), UseAssociationNameAsIntermediateTableName = true)]
+
+        [Association(@"seguridad.UsuarioEmpresa", typeof (Usuario), UseAssociationNameAsIntermediateTableName = true)]
         public XPCollection<Usuario> Usuarios => GetCollection<Usuario>("Usuarios");
 
         public override void AfterConstruction()

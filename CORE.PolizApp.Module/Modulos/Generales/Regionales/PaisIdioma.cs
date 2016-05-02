@@ -1,17 +1,18 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Regionales
 {
     [Persistent(@"regionales.PaisIdioma")]
     [DefaultProperty("Codigo")]
     [System.ComponentModel.DisplayName(@"Idioma del país")]
-    public class PaisIdioma : BasicObject
+    [DefaultClassOptions]
+public class PaisIdioma : BasicObject
     {
-        private Idioma fIdioma;
-        private int fOrden;
-        private Pais fPais;
+        private Idioma _fIdioma;
+        private int _fOrden;
+        private Pais _fPais;
 
         public PaisIdioma(Session session) : base(session)
         {
@@ -23,20 +24,20 @@ namespace CORE.PolizApp.Regionales
         [Association(@"PaisesIdiomasReferencesPaises")]
         public Pais Pais
         {
-            get { return fPais; }
-            set { SetPropertyValue("Pais", ref fPais, value); }
+            get { return _fPais; }
+            set { SetPropertyValue("Pais", ref _fPais, value); }
         }
 
         public Idioma Idioma
         {
-            get { return fIdioma; }
-            set { SetPropertyValue("Idioma", ref fIdioma, value); }
+            get { return _fIdioma; }
+            set { SetPropertyValue("Idioma", ref _fIdioma, value); }
         }
 
         public int Orden
         {
-            get { return fOrden; }
-            set { SetPropertyValue<int>("Orden", ref fOrden, value); }
+            get { return _fOrden; }
+            set { SetPropertyValue<int>("Orden", ref _fOrden, value); }
         }
 
         public override void AfterConstruction()

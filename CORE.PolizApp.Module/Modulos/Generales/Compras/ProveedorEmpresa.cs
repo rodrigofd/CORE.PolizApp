@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Fondos;
 using CORE.Modulos.Sistema;
 
@@ -8,7 +8,8 @@ namespace CORE.Modulos.Compras
 {
   [Persistent( @"compras.ProveedorEmpresa" )]
   [System.ComponentModel.DisplayName( "Proveedores por empresas" )]
-  public class ProveedorEmpresa : BasicObject, IObjetoPorEmpresa
+  [DefaultClassOptions]
+public class ProveedorEmpresa : BasicObject, IObjetoPorEmpresa
   {
     private Empresa fEmpresa;
     private Proveedor fProveedor;

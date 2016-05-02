@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Sistema;
 
 namespace CORE.Modulos.Modelo.Ventas
 {
     [DefaultClassOptions, Persistent("gestion.vComprobantes")]
-    public class vComprobantes : XPObject, IObjetoPorEmpresa //XPLiteObject
+    [DefaultClassOptions]
+public class vComprobantes : XPObject, IObjetoPorEmpresa //XPLiteObject
     {
         public vComprobantes(Session session) : base(session) { }
         //[Key, Persistent, Browsable(false)]
@@ -38,7 +39,8 @@ namespace CORE.Modulos.Modelo.Ventas
         [System.ComponentModel.DisplayName("vComprobantes")]
         [ImageName("document-invoice")]
         [DefaultClassOptions]
-        public class vComprobantes : BasicObject, IObjetoPorEmpresa
+        [DefaultClassOptions]
+public class vComprobantes : BasicObject, IObjetoPorEmpresa
         {
             protected Empresa fEmpresa;
 

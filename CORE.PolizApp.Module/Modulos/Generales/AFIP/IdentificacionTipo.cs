@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.AFIP
 {
@@ -8,7 +8,8 @@ namespace FDIT.Core.AFIP
     [DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName("IdentificacionesTipos")]
-    public class IdentificacionTipo : BasicObject
+    [DefaultClassOptions]
+public class IdentificacionTipo : BasicObject
     {
         private short fCodigo;
 

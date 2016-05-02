@@ -1,12 +1,13 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Gestion
 {
   [Persistent( @"gestion.ConceptoVinculo" )]
   [System.ComponentModel.DisplayName( "Vínculos de conceptos" )]
-  public class ConceptoVinculo : BasicObject
+  [DefaultClassOptions]
+public class ConceptoVinculo : BasicObject
   {
     private Concepto fHijo;
     private Concepto fPadre;

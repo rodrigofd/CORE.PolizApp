@@ -9,49 +9,49 @@ namespace CORE.PolizApp.Controllers.Sistema
 {
     public class CambiarIdiomaController : WindowController
     {
-        private readonly SingleChoiceAction chooseFormattingCulture;
-        private readonly SingleChoiceAction chooseLanguage;
-        public readonly string defaultCultureCaption;
-        private readonly string defaultCultureName = CultureInfo.InvariantCulture.TwoLetterISOLanguageName;
-        private readonly string defaultLanguageCaption;
+        private readonly SingleChoiceAction _chooseFormattingCulture;
+        private readonly SingleChoiceAction _chooseLanguage;
+        public readonly string DefaultCultureCaption;
+        private readonly string _defaultCultureName = CultureInfo.InvariantCulture.TwoLetterISOLanguageName;
+        private readonly string _defaultLanguageCaption;
 
-        private string systemUserLanguage;
+        private string _systemUserLanguage;
 
         public CambiarIdiomaController()
         {
             TargetWindowType = WindowType.Main;
-            defaultLanguageCaption = CaptionHelper.DefaultLanguage;
+            _defaultLanguageCaption = CaptionHelper.DefaultLanguage;
             //defaultCultureCaption = CaptionHelper.GetLocalizedText("Texts", "DefaultCulture");
-            defaultCultureCaption = CaptionHelper.GetLocalizedText("Texts", "es-AR");
+            DefaultCultureCaption = CaptionHelper.GetLocalizedText("Texts", "es-AR");
 
             StoreDefaultCulture();
 
-            chooseLanguage = new SingleChoiceAction(this, "ChooseLanguage", PredefinedCategory.Tools);
-            chooseLanguage.Items.Add(new ChoiceActionItem(defaultLanguageCaption, defaultLanguageCaption,
-                defaultLanguageCaption));
-            chooseLanguage.Items.Add(new ChoiceActionItem("es-AR", "Español (Argentina)", "es-AR"));
-            chooseLanguage.SelectedIndex = 0;
+            _chooseLanguage = new SingleChoiceAction(this, "ChooseLanguage", PredefinedCategory.Tools);
+            _chooseLanguage.Items.Add(new ChoiceActionItem(_defaultLanguageCaption, _defaultLanguageCaption,
+                _defaultLanguageCaption));
+            _chooseLanguage.Items.Add(new ChoiceActionItem("es-AR", "Español (Argentina)", "es-AR"));
+            _chooseLanguage.SelectedIndex = 0;
 
-            chooseFormattingCulture = new SingleChoiceAction(this, "ChooseFormattingCulture", PredefinedCategory.Tools);
-            chooseFormattingCulture.Items.Add(new ChoiceActionItem(defaultCultureCaption, defaultCultureCaption,
-                systemUserLanguage));
-            chooseFormattingCulture.Items.Add(new ChoiceActionItem("es-AR", "Español (Argentina)", "es-AR"));
-            chooseFormattingCulture.SelectedIndex = 0;
+            _chooseFormattingCulture = new SingleChoiceAction(this, "ChooseFormattingCulture", PredefinedCategory.Tools);
+            _chooseFormattingCulture.Items.Add(new ChoiceActionItem(DefaultCultureCaption, DefaultCultureCaption,
+                _systemUserLanguage));
+            _chooseFormattingCulture.Items.Add(new ChoiceActionItem("es-AR", "Español (Argentina)", "es-AR"));
+            _chooseFormattingCulture.SelectedIndex = 0;
         }
 
         public SingleChoiceAction ChooseLanguage
         {
-            get { return chooseLanguage; }
+            get { return _chooseLanguage; }
         }
 
         public SingleChoiceAction ChooseFormattingCulture
         {
-            get { return chooseFormattingCulture; }
+            get { return _chooseFormattingCulture; }
         }
 
         private void StoreDefaultCulture()
         {
-            systemUserLanguage = CultureInfo.CurrentCulture.Name;
+            _systemUserLanguage = CultureInfo.CurrentCulture.Name;
         }
 
         protected override void OnActivated()
@@ -69,14 +69,14 @@ namespace CORE.PolizApp.Controllers.Sistema
             }
             //ChooseFormattingCulture.SelectedIndex = ChooseFormattingCulture.Items.IndexOf(ChooseFormattingCulture.Items.Find(System.Threading.Thread.CurrentThread.CurrentCulture.Name, ChoiceActionItemFindType.Recursive, ChoiceActionItemFindTarget.Any));
 
-            chooseFormattingCulture.Execute += ChooseFormattingCulture_Execute;
-            chooseLanguage.Execute += ChooseLanguage_Execute;
+            _chooseFormattingCulture.Execute += ChooseFormattingCulture_Execute;
+            _chooseLanguage.Execute += ChooseLanguage_Execute;
         }
 
         protected override void OnDeactivated()
         {
-            chooseLanguage.Execute -= ChooseLanguage_Execute;
-            chooseFormattingCulture.Execute -= ChooseFormattingCulture_Execute;
+            _chooseLanguage.Execute -= ChooseLanguage_Execute;
+            _chooseFormattingCulture.Execute -= ChooseFormattingCulture_Execute;
 
             base.OnDeactivated();
         }
@@ -84,8 +84,8 @@ namespace CORE.PolizApp.Controllers.Sistema
         private void ChooseLanguage_Execute(object sender, SingleChoiceActionExecuteEventArgs e)
         {
             var newLanguageName = e.SelectedChoiceActionItem.Data as string;
-            if (newLanguageName == defaultLanguageCaption)
-                newLanguageName = defaultCultureName;
+            if (newLanguageName == _defaultLanguageCaption)
+                newLanguageName = _defaultCultureName;
 
             Application.SetLanguage(newLanguageName);
         }
@@ -93,8 +93,8 @@ namespace CORE.PolizApp.Controllers.Sistema
         private void ChooseFormattingCulture_Execute(object sender, SingleChoiceActionExecuteEventArgs e)
         {
             var newCultureName = e.SelectedChoiceActionItem.Data as string;
-            if (newCultureName == defaultLanguageCaption)
-                newCultureName = systemUserLanguage;
+            if (newCultureName == _defaultLanguageCaption)
+                newCultureName = _systemUserLanguage;
 
             Application.SetFormattingCulture(newCultureName);
         }

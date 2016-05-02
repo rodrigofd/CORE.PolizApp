@@ -1,13 +1,14 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Fondos
 {
   [ Persistent( "fondos.ComprobanteItemValor" ) ]
   [ System.ComponentModel.DisplayName( "Movimiento del valor" ) ]
   [ DefaultClassOptions ]
-  public class ComprobanteItemValor : BasicObject
+  [DefaultClassOptions]
+public class ComprobanteItemValor : BasicObject
   {
     private ComprobanteItem fComprobanteItem;
     private Valor fValor;

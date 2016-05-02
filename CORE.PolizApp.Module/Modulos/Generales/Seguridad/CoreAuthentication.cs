@@ -12,8 +12,8 @@ namespace CORE.PolizApp.Seguridad
     {
         void Reset();
     }
-
-    public class CoreAuthentication : AuthenticationBase, IAuthenticationStandard
+    
+public class CoreAuthentication : AuthenticationBase, IAuthenticationStandard
     {
         private CoreLogonParameters _logonParameters;
 
@@ -22,9 +22,9 @@ namespace CORE.PolizApp.Seguridad
             _logonParameters = new CoreLogonParameters();
         }
 
-        private bool autoLogin => false && Debugger.IsAttached;
+        private bool AutoLogin => false && Debugger.IsAttached;
 
-        public override bool AskLogonParametersViaUI => !autoLogin;
+        public override bool AskLogonParametersViaUI => !AutoLogin;
 
         public override object LogonParameters => _logonParameters;
 
@@ -46,7 +46,7 @@ namespace CORE.PolizApp.Seguridad
         {
             Usuario usuario;
 
-            if (autoLogin)
+            if (AutoLogin)
             {
                 usuario = objectSpace.FindObject<Usuario>(new BinaryOperator("UserName", "admin"));
 

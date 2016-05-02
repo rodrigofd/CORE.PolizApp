@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Gestion
 {
@@ -9,7 +9,8 @@ namespace FDIT.Core.Gestion
   [DefaultClassOptions]
   [DefaultProperty( "Nombre" )]
   [System.ComponentModel.DisplayName( "Temporada" )]
-  public class Temporada : BasicObject
+  [DefaultClassOptions]
+public class Temporada : BasicObject
   {
     private DateTime fFechaDesde;
     private DateTime fFechaHasta;

@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Sistema;
 
 namespace FDIT.Core.Contabilidad
@@ -8,7 +8,8 @@ namespace FDIT.Core.Contabilidad
   [Persistent( @"contabilidad.CuentaPredefinida" )]
   [DefaultClassOptions]
   [System.ComponentModel.DisplayName( "Cuentas Predefinidas" )]
-  public class CuentaPredefinida : BasicObject, IObjetoPorEmpresa
+  [DefaultClassOptions]
+public class CuentaPredefinida : BasicObject, IObjetoPorEmpresa
   {
     private Empresa fEmpresa;
     private Cuenta fCuenta;

@@ -1,12 +1,13 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
   [ System.ComponentModel.DisplayName( "Clase Propiedad" ) ]
   [Persistent( @"stock.ClasePropiedad" )]
-  public class ClasePropiedad : BasicObject
+  [DefaultClassOptions]
+public class ClasePropiedad : BasicObject
   {
     private Clase fClase;
     private Propiedad fPropiedad;

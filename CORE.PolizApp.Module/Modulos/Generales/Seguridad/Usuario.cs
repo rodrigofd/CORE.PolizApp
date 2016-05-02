@@ -3,13 +3,14 @@ using CORE.PolizApp.Regionales;
 using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Security.Strategy;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Seguridad
 {
     [Persistent(@"seguridad.Usuario")]
     [System.ComponentModel.DisplayName("Usuario del sistema")]
-    public class Usuario : SecuritySystemUser
+    [DefaultClassOptions]
+public class Usuario : SecuritySystemUser
     {
         private PaisIdioma _fCulturaPredeterminada;
         private Identificacion _fEmailIdentificacion;

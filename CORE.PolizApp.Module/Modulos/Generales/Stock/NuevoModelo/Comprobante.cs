@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Gestion;
 
 
@@ -11,7 +11,8 @@ namespace CORE.Modulos.Stock
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Comprobante de stock" ) ]
   [ Persistent( @"stock.Comprobante" ) ]
-  public class Comprobante : ComprobanteBase
+  [DefaultClassOptions]
+public class Comprobante : ComprobanteBase
   {
     private Deposito fDepositoDestino;
     private Deposito fDepositoOrigen;

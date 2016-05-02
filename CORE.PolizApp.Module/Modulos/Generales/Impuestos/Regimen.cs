@@ -2,7 +2,7 @@ using System.ComponentModel;
 using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Impuestos
 {
@@ -10,14 +10,15 @@ namespace CORE.PolizApp.Impuestos
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Regímenes de impuestos")]
-    public class Regimen : BasicObject
+    [DefaultClassOptions]
+public class Regimen : BasicObject
     {
-        private decimal fAlicuotaInscripto;
-        private decimal fAlicuotaNoInscripto;
-        private string fCodigo;
+        private decimal _fAlicuotaInscripto;
+        private decimal _fAlicuotaNoInscripto;
+        private string _fCodigo;
         private Impuesto _fImpuesto;
-        private decimal fMinimoNoImponible;
-        private string fNombre;
+        private decimal _fMinimoNoImponible;
+        private string _fNombre;
 
         public Regimen(Session session)
             : base(session)
@@ -35,36 +36,36 @@ namespace CORE.PolizApp.Impuestos
         [Index(0)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Index(1)]
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         [ModelDefault("DisplayFormat", "n2")]
         public decimal AlicuotaInscripto
         {
-            get { return fAlicuotaInscripto; }
-            set { SetPropertyValue<decimal>("AlicuotaInscripto", ref fAlicuotaInscripto, value); }
+            get { return _fAlicuotaInscripto; }
+            set { SetPropertyValue<decimal>("AlicuotaInscripto", ref _fAlicuotaInscripto, value); }
         }
 
         [ModelDefault("DisplayFormat", "n2")]
         public decimal AlicuotaNoInscripto
         {
-            get { return fAlicuotaNoInscripto; }
-            set { SetPropertyValue<decimal>("AlicuotaNoInscripto", ref fAlicuotaNoInscripto, value); }
+            get { return _fAlicuotaNoInscripto; }
+            set { SetPropertyValue<decimal>("AlicuotaNoInscripto", ref _fAlicuotaNoInscripto, value); }
         }
 
         [ModelDefault("DisplayFormat", "n2")]
         public decimal MinimoNoImponible
         {
-            get { return fMinimoNoImponible; }
-            set { SetPropertyValue<decimal>("MinimoNoImponible", ref fMinimoNoImponible, value); }
+            get { return _fMinimoNoImponible; }
+            set { SetPropertyValue<decimal>("MinimoNoImponible", ref _fMinimoNoImponible, value); }
         }
 
         public override void AfterConstruction()

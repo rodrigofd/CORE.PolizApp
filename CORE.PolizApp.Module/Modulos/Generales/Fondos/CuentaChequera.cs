@@ -1,16 +1,17 @@
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Fondos
 {
     [Persistent(@"fondos.CuentaChequera")]
     [System.ComponentModel.DisplayName(@"Chequeras")]
-    public class CuentaChequera : BasicObject
+    [DefaultClassOptions]
+public class CuentaChequera : BasicObject
     {
-        private Cuenta fCuenta;
-        private int fNumeroDesde;
-        private int fNumeroHasta;
-        private string fSerie;
+        private Cuenta _fCuenta;
+        private int _fNumeroDesde;
+        private int _fNumeroHasta;
+        private string _fSerie;
 
         public CuentaChequera(Session session) : base(session)
         {
@@ -19,27 +20,27 @@ namespace CORE.PolizApp.Fondos
         [Association(@"fondos_CuentaChequeraReferencesfondos_Cuenta")]
         public Cuenta Cuenta
         {
-            get { return fCuenta; }
-            set { SetPropertyValue("Cuenta", ref fCuenta, value); }
+            get { return _fCuenta; }
+            set { SetPropertyValue("Cuenta", ref _fCuenta, value); }
         }
 
         [Size(3)]
         public string Serie
         {
-            get { return fSerie; }
-            set { SetPropertyValue("Serie", ref fSerie, value); }
+            get { return _fSerie; }
+            set { SetPropertyValue("Serie", ref _fSerie, value); }
         }
 
         public int NumeroDesde
         {
-            get { return fNumeroDesde; }
-            set { SetPropertyValue<int>("NumeroDesde", ref fNumeroDesde, value); }
+            get { return _fNumeroDesde; }
+            set { SetPropertyValue<int>("NumeroDesde", ref _fNumeroDesde, value); }
         }
 
         public int NumeroHasta
         {
-            get { return fNumeroHasta; }
-            set { SetPropertyValue<int>("NumeroHasta", ref fNumeroHasta, value); }
+            get { return _fNumeroHasta; }
+            set { SetPropertyValue<int>("NumeroHasta", ref _fNumeroHasta, value); }
         }
 
         /*

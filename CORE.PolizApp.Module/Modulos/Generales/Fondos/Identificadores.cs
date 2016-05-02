@@ -1,7 +1,7 @@
 #region
 
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using DevExpress.XtraCharts.Native;
 using FDIT.Core.Util;
 
@@ -11,7 +11,8 @@ namespace FDIT.Core.Fondos
 {
   [ Persistent( @"fondos.Identificadores" ) ]
   [ System.ComponentModel.DisplayName( "Preferencias de Fondos" ) ]
-  public class Identificadores : IdentificadoresBase< Identificadores >
+  [DefaultClassOptions]
+public class Identificadores : IdentificadoresBase< Identificadores >
   {
     private Especie fEspeciePredeterminada;
     private Moneda fMonedaPredeterminada;

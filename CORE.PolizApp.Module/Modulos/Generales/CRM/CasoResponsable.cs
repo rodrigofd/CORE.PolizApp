@@ -1,4 +1,4 @@
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Seguridad;
 using CORE.Modulos.Sistema;
 
@@ -6,7 +6,8 @@ namespace CORE.Modulos.CRM
 {
   [ Persistent( @"crm.CasoResponsable" ) ]
   [ System.ComponentModel.DisplayName( "Responsable del caso" ) ]
-  public class CasoResponsable : BasicObject
+  [DefaultClassOptions]
+public class CasoResponsable : BasicObject
   {
     private Caso fCaso;
     private bool fPrincipal;

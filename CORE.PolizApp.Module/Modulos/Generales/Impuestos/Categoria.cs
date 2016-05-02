@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Impuestos
 {
@@ -9,15 +9,16 @@ namespace CORE.PolizApp.Impuestos
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Categorías")]
-    public class Categoria : BasicObject
+    [DefaultClassOptions]
+public class Categoria : BasicObject
     {
-        private string fCodigo;
+        private string _fCodigo;
         //private int fCodigoAfip;
         //private int fIdCategoria; 
         private Impuesto _f;
-        private string fNombre;
+        private string _fNombre;
 
-        private int fOrden;
+        private int _fOrden;
 
         public Categoria(Session session)
             : base(session)
@@ -35,22 +36,22 @@ namespace CORE.PolizApp.Impuestos
         [Index(0)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(200)]
         [Index(1)]
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         public int Orden
         {
-            get { return fOrden; }
-            set { SetPropertyValue<int>("Orden", ref fOrden, value); }
+            get { return _fOrden; }
+            set { SetPropertyValue<int>("Orden", ref _fOrden, value); }
         }
 
         public override void AfterConstruction()

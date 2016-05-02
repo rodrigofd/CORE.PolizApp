@@ -1,5 +1,5 @@
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.General.Modulos.Fondos;
 using CORE.General.Modulos.Gestion;
 using CORE.General.Modulos.Sistema;
@@ -10,7 +10,8 @@ namespace CORE.Modulos.Ventas
 {
   [ Persistent( @"ventas.Identificadores" ) ]
   [ System.ComponentModel.DisplayName( "Preferencias de Ventas" ) ]
-  public class Identificadores : IdentificadoresBase< Identificadores >
+  [DefaultClassOptions]
+public class Identificadores : IdentificadoresBase< Identificadores >
   {
     private ComprobanteTipo fAnticipoComprobanteTipo;
     private Concepto fAnticipoConcepto;

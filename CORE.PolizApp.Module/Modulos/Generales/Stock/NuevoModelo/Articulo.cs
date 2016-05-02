@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Contabilidad;
 using CORE.Modulos.Gestion;
 
@@ -12,7 +12,8 @@ namespace CORE.Modulos.Stock
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Artículo" ) ]
   [ Persistent( @"stock.Articulo" ) ]
-  public class Articulo : BasicObject
+  [DefaultClassOptions]
+public class Articulo : BasicObject
   {
     private string fAlias;
     private string fCodigo;

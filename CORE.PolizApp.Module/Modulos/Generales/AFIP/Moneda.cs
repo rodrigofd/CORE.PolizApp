@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.General.Modulos.AFIP
 {
@@ -9,12 +9,13 @@ namespace CORE.General.Modulos.AFIP
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Monedas AFIP")]
-    public class afip_Moneda : BasicObject
+    [DefaultClassOptions]
+public class AfipMoneda : BasicObject
     {
-        private string fCodigo;
-        private string fNombre;
+        private string _fCodigo;
+        private string _fNombre;
 
-        public afip_Moneda(Session session)
+        public AfipMoneda(Session session)
             : base(session)
         {
         }
@@ -23,16 +24,16 @@ namespace CORE.General.Modulos.AFIP
         [Index(0)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(255)]
         [Index(1)]
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         public override void AfterConstruction()

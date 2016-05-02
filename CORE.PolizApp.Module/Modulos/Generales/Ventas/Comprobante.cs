@@ -5,7 +5,7 @@ using System.Linq;
 using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Gestion;
 using CORE.Modulos.Impuestos;
 using CORE.Modulos.Personas;
@@ -22,7 +22,8 @@ namespace CORE.Modulos.Ventas
   [ DefaultProperty( "Descripcion" ) ]
   [ DefaultClassOptions ]
   [ System.ComponentModel.DisplayName( "Comprobante de venta" ) ]
-  public class Comprobante : Gestion.Comprobante
+  [DefaultClassOptions]
+public class Comprobante : Gestion.Comprobante
   {
     public Comprobante( Session session ) : base( session )
     {

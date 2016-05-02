@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Contabilidad
 {
@@ -10,13 +10,14 @@ namespace CORE.PolizApp.Contabilidad
     [DefaultProperty("Descripcion")]
     [System.ComponentModel.DisplayName("Rubro de cuenta contable")]
     //[DefaultClassOptions]
-    public class CuentaRubro : BasicObject
+    [DefaultClassOptions]
+public class CuentaRubro : BasicObject
     {
-        private bool fActiva;
-        private CuentaClase fClase;
-        private string fCodigo;
-        private Empresa fEmpresa;
-        private string fNombre;
+        private bool _fActiva;
+        private CuentaClase _fClase;
+        private string _fCodigo;
+        private Empresa _fEmpresa;
+        private string _fNombre;
 
         public CuentaRubro(Session session) : base(session)
         {
@@ -33,8 +34,8 @@ namespace CORE.PolizApp.Contabilidad
         [VisibleInLookupListView(true)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
@@ -42,27 +43,27 @@ namespace CORE.PolizApp.Contabilidad
         [VisibleInLookupListView(true)]
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Descripcion", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Descripcion", ref _fNombre, value); }
         }
 
         public CuentaClase Clase
         {
-            get { return fClase; }
-            set { SetPropertyValue("Clase", ref fClase, value); }
+            get { return _fClase; }
+            set { SetPropertyValue("Clase", ref _fClase, value); }
         }
 
         public bool Activa
         {
-            get { return fActiva; }
-            set { SetPropertyValue("Activa", ref fActiva, value); }
+            get { return _fActiva; }
+            set { SetPropertyValue("Activa", ref _fActiva, value); }
         }
 
         [Browsable(false)]
         public Empresa Empresa
         {
-            get { return fEmpresa; }
-            set { SetPropertyValue("Empresa", ref fEmpresa, value); }
+            get { return _fEmpresa; }
+            set { SetPropertyValue("Empresa", ref _fEmpresa, value); }
         }
     }
 }

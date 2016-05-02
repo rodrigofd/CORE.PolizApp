@@ -1,11 +1,12 @@
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Regionales
 {
     [Persistent(@"regionales.Identificadores")]
     [System.ComponentModel.DisplayName(@"Preferencias regionales")]
-    public class Identificadores : IdentificadoresBase<Identificadores>
+    [DefaultClassOptions]
+public class Identificadores : IdentificadoresBase<Identificadores>
     {
         private Idioma _idiomaPredeterminado;
         private Pais _paisPredeterminado;

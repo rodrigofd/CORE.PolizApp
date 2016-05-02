@@ -4,11 +4,11 @@ using System.Drawing;
 using System.Threading;
 using CORE.PolizApp.Gestion;
 using CORE.PolizApp.Regionales;
+using CORE.PolizApp.Seguridad;
 using CORE.PolizApp.Sistema;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.ConditionalAppearance;
-using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Utils;
@@ -21,47 +21,45 @@ namespace CORE.PolizApp.Personas
 {
     [DefaultProperty("NombreCompleto")]
     [Persistent(@"personas.Persona")]
-    //[DefaultClassOptions]
     [System.ComponentModel.DisplayName(@"Persona")]
     [FiltroPorPais]
     //<Appearance("BoldRule", AppearanceItemType := "ViewItem", FontStyle:=FontStyle.Bold, FontColor:="Yellow", TargetItems:="Name", Context:="DetailView")>
     //[Appearance("BoldRule", AppearanceItemType = "ViewItem", TargetItems = "*", Criteria = "Price>50", Context = "ListView", BackColor = "Red", FontColor = "Maroon", Priority = 2)]
     //[Appearance("DetailViewBoldRule", AppearanceItemType = "ViewItem", TargetItems = "*", FontStyle = FontStyle.Bold, Context = "DetailView", Priority = 0)]
-    [Appearance("RedTipoRule", AppearanceItemType = "ViewItem", TargetItems = "NombreCompleto",
-        Criteria = "Tipo = 'Virtual'", BackColor = "192,192,192", Context = "ListView")]
+    //[Appearance("RedTipoRule", AppearanceItemType = "ViewItem", TargetItems = "NombreCompleto", Criteria = "Tipo = 'Virtual'", BackColor = "192,192,192", Context = "ListView")]
     public class Persona : BasicObject
     {
-        private DateTime? fAniversarioFecha;
-        private string fApellidosMaterno;
-        private string fApellidosPaterno;
-        private ComprobanteTipo fClienteComprobanteTipoPredeterminado;
-        private CondicionDePago fClienteCondicionDePagoPredeterminada;
-        private decimal fClienteDescuento;
-        private Direccion fClienteDireccionEntrega;
-        private Identificacion fClienteEmailEnvioFacturacion;
-        private string fClienteNota;
-        private Direccion fDireccionPrimaria;
-        private int? fEdad;
-        private DateTime fFallecimientoFecha;
-        private Pais fFallecimientoPais;
-        private Identificacion fIdentificacionPrimaria;
-        private DateTime? fNacimientoFecha;
-        private Pais fNacimientoPais;
-        private Pais fNacionalidad;
-        private string fNombre;
-        private string fNombreCompleto;
-        private string fNombreFantasia;
-        private string fNotas;
-        private ComprobanteTipo fProveedorComprobanteTipoPredeterminado;
-        private CondicionDePago fProveedorCondicionDePagoPredeterminada;
-        private Direccion fProveedorDireccionRetiro;
-        private Identificacion fProveedorEmailAvisoPago;
-        private string fProveedorNota;
-        private XPCollection<Relacion> fRelaciones;
+        private DateTime? _fAniversarioFecha;
+        private string _fApellidosMaterno;
+        private string _fApellidosPaterno;
+        private ComprobanteTipo _fClienteComprobanteTipoPredeterminado;
+        private CondicionDePago _fClienteCondicionDePagoPredeterminada;
+        private decimal _fClienteDescuento;
+        private Direccion _fClienteDireccionEntrega;
+        private Identificacion _fClienteEmailEnvioFacturacion;
+        private string _fClienteNota;
+        private Direccion _fDireccionPrimaria;
+        private int? _fEdad;
+        private DateTime _fFallecimientoFecha;
+        private Pais _fFallecimientoPais;
+        private Identificacion _fIdentificacionPrimaria;
+        private DateTime? _fNacimientoFecha;
+        private Pais _fNacimientoPais;
+        private Pais _fNacionalidad;
+        private string _fNombre;
+        private string _fNombreCompleto;
+        private string _fNombreFantasia;
+        private string _fNotas;
+        private ComprobanteTipo _fProveedorComprobanteTipoPredeterminado;
+        private CondicionDePago _fProveedorCondicionDePagoPredeterminada;
+        private Direccion _fProveedorDireccionRetiro;
+        private Identificacion _fProveedorEmailAvisoPago;
+        private string _fProveedorNota;
+        private XPCollection<Relacion> _fRelaciones;
         //private BindingList<personas_Rol> fRoles;
-        private Sexo? fSexo;
-        private TipoPersona fTipo;
-        private string fTratamiento;
+        private Sexo? _fSexo;
+        private TipoPersona _fTipo;
+        private string _fTratamiento;
 
         public Persona(Session session)
             : base(session)
@@ -86,8 +84,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Tipo")]
         public TipoPersona Tipo
         {
-            get { return fTipo; }
-            set { SetPropertyValue("Tipo", ref fTipo, value); }
+            get { return _fTipo; }
+            set { SetPropertyValue("Tipo", ref _fTipo, value); }
         }
 
         [Appearance("tratamiento_tratamiento", "Tipo <> 'Fisica'", Visibility = ViewItemVisibility.Hide)]
@@ -95,8 +93,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Tratamiento")]
         public string Tratamiento
         {
-            get { return fTratamiento; }
-            set { SetPropertyValue("Tratamiento", ref fTratamiento, value); }
+            get { return _fTratamiento; }
+            set { SetPropertyValue("Tratamiento", ref _fTratamiento, value); }
         }
 
         [Appearance("tratamiento_apellidos_paterno", "Tipo <> 'Fisica'", Visibility = ViewItemVisibility.Hide)]
@@ -104,10 +102,10 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Apellidos paternos")]
         public string ApellidosPaterno
         {
-            get { return fApellidosPaterno; }
+            get { return _fApellidosPaterno; }
             set
             {
-                SetPropertyValue("ApellidosPaterno", ref fApellidosPaterno, value);
+                SetPropertyValue("ApellidosPaterno", ref _fApellidosPaterno, value);
 
                 if (CanRaiseOnChanged)
                     ActualizarNombreCompleto();
@@ -119,10 +117,10 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Apellidos maternos")]
         public string ApellidosMaterno
         {
-            get { return fApellidosMaterno; }
+            get { return _fApellidosMaterno; }
             set
             {
-                SetPropertyValue("ApellidosMaterno", ref fApellidosMaterno, value);
+                SetPropertyValue("ApellidosMaterno", ref _fApellidosMaterno, value);
 
                 if (CanRaiseOnChanged)
                 {
@@ -137,10 +135,10 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Nombre")]
         public string Nombre
         {
-            get { return fNombre; }
+            get { return _fNombre; }
             set
             {
-                SetPropertyValue("Nombre", ref fNombre, value);
+                SetPropertyValue("Nombre", ref _fNombre, value);
 
                 if (CanRaiseOnChanged)
                 {
@@ -153,10 +151,10 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Nombre fantasía/apodo")]
         public string NombreFantasia
         {
-            get { return fNombreFantasia; }
+            get { return _fNombreFantasia; }
             set
             {
-                SetPropertyValue("NombreFantasia", ref fNombreFantasia, value);
+                SetPropertyValue("NombreFantasia", ref _fNombreFantasia, value);
 
                 if (CanRaiseOnChanged)
                 {
@@ -170,17 +168,17 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Nombre completo")]
         public string NombreCompleto
         {
-            get { return fNombreCompleto; }
-            set { SetPropertyValue("NombreCompleto", ref fNombreCompleto, value); }
+            get { return _fNombreCompleto; }
+            set { SetPropertyValue("NombreCompleto", ref _fNombreCompleto, value); }
         }
 
         [System.ComponentModel.DisplayName(@"Fecha de nacimiento")]
         public DateTime? NacimientoFecha
         {
-            get { return fNacimientoFecha; }
+            get { return _fNacimientoFecha; }
             set
             {
-                SetPropertyValue("NacimientoFecha", ref fNacimientoFecha, value);
+                SetPropertyValue("NacimientoFecha", ref _fNacimientoFecha, value);
 
                 if (CanRaiseOnChanged)
                 {
@@ -199,8 +197,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Fecha de aniversario")]
         public DateTime? AniversarioFecha
         {
-            get { return fAniversarioFecha; }
-            set { SetPropertyValue("AniversarioFecha", ref fAniversarioFecha, value); }
+            get { return _fAniversarioFecha; }
+            set { SetPropertyValue("AniversarioFecha", ref _fAniversarioFecha, value); }
         }
 
         [Appearance("personeria_edad", "Tipo <> 'Fisica'", Visibility = ViewItemVisibility.Hide)]
@@ -209,16 +207,16 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Edad")]
         public int? Edad
         {
-            get { return fEdad; }
-            set { SetPropertyValue("Edad", ref fEdad, value); }
+            get { return _fEdad; }
+            set { SetPropertyValue("Edad", ref _fEdad, value); }
         }
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [System.ComponentModel.DisplayName(@"País de nacimiento")]
         public Pais NacimientoPais
         {
-            get { return fNacimientoPais; }
-            set { SetPropertyValue("NacimientoPais", ref fNacimientoPais, value); }
+            get { return _fNacimientoPais; }
+            set { SetPropertyValue("NacimientoPais", ref _fNacimientoPais, value); }
         }
 
         [Appearance("personeria_nacionalidad", "Tipo <> 'Fisica'", Visibility = ViewItemVisibility.Hide)]
@@ -226,8 +224,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Nacionalidad")]
         public Pais Nacionalidad
         {
-            get { return fNacionalidad; }
-            set { SetPropertyValue("Nacionalidad", ref fNacionalidad, value); }
+            get { return _fNacionalidad; }
+            set { SetPropertyValue("Nacionalidad", ref _fNacionalidad, value); }
         }
 
         [Appearance("personeria_sexo", "Tipo <> 'Fisica'", Visibility = ViewItemVisibility.Hide)]
@@ -235,32 +233,32 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Sexo")]
         public Sexo? Sexo
         {
-            get { return fSexo; }
-            set { SetPropertyValue("Sexo", ref fSexo, value); }
+            get { return _fSexo; }
+            set { SetPropertyValue("Sexo", ref _fSexo, value); }
         }
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [System.ComponentModel.DisplayName(@"Fecha de fallecimiento")]
         public DateTime FallecimientoFecha
         {
-            get { return fFallecimientoFecha; }
-            set { SetPropertyValue<DateTime>("FallecimientoFecha", ref fFallecimientoFecha, value); }
+            get { return _fFallecimientoFecha; }
+            set { SetPropertyValue<DateTime>("FallecimientoFecha", ref _fFallecimientoFecha, value); }
         }
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [System.ComponentModel.DisplayName(@"País de fallecimiento")]
         public Pais FallecimientoPais
         {
-            get { return fFallecimientoPais; }
-            set { SetPropertyValue("FallecimientoPais", ref fFallecimientoPais, value); }
+            get { return _fFallecimientoPais; }
+            set { SetPropertyValue("FallecimientoPais", ref _fFallecimientoPais, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         [ModelDefault("RowCount", "2")]
         public string Notas
         {
-            get { return fNotas; }
-            set { SetPropertyValue("Notas", ref fNotas, value); }
+            get { return _fNotas; }
+            set { SetPropertyValue("Notas", ref _fNotas, value); }
         }
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
@@ -268,8 +266,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Identificación primaria")]
         public Identificacion IdentificacionPrimaria
         {
-            get { return fIdentificacionPrimaria; }
-            set { SetPropertyValue("IdentificacionPrimaria", ref fIdentificacionPrimaria, value); }
+            get { return _fIdentificacionPrimaria; }
+            set { SetPropertyValue("IdentificacionPrimaria", ref _fIdentificacionPrimaria, value); }
         }
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
@@ -277,8 +275,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Dirección primaria")]
         public Direccion DireccionPrimaria
         {
-            get { return fDireccionPrimaria; }
-            set { SetPropertyValue("DireccionPrimaria", ref fDireccionPrimaria, value); }
+            get { return _fDireccionPrimaria; }
+            set { SetPropertyValue("DireccionPrimaria", ref _fDireccionPrimaria, value); }
         }
 
         [Delayed(true)]
@@ -314,23 +312,18 @@ namespace CORE.PolizApp.Personas
         [LookupEditorMode(LookupEditorMode.AllItems)]
         public ComprobanteTipo ClienteComprobanteTipoPredeterminado
         {
-            get { return fClienteComprobanteTipoPredeterminado; }
-            set
-            {
-                SetPropertyValue("ClienteComprobanteTipoPredeterminado", ref fClienteComprobanteTipoPredeterminado,
-                    value);
-            }
+            get { return _fClienteComprobanteTipoPredeterminado; }
+            set { SetPropertyValue("ClienteComprobanteTipoPredeterminado", ref _fClienteComprobanteTipoPredeterminado, value); }
         }
 
         [System.ComponentModel.DisplayName(@"Condicion De Pago Predeterminada")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
         public CondicionDePago ClienteCondicionDePagoPredeterminada
         {
-            get { return fClienteCondicionDePagoPredeterminada; }
+            get { return _fClienteCondicionDePagoPredeterminada; }
             set
             {
-                SetPropertyValue("ClienteCondicionDePagoPredeterminada", ref fClienteCondicionDePagoPredeterminada,
-                    value);
+                SetPropertyValue("ClienteCondicionDePagoPredeterminada", ref _fClienteCondicionDePagoPredeterminada, value);
             }
         }
 
@@ -338,8 +331,8 @@ namespace CORE.PolizApp.Personas
         [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
         public decimal ClienteDescuento
         {
-            get { return fClienteDescuento; }
-            set { SetPropertyValue("ClienteDescuento", ref fClienteDescuento, value); }
+            get { return _fClienteDescuento; }
+            set { SetPropertyValue("ClienteDescuento", ref _fClienteDescuento, value); }
         }
 
         [System.ComponentModel.DisplayName(@"Dirección Entrega")]
@@ -347,16 +340,16 @@ namespace CORE.PolizApp.Personas
         [DataSourceProperty("Direcciones")]
         public Direccion ClienteDireccionEntrega
         {
-            get { return fClienteDireccionEntrega; }
-            set { SetPropertyValue("ClienteDireccionEntrega", ref fClienteDireccionEntrega, value); }
+            get { return _fClienteDireccionEntrega; }
+            set { SetPropertyValue("ClienteDireccionEntrega", ref _fClienteDireccionEntrega, value); }
         }
 
         [System.ComponentModel.DisplayName(@"EMail envio Facturación")]
         [DataSourceProperty("Identificaciones")]
         public Identificacion ClienteEmailEnvioFacturacion
         {
-            get { return fClienteEmailEnvioFacturacion; }
-            set { SetPropertyValue("ClienteEmailEnvioFacturacion", ref fClienteEmailEnvioFacturacion, value); }
+            get { return _fClienteEmailEnvioFacturacion; }
+            set { SetPropertyValue("ClienteEmailEnvioFacturacion", ref _fClienteEmailEnvioFacturacion, value); }
         }
 
         [System.ComponentModel.DisplayName(@"Nota")]
@@ -364,8 +357,8 @@ namespace CORE.PolizApp.Personas
         [ModelDefault("RowCount", "2")]
         public string ClienteNota
         {
-            get { return fClienteNota; }
-            set { SetPropertyValue("ClienteNota", ref fClienteNota, value); }
+            get { return _fClienteNota; }
+            set { SetPropertyValue("ClienteNota", ref _fClienteNota, value); }
         }
 
         // Proveedor
@@ -374,10 +367,10 @@ namespace CORE.PolizApp.Personas
         [LookupEditorMode(LookupEditorMode.AllItems)]
         public ComprobanteTipo ProveedorComprobanteTipoPredeterminado
         {
-            get { return fProveedorComprobanteTipoPredeterminado; }
+            get { return _fProveedorComprobanteTipoPredeterminado; }
             set
             {
-                SetPropertyValue("ProveedorComprobanteTipoPredeterminado", ref fProveedorComprobanteTipoPredeterminado,
+                SetPropertyValue("ProveedorComprobanteTipoPredeterminado", ref _fProveedorComprobanteTipoPredeterminado,
                     value);
             }
         }
@@ -386,10 +379,10 @@ namespace CORE.PolizApp.Personas
         [LookupEditorMode(LookupEditorMode.AllItems)]
         public CondicionDePago ProveedorCondicionDePagoPredeterminada
         {
-            get { return fProveedorCondicionDePagoPredeterminada; }
+            get { return _fProveedorCondicionDePagoPredeterminada; }
             set
             {
-                SetPropertyValue("ProveedorCondicionDePagoPredeterminada", ref fProveedorCondicionDePagoPredeterminada,
+                SetPropertyValue("ProveedorCondicionDePagoPredeterminada", ref _fProveedorCondicionDePagoPredeterminada,
                     value);
             }
         }
@@ -399,16 +392,16 @@ namespace CORE.PolizApp.Personas
         [DataSourceProperty("Direcciones")]
         public Direccion ProveedorDireccionRetiro
         {
-            get { return fProveedorDireccionRetiro; }
-            set { SetPropertyValue("ProveedorDireccionRetiro", ref fProveedorDireccionRetiro, value); }
+            get { return _fProveedorDireccionRetiro; }
+            set { SetPropertyValue("ProveedorDireccionRetiro", ref _fProveedorDireccionRetiro, value); }
         }
 
         [System.ComponentModel.DisplayName(@"EMail aviso Pago")]
         [DataSourceProperty("Identificaciones")]
         public Identificacion ProveedorEmailAvisoPago
         {
-            get { return fProveedorEmailAvisoPago; }
-            set { SetPropertyValue("ProveedorEmailAvisoPago", ref fProveedorEmailAvisoPago, value); }
+            get { return _fProveedorEmailAvisoPago; }
+            set { SetPropertyValue("ProveedorEmailAvisoPago", ref _fProveedorEmailAvisoPago, value); }
         }
 
         [System.ComponentModel.DisplayName(@"Nota")]
@@ -416,39 +409,31 @@ namespace CORE.PolizApp.Personas
         [ModelDefault("RowCount", "2")]
         public string ProveedorNota
         {
-            get { return fProveedorNota; }
-            set { SetPropertyValue("ProveedorNota", ref fProveedorNota, value); }
+            get { return _fProveedorNota; }
+            set { SetPropertyValue("ProveedorNota", ref _fProveedorNota, value); }
         }
 
-        [DevExpress.Xpo.Aggregated]
-        [Association(@"EmpresaReferencespersonas_Persona")]
-        [System.ComponentModel.DisplayName(@"Empresas")]
-        public XPCollection<Empresa> Empresas
-        {
-            get { return GetCollection<Empresa>("Empresas"); }
-        }
-
-        [DevExpress.Xpo.Aggregated]
+        [Aggregated]
         [Association(@"DireccionesReferencesPersonas")]
         [System.ComponentModel.DisplayName(@"Direcciones")]
         public XPCollection<Direccion> Direcciones => GetCollection<Direccion>("Direcciones");
 
-        [DevExpress.Xpo.Aggregated]
+        [Aggregated]
         [Association(@"IdentificacionesReferencesPersonas", typeof (Identificacion))]
         [System.ComponentModel.DisplayName(@"Identificaciones")]
         public XPCollection<Identificacion> Identificaciones => GetCollection<Identificacion>("Identificaciones");
 
-        [DevExpress.Xpo.Aggregated]
+        [Aggregated]
         [Association(@"PersonasContactosReferencesPersonas", typeof (PersonaContacto))]
         [System.ComponentModel.DisplayName(@"Contactos")]
         public XPCollection<PersonaContacto> Contactos => GetCollection<PersonaContacto>("Contactos");
 
-        [DevExpress.Xpo.Aggregated]
+        [Aggregated]
         [Association(@"PersonasImpuestosReferencesPersonas", typeof (PersonaImpuesto))]
         [System.ComponentModel.DisplayName(@"Datos impositivos")]
         public XPCollection<PersonaImpuesto> DatosImpositivos => GetCollection<PersonaImpuesto>("DatosImpositivos");
 
-        [DevExpress.Xpo.Aggregated]
+        [Aggregated]
         [Association(@"PersonasPropiedadesReferencesPersonas", typeof (PersonaPropiedad))]
         [System.ComponentModel.DisplayName(@"Propiedades")]
         public XPCollection<PersonaPropiedad> Propiedades => GetCollection<PersonaPropiedad>("Propiedades");
@@ -458,34 +443,24 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Relaciones (vinculante)")]
         public XPCollection<Relacion> RelacionesVinculante => GetCollection<Relacion>("RelacionesVinculante");
 
-        [VisibleInListView(false)]
-        [VisibleInDetailView(false)]
-        [CollectionOperationSet(AllowAdd = false, AllowRemove = false)]
-        [Association(@"vRelacionesReferencesPersonas-Vinculante", typeof (vRelacion))]
-        [System.ComponentModel.DisplayName(@"RelacionesPersonas")]
-        public XPCollection<vRelacion> vRelacionesVinculante => GetCollection<vRelacion>("vRelacionesVinculante");
-
         [Browsable(false)]
         [Association(@"RelacionesReferencesPersonas-Vinculado", typeof (Relacion))]
         [System.ComponentModel.DisplayName(@"Relaciones (vinculado)")]
         public XPCollection<Relacion> RelacionesVinculado => GetCollection<Relacion>("RelacionesVinculado");
 
-        //[Browsable(false)]
-        [DevExpress.Xpo.Aggregated]
-        [CollectionOperationSet(AllowAdd = true, AllowRemove = true)]
-        [VisibleInListView(false)]
-        //[VisibleInDetailView(false)]
+        [Aggregated]
+        [CollectionOperationSet(AllowAdd = false, AllowRemove = true)]
         public XPCollection<Relacion> Relaciones
         {
             get
             {
-                if (fRelaciones == null)
+                if (_fRelaciones == null)
                 {
                     var criteria = GroupOperator.Combine(GroupOperatorType.Or,
                         RelacionesVinculante.GetRealFetchCriteria(), RelacionesVinculado.GetRealFetchCriteria());
-                    fRelaciones = new XPCollection<Relacion>(Session, criteria);
+                    _fRelaciones = new XPCollection<Relacion>(Session, criteria);
                 }
-                return fRelaciones;
+                return _fRelaciones;
             }
         }
 
@@ -524,8 +499,8 @@ namespace CORE.PolizApp.Personas
             base.AfterConstruction();
 
             Tipo = TipoPersona.Fisica;
-            //if( CoreLogonParameters.Instance.EmpresaActual(Session) != null )
-            //  NacimientoPais = Identificadores.GetInstance( Session ).PaisPredeterminado;
+            if (CoreLogonParameters.Instance.EmpresaActual(Session) != null)
+                NacimientoPais = Identificadores.GetInstance(Session).PaisPredeterminado;
         }
     }
 }

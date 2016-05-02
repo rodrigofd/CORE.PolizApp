@@ -1,10 +1,11 @@
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
   [ System.ComponentModel.DisplayName( "Movimiento de stock" ) ]
   [ Persistent( @"stock.Movimiento" ) ]
-  public class Movimiento : BasicObject
+  [DefaultClassOptions]
+public class Movimiento : BasicObject
   {
     private ArticuloSerie fArticuloSerie;
     private decimal fCantidad;

@@ -10,11 +10,10 @@ namespace CORE.PolizApp.Sistema
     [ImageName("sticky-note-pin")]
     [Persistent("sistema.Nota")]
     [DefaultProperty("")]
-    //[DefaultClassOptions]
     public class Nota : XPObject
     {
-        private string fContenido;
-        private DateTime fFecha;
+        private string _fContenido;
+        private DateTime _fFecha;
 
         public Nota(Session session) : base(session)
         {
@@ -67,8 +66,8 @@ namespace CORE.PolizApp.Sistema
         [ModelDefault("DisplayFormat", "{0:G}")]
         public DateTime Fecha
         {
-            get { return fFecha; }
-            set { SetPropertyValue<DateTime>("Fecha", ref fFecha, value); }
+            get { return _fFecha; }
+            set { SetPropertyValue<DateTime>("Fecha", ref _fFecha, value); }
         }
 
         [RuleRequiredField]
@@ -78,8 +77,8 @@ namespace CORE.PolizApp.Sistema
         [Size(SizeAttribute.Unlimited)]
         public string Contenido
         {
-            get { return fContenido; }
-            set { SetPropertyValue("Contenido", ref fContenido, value); }
+            get { return _fContenido; }
+            set { SetPropertyValue("Contenido", ref _fContenido, value); }
         }
 
         public override void AfterConstruction()

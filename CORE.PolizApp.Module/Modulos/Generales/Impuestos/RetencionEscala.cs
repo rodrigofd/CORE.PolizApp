@@ -1,20 +1,21 @@
 using CORE.PolizApp.Sistema;
 using DevExpress.ExpressApp.Model;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Impuestos
 {
     [Persistent(@"impuestos.RetencionEscala")]
     //[DefaultClassOptions]
     [System.ComponentModel.DisplayName(@"Escala de retenciones")]
-    public class RetencionEscala : BasicObject
+    [DefaultClassOptions]
+public class RetencionEscala : BasicObject
     {
         private Impuesto _fImpuesto;
-        private decimal fImporte;
-        private decimal fImporteMaximo;
-        private decimal fImporteMinimo;
-        private decimal fMontoExcedente;
-        private decimal fPorcentajeExcedente;
+        private decimal _fImporte;
+        private decimal _fImporteMaximo;
+        private decimal _fImporteMinimo;
+        private decimal _fMontoExcedente;
+        private decimal _fPorcentajeExcedente;
 
         public RetencionEscala(Session session)
             : base(session)
@@ -31,36 +32,36 @@ namespace CORE.PolizApp.Impuestos
         [ModelDefault("DisplayFormat", "n2")]
         public decimal ImporteMinimo
         {
-            get { return fImporteMinimo; }
-            set { SetPropertyValue<decimal>("ImporteMinimo", ref fImporteMinimo, value); }
+            get { return _fImporteMinimo; }
+            set { SetPropertyValue<decimal>("ImporteMinimo", ref _fImporteMinimo, value); }
         }
 
         [ModelDefault("DisplayFormat", "n2")]
         public decimal ImporteMaximo
         {
-            get { return fImporteMaximo; }
-            set { SetPropertyValue<decimal>("ImporteMaximo", ref fImporteMaximo, value); }
+            get { return _fImporteMaximo; }
+            set { SetPropertyValue<decimal>("ImporteMaximo", ref _fImporteMaximo, value); }
         }
 
         [ModelDefault("DisplayFormat", "n2")]
         public decimal Importe
         {
-            get { return fImporte; }
-            set { SetPropertyValue<decimal>("Importe", ref fImporte, value); }
+            get { return _fImporte; }
+            set { SetPropertyValue<decimal>("Importe", ref _fImporte, value); }
         }
 
         [ModelDefault("DisplayFormat", "n2")]
         public decimal PorcentajeExcedente
         {
-            get { return fPorcentajeExcedente; }
-            set { SetPropertyValue<decimal>("PorcentajeExcedente", ref fPorcentajeExcedente, value); }
+            get { return _fPorcentajeExcedente; }
+            set { SetPropertyValue<decimal>("PorcentajeExcedente", ref _fPorcentajeExcedente, value); }
         }
 
         [ModelDefault("DisplayFormat", "n2")]
         public decimal MontoExcedente
         {
-            get { return fMontoExcedente; }
-            set { SetPropertyValue<decimal>("MontoExcedente", ref fMontoExcedente, value); }
+            get { return _fMontoExcedente; }
+            set { SetPropertyValue<decimal>("MontoExcedente", ref _fMontoExcedente, value); }
         }
 
         public override void AfterConstruction()

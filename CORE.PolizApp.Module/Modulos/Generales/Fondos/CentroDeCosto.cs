@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Fondos
 {
@@ -8,7 +8,8 @@ namespace FDIT.Core.Fondos
   [ DefaultClassOptions ]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName("Centros de costo")]
-  public class CentroDeCosto : BasicObject
+  [DefaultClassOptions]
+public class CentroDeCosto : BasicObject
   {
     private bool fActivo;
     private string fCentroDeCosto;

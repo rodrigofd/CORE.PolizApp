@@ -36,8 +36,12 @@ namespace CORE.PolizApp.Controllers
             return (T) controller.GetMasterObject(listView);
         }
 
-        public static void ShowPopupListView(this ViewController controller, IObjectSpace objectSpace,
-            ActionBaseEventArgs e, Type type, CriteriaOperator criteria, string viewId,
+        public static void ShowPopupListView(
+            this ViewController controller, 
+            IObjectSpace objectSpace,
+            ActionBaseEventArgs e, Type type, 
+            CriteriaOperator criteria, 
+            string viewId,
             EventHandler<DialogControllerAcceptingEventArgs> dcOnAccepting = null,
             EventHandler dcOnCancelling = null,
             SelectionDependencyType selectionDependencyType = SelectionDependencyType.Independent)

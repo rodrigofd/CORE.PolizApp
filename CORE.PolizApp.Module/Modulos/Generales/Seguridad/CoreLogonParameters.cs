@@ -6,13 +6,14 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Seguridad
 {
     [NonPersistent]
     [ModelDefault("Caption", "Log On")]
-    public class CoreLogonParameters : ICustomObjectSerialize, ISupportResetLogonParameters
+    [DefaultClassOptions]
+public class CoreLogonParameters : ICustomObjectSerialize, ISupportResetLogonParameters
     {
         private Empresa _loginEmpresa;
         private string _loginUserName;
@@ -119,11 +120,11 @@ namespace CORE.PolizApp.Seguridad
         {
             var empresas = (XPCollection<Empresa>) objSpace.GetObjects<Empresa>();
             empresas.BindingBehavior = CollectionBindingBehavior.AllowNone;
-            filtrarEmpresasDelGrupoYUsuario(empresas, UsuarioActual(objSpace));
+            FiltrarEmpresasDelGrupoYUsuario(empresas, UsuarioActual(objSpace));
             return empresas;
         }
 
-        private void filtrarEmpresasDelGrupoYUsuario(XPCollection<Empresa> empresas, Usuario usuario)
+        private void FiltrarEmpresasDelGrupoYUsuario(XPCollection<Empresa> empresas, Usuario usuario)
         {
             // TODO: estamos filtrando empresas del grupo actual, pero no las del usuario actual (las permitidas)
             empresas.Criteria = null;
@@ -142,7 +143,7 @@ namespace CORE.PolizApp.Seguridad
                 var usuario = ObjectSpace.FindObject<Usuario>(new BinaryOperator("UserName", _loginUserName));
                 UsuarioActualId = usuario?.Oid ?? Guid.Empty;
 
-                filtrarEmpresasDelGrupoYUsuario(SeleccionEmpresa, UsuarioActual());
+                FiltrarEmpresasDelGrupoYUsuario(SeleccionEmpresa, UsuarioActual());
             }
         }
 

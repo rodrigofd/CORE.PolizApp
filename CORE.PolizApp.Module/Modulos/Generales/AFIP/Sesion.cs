@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Xml;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 //using FDIT.Core.AFIP.WebServices.WSAA;
 
 namespace FDIT.Core.AFIP
@@ -12,7 +12,8 @@ namespace FDIT.Core.AFIP
     [Persistent(@"afip.Sesion")]
     [DefaultClassOptions]
     [System.ComponentModel.DisplayName("Sesiones AFIP")]
-    public class Sesion : BasicObject
+    [DefaultClassOptions]
+public class Sesion : BasicObject
     {
         private const string XmlStrLoginTicketRequestTemplate =
           "<loginTicketRequest>" + "<header>" + "<uniqueId></uniqueId>" + "<generationTime></generationTime>" + "<expirationTime></expirationTime>" + "</header>" + "<service></service>" + "</loginTicketRequest>";

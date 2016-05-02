@@ -1,13 +1,14 @@
 using System;
 using System.ComponentModel;
 using DevExpress.Data.Filtering;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.StoredProcedures;
 
 namespace FDIT.Core.Personas
 {
   [ NonPersistent ]
-  public class spEjemploParams : IConsultaStoredProcedure
+  [DefaultClassOptions]
+public class spEjemploParams : IConsultaStoredProcedure
   {
     public DateTime? FechaDesde{ get; set; }
     public DateTime? FechaHasta{ get; set; }
@@ -33,7 +34,8 @@ namespace FDIT.Core.Personas
 
   [ NonPersistent ]
   [ ConsultaStoredProcedure( typeof( spEjemploParams ) ) ]
-  public class spEjemploResult
+  [DefaultClassOptions]
+public class spEjemploResult
   {
     public int OID{ get; set; }
     public int Grupo{ get; set; }

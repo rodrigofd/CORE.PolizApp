@@ -3,7 +3,7 @@ using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using DevExpress.Xpo.Metadata;
 
 namespace FDIT.Core.Fondos
@@ -16,7 +16,8 @@ namespace FDIT.Core.Fondos
     "Debe ingresar o asociar los valores afectados en este movimiento." ) ]
   [ Appearance( "FDIT.Core.Fondos.ComprobanteItem.NoEditableSiAutogenerado", "Autogenerado = TRUE OR (NOT ISNULL(Comprobante) AND Comprobante.Estado <> 'Pendiente' )", Enabled = false, TargetItems = "*" ) ]
   [ DefaultProperty( "Descripcion" ) ]
-  public class ComprobanteItem : BasicObject
+  [DefaultClassOptions]
+public class ComprobanteItem : BasicObject
   {
     private bool fAutogenerado;
     private decimal fCambio;

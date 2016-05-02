@@ -5,11 +5,13 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
-using DevExpress.Xpo;
+using DevExpress.Persistent.Base;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
-public class CPA
+[DefaultClassOptions]
+public class Cpa
 {
-    public static IList<CPAResultItem> ObtenerCPA(int localidad, string calle, string altura)
+    public static IList<CpaResultItem> ObtenerCpa(int localidad, string calle, string altura)
     {
         return null;
         /*var client = new WebClient( );
@@ -73,14 +75,14 @@ public class CPA
     return res;*/
     }
 
-    public static IList<LocalidadResultItem> ObtenerLocalidades(string CodigoProvincia, string busqueda)
+    public static IList<LocalidadResultItem> ObtenerLocalidades(string codigoProvincia, string busqueda)
     {
         var client = new WebClient();
         client.Headers.Add("Referer", "http://www.correoargentino.com.ar/cpa");
 
         byte[] response =
             client.UploadValues(
-                "http://www.correoargentino.com.ar/consultas/cpa/obtener_localidades/" + CodigoProvincia,
+                "http://www.correoargentino.com.ar/consultas/cpa/obtener_localidades/" + codigoProvincia,
                 new NameValueCollection
                 {
                     {"localidad", busqueda}
@@ -101,7 +103,7 @@ public class CPA
         {
             var item = new LocalidadResultItem
             {
-                CodigoProvincia = CodigoProvincia,
+                CodigoProvincia = codigoProvincia,
                 Codigo = -1,
                 Nombre = "",
                 CodigoPostal = -1
@@ -145,9 +147,10 @@ public class CPA
 
 
 [NonPersistent]
-public class CPAResultItem
+[DefaultClassOptions]
+public class CpaResultItem
 {
-    public string CPA;
+    public string Cpa;
     public string Calle;
     public int CodigoLocalidad;
     public int Tipo;
@@ -155,6 +158,7 @@ public class CPAResultItem
 }
 
 [NonPersistent]
+[DefaultClassOptions]
 public class LocalidadResultItem
 {
     public int Codigo;

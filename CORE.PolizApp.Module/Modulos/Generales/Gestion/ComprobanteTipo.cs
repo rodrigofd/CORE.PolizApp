@@ -4,7 +4,7 @@ using CORE.ES.Module.Modulos.Escribania;
 using CORE.PolizApp.Impuestos;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Gestion
 {
@@ -12,32 +12,33 @@ namespace CORE.PolizApp.Gestion
     //[DefaultClassOptions]
     [DefaultProperty("Descripcion")]
     [System.ComponentModel.DisplayName("Tipos de comprobantes")]
-    public class ComprobanteTipo : BasicObject
+    [DefaultClassOptions]
+public class ComprobanteTipo : BasicObject
     {
-        private bool fActivo;
-        private bool fAutomatico;
-        private Categoria fCategoriaDeIvaPredet;
-        private string fClase;
-        private string fCodigo;
-        private int fCopiasImpresion;
-        private DebitoCredito fDebitoCredito;
-        private string fDescripcionImpresion;
-        private bool fDiscriminaImpuestos;
-        private bool fGestionFinanciera;
+        private bool _fActivo;
+        private bool _fAutomatico;
+        private Categoria _fCategoriaDeIvaPredet;
+        private string _fClase;
+        private string _fCodigo;
+        private int _fCopiasImpresion;
+        private DebitoCredito _fDebitoCredito;
+        private string _fDescripcionImpresion;
+        private bool _fDiscriminaImpuestos;
+        private bool _fGestionFinanciera;
 
         //private IdentificacionTipo fIdentificacionTipoPredet;
-        private bool fIncluyeIva;
-        private bool fIncluyePercepciones;
-        private bool fLibroIvaCompras;
-        private bool fLibroIvaVentas;
+        private bool _fIncluyeIva;
+        private bool _fIncluyePercepciones;
+        private bool _fLibroIvaCompras;
+        private bool _fLibroIvaVentas;
         //private ComprobanteTipoModulo fModulo;
-        private string fNombre;
-        private int fOrden;
+        private string _fNombre;
+        private int _fOrden;
         //private ComprobanteModeloItem fComprobanteModeloItemPrincipal;
-        private bool fStockEntrada;
-        private bool fStockSalida;
-        private bool fValorizado;
-        private int fAfipCodigo;
+        private bool _fStockEntrada;
+        private bool _fStockSalida;
+        private bool _fValorizado;
+        private int _fAfipCodigo;
 
         public ComprobanteTipo(Session session) : base(session)
         {
@@ -54,8 +55,8 @@ namespace CORE.PolizApp.Gestion
         [VisibleInLookupListView(true)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(200)]
@@ -63,63 +64,63 @@ namespace CORE.PolizApp.Gestion
         [VisibleInLookupListView(true)]
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         [Size(1)]
         public string Clase
         {
-            get { return fClase; }
-            set { SetPropertyValue("Clase", ref fClase, value); }
+            get { return _fClase; }
+            set { SetPropertyValue("Clase", ref _fClase, value); }
         }
 
         public DebitoCredito DebitoCredito
         {
-            get { return fDebitoCredito; }
-            set { SetPropertyValue("DebitoCredito", ref fDebitoCredito, value); }
+            get { return _fDebitoCredito; }
+            set { SetPropertyValue("DebitoCredito", ref _fDebitoCredito, value); }
         }
 
         public bool DiscriminaImpuestos
         {
-            get { return fDiscriminaImpuestos; }
-            set { SetPropertyValue("DiscriminaImpuestos", ref fDiscriminaImpuestos, value); }
+            get { return _fDiscriminaImpuestos; }
+            set { SetPropertyValue("DiscriminaImpuestos", ref _fDiscriminaImpuestos, value); }
         }
 
         public bool Automatico
         {
-            get { return fAutomatico; }
-            set { SetPropertyValue("Automatico", ref fAutomatico, value); }
+            get { return _fAutomatico; }
+            set { SetPropertyValue("Automatico", ref _fAutomatico, value); }
         }
 
         public int Orden
         {
-            get { return fOrden; }
-            set { SetPropertyValue<int>("Orden", ref fOrden, value); }
+            get { return _fOrden; }
+            set { SetPropertyValue<int>("Orden", ref _fOrden, value); }
         }
 
         public bool LibroIvaCompras
         {
-            get { return fLibroIvaCompras; }
-            set { SetPropertyValue("LibroIvaCompras", ref fLibroIvaCompras, value); }
+            get { return _fLibroIvaCompras; }
+            set { SetPropertyValue("LibroIvaCompras", ref _fLibroIvaCompras, value); }
         }
 
         public bool LibroIvaVentas
         {
-            get { return fLibroIvaVentas; }
-            set { SetPropertyValue("LibroIvaVentas", ref fLibroIvaVentas, value); }
+            get { return _fLibroIvaVentas; }
+            set { SetPropertyValue("LibroIvaVentas", ref _fLibroIvaVentas, value); }
         }
 
         public int CopiasImpresion
         {
-            get { return fCopiasImpresion; }
-            set { SetPropertyValue<int>("CopiasImpresion", ref fCopiasImpresion, value); }
+            get { return _fCopiasImpresion; }
+            set { SetPropertyValue<int>("CopiasImpresion", ref _fCopiasImpresion, value); }
         }
 
         public Categoria CategoriaDeIvaPredet
         {
-            get { return fCategoriaDeIvaPredet; }
-            set { SetPropertyValue("CategoriaDeIvaPredet", ref fCategoriaDeIvaPredet, value); }
+            get { return _fCategoriaDeIvaPredet; }
+            set { SetPropertyValue("CategoriaDeIvaPredet", ref _fCategoriaDeIvaPredet, value); }
         }
 
         /*
@@ -132,56 +133,56 @@ namespace CORE.PolizApp.Gestion
 
         public bool Activo
         {
-            get { return fActivo; }
-            set { SetPropertyValue("Activo", ref fActivo, value); }
+            get { return _fActivo; }
+            set { SetPropertyValue("Activo", ref _fActivo, value); }
         }
 
         public bool IncluyeIva
         {
-            get { return fIncluyeIva; }
-            set { SetPropertyValue("IncluyeIva", ref fIncluyeIva, value); }
+            get { return _fIncluyeIva; }
+            set { SetPropertyValue("IncluyeIva", ref _fIncluyeIva, value); }
         }
 
         public bool IncluyePercepciones
         {
-            get { return fIncluyePercepciones; }
-            set { SetPropertyValue("IncluyePercepciones", ref fIncluyePercepciones, value); }
+            get { return _fIncluyePercepciones; }
+            set { SetPropertyValue("IncluyePercepciones", ref _fIncluyePercepciones, value); }
         }
 
         public bool GestionFinanciera
         {
-            get { return fGestionFinanciera; }
-            set { SetPropertyValue("GestionFinanciera", ref fGestionFinanciera, value); }
+            get { return _fGestionFinanciera; }
+            set { SetPropertyValue("GestionFinanciera", ref _fGestionFinanciera, value); }
         }
 
         public bool StockEntrada
         {
-            get { return fStockEntrada; }
-            set { SetPropertyValue("Entrada", ref fStockEntrada, value); }
+            get { return _fStockEntrada; }
+            set { SetPropertyValue("Entrada", ref _fStockEntrada, value); }
         }
 
         public bool StockSalida
         {
-            get { return fStockSalida; }
-            set { SetPropertyValue("Salida", ref fStockSalida, value); }
+            get { return _fStockSalida; }
+            set { SetPropertyValue("Salida", ref _fStockSalida, value); }
         }
 
         public bool Valorizado
         {
-            get { return fValorizado; }
-            set { SetPropertyValue("Valorizado", ref fValorizado, value); }
+            get { return _fValorizado; }
+            set { SetPropertyValue("Valorizado", ref _fValorizado, value); }
         }
 
         public string DescripcionImpresion
         {
-            get { return fDescripcionImpresion; }
-            set { SetPropertyValue("DescripcionImpresion", ref fDescripcionImpresion, value); }
+            get { return _fDescripcionImpresion; }
+            set { SetPropertyValue("DescripcionImpresion", ref _fDescripcionImpresion, value); }
         }
 
         public int AfipCodigo
         {
-            get { return fAfipCodigo; }
-            set { SetPropertyValue<int>("AfipCodigo", ref fAfipCodigo, value); }
+            get { return _fAfipCodigo; }
+            set { SetPropertyValue<int>("AfipCodigo", ref _fAfipCodigo, value); }
         }
 
         /*

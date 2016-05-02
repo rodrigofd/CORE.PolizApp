@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.General.Modulos.AFIP
 {
@@ -8,27 +8,28 @@ namespace CORE.General.Modulos.AFIP
     //[DefaultClassOptions]
     [DefaultProperty("CategoriaDeIva")]
     [System.ComponentModel.DisplayName(@"Categorías de impuestos AFIP")]
-    public class afip_ImpuestoCategoria : BasicObject
+    [DefaultClassOptions]
+public class AfipImpuestoCategoria : BasicObject
     {
-        private string fCategoriaDeIva;
-        private int fCodigo;
+        private string _fCategoriaDeIva;
+        private int _fCodigo;
 
-        public afip_ImpuestoCategoria(Session session)
+        public AfipImpuestoCategoria(Session session)
             : base(session)
         {
         }
 
         public int Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue<int>("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue<int>("Codigo", ref _fCodigo, value); }
         }
 
         [Size(200)]
         public string CategoriaDeIva
         {
-            get { return fCategoriaDeIva; }
-            set { SetPropertyValue("CategoriaDeIva", ref fCategoriaDeIva, value); }
+            get { return _fCategoriaDeIva; }
+            set { SetPropertyValue("CategoriaDeIva", ref _fCategoriaDeIva, value); }
         }
 
         public override void AfterConstruction()

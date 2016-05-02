@@ -5,7 +5,7 @@ using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using DevExpress.Xpo.DB;
 using CORE.Modulos.Gestion;
 using CORE.Modulos.Personas;
@@ -14,7 +14,8 @@ namespace CORE.Modulos.Ventas
 {
   [ NonPersistent ]
   [ ModelDefault( "AllowEdit", "false" ) ]
-  public class CuentaCorriente : XPLiteObject
+  [DefaultClassOptions]
+public class CuentaCorriente : XPLiteObject
   {
     private Persona fCliente;
     private DateTime? fFechaDesde;
@@ -92,7 +93,8 @@ namespace CORE.Modulos.Ventas
   }
 
   [ Persistent( "ventas.vCuentaCorriente" ) ]
-  public class CuentaCorrienteItem : XPLiteObject
+  [DefaultClassOptions]
+public class CuentaCorrienteItem : XPLiteObject
   {
     public CuentaCorrienteItem( Session Session )
       : base( Session )

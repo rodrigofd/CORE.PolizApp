@@ -20,7 +20,7 @@ namespace CORE.PolizApp.Controllers.Sistema
         /// </summary>
         private IContainer components;
 
-        protected SingleChoiceAction nuevoVinculoAction;
+        protected SingleChoiceAction NuevoVinculoAction;
 
         public VinculosController()
         {
@@ -36,7 +36,7 @@ namespace CORE.PolizApp.Controllers.Sistema
         {
             base.OnActivated();
 
-            nuevoVinculoAction.Items.Clear();
+            NuevoVinculoAction.Items.Clear();
             foreach (ITypeInfo type in XafTypesInfo.Instance.PersistentTypes.OrderBy(info => info.Name))
             {
                 if (type.FindAttribute<DefaultClassOptionsAttribute>() == null) continue;
@@ -45,7 +45,7 @@ namespace CORE.PolizApp.Controllers.Sistema
                 var displayNameAttr = type.FindAttribute<DisplayNameAttribute>();
                 if (displayNameAttr != null) desc = displayNameAttr.DisplayName;
 
-                nuevoVinculoAction.Items.Add(new ChoiceActionItem(desc, type.Type));
+                NuevoVinculoAction.Items.Add(new ChoiceActionItem(desc, type.Type));
             }
 
             UpdateActionState();
@@ -54,7 +54,7 @@ namespace CORE.PolizApp.Controllers.Sistema
         protected virtual void UpdateActionState()
         {
             var newObjectViewController = Frame.GetController<NewObjectViewController>();
-            nuevoVinculoAction.Active["SecurityAllowNewByPermissions"] =
+            NuevoVinculoAction.Active["SecurityAllowNewByPermissions"] =
                 newObjectViewController.NewObjectAction.Active["SecurityAllowNewByPermissions"];
         }
 
@@ -125,23 +125,23 @@ namespace CORE.PolizApp.Controllers.Sistema
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.nuevoVinculoAction = new DevExpress.ExpressApp.Actions.SingleChoiceAction(this.components);
+            this.NuevoVinculoAction = new DevExpress.ExpressApp.Actions.SingleChoiceAction(this.components);
             // 
             // nuevoVinculoAction
             // 
-            this.nuevoVinculoAction.Caption = "Vincular con";
-            this.nuevoVinculoAction.Category = "RecordEdit";
-            this.nuevoVinculoAction.ConfirmationMessage = null;
-            this.nuevoVinculoAction.Id = "nuevoVinculoAction";
-            this.nuevoVinculoAction.ImageName = "MenuBar_Link";
-            this.nuevoVinculoAction.ItemType = DevExpress.ExpressApp.Actions.SingleChoiceActionItemType.ItemIsOperation;
-            this.nuevoVinculoAction.Shortcut = null;
-            this.nuevoVinculoAction.Tag = null;
-            this.nuevoVinculoAction.TargetObjectsCriteria = null;
-            this.nuevoVinculoAction.TargetViewId = null;
-            this.nuevoVinculoAction.ToolTip = null;
-            this.nuevoVinculoAction.TypeOfView = null;
-            this.nuevoVinculoAction.Execute +=
+            this.NuevoVinculoAction.Caption = "Vincular con";
+            this.NuevoVinculoAction.Category = "RecordEdit";
+            this.NuevoVinculoAction.ConfirmationMessage = null;
+            this.NuevoVinculoAction.Id = "nuevoVinculoAction";
+            this.NuevoVinculoAction.ImageName = "MenuBar_Link";
+            this.NuevoVinculoAction.ItemType = DevExpress.ExpressApp.Actions.SingleChoiceActionItemType.ItemIsOperation;
+            this.NuevoVinculoAction.Shortcut = null;
+            this.NuevoVinculoAction.Tag = null;
+            this.NuevoVinculoAction.TargetObjectsCriteria = null;
+            this.NuevoVinculoAction.TargetViewId = null;
+            this.NuevoVinculoAction.ToolTip = null;
+            this.NuevoVinculoAction.TypeOfView = null;
+            this.NuevoVinculoAction.Execute +=
                 new DevExpress.ExpressApp.Actions.SingleChoiceActionExecuteEventHandler(this.nuevoVinculoAction_Execute);
         }
 

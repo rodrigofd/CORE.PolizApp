@@ -13,15 +13,16 @@ namespace CORE.PolizApp.Sistema
     [DefaultProperty("FileName")]
     [DeferredDeletion(false), OptimisticLocking(false)]
     [Persistent("sistema.Archivo")]
+    [DefaultClassOptions]
     public class Archivo : XPCustomObject, IFileData, IEmptyCheckable
     {
         public static int ReadBytesSize = 4096; //4KB
         public static string FileSystemStoreLocation = "";
 
         private static readonly object SyncRoot = new object();
-        private Guid fOid;
-        private string fTempFileName = string.Empty;
-        private Stream fTempSourceStream;
+        private Guid _fOid;
+        private string _fTempFileName = string.Empty;
+        private Stream _fTempSourceStream;
 
         static Archivo()
         {
@@ -35,8 +36,8 @@ namespace CORE.PolizApp.Sistema
         [Key]
         public Guid Oid
         {
-            get { return fOid; }
-            set { SetPropertyValue("Oid", ref fOid, value); }
+            get { return _fOid; }
+            set { SetPropertyValue("Oid", ref _fOid, value); }
         }
 
         public string RealFileName
@@ -107,13 +108,13 @@ namespace CORE.PolizApp.Sistema
         private void RemoveOldFileFromStore()
         {
             //Dennis: We need to remove the old file from the store when saving the current object.
-            if (!string.IsNullOrEmpty(fTempFileName) && fTempFileName != RealFileName)
+            if (!string.IsNullOrEmpty(_fTempFileName) && _fTempFileName != RealFileName)
             {
                 //B222892
                 try
                 {
-                    File.Delete(fTempFileName);
-                    fTempFileName = string.Empty;
+                    File.Delete(_fTempFileName);
+                    _fTempFileName = string.Empty;
                 }
                 catch (DirectoryNotFoundException exc)
                 {
@@ -157,16 +158,16 @@ namespace CORE.PolizApp.Sistema
         [Browsable(false)]
         public Stream TempSourceStream
         {
-            get { return fTempSourceStream; }
+            get { return _fTempSourceStream; }
             set
             {
-                fTempSourceStream = value;
+                _fTempSourceStream = value;
                 //Dennis: For Windows Forms applications.
-                if (fTempSourceStream is FileStream)
+                if (_fTempSourceStream is FileStream)
                 {
                     try
                     {
-                        fTempSourceStream = File.OpenRead(((FileStream) fTempSourceStream).Name);
+                        _fTempSourceStream = File.OpenRead(((FileStream) _fTempSourceStream).Name);
                     }
                     catch (FileNotFoundException exc)
                     {
@@ -179,8 +180,8 @@ namespace CORE.PolizApp.Sistema
         public void Clear()
         {
             //Dennis: When clearing the file name property we need to save the name of the old file to remove it from the store in the future. You can also setup a separate service for that.
-            if (string.IsNullOrEmpty(fTempFileName))
-                fTempFileName = RealFileName;
+            if (string.IsNullOrEmpty(_fTempFileName))
+                _fTempFileName = RealFileName;
             FileName = string.Empty;
             Size = 0;
         }
@@ -198,8 +199,8 @@ namespace CORE.PolizApp.Sistema
             FileName = fileName;
             TempSourceStream = source;
             //Dennis: When assigning a new file we need to save the name of the old file to remove it from the store in the future.
-            if (string.IsNullOrEmpty(fTempFileName))
-                fTempFileName = RealFileName;
+            if (string.IsNullOrEmpty(_fTempFileName))
+                _fTempFileName = RealFileName;
         }
 
         //Dennis: Fires when saving or opening a file.

@@ -1,13 +1,14 @@
 using System;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Sistema;
 
 namespace CORE.Modulos.Stock
 {
   [Persistent( @"stock.Precio" )]
   [System.ComponentModel.DisplayName( "Precio por artículo" )]
-  public class Precio : BasicObject
+  [DefaultClassOptions]
+public class Precio : BasicObject
   {
     private Articulo fArticulo;
     private bool fEstimado;

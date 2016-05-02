@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Personas
 {
@@ -9,10 +9,11 @@ namespace CORE.PolizApp.Personas
     [Persistent(@"personas.Propiedad")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName("Propiedad")]
-    public class Propiedad : BasicObject
+    [DefaultClassOptions]
+public class Propiedad : BasicObject
     {
-        private string fNombre;
-        private TipoPersona fTipoPersona;
+        private string _fNombre;
+        private TipoPersona _fTipoPersona;
 
         public Propiedad(Session session)
             : base(session)
@@ -21,16 +22,16 @@ namespace CORE.PolizApp.Personas
 
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         [ImmediatePostData]
         [System.ComponentModel.DisplayName("Para tipo de persona")]
         public TipoPersona TipoPersona
         {
-            get { return fTipoPersona; }
-            set { SetPropertyValue("TipoPersona", ref fTipoPersona, value); }
+            get { return _fTipoPersona; }
+            set { SetPropertyValue("TipoPersona", ref _fTipoPersona, value); }
         }
 
         [Association(@"PropiedadesValoresReferencesPropiedades", typeof (PropiedadValor))]

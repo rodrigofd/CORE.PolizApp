@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Sistema;
 
 namespace CORE.Modulos.CRM
@@ -9,7 +9,8 @@ namespace CORE.Modulos.CRM
   [ DefaultClassOptions ]
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Estado de caso" ) ]
-  public class CasoEstado : BasicObject, IObjetoPorGrupo
+  [DefaultClassOptions]
+public class CasoEstado : BasicObject, IObjetoPorGrupo
   {
     private Grupo fGrupo;
     private string fNombre;

@@ -1,15 +1,16 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Personas
 {
     [Persistent(@"personas.ContactoTipo")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName("Tipo de contacto")]
-    public class ContactoTipo : BasicObject
+    [DefaultClassOptions]
+public class ContactoTipo : BasicObject
     {
-        private string fContactoTipo;
+        private string _fContactoTipo;
 
         public ContactoTipo(Session session) : base(session)
         {
@@ -17,8 +18,8 @@ namespace CORE.PolizApp.Personas
 
         public string Nombre
         {
-            get { return fContactoTipo; }
-            set { SetPropertyValue("Nombre", ref fContactoTipo, value); }
+            get { return _fContactoTipo; }
+            set { SetPropertyValue("Nombre", ref _fContactoTipo, value); }
         }
 
         public override void AfterConstruction()

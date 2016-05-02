@@ -1,10 +1,11 @@
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
   [ System.ComponentModel.DisplayName( "Valor de propiedad" ) ]
   [ Persistent( @"stock.PropiedadValor" ) ]
-  public class PropiedadValor : BasicObject
+  [DefaultClassOptions]
+public class PropiedadValor : BasicObject
   {
     private Propiedad fPropiedad;
     private string fValor;

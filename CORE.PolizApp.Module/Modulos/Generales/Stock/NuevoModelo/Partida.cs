@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Regionales;
 
 namespace CORE.Modulos.Stock
@@ -10,7 +10,8 @@ namespace CORE.Modulos.Stock
   [ NavigationItem( "Stock" ) ]
   [ System.ComponentModel.DisplayName( "Partida" ) ]
   [ Persistent( @"stock.Partida" ) ]
-  public class Partida : BasicObject
+  [DefaultClassOptions]
+public class Partida : BasicObject
   {
     private string fPartidaAduana;
     private string fNotas;

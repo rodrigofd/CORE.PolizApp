@@ -1,13 +1,14 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
   [ DefaultProperty( "" ) ]
   [ System.ComponentModel.DisplayName( "Equivalencia" ) ]
   [ Persistent( @"stock.Equivalencia" ) ]
-  public class Equivalencia : BasicObject
+  [DefaultClassOptions]
+public class Equivalencia : BasicObject
   {
     private Articulo fArticulo;
     private Articulo fArticuloEquivalente;

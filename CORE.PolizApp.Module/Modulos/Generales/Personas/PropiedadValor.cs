@@ -1,17 +1,18 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Personas
 {
     [Persistent(@"personas.PropiedadValor")]
     [DefaultProperty("Valor")]
     [System.ComponentModel.DisplayName("Valor predefinido de propiedad")]
-    public class PropiedadValor : BasicObject
+    [DefaultClassOptions]
+public class PropiedadValor : BasicObject
     {
-        private int fOrden;
-        private Propiedad fPropiedad;
-        private string fValor;
+        private int _fOrden;
+        private Propiedad _fPropiedad;
+        private string _fValor;
 
         public PropiedadValor(Session session)
             : base(session)
@@ -21,21 +22,21 @@ namespace CORE.PolizApp.Personas
         [Association(@"PropiedadesValoresReferencesPropiedades")]
         public Propiedad Propiedad
         {
-            get { return fPropiedad; }
-            set { SetPropertyValue("Propiedad", ref fPropiedad, value); }
+            get { return _fPropiedad; }
+            set { SetPropertyValue("Propiedad", ref _fPropiedad, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         public string Valor
         {
-            get { return fValor; }
-            set { SetPropertyValue("Valor", ref fValor, value); }
+            get { return _fValor; }
+            set { SetPropertyValue("Valor", ref _fValor, value); }
         }
 
         public int Orden
         {
-            get { return fOrden; }
-            set { SetPropertyValue<int>("Orden", ref fOrden, value); }
+            get { return _fOrden; }
+            set { SetPropertyValue<int>("Orden", ref _fOrden, value); }
         }
 
         public override void AfterConstruction()

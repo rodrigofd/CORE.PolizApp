@@ -1,13 +1,14 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Deposito Ubicación" ) ]
   [ Persistent( @"stock.DepositoUbicacion" ) ]
-  public class DepositoUbicacion : BasicObject
+  [DefaultClassOptions]
+public class DepositoUbicacion : BasicObject
   {
     private string fCodigo;
     private Deposito fDeposito;

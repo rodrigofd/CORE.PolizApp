@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Gestion;
 using CORE.Modulos.Sistema;
 
@@ -11,7 +11,8 @@ namespace CORE.Modulos.Stock
   [DefaultClassOptions]
   [DefaultProperty("Nombre")]
   [System.ComponentModel.DisplayName("Servicio")]
-  public class Servicio : BasicObject
+  [DefaultClassOptions]
+public class Servicio : BasicObject
   {
     private string fCodigo;
     private string fNombre;

@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Ventas;
 using CORE.Modulos.Sistema;
 
@@ -36,7 +36,8 @@ namespace CORE.Modulos.CRM
   [ DefaultClassOptions ]
   [ DefaultProperty( "Descripcion" ) ]
   [ System.ComponentModel.DisplayName( "Contrato de cliente" ) ]
-  public class Contrato : BasicObject
+  [DefaultClassOptions]
+public class Contrato : BasicObject
   {
     private Cliente fCliente;
     private string fCodigo;

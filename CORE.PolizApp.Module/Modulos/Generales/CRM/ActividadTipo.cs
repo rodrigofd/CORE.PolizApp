@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Drawing;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Personas;
 using CORE.Modulos.Sistema;
 
@@ -12,7 +12,8 @@ namespace CORE.Modulos.CRM
   [ DefaultClassOptions ]
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Tipo de actividades" ) ]
-  public class ActividadTipo : BasicObject, IObjetoPorGrupo
+  [DefaultClassOptions]
+public class ActividadTipo : BasicObject, IObjetoPorGrupo
   {
     private Direccion? fDireccionPredeterminada;
     private int fDuracionPredeterminada;

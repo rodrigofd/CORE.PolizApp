@@ -4,7 +4,16 @@
     <Items>
       <Item Id="Default">
         <Items>
-          <Item Id="Apariencia" ViewId="ModelDifference_ListView" IsNewNode="True" />
+          <Item Id="@3ff4dcc5-e2b9-44ca-b73a-a842c784188c">
+            <Items>
+              <Item Id="@e3f44202-d490-4a6e-bd61-d1601120943c_Copy">
+                <Items>
+                  <Item Id="MyDetails" Caption="Mi Perfil" ObjectKey="@CurrentUserID" ViewId="DevExpress.ExpressApp.Security.Strategy.SecuritySystemUser_DetailView" ImageName="BO_MyDetails" IsNewNode="True" />
+                </Items>
+              </Item>
+            </Items>
+          </Item>
+          <Item Id="MyDetails" Removed="True" />
         </Items>
       </Item>
     </Items>
@@ -13,8 +22,8 @@
     <RibbonOptions RibbonControlStyle="Office2013" />
   </Options>
   <SchemaModules>
-    <SchemaModule Name="CloneObjectModule" Version="15.2.7.0" IsNewNode="True" />
-    <SchemaModule Name="SystemModule" Version="15.2.7.0" IsNewNode="True" />
-    <SchemaModule Name="SystemWindowsFormsModule" Version="15.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="CloneObjectModule" Version="15.2.9.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="15.2.9.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="15.2.9.0" IsNewNode="True" />
   </SchemaModules>
 </Application>

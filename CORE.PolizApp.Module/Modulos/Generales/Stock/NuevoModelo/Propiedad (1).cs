@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
@@ -9,7 +9,8 @@ namespace CORE.Modulos.Stock
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Propiedad de artículo" ) ]
   [ Persistent( @"stock.Propiedad" ) ]
-  public class Propiedad : BasicObject
+  [DefaultClassOptions]
+public class Propiedad : BasicObject
   {
     private string fNombre;
 

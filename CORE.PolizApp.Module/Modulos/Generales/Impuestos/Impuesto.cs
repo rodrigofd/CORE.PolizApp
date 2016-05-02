@@ -2,7 +2,7 @@ using System.ComponentModel;
 using CORE.PolizApp.Regionales;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Impuestos
 {
@@ -11,13 +11,14 @@ namespace CORE.PolizApp.Impuestos
     [DefaultProperty("Nombre")]
     [FiltroPorPais(true)]
     [System.ComponentModel.DisplayName(@"Impuestos")]
-    public class Impuesto : BasicObject
+    [DefaultClassOptions]
+public class Impuesto : BasicObject
     {
-        private string fCodigo;
-        private string fNombre;
+        private string _fCodigo;
+        private string _fNombre;
 
-        private int fOrden;
-        private Pais fPais;
+        private int _fOrden;
+        private Pais _fPais;
 
         public Impuesto(Session session)
             : base(session)
@@ -27,30 +28,30 @@ namespace CORE.PolizApp.Impuestos
         [Association(@"ImpuestosReferencesPaises")]
         public Pais Pais
         {
-            get { return fPais; }
-            set { SetPropertyValue("Pais", ref fPais, value); }
+            get { return _fPais; }
+            set { SetPropertyValue("Pais", ref _fPais, value); }
         }
 
         [Size(10)]
         [Index(0)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(50)]
         [Index(1)]
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         public int Orden
         {
-            get { return fOrden; }
-            set { SetPropertyValue<int>("Orden", ref fOrden, value); }
+            get { return _fOrden; }
+            set { SetPropertyValue<int>("Orden", ref _fOrden, value); }
         }
 
         [Association(@"PadronReferencesImpuestos", typeof (Padron))]

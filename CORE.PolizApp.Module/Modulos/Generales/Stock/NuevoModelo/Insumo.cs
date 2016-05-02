@@ -1,12 +1,13 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
   [ System.ComponentModel.DisplayName( "Insumo" ) ]
   [ Persistent( @"stock.Insumo" ) ]
-  public class Insumo : BasicObject
+  [DefaultClassOptions]
+public class Insumo : BasicObject
   {
     private decimal fCantidad;
     private Articulo fArticulo;

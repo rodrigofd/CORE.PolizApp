@@ -2,7 +2,7 @@ using System;
 using CORE.PolizApp.Impuestos;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using System.ComponentModel;
 
 namespace CORE.PolizApp.Personas
@@ -11,17 +11,18 @@ namespace CORE.PolizApp.Personas
     [Persistent(@"personas.PersonaImpuesto")]
     [System.ComponentModel.DisplayName("Datos impositivos")]
     [DefaultProperty("Categoria")]
-    public class PersonaImpuesto : BasicObject
+    [DefaultClassOptions]
+public class PersonaImpuesto : BasicObject
     {
-        private Categoria fCategoria;
-        private DateTime fDesde;
-        private DateTime fHasta;
+        private Categoria _fCategoria;
+        private DateTime _fDesde;
+        private DateTime _fHasta;
         private Impuesto _f;
-        private string fNotas;
-        private bool fPercepcion;
-        private Persona fPersona;
-        private Regimen fRegimen;
-        private bool fRetencion;
+        private string _fNotas;
+        private bool _fPercepcion;
+        private Persona _fPersona;
+        private Regimen _fRegimen;
+        private bool _fRetencion;
 
         public PersonaImpuesto(Session session)
             : base(session)
@@ -31,8 +32,8 @@ namespace CORE.PolizApp.Personas
         [Association(@"PersonasImpuestosReferencesPersonas")]
         public Persona Persona
         {
-            get { return fPersona; }
-            set { SetPropertyValue("Persona", ref fPersona, value); }
+            get { return _fPersona; }
+            set { SetPropertyValue("Persona", ref _fPersona, value); }
         }
 
         //TODO: en la grid aparece en null
@@ -52,10 +53,10 @@ namespace CORE.PolizApp.Personas
         [LookupEditorMode(LookupEditorMode.AllItems)]
         public Categoria Categoria
         {
-            get { return fCategoria; }
+            get { return _fCategoria; }
             set
             {
-                SetPropertyValue("Categoria", ref fCategoria, value);
+                SetPropertyValue("Categoria", ref _fCategoria, value);
                 //Impuesto = Categoria.Impuesto;
             }
         }
@@ -66,41 +67,41 @@ namespace CORE.PolizApp.Personas
         [LookupEditorMode(LookupEditorMode.AllItems)]
         public Regimen Regimen
         {
-            get { return fRegimen; }
-            set { SetPropertyValue("Regimen", ref fRegimen, value); }
+            get { return _fRegimen; }
+            set { SetPropertyValue("Regimen", ref _fRegimen, value); }
         }
 
         [System.ComponentModel.DisplayName(@"Agente de retención")]
         public bool AgenteRetencion
         {
-            get { return fRetencion; }
-            set { SetPropertyValue("Retencion", ref fRetencion, value); }
+            get { return _fRetencion; }
+            set { SetPropertyValue("Retencion", ref _fRetencion, value); }
         }
 
         [System.ComponentModel.DisplayName("Agente de percepción")]
         public bool AgentePercepcion
         {
-            get { return fPercepcion; }
-            set { SetPropertyValue("Percepcion", ref fPercepcion, value); }
+            get { return _fPercepcion; }
+            set { SetPropertyValue("Percepcion", ref _fPercepcion, value); }
         }
 
         public DateTime Desde
         {
-            get { return fDesde; }
-            set { SetPropertyValue<DateTime>("Desde", ref fDesde, value); }
+            get { return _fDesde; }
+            set { SetPropertyValue<DateTime>("Desde", ref _fDesde, value); }
         }
 
         public DateTime Hasta
         {
-            get { return fHasta; }
-            set { SetPropertyValue<DateTime>("Hasta", ref fHasta, value); }
+            get { return _fHasta; }
+            set { SetPropertyValue<DateTime>("Hasta", ref _fHasta, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         public string Notas
         {
-            get { return fNotas; }
-            set { SetPropertyValue("Notas", ref fNotas, value); }
+            get { return _fNotas; }
+            set { SetPropertyValue("Notas", ref _fNotas, value); }
         }
 
         public override void AfterConstruction()

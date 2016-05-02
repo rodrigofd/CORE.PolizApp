@@ -5,7 +5,7 @@ using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Gestion;
 using FDIT.Core.Seguridad;
 
@@ -18,7 +18,8 @@ namespace FDIT.Core.Fondos
   [ RuleCriteria( "FDIT.Core.Fondos.Comprobante.MinimoUnItem", DefaultContexts.Save, "Items.Count() > 0", "Debe ingresar al menos un item." ) ]
   [ Appearance( "FDIT.Core.Fondos.Comprobante.EditableSiPendiente", "Estado <> 'Pendiente'", Enabled = false, TargetItems = "*" ) ]
   [ RuleCriteria( "FDIT.Core.Fondos.Comprobante.NoEliminarSiConfirmado", DefaultContexts.Delete, "Estado = 'Pendiente'", "No puede eliminar un comprobante ya confirmado o anulado." ) ]
-  public class Comprobante : ComprobanteBase
+  [DefaultClassOptions]
+public class Comprobante : ComprobanteBase
   {
     private Comprobante fComprobanteReversion;
     private string fConcepto;

@@ -1,16 +1,17 @@
 using CORE.PolizApp.Regionales;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Fondos
 {
     [Persistent(@"fondos.PaisMoneda")]
     //[DefaultClassOptions]
     [System.ComponentModel.DisplayName(@"Moneda del país")]
-    public class PaisMoneda : BasicObject
+    [DefaultClassOptions]
+public class PaisMoneda : BasicObject
     {
-        private Moneda fMoneda;
-        private Pais fPais;
+        private Moneda _fMoneda;
+        private Pais _fPais;
 
         public PaisMoneda(Session session)
             : base(session)
@@ -19,14 +20,14 @@ namespace CORE.PolizApp.Fondos
 
         public Pais Pais
         {
-            get { return fPais; }
-            set { SetPropertyValue("Pais", ref fPais, value); }
+            get { return _fPais; }
+            set { SetPropertyValue("Pais", ref _fPais, value); }
         }
 
         public Moneda Moneda
         {
-            get { return fMoneda; }
-            set { SetPropertyValue("Moneda", ref fMoneda, value); }
+            get { return _fMoneda; }
+            set { SetPropertyValue("Moneda", ref _fMoneda, value); }
         }
 
         public override void AfterConstruction()

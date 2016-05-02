@@ -4,7 +4,8 @@ using DevExpress.Xpo.Metadata;
 
 namespace FDIT.Core
 {
-  public class ImageValueConverter : ValueConverter
+  [DefaultClassOptions]
+public class ImageValueConverter : ValueConverter
   {
     public override Type StorageType
     {

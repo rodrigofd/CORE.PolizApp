@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 //using FDIT.Core.Sistema;
 
 namespace FDIT.Core.Personas
@@ -8,7 +8,8 @@ namespace FDIT.Core.Personas
   [Persistent( @"personas.RelacionTipoGrupo" )]
   [System.ComponentModel.DisplayName( "Tipo de relación por grupo" )]
 
-  public class RelacionTipoGrupo : BasicObject
+  [DefaultClassOptions]
+public class RelacionTipoGrupo : BasicObject
   {
     private RelacionTipo fRelacionTipo;
     private bool fUniversal;

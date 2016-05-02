@@ -2,7 +2,7 @@ using System;
 
 namespace FDIT.Core.Sistema
 {
-    public class FiltroPorEmpresaAttribute : Attribute
+public class FiltroPorEmpresaAttribute : Attribute
     {
         public string CriteriaEmpresa;
 

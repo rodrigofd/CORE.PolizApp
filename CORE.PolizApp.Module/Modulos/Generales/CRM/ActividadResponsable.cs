@@ -1,4 +1,4 @@
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Seguridad;
 using CORE.Modulos.Sistema;
 
@@ -6,7 +6,8 @@ namespace CORE.Modulos.CRM
 {
   [ Persistent( @"crm.ActividadResponsable" ) ]
   [ System.ComponentModel.DisplayName( "Responsables de la actividad" ) ]
-  public class ActividadResponsable : BasicObject
+  [DefaultClassOptions]
+public class ActividadResponsable : BasicObject
   {
     private Actividad fActividad;
     private bool fPrincipal;

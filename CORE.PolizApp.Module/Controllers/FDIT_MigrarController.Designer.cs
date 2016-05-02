@@ -1,6 +1,6 @@
 namespace CORE.ES.Module.Modulos.Escribania.Controllers
 {
-    partial class FDIT_MigrarController 
+    partial class FditMigrarController 
     {
         /// <summary>
         /// Required designer variable.

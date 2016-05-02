@@ -1,17 +1,18 @@
 using System.ComponentModel;
 using CORE.PolizApp.Personas;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Fondos
 {
     [Persistent(@"fondos.Banco")]
     [System.ComponentModel.DisplayName(@"Bancos")]
-    public class Banco : BasicObject
+    [DefaultClassOptions]
+public class Banco : BasicObject
     {
-        private string fCodigo;
-        private int fOrden;
-        private Persona fPersona;
+        private string _fCodigo;
+        private int _fOrden;
+        private Persona _fPersona;
 
         public Banco(Session session) : base(session)
         {
@@ -22,21 +23,21 @@ namespace CORE.PolizApp.Fondos
         [System.ComponentModel.DisplayName(@"Persona")]
         public Persona Persona
         {
-            get { return fPersona; }
-            set { SetPropertyValue("Persona", ref fPersona, value); }
+            get { return _fPersona; }
+            set { SetPropertyValue("Persona", ref _fPersona, value); }
         }
 
         [Size(50)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         public int Orden
         {
-            get { return fOrden; }
-            set { SetPropertyValue<int>("Orden", ref fOrden, value); }
+            get { return _fOrden; }
+            set { SetPropertyValue<int>("Orden", ref _fOrden, value); }
         }
 
         [Association(@"fondos_CuentaReferencesfondos_Banco", typeof (Cuenta))]

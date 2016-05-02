@@ -1,12 +1,13 @@
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Fondos
 {
   [ Persistent( @"fondos.CuponTarjeta" ) ]
   [ System.ComponentModel.DisplayName( "Cupón Tarjeta" ) ]
   [ ImageName( "credit-card" ) ]
-  public class CuponTarjeta : Valor
+  [DefaultClassOptions]
+public class CuponTarjeta : Valor
   {
     private int fCantidadCuotas;
     private string fCupon;

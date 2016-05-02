@@ -7,13 +7,12 @@ using DevExpress.Xpo;
 namespace CORE.PolizApp.Sistema
 {
     [ImageName("attach")]
-    //[DefaultClassOptions]
     [Persistent("sistema.ArchivoAdjunto")]
     [FileAttachment("ArchivoAsociado")]
     public class ArchivoAdjunto : XPObject
     {
-        private string fDescripcion;
-        private DateTime fFecha;
+        private string _fDescripcion;
+        private DateTime _fFecha;
 
         public ArchivoAdjunto(Session session) : base(session)
         {
@@ -74,15 +73,15 @@ namespace CORE.PolizApp.Sistema
         [ModelDefault("DisplayFormat", "{0:G}")]
         public DateTime Fecha
         {
-            get { return fFecha; }
-            set { SetPropertyValue<DateTime>("Fecha", ref fFecha, value); }
+            get { return _fFecha; }
+            set { SetPropertyValue<DateTime>("Fecha", ref _fFecha, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         public string Descripcion
         {
-            get { return fDescripcion; }
-            set { SetPropertyValue("Descripcion", ref fDescripcion, value); }
+            get { return _fDescripcion; }
+            set { SetPropertyValue("Descripcion", ref _fDescripcion, value); }
         }
 
         public override void AfterConstruction()

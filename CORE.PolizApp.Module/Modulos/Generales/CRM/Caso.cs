@@ -3,7 +3,7 @@ using System.Drawing;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Seguridad;
 using CORE.Modulos.Sistema;
 using CORE.Modulos.Ventas;
@@ -13,7 +13,8 @@ namespace CORE.Modulos.CRM
   [ Persistent( @"crm.Caso" ) ]
   [ DefaultClassOptions ]
   [ System.ComponentModel.DisplayName( "Caso" ) ]
-  public class Caso : BasicObject, IObjetoPorGrupo
+  [DefaultClassOptions]
+public class Caso : BasicObject, IObjetoPorGrupo
   {
     private string fAsunto;
     private Cliente fCliente;

@@ -234,3 +234,8 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# Custom
+
+CORE.PolizApp.Module/Images/
+CORE.PolizApp.Module/Images.32/

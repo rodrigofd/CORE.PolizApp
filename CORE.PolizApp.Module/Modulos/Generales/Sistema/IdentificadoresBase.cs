@@ -10,8 +10,7 @@ using DevExpress.Xpo;
 
 namespace CORE.PolizApp.Sistema
 {
-    [Appearance("DetailViewBoldRule", AppearanceItemType = "ViewItem", TargetItems = "*", FontStyle = FontStyle.Bold,
-        Context = "DetailView", Priority = 0)]
+    [Appearance("DetailViewBoldRule", AppearanceItemType = "ViewItem", TargetItems = "*", FontStyle = FontStyle.Bold, Context = "DetailView", Priority = 0)]
     [ImageName("information")]
     [NonPersistent]
     [System.ComponentModel.DisplayName("Preferencias")]

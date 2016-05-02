@@ -2,7 +2,7 @@ using System.ComponentModel;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Sistema;
 
 namespace FDIT.Core.Gestion
@@ -11,7 +11,8 @@ namespace FDIT.Core.Gestion
   [ DefaultClassOptions ]
   [ DefaultProperty( "Descripcion" ) ]
   [ System.ComponentModel.DisplayName( "Talonario" ) ]
-  public class Talonario : BasicObject, IObjetoPorEmpresa
+  [DefaultClassOptions]
+public class Talonario : BasicObject, IObjetoPorEmpresa
   {
     private ComprobanteTipo fComprobanteTipo;
     private Empresa fEmpresa;

@@ -1,13 +1,14 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Compras;
 
 namespace CORE.Modulos.Stock
 {
   [ System.ComponentModel.DisplayName( "Articulo por proveedor" ) ]
   [ Persistent( @"stock.ArticuloPorProveedor" ) ]
-  public class ArticuloPorProveedor : BasicObject
+  [DefaultClassOptions]
+public class ArticuloPorProveedor : BasicObject
   {
     private string fCodigo;
     private string fDescripcion;

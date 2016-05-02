@@ -1,6 +1,6 @@
 using System;
 using System.ComponentModel;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Impuestos
 {
@@ -8,21 +8,22 @@ namespace CORE.PolizApp.Impuestos
     //[DefaultClassOptions]
     [DefaultProperty("IdentificacionNro")]
     [System.ComponentModel.DisplayName(@"Padrón por impuesto")]
-    public class Padron : XPLiteObject
+    [DefaultClassOptions]
+public class Padron : XPLiteObject
     {
         private Impuesto _fImpuesto;
-        private decimal fAlicuotaPercepcion;
-        private decimal fAlicuotaRetencion;
-        private DateTime fFechaPublicacion;
-        private DateTime fFechaVigDesde;
-        private DateTime fFechaVigHasta;
-        private int fGrupoPercepcion;
-        private int fGrupoRetencion;
-        private long fIdentificacionNro;
-        private char fMarcaCbioAlicuota;
-        private char fMarcaSujeto;
-        private long fOid;
-        private string fTipoContribuyente;
+        private decimal _fAlicuotaPercepcion;
+        private decimal _fAlicuotaRetencion;
+        private DateTime _fFechaPublicacion;
+        private DateTime _fFechaVigDesde;
+        private DateTime _fFechaVigHasta;
+        private int _fGrupoPercepcion;
+        private int _fGrupoRetencion;
+        private long _fIdentificacionNro;
+        private char _fMarcaCbioAlicuota;
+        private char _fMarcaSujeto;
+        private long _fOid;
+        private string _fTipoContribuyente;
 
         public Padron(Session session)
             : base(session)
@@ -32,8 +33,8 @@ namespace CORE.PolizApp.Impuestos
         [Key(true)]
         public long Oid
         {
-            get { return fOid; }
-            set { SetPropertyValue("Oid", ref fOid, value); }
+            get { return _fOid; }
+            set { SetPropertyValue("Oid", ref _fOid, value); }
         }
 
         [Association(@"PadronReferencesImpuestos")]
@@ -45,69 +46,69 @@ namespace CORE.PolizApp.Impuestos
 
         public long IdentificacionNro
         {
-            get { return fIdentificacionNro; }
-            set { SetPropertyValue("IdentificacionNro", ref fIdentificacionNro, value); }
+            get { return _fIdentificacionNro; }
+            set { SetPropertyValue("IdentificacionNro", ref _fIdentificacionNro, value); }
         }
 
         public DateTime FechaPublicacion
         {
-            get { return fFechaPublicacion; }
-            set { SetPropertyValue<DateTime>("FechaPublicacion", ref fFechaPublicacion, value); }
+            get { return _fFechaPublicacion; }
+            set { SetPropertyValue<DateTime>("FechaPublicacion", ref _fFechaPublicacion, value); }
         }
 
         public DateTime FechaVigDesde
         {
-            get { return fFechaVigDesde; }
-            set { SetPropertyValue<DateTime>("FechaVigDesde", ref fFechaVigDesde, value); }
+            get { return _fFechaVigDesde; }
+            set { SetPropertyValue<DateTime>("FechaVigDesde", ref _fFechaVigDesde, value); }
         }
 
         public DateTime FechaVigHasta
         {
-            get { return fFechaVigHasta; }
-            set { SetPropertyValue<DateTime>("FechaVigHasta", ref fFechaVigHasta, value); }
+            get { return _fFechaVigHasta; }
+            set { SetPropertyValue<DateTime>("FechaVigHasta", ref _fFechaVigHasta, value); }
         }
 
         [Size(1)]
         public string TipoContribuyente
         {
-            get { return fTipoContribuyente; }
-            set { SetPropertyValue("TipoContribuyente", ref fTipoContribuyente, value); }
+            get { return _fTipoContribuyente; }
+            set { SetPropertyValue("TipoContribuyente", ref _fTipoContribuyente, value); }
         }
 
         public char MarcaSujeto
         {
-            get { return fMarcaSujeto; }
-            set { SetPropertyValue("MarcaSujeto", ref fMarcaSujeto, value); }
+            get { return _fMarcaSujeto; }
+            set { SetPropertyValue("MarcaSujeto", ref _fMarcaSujeto, value); }
         }
 
         public char MarcaCbioAlicuota
         {
-            get { return fMarcaCbioAlicuota; }
-            set { SetPropertyValue("MarcaCbioAlicuota", ref fMarcaCbioAlicuota, value); }
+            get { return _fMarcaCbioAlicuota; }
+            set { SetPropertyValue("MarcaCbioAlicuota", ref _fMarcaCbioAlicuota, value); }
         }
 
         public decimal AlicuotaPercepcion
         {
-            get { return fAlicuotaPercepcion; }
-            set { SetPropertyValue<decimal>("AlicuotaPercepcion", ref fAlicuotaPercepcion, value); }
+            get { return _fAlicuotaPercepcion; }
+            set { SetPropertyValue<decimal>("AlicuotaPercepcion", ref _fAlicuotaPercepcion, value); }
         }
 
         public decimal AlicuotaRetencion
         {
-            get { return fAlicuotaRetencion; }
-            set { SetPropertyValue<decimal>("AlicuotaRetencion", ref fAlicuotaRetencion, value); }
+            get { return _fAlicuotaRetencion; }
+            set { SetPropertyValue<decimal>("AlicuotaRetencion", ref _fAlicuotaRetencion, value); }
         }
 
         public int GrupoPercepcion
         {
-            get { return fGrupoPercepcion; }
-            set { SetPropertyValue<int>("GrupoPercepcion", ref fGrupoPercepcion, value); }
+            get { return _fGrupoPercepcion; }
+            set { SetPropertyValue<int>("GrupoPercepcion", ref _fGrupoPercepcion, value); }
         }
 
         public int GrupoRetencion
         {
-            get { return fGrupoRetencion; }
-            set { SetPropertyValue<int>("GrupoRetencion", ref fGrupoRetencion, value); }
+            get { return _fGrupoRetencion; }
+            set { SetPropertyValue<int>("GrupoRetencion", ref _fGrupoRetencion, value); }
         }
 
         public override void AfterConstruction()

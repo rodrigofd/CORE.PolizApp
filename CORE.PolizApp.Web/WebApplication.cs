@@ -33,34 +33,34 @@ using DevExpress.Xpo;
 namespace CORE.PolizApp.Web
 {
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/DevExpressExpressAppWebWebApplicationMembersTopicAll.aspx
-    public class FMAspNetApplication : WebApplication
+    public class FmAspNetApplication : WebApplication
     {
-        private AuditTrailModule auditTrailModule;
-        private AuthenticationStandard authenticationStandard1;
-        private ChartAspNetModule chartAspNetModule;
-        private ChartModule chartModule;
-        private CloneObjectModule cloneObjectModule;
-        private ConditionalAppearanceModule conditionalAppearanceModule;
-        private FileAttachmentsAspNetModule fileAttachmentsAspNetModule;
-        private HtmlPropertyEditorAspNetModule htmlPropertyEditorAspNetModule;
-        private SystemModule module1;
-        private SystemAspNetModule module2;
-        private PolizApp.Module.Module module3;
-        private WebModule module4;
-        private BusinessClassLibraryCustomizationModule objectsModule;
-        private PivotChartAspNetModule pivotChartAspNetModule;
-        private PivotChartModuleBase pivotChartModuleBase;
-        private PivotGridAspNetModule pivotGridAspNetModule;
-        private PivotGridModule pivotGridModule;
-        private ReportsAspNetModuleV2 reportsAspNetModuleV2;
-        private ReportsModuleV2 reportsModuleV2;
-        private SecurityModule securityModule1;
-        private SecurityStrategyComplex securityStrategyComplex1;
-        private ValidationAspNetModule validationAspNetModule;
-        private ValidationModule validationModule;
-        private ViewVariantsModule viewVariantsModule;
+        private AuditTrailModule _auditTrailModule;
+        private AuthenticationStandard _authenticationStandard1;
+        private ChartAspNetModule _chartAspNetModule;
+        private ChartModule _chartModule;
+        private CloneObjectModule _cloneObjectModule;
+        private ConditionalAppearanceModule _conditionalAppearanceModule;
+        private FileAttachmentsAspNetModule _fileAttachmentsAspNetModule;
+        private HtmlPropertyEditorAspNetModule _htmlPropertyEditorAspNetModule;
+        private SystemModule _module1;
+        private SystemAspNetModule _module2;
+        private Module.Module _module3;
+        private WebModule _module4;
+        private BusinessClassLibraryCustomizationModule _objectsModule;
+        private PivotChartAspNetModule _pivotChartAspNetModule;
+        private PivotChartModuleBase _pivotChartModuleBase;
+        private PivotGridAspNetModule _pivotGridAspNetModule;
+        private PivotGridModule _pivotGridModule;
+        private ReportsAspNetModuleV2 _reportsAspNetModuleV2;
+        private ReportsModuleV2 _reportsModuleV2;
+        private SecurityModule _securityModule1;
+        private SecurityStrategyComplex _securityStrategyComplex1;
+        private ValidationAspNetModule _validationAspNetModule;
+        private ValidationModule _validationModule;
+        private ViewVariantsModule _viewVariantsModule;
 
-        public FMAspNetApplication()
+        public FmAspNetApplication()
         {
             InitializeComponent();
         }
@@ -134,99 +134,99 @@ namespace CORE.PolizApp.Web
 
         private void InitializeComponent()
         {
-            module1 = new SystemModule();
-            module2 = new SystemAspNetModule();
-            module3 = new PolizApp.Module.Module();
-            module4 = new WebModule();
-            securityModule1 = new SecurityModule();
-            securityStrategyComplex1 = new SecurityStrategyComplex();
-            authenticationStandard1 = new AuthenticationStandard();
-            auditTrailModule = new AuditTrailModule();
-            objectsModule = new BusinessClassLibraryCustomizationModule();
-            chartModule = new ChartModule();
-            chartAspNetModule = new ChartAspNetModule();
-            cloneObjectModule = new CloneObjectModule();
-            conditionalAppearanceModule = new ConditionalAppearanceModule();
-            fileAttachmentsAspNetModule = new FileAttachmentsAspNetModule();
-            htmlPropertyEditorAspNetModule = new HtmlPropertyEditorAspNetModule();
-            pivotChartModuleBase = new PivotChartModuleBase();
-            pivotChartAspNetModule = new PivotChartAspNetModule();
-            pivotGridModule = new PivotGridModule();
-            pivotGridAspNetModule = new PivotGridAspNetModule();
-            reportsModuleV2 = new ReportsModuleV2();
-            reportsAspNetModuleV2 = new ReportsAspNetModuleV2();
-            validationModule = new ValidationModule();
-            validationAspNetModule = new ValidationAspNetModule();
-            viewVariantsModule = new ViewVariantsModule();
+            _module1 = new SystemModule();
+            _module2 = new SystemAspNetModule();
+            _module3 = new Module.Module();
+            _module4 = new WebModule();
+            _securityModule1 = new SecurityModule();
+            _securityStrategyComplex1 = new SecurityStrategyComplex();
+            _authenticationStandard1 = new AuthenticationStandard();
+            _auditTrailModule = new AuditTrailModule();
+            _objectsModule = new BusinessClassLibraryCustomizationModule();
+            _chartModule = new ChartModule();
+            _chartAspNetModule = new ChartAspNetModule();
+            _cloneObjectModule = new CloneObjectModule();
+            _conditionalAppearanceModule = new ConditionalAppearanceModule();
+            _fileAttachmentsAspNetModule = new FileAttachmentsAspNetModule();
+            _htmlPropertyEditorAspNetModule = new HtmlPropertyEditorAspNetModule();
+            _pivotChartModuleBase = new PivotChartModuleBase();
+            _pivotChartAspNetModule = new PivotChartAspNetModule();
+            _pivotGridModule = new PivotGridModule();
+            _pivotGridAspNetModule = new PivotGridAspNetModule();
+            _reportsModuleV2 = new ReportsModuleV2();
+            _reportsAspNetModuleV2 = new ReportsAspNetModuleV2();
+            _validationModule = new ValidationModule();
+            _validationAspNetModule = new ValidationAspNetModule();
+            _viewVariantsModule = new ViewVariantsModule();
             ((ISupportInitialize) (this)).BeginInit();
             // 
             // securityStrategyComplex1
             // 
-            securityStrategyComplex1.Authentication = authenticationStandard1;
-            securityStrategyComplex1.RoleType = typeof (SecuritySystemRole);
-            securityStrategyComplex1.UserType = typeof (SecuritySystemUser);
+            _securityStrategyComplex1.Authentication = _authenticationStandard1;
+            _securityStrategyComplex1.RoleType = typeof (SecuritySystemRole);
+            _securityStrategyComplex1.UserType = typeof (SecuritySystemUser);
             // 
             // securityModule1
             // 
-            securityModule1.UserType = typeof (SecuritySystemUser);
+            _securityModule1.UserType = typeof (SecuritySystemUser);
             // 
             // authenticationStandard1
             // 
-            authenticationStandard1.LogonParametersType = typeof (AuthenticationStandardLogonParameters);
+            _authenticationStandard1.LogonParametersType = typeof (AuthenticationStandardLogonParameters);
             //
             // auditTrailModule
             //
-            auditTrailModule.AuditDataItemPersistentType = typeof (AuditDataItemPersistent);
+            _auditTrailModule.AuditDataItemPersistentType = typeof (AuditDataItemPersistent);
             //
             // pivotChartModuleBase
             //
-            pivotChartModuleBase.ShowAdditionalNavigation = true;
+            _pivotChartModuleBase.ShowAdditionalNavigation = true;
             //
             // reportsModuleV2
             //
-            reportsModuleV2.EnableInplaceReports = true;
-            reportsModuleV2.ReportDataType = typeof (ReportDataV2);
-            reportsModuleV2.ShowAdditionalNavigation = true;
+            _reportsModuleV2.EnableInplaceReports = true;
+            _reportsModuleV2.ReportDataType = typeof (ReportDataV2);
+            _reportsModuleV2.ShowAdditionalNavigation = true;
             //
             // reportsAspNetModuleV2
             //
-            reportsAspNetModuleV2.ShowFormatSpecificExportActions = true;
-            reportsAspNetModuleV2.DefaultPreviewFormat = ReportOutputType.Pdf;
-            reportsAspNetModuleV2.ReportViewerType = ReportViewerTypes.HTML5;
-            reportsModuleV2.ReportStoreMode = ReportStoreModes.XML;
+            _reportsAspNetModuleV2.ShowFormatSpecificExportActions = true;
+            _reportsAspNetModuleV2.DefaultPreviewFormat = ReportOutputType.Pdf;
+            _reportsAspNetModuleV2.ReportViewerType = ReportViewerTypes.HTML5;
+            _reportsModuleV2.ReportStoreMode = ReportStoreModes.XML;
             //
             // viewVariantsModule
             //
-            viewVariantsModule.ShowAdditionalNavigation = true;
+            _viewVariantsModule.ShowAdditionalNavigation = true;
             // 
             // FMAspNetApplication
             // 
             ApplicationName = "CORE.PolizApp";
             LinkNewObjectToParentImmediately = false;
             CheckCompatibilityType = CheckCompatibilityType.DatabaseSchema;
-            Modules.Add(module1);
-            Modules.Add(module2);
-            Modules.Add(module3);
-            Modules.Add(module4);
-            Modules.Add(securityModule1);
-            Security = securityStrategyComplex1;
-            Modules.Add(auditTrailModule);
-            Modules.Add(objectsModule);
-            Modules.Add(chartModule);
-            Modules.Add(chartAspNetModule);
-            Modules.Add(cloneObjectModule);
-            Modules.Add(conditionalAppearanceModule);
-            Modules.Add(fileAttachmentsAspNetModule);
-            Modules.Add(htmlPropertyEditorAspNetModule);
-            Modules.Add(pivotChartModuleBase);
-            Modules.Add(pivotChartAspNetModule);
-            Modules.Add(pivotGridModule);
-            Modules.Add(pivotGridAspNetModule);
-            Modules.Add(reportsModuleV2);
-            Modules.Add(reportsAspNetModuleV2);
-            Modules.Add(validationModule);
-            Modules.Add(validationAspNetModule);
-            Modules.Add(viewVariantsModule);
+            Modules.Add(_module1);
+            Modules.Add(_module2);
+            Modules.Add(_module3);
+            Modules.Add(_module4);
+            Modules.Add(_securityModule1);
+            Security = _securityStrategyComplex1;
+            Modules.Add(_auditTrailModule);
+            Modules.Add(_objectsModule);
+            Modules.Add(_chartModule);
+            Modules.Add(_chartAspNetModule);
+            Modules.Add(_cloneObjectModule);
+            Modules.Add(_conditionalAppearanceModule);
+            Modules.Add(_fileAttachmentsAspNetModule);
+            Modules.Add(_htmlPropertyEditorAspNetModule);
+            Modules.Add(_pivotChartModuleBase);
+            Modules.Add(_pivotChartAspNetModule);
+            Modules.Add(_pivotGridModule);
+            Modules.Add(_pivotGridAspNetModule);
+            Modules.Add(_reportsModuleV2);
+            Modules.Add(_reportsAspNetModuleV2);
+            Modules.Add(_validationModule);
+            Modules.Add(_validationAspNetModule);
+            Modules.Add(_viewVariantsModule);
             DatabaseVersionMismatch += FMAspNetApplication_DatabaseVersionMismatch;
             ((ISupportInitialize) (this)).EndInit();
         }

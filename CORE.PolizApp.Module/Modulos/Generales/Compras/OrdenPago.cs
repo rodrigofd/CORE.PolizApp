@@ -1,7 +1,7 @@
 using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Gestion;
 
 
@@ -10,7 +10,8 @@ namespace CORE.Modulos.Compras
   [ImageName( "money_in_envelope" )]
   [Persistent( @"compras.OrdenPago" )]
   [ System.ComponentModel.DisplayName( "Orden de pago" ) ]
-  public class OrdenPago : Pago
+  [DefaultClassOptions]
+public class OrdenPago : Pago
   {
     public OrdenPago( Session session )
       : base( session )

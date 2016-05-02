@@ -2,7 +2,7 @@ using System.ComponentModel;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 //using FDIT.Core.Seguridad;
 //using FDIT.Core.Util;
 
@@ -11,7 +11,8 @@ namespace FDIT.Core.AFIP
     [Persistent(@"afip.Identificadores")]
     [DefaultClassOptions]
     [System.ComponentModel.DisplayName("Preferencias de AFIP")]
-    public class Identificadores : BasicObject //IdentificadoresBase<Identificadores>
+    [DefaultClassOptions]
+public class Identificadores : BasicObject //IdentificadoresBase<Identificadores>
     {
         private Ente fFacturaElectronicaEnte;
 

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Fondos;
 
 namespace FDIT.Core.Gestion
@@ -11,7 +11,8 @@ namespace FDIT.Core.Gestion
   [ System.ComponentModel.DisplayName( "Aplicación de comprobante" ) ]
   [ RuleCriteria( "FDIT.Core.Gestion.PagoAplicacion.AplicadoSaldo",
     DefaultContexts.Save, "ISNULL(Cuota) OR Cuota.Saldo >= 0", CustomMessageTemplate = "No puede aplicar un importe superior al importe total de la cuota." ) ]
-  public class PagoAplicacion : BasicObject
+  [DefaultClassOptions]
+public class PagoAplicacion : BasicObject
   {
     private decimal fCambio;
     private ComprobanteCuota fCuota;

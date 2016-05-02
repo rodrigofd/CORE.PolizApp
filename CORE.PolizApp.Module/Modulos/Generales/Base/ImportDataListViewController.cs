@@ -11,7 +11,8 @@ namespace WinWebSolution.Module
     /// <summary>
     /// Dennis: This ViewController adds the ImportData action and allows you to import data in ListView.
     /// </summary>
-    public class ImportDataListViewController : ViewController
+    [DefaultClassOptions]
+public class ImportDataListViewController : ViewController
     {
         public const int MaxImportedRecordsCount = 10;
         public const string ActiveKeyImportAction = "ActiveKeyImportAction";

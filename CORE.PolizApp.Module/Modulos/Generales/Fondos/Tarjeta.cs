@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Personas;
 
 namespace FDIT.Core.Fondos
@@ -10,7 +10,8 @@ namespace FDIT.Core.Fondos
   [ DefaultProperty( "" ) ]
   [ System.ComponentModel.DisplayName( "Tarjeta" ) ]
   [ DefaultClassOptions ]
-  public class Tarjeta : BasicObject
+  [DefaultClassOptions]
+public class Tarjeta : BasicObject
   {
     private string fCodigoSeguridad;
     private DateTime fFechaDesde;

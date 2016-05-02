@@ -1,11 +1,12 @@
 using System.ComponentModel;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Gestion
 {
   [NonPersistent]
   [System.ComponentModel.DisplayName( "Subtotales de factura" )]
-  public class ComprobanteSubtotal : BasicObject
+  [DefaultClassOptions]
+public class ComprobanteSubtotal : BasicObject
   {
     private decimal fAlicuota;
     private decimal fBaseImponible;

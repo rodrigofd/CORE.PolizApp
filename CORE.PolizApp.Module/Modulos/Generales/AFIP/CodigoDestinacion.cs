@@ -1,7 +1,8 @@
 using System;
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Persistent.Base;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.General.Modulos.AFIP
 {
@@ -9,14 +10,15 @@ namespace CORE.General.Modulos.AFIP
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"CodigosDestinacion")]
-    public class afip_CodigoDestinacion : BasicObject
+    [DefaultClassOptions]
+public class AfipCodigoDestinacion : BasicObject
     {
-        private int fCodigo;
-        private string fCodigoDestinacion;
-        private DateTime fFechaDesde;
-        private DateTime fFechaHasta;
+        private int _fCodigo;
+        private string _fCodigoDestinacion;
+        private DateTime _fFechaDesde;
+        private DateTime _fFechaHasta;
 
-        public afip_CodigoDestinacion(Session session)
+        public AfipCodigoDestinacion(Session session)
             : base(session)
         {
         }
@@ -24,27 +26,27 @@ namespace CORE.General.Modulos.AFIP
         [Size(10)]
         public int Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue<int>("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue<int>("Codigo", ref _fCodigo, value); }
         }
 
         [Size(300)]
         public string Nombre
         {
-            get { return fCodigoDestinacion; }
-            set { SetPropertyValue("Nombre", ref fCodigoDestinacion, value); }
+            get { return _fCodigoDestinacion; }
+            set { SetPropertyValue("Nombre", ref _fCodigoDestinacion, value); }
         }
 
         public DateTime FechaDesde
         {
-            get { return fFechaDesde; }
-            set { SetPropertyValue<DateTime>("FechaDesde", ref fFechaDesde, value); }
+            get { return _fFechaDesde; }
+            set { SetPropertyValue<DateTime>("FechaDesde", ref _fFechaDesde, value); }
         }
 
         public DateTime FechaHasta
         {
-            get { return fFechaHasta; }
-            set { SetPropertyValue<DateTime>("FechaHasta", ref fFechaHasta, value); }
+            get { return _fFechaHasta; }
+            set { SetPropertyValue<DateTime>("FechaHasta", ref _fFechaHasta, value); }
         }
 
         public override void AfterConstruction()

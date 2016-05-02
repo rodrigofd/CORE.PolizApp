@@ -7,7 +7,7 @@ using CORE.PolizApp.Regionales;
 using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Personas
 {
@@ -15,37 +15,38 @@ namespace CORE.PolizApp.Personas
     [DefaultProperty("DireccionCompleta")]
     [ImageName("postage-stamp-at-sign")]
     [System.ComponentModel.DisplayName(@"Dirección")]
-    public class Direccion : BasicObject //, IObjetoPorGrupo
+    [DefaultClassOptions]
+public class Direccion : BasicObject //, IObjetoPorGrupo
     {
-        private string fCalle;
-        private Ciudad fCiudad;
-        private string fCiudadOtra;
-        private string fCodigo;
-        private string fCodigoPostal;
-        private string fDepto;
-        private DateTime fDesde;
-        private string fDireccionCompleta;
-        private DireccionTipo fDireccionTipo;
-        private string fEdificio;
-        private string fEntreCalles;
-        private string fFax;
-        private string fGeoCodeAddr;
-        private string fGeoLatitud;
-        private string fGeoLongitud;
-        private DateTime fHasta;
+        private string _fCalle;
+        private Ciudad _fCiudad;
+        private string _fCiudadOtra;
+        private string _fCodigo;
+        private string _fCodigoPostal;
+        private string _fDepto;
+        private DateTime _fDesde;
+        private string _fDireccionCompleta;
+        private DireccionTipo _fDireccionTipo;
+        private string _fEdificio;
+        private string _fEntreCalles;
+        private string _fFax;
+        private string _fGeoCodeAddr;
+        private string _fGeoLatitud;
+        private string _fGeoLongitud;
+        private DateTime _fHasta;
 
         //private Grupo fGrupo;
-        private Localidad fLocalidad;
-        private string fLocalidadOtra;
-        private string fNotas;
-        private string fNumero;
-        private Pais fPais;
-        private string fPaisOtro;
-        private Persona fPersona;
-        private string fPiso;
-        private Provincia fProvincia;
-        private string fProvinciaOtra;
-        private string fTelefono;
+        private Localidad _fLocalidad;
+        private string _fLocalidadOtra;
+        private string _fNotas;
+        private string _fNumero;
+        private Pais _fPais;
+        private string _fPaisOtro;
+        private Persona _fPersona;
+        private string _fPiso;
+        private Provincia _fProvincia;
+        private string _fProvinciaOtra;
+        private string _fTelefono;
 
         public Direccion(Session session) : base(session)
         {
@@ -54,79 +55,79 @@ namespace CORE.PolizApp.Personas
         [Association(@"DireccionesReferencesPersonas")]
         public Persona Persona
         {
-            get { return fPersona; }
-            set { SetPropertyValue("Persona", ref fPersona, value); }
+            get { return _fPersona; }
+            set { SetPropertyValue("Persona", ref _fPersona, value); }
         }
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
         public DireccionTipo DireccionTipo
         {
-            get { return fDireccionTipo; }
-            set { SetPropertyValue("DireccionTipo", ref fDireccionTipo, value); }
+            get { return _fDireccionTipo; }
+            set { SetPropertyValue("DireccionTipo", ref _fDireccionTipo, value); }
         }
 
         [Size(50)]
         //[Index(0)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         [System.ComponentModel.DisplayName(@"Calle")]
         public string Calle
         {
-            get { return fCalle; }
-            set { SetPropertyValue("Calle", ref fCalle, value); }
+            get { return _fCalle; }
+            set { SetPropertyValue("Calle", ref _fCalle, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         [System.ComponentModel.DisplayName(@"Entre calles")]
         public string EntreCalles
         {
-            get { return fEntreCalles; }
-            set { SetPropertyValue("EntreCalles", ref fEntreCalles, value); }
+            get { return _fEntreCalles; }
+            set { SetPropertyValue("EntreCalles", ref _fEntreCalles, value); }
         }
 
         [Size(20)]
         [System.ComponentModel.DisplayName(@"Número")]
         public string Numero
         {
-            get { return fNumero; }
-            set { SetPropertyValue("Numero", ref fNumero, value); }
+            get { return _fNumero; }
+            set { SetPropertyValue("Numero", ref _fNumero, value); }
         }
 
         [Size(20)]
         [System.ComponentModel.DisplayName(@"Edificio")]
         public string Edificio
         {
-            get { return fEdificio; }
-            set { SetPropertyValue("Edificio", ref fEdificio, value); }
+            get { return _fEdificio; }
+            set { SetPropertyValue("Edificio", ref _fEdificio, value); }
         }
 
         [Size(20)]
         [System.ComponentModel.DisplayName(@"Piso")]
         public string Piso
         {
-            get { return fPiso; }
-            set { SetPropertyValue("Piso", ref fPiso, value); }
+            get { return _fPiso; }
+            set { SetPropertyValue("Piso", ref _fPiso, value); }
         }
 
         [Size(20)]
         [System.ComponentModel.DisplayName(@"Depto.")]
         public string Depto
         {
-            get { return fDepto; }
-            set { SetPropertyValue("Depto", ref fDepto, value); }
+            get { return _fDepto; }
+            set { SetPropertyValue("Depto", ref _fDepto, value); }
         }
 
         [Size(20)]
         [System.ComponentModel.DisplayName(@"Código Postal")]
         public string CodigoPostal
         {
-            get { return fCodigoPostal; }
-            set { SetPropertyValue("CodigoPostal", ref fCodigoPostal, value); }
+            get { return _fCodigoPostal; }
+            set { SetPropertyValue("CodigoPostal", ref _fCodigoPostal, value); }
         }
 
         //[ImmediatePostData]
@@ -134,8 +135,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Ciudad")]
         public Ciudad Ciudad
         {
-            get { return fCiudad; }
-            set { SetPropertyValue("Ciudad", ref fCiudad, value); }
+            get { return _fCiudad; }
+            set { SetPropertyValue("Ciudad", ref _fCiudad, value); }
         }
 
         [Appearance("manual_ciudad", Criteria = "Not IsNull(Ciudad)", Visibility = ViewItemVisibility.Hide)]
@@ -143,8 +144,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Ingrese ciudad")]
         public string CiudadOtra
         {
-            get { return fCiudadOtra; }
-            set { SetPropertyValue("CiudadOtra", ref fCiudadOtra, value); }
+            get { return _fCiudadOtra; }
+            set { SetPropertyValue("CiudadOtra", ref _fCiudadOtra, value); }
         }
 
         //[ImmediatePostData]
@@ -153,8 +154,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Localidad")]
         public Localidad Localidad
         {
-            get { return fLocalidad; }
-            set { SetPropertyValue("Localidad", ref fLocalidad, value); }
+            get { return _fLocalidad; }
+            set { SetPropertyValue("Localidad", ref _fLocalidad, value); }
         }
 
         [Appearance("manual_localidad", Criteria = "Not IsNull(Localidad)", Visibility = ViewItemVisibility.Hide)]
@@ -162,8 +163,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Ingrese localidad")]
         public string LocalidadOtra
         {
-            get { return fLocalidadOtra; }
-            set { SetPropertyValue("LocalidadOtra", ref fLocalidadOtra, value); }
+            get { return _fLocalidadOtra; }
+            set { SetPropertyValue("LocalidadOtra", ref _fLocalidadOtra, value); }
         }
 
         //[ImmediatePostData]
@@ -172,8 +173,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Provincia")]
         public Provincia Provincia
         {
-            get { return fProvincia; }
-            set { SetPropertyValue("Provincia", ref fProvincia, value); }
+            get { return _fProvincia; }
+            set { SetPropertyValue("Provincia", ref _fProvincia, value); }
         }
 
         [Appearance("manual_provincia", Criteria = "Not IsNull(Provincia)", Visibility = ViewItemVisibility.Hide)]
@@ -181,8 +182,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Ingrese provincia")]
         public string ProvinciaOtra
         {
-            get { return fProvinciaOtra; }
-            set { SetPropertyValue("ProvinciaOtra", ref fProvinciaOtra, value); }
+            get { return _fProvinciaOtra; }
+            set { SetPropertyValue("ProvinciaOtra", ref _fProvinciaOtra, value); }
         }
 
         //[ImmediatePostData]
@@ -190,8 +191,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"País")]
         public Pais Pais
         {
-            get { return fPais; }
-            set { SetPropertyValue("Pais", ref fPais, value); }
+            get { return _fPais; }
+            set { SetPropertyValue("Pais", ref _fPais, value); }
         }
 
         [Appearance("manual_pais", Criteria = "Not IsNull(Pais)", Visibility = ViewItemVisibility.Hide)]
@@ -199,32 +200,32 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Ingrese país")]
         public string PaisOtro
         {
-            get { return fPaisOtro; }
-            set { SetPropertyValue("PaisOtro", ref fPaisOtro, value); }
+            get { return _fPaisOtro; }
+            set { SetPropertyValue("PaisOtro", ref _fPaisOtro, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         [System.ComponentModel.DisplayName(@"Teléfono")]
         public string Telefono
         {
-            get { return fTelefono; }
-            set { SetPropertyValue("Telefono", ref fTelefono, value); }
+            get { return _fTelefono; }
+            set { SetPropertyValue("Telefono", ref _fTelefono, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         [System.ComponentModel.DisplayName(@"Fax")]
         public string Fax
         {
-            get { return fFax; }
-            set { SetPropertyValue("Fax", ref fFax, value); }
+            get { return _fFax; }
+            set { SetPropertyValue("Fax", ref _fFax, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         [System.ComponentModel.DisplayName(@"Notas")]
         public string Notas
         {
-            get { return fNotas; }
-            set { SetPropertyValue("Notas", ref fNotas, value); }
+            get { return _fNotas; }
+            set { SetPropertyValue("Notas", ref _fNotas, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
@@ -232,8 +233,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Geo. latitud")]
         public string GeoLatitud
         {
-            get { return fGeoLatitud; }
-            set { SetPropertyValue("GeoLatitud", ref fGeoLatitud, value); }
+            get { return _fGeoLatitud; }
+            set { SetPropertyValue("GeoLatitud", ref _fGeoLatitud, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
@@ -241,8 +242,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Geo. longitud")]
         public string GeoLongitud
         {
-            get { return fGeoLongitud; }
-            set { SetPropertyValue("GeoLongitud", ref fGeoLongitud, value); }
+            get { return _fGeoLongitud; }
+            set { SetPropertyValue("GeoLongitud", ref _fGeoLongitud, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
@@ -250,8 +251,8 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Geo. Cod.")]
         public string GeoCodeAddr
         {
-            get { return fGeoCodeAddr; }
-            set { SetPropertyValue("GeoCodeAddr", ref fGeoCodeAddr, value); }
+            get { return _fGeoCodeAddr; }
+            set { SetPropertyValue("GeoCodeAddr", ref _fGeoCodeAddr, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
@@ -260,20 +261,20 @@ namespace CORE.PolizApp.Personas
         [System.ComponentModel.DisplayName(@"Dirección completa")]
         public string DireccionCompleta
         {
-            get { return fDireccionCompleta; }
-            set { SetPropertyValue("DireccionCompleta", ref fDireccionCompleta, value); }
+            get { return _fDireccionCompleta; }
+            set { SetPropertyValue("DireccionCompleta", ref _fDireccionCompleta, value); }
         }
 
         public DateTime Desde
         {
-            get { return fDesde; }
-            set { SetPropertyValue<DateTime>("Desde", ref fDesde, value); }
+            get { return _fDesde; }
+            set { SetPropertyValue<DateTime>("Desde", ref _fDesde, value); }
         }
 
         public DateTime Hasta
         {
-            get { return fHasta; }
-            set { SetPropertyValue<DateTime>("Hasta", ref fHasta, value); }
+            get { return _fHasta; }
+            set { SetPropertyValue<DateTime>("Hasta", ref _fHasta, value); }
         }
 
         protected override void OnChanged(string propertyName, object oldValue, object newValue)

@@ -10,14 +10,15 @@ namespace CORE.PolizApp.Personas
     [Persistent(@"personas.Identificacion")]
     [DefaultProperty("Descripcion")]
     [System.ComponentModel.DisplayName(@"Identificación")]
+    [DefaultClassOptions]
     public class Identificacion : BasicObject
     {
-        private DateTime fDesde;
-        private DateTime fHasta;
-        private string fValor;
-        private string fNotas;
-        private Persona fPersona;
-        private IdentificacionTipo fTipo;
+        private DateTime _fDesde;
+        private DateTime _fHasta;
+        private string _fNotas;
+        private Persona _fPersona;
+        private IdentificacionTipo _fTipo;
+        private string _fValor;
 
         public Identificacion(Session session)
             : base(session)
@@ -31,43 +32,43 @@ namespace CORE.PolizApp.Personas
         [Association(@"IdentificacionesReferencesPersonas")]
         public Persona Persona
         {
-            get { return fPersona; }
-            set { SetPropertyValue("Persona", ref fPersona, value); }
+            get { return _fPersona; }
+            set { SetPropertyValue("Persona", ref _fPersona, value); }
         }
 
         [System.ComponentModel.DisplayName(@"Tipo")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
         public IdentificacionTipo Tipo
         {
-            get { return fTipo; }
-            set { SetPropertyValue("Tipo", ref fTipo, value); }
+            get { return _fTipo; }
+            set { SetPropertyValue("Tipo", ref _fTipo, value); }
         }
 
         [Size(200)]
         [System.ComponentModel.DisplayName(@"Identificación")]
         public string Valor
         {
-            get { return fValor; }
-            set { SetPropertyValue("Valor", ref fValor, value); }
+            get { return _fValor; }
+            set { SetPropertyValue("Valor", ref _fValor, value); }
         }
 
         public DateTime Desde
         {
-            get { return fDesde; }
-            set { SetPropertyValue<DateTime>("Desde", ref fDesde, value); }
+            get { return _fDesde; }
+            set { SetPropertyValue<DateTime>("Desde", ref _fDesde, value); }
         }
 
         public DateTime Hasta
         {
-            get { return fHasta; }
-            set { SetPropertyValue<DateTime>("Hasta", ref fHasta, value); }
+            get { return _fHasta; }
+            set { SetPropertyValue<DateTime>("Hasta", ref _fHasta, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         public string Notas
         {
-            get { return fNotas; }
-            set { SetPropertyValue("Notas", ref fNotas, value); }
+            get { return _fNotas; }
+            set { SetPropertyValue("Notas", ref _fNotas, value); }
         }
 
         public override void AfterConstruction()

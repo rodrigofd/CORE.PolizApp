@@ -4,9 +4,15 @@
     <Items>
       <Item Id="Default" Caption="Seguridad">
         <Items>
-          <Item Id="Apariencia" Caption="Apariencia" ToolTip="Apariencia." />
-          <Item Id="SecuritySystemRole_ListView" Caption="Rol" />
-          <Item Id="SecuritySystemUser_ListView" Caption="Usuario" />
+          <Item Id="@3ff4dcc5-e2b9-44ca-b73a-a842c784188c">
+            <Items>
+              <Item Id="@e3f44202-d490-4a6e-bd61-d1601120943c_Copy">
+                <Items>
+                  <Item Id="MyDetails" Caption="Mi Perfil" />
+                </Items>
+              </Item>
+            </Items>
+          </Item>
         </Items>
       </Item>
     </Items>

@@ -2,8 +2,8 @@
 <Application>
   <Options CollectionsEditMode="Edit" />
   <SchemaModules>
-    <SchemaModule Name="CloneObjectModule" Version="15.2.7.0" IsNewNode="True" />
-    <SchemaModule Name="SystemAspNetModule" Version="15.2.7.0" IsNewNode="True" />
-    <SchemaModule Name="SystemModule" Version="15.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="CloneObjectModule" Version="15.2.9.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="15.2.9.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="15.2.9.0" IsNewNode="True" />
   </SchemaModules>
 </Application>

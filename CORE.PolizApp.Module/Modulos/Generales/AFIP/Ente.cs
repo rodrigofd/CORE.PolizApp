@@ -3,7 +3,7 @@ using System.Linq;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 //using FDIT.Core.Sistema;
 
 namespace FDIT.Core.AFIP
@@ -12,7 +12,8 @@ namespace FDIT.Core.AFIP
     [DefaultClassOptions]
     [DefaultProperty("CuitInformante")]
     [System.ComponentModel.DisplayName("Preferencias de AFIP")]
-    public class Ente : BasicObject, IObjetoPorEmpresa
+    [DefaultClassOptions]
+public class Ente : BasicObject, IObjetoPorEmpresa
     {
         private string fCertifStoreLocation;
         private string fCertifStoreName;

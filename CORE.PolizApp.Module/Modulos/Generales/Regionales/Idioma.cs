@@ -1,22 +1,23 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Regionales
 {
     [Persistent(@"regionales.Idioma")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Idioma")]
-    public class Idioma : BasicObject
+    [DefaultClassOptions]
+public class Idioma : BasicObject
     {
-        private string fCodigo;
-        private string fCodigo1;
-        private string fCodigo2;
-        private int fCodigoMsLangId;
-        private string fCodigoSqlServer;
-        private string fNombre;
-        private string fNombreEng;
+        private string _fCodigo;
+        private string _fCodigo1;
+        private string _fCodigo2;
+        private int _fCodigoMsLangId;
+        private string _fCodigoSqlServer;
+        private string _fNombre;
+        private string _fNombreEng;
 
         public Idioma(Session session) : base(session)
         {
@@ -26,49 +27,49 @@ namespace CORE.PolizApp.Regionales
         [Index(0)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         [Index(1)]
         public string Nombre
         {
-            get { return fNombre; }
-            set { SetPropertyValue("Nombre", ref fNombre, value); }
+            get { return _fNombre; }
+            set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
 
         [Size(60)]
         public string NombreEng
         {
-            get { return fNombreEng; }
-            set { SetPropertyValue("NombreEng", ref fNombreEng, value); }
+            get { return _fNombreEng; }
+            set { SetPropertyValue("NombreEng", ref _fNombreEng, value); }
         }
 
         [Size(50)]
         public string Codigo1
         {
-            get { return fCodigo1; }
-            set { SetPropertyValue("Codigo1", ref fCodigo1, value); }
+            get { return _fCodigo1; }
+            set { SetPropertyValue("Codigo1", ref _fCodigo1, value); }
         }
 
         [Size(10)]
         public string Codigo2
         {
-            get { return fCodigo2; }
-            set { SetPropertyValue("Codigo2", ref fCodigo2, value); }
+            get { return _fCodigo2; }
+            set { SetPropertyValue("Codigo2", ref _fCodigo2, value); }
         }
 
         public int CodigoMsLangId
         {
-            get { return fCodigoMsLangId; }
-            set { SetPropertyValue<int>("Mslangid", ref fCodigoMsLangId, value); }
+            get { return _fCodigoMsLangId; }
+            set { SetPropertyValue<int>("Mslangid", ref _fCodigoMsLangId, value); }
         }
 
         public string CodigoSqlServer
         {
-            get { return fCodigoSqlServer; }
-            set { SetPropertyValue("IdiomaSql", ref fCodigoSqlServer, value); }
+            get { return _fCodigoSqlServer; }
+            set { SetPropertyValue("IdiomaSql", ref _fCodigoSqlServer, value); }
         }
 
         public override void AfterConstruction()

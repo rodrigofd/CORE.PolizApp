@@ -5,7 +5,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Gestion
 {
@@ -19,7 +19,8 @@ namespace CORE.Modulos.Gestion
     DefaultContexts.Save,
     "ImporteTotal = Cuotas.SUM(Importe)",
     CustomMessageTemplate = "La suma de cuotas no coincide con el importe total del comprobante" ) ]
-  public class Comprobante : ComprobanteBase
+  [DefaultClassOptions]
+public class Comprobante : ComprobanteBase
   {
     protected string fAutorizadaCodigo;
     protected DateTime? fAutorizadaCodigoFecVto;

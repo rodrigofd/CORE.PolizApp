@@ -1,11 +1,12 @@
 //using DevExpress.Persistent.Base;
-//using DevExpress.Xpo;
+//using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 //namespace CORE.Modulos.Stock
 //{
 //  [Persistent( @"stock.Existencia" )]
 //  [System.ComponentModel.DisplayName( "Existencia en stock" )]
-//  public class Existencia : BasicObject
+//  [DefaultClassOptions]
+public class Existencia : BasicObject
 //  {
 //    private Almacen fAlmacen;
 //    private Articulo fArticulo;

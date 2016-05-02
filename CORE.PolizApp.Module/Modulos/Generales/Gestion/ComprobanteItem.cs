@@ -7,7 +7,7 @@ using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Compras;
 using FDIT.Core.Impuestos;
 using FDIT.Core.Sistema;
@@ -22,7 +22,8 @@ namespace FDIT.Core.Gestion
                   DefaultContexts.Save, 
                   "Apertura.COUNT() = 0 OR Apertura.SUM(Porcentaje) = 100", 
                   CustomMessageTemplate = "La suma de porcentajes de los centros de costo debe ser 100" ) ]
-  public class ComprobanteItem : BasicObject
+  [DefaultClassOptions]
+public class ComprobanteItem : BasicObject
   {
     private decimal fAlicuota;
     private Articulo fArticulo;

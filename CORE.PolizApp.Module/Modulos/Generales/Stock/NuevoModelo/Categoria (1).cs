@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.Modulos.Stock
 {
@@ -9,7 +9,8 @@ namespace CORE.Modulos.Stock
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Categoría de artículo" ) ]
   [ Persistent( @"stock.Categoria" ) ]
-  public class Categoria : BasicObject
+  [DefaultClassOptions]
+public class Categoria : BasicObject
   {
     private Categoria fCategoriaPadre;
     private string fNombre;

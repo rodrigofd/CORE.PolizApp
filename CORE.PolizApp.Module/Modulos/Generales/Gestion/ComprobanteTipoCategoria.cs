@@ -1,12 +1,13 @@
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Impuestos;
 
 namespace FDIT.Core.Gestion
 {
   [Persistent( @"gestion.ComprobanteTipoCategoria" )]
   [System.ComponentModel.DisplayName( "Categorías por tipo de comprobante" )]
-  public class ComprobanteTipoCategoria : BasicObject
+  [DefaultClassOptions]
+public class ComprobanteTipoCategoria : BasicObject
   {
     private Categoria fCategoria;
     private ComprobanteTipo fComprobanteTipo;

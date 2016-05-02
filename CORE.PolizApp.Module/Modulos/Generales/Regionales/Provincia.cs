@@ -1,18 +1,19 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Regionales
 {
     [Persistent(@"regionales.Provincia")]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"Provincia")]
-    public class Provincia : BasicObject
+    [DefaultClassOptions]
+public class Provincia : BasicObject
     {
-        private string fCodigo;
-        private Pais fPais;
-        private string fProvincia;
+        private string _fCodigo;
+        private Pais _fPais;
+        private string _fProvincia;
 
         public Provincia(Session session) : base(session)
         {
@@ -21,16 +22,16 @@ namespace CORE.PolizApp.Regionales
         [Association(@"ProvinciasReferencesPaises")]
         public Pais Pais
         {
-            get { return fPais; }
-            set { SetPropertyValue("Pais", ref fPais, value); }
+            get { return _fPais; }
+            set { SetPropertyValue("Pais", ref _fPais, value); }
         }
 
         [Size(10)]
         [Index(0)]
         public string Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue("Codigo", ref _fCodigo, value); }
         }
 
         [Size(50)]
@@ -38,8 +39,8 @@ namespace CORE.PolizApp.Regionales
         [System.ComponentModel.DisplayName(@"Provincia")]
         public string Nombre
         {
-            get { return fProvincia; }
-            set { SetPropertyValue("Nombre", ref fProvincia, value); }
+            get { return _fProvincia; }
+            set { SetPropertyValue("Nombre", ref _fProvincia, value); }
         }
 
         [Association(@"CiudadesReferencesProvincias", typeof (Ciudad))]

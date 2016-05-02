@@ -1,13 +1,14 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace FDIT.Core.Fondos
 {
   [ Persistent( @"fondos.ComprobanteModeloItem" ) ]
   [ System.ComponentModel.DisplayName( "Item Modelo de comprobante de fondo" ) ]
   [DefaultProperty("Cuenta")]
-    public class ComprobanteModeloItem : BasicObject
+    [DefaultClassOptions]
+public class ComprobanteModeloItem : BasicObject
   {
     private ComprobanteModelo fComprobanteModelo;
     private Cuenta fCuenta;

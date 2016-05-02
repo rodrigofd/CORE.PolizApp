@@ -7,9 +7,9 @@ using System.Windows.Forms;
 namespace CORE.ES.Module.Modulos.Escribania.Controllers
 {
     // For more typical usage scenarios, be sure to check out http://documentation.devexpress.com/#Xaf/clsDevExpressExpressAppViewControllertopic.
-    public partial class FDIT_MigrarController : ViewController
+    public partial class FditMigrarController : ViewController
     {
-        public FDIT_MigrarController()
+        public FditMigrarController()
         {
             InitializeComponent();
             RegisterActions(components);

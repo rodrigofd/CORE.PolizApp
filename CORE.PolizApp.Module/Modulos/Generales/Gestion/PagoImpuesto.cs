@@ -1,11 +1,12 @@
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using FDIT.Core.Impuestos;
 
 namespace FDIT.Core.Gestion
 {
   [Persistent( @"gestion.PagoImpuesto" )]
   [System.ComponentModel.DisplayName( "Impuestos del pago" )]
-  public class PagoImpuesto : BasicObject
+  [DefaultClassOptions]
+public class PagoImpuesto : BasicObject
   {
     private PagoAplicacion fAplicacion;
     private decimal fAlicuota;

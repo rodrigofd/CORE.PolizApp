@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
-using DevExpress.Xpo;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 using CORE.Modulos.Sistema;
 
 namespace CORE.Modulos.Stock
@@ -11,7 +11,8 @@ namespace CORE.Modulos.Stock
   [ DefaultClassOptions ]
   [ DefaultProperty( "Nombre" ) ]
   [ System.ComponentModel.DisplayName( "Unidad de medida" ) ]
-  public class UnidadMedida : BasicObject
+  [DefaultClassOptions]
+public class UnidadMedida : BasicObject
   {
     private string fCodigo;
     private string fNombre;

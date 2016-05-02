@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using CORE.PolizApp.Sistema;
-using DevExpress.Xpo;
+using DevExpress.Persistent.Base;
+using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.General.Modulos.AFIP
 {
@@ -8,12 +9,13 @@ namespace CORE.General.Modulos.AFIP
     //[DefaultClassOptions]
     [DefaultProperty("Nombre")]
     [System.ComponentModel.DisplayName(@"CaeMotivos")]
-    public class afip_CaeMotivo : BasicObject
+    [DefaultClassOptions]
+public class AfipCaeMotivo : BasicObject
     {
-        private string fCaeMotivo;
-        private int fCodigo;
+        private string _fCaeMotivo;
+        private int _fCodigo;
 
-        public afip_CaeMotivo(Session session)
+        public AfipCaeMotivo(Session session)
             : base(session)
         {
         }
@@ -21,15 +23,15 @@ namespace CORE.General.Modulos.AFIP
         [Size(10)]
         public int Codigo
         {
-            get { return fCodigo; }
-            set { SetPropertyValue<int>("Codigo", ref fCodigo, value); }
+            get { return _fCodigo; }
+            set { SetPropertyValue<int>("Codigo", ref _fCodigo, value); }
         }
 
         [Size(SizeAttribute.Unlimited)]
         public string Nombre
         {
-            get { return fCaeMotivo; }
-            set { SetPropertyValue("Nombre", ref fCaeMotivo, value); }
+            get { return _fCaeMotivo; }
+            set { SetPropertyValue("Nombre", ref _fCaeMotivo, value); }
         }
 
         public override void AfterConstruction()
