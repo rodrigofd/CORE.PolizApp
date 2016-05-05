@@ -18,7 +18,9 @@ public class ContactoTipo : BasicObject
 
         public string Nombre
         {
-            get { return _fContactoTipo; }
+            get {
+                return _fContactoTipo;
+            }
             set { SetPropertyValue("Nombre", ref _fContactoTipo, value); }
         }
 
