@@ -2,11 +2,14 @@
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace CORE.PolizApp.PolizApp
 {
     [DefaultClassOptions]
     [Persistent(@"polizapp.Aseguradora")]
+    [DefaultProperty("Persona")]
+
     public class Aseguradora : BasicObject
     {
         private string _fCodigo;
@@ -46,8 +49,8 @@ namespace CORE.PolizApp.PolizApp
         [Association(@"AseguradoraProductorReferencesAseguradora")]
         public XPCollection<AseguradoraProductor> Productores => GetCollection<AseguradoraProductor>("Productores");
 
-        [Association(@"DocumentoReferencesAseguradora")]
-        public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
+        //[Association(@"DocumentoReferencesAseguradora")] 
+        //public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
 
         [Association(@"IntermediarioComisionReferencesAseguradora")]
         public XPCollection<IntermediarioComision> IntermediarioComisiones => GetCollection<IntermediarioComision>("IntermediarioComisiones");

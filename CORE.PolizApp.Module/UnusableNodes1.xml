@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DashboardView Id="Dashboard1">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutItem Id="Personas" ViewItem="Personas" />
+          <LayoutItem Id="Libro IVA" ViewItem="Libro IVA" />
+        </LayoutGroup>
+      </Layout>
+    </DashboardView>
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="CORE.PolizApp.Personas.Persona_ListView" Caption="Maestro de Personas" />
+          <Item Id="CORE.PolizApp.Personas.Relacion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.RelacionTipo_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Personas.VRelacion_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.ArchivoAdjunto_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.Empresa_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.IdentificadoresBase`1[[CORE.PolizApp.Regionales.Identificadores, CORE.PolizApp.Module, Version=1.0.5962.27000, Culture=neutral, PublicKeyToken=null]]_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.Nota_ListView" Removed="True" />
+          <Item Id="CORE.PolizApp.Sistema.Vinculo_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

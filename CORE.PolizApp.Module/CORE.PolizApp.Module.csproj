@@ -411,8 +411,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DatabaseUpdate\ReadMe.txt" />
-    <None Include="Model.DesignedDiffs.Localization.es.xafml" />
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.es-AR.xafml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.es.xafml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.es-ES.xafml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Controllers\ReadMe.txt" />
@@ -6555,6 +6566,10 @@
     <EmbeddedResource Include="Images\images-flickr.png" />
     <EmbeddedResource Include="Images\images-stack.png" />
     <EmbeddedResource Include="Images\images.png" />
+    <None Include="UnusableNodes1.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="UnusableNodes2.xml" />
     <Content Include="UnusableNodes3.xml" />
     <None Include="Images\UnusableNodes.xml">

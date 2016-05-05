@@ -37,7 +37,7 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue("Refacturacion", ref _fRefacturacion, value); }
         }
 
-        [Association(@"RefacturacionItemReferencesRamo")]
+        //[Association(@"RefacturacionItemReferencesRamo")]
         public Ramo Ramo
         {
             get { return _fRamo; }

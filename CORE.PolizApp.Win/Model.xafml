@@ -2,7 +2,7 @@
 <Application>
   <NavigationItems NavigationStyle="TreeList">
     <Items>
-      <Item Id="Default">
+      <Item Id="Default" Index="0">
         <Items>
           <Item Id="@3ff4dcc5-e2b9-44ca-b73a-a842c784188c">
             <Items>
@@ -14,6 +14,11 @@
             </Items>
           </Item>
           <Item Id="MyDetails" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="@af97fa42-7b97-4ffa-a0c0-09254103d448" Caption="Seguridad" Index="1" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="@58be966e-a1ec-4a6e-8a76-9207f65badac" Caption="Apariencia" ViewId="DevExpress.Persistent.BaseImpl.ModelDifference_ListView" IsNewNode="True" />
         </Items>
       </Item>
     </Items>

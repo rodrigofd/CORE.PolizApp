@@ -6,11 +6,13 @@ using DevExpress.Xpo; using DevExpress.Persistent.Base;
 
 namespace CORE.PolizApp.Fondos
 {
-    [Persistent(@"fondos.Especie")]
+    [Persistent(@"fondos.Especie")] 
     //[DefaultClassOptions]
     [System.ComponentModel.DisplayName(@"Especies")]
     [DefaultClassOptions]
-public class Especie : BasicObject
+    [DefaultProperty("Codigo")]
+
+    public class Especie : BasicObject
     {
         private string _fCodigo;
         private string _fEspecie;

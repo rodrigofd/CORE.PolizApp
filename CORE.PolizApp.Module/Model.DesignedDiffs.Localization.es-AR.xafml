@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views>
+    <DetailView Id="RuleSetValidationResult_ByTarget_Error_DetailView">
+      <Items>
+        <StaticText Id="ValidationResultsText" Text="Se encontraron problemas durante la validación de datos. Por favor, lea la siguiente información para entender cuáles son los problemas y cómo se pueden corregir." />
+      </Items>
+    </DetailView>
+    <DetailView Id="ValidationResults_Passed_DetailView">
+      <Items>
+        <StaticText Id="ValidationResultsText" Text="No se encontraron problemas." />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

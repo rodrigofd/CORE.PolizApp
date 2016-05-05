@@ -54,7 +54,7 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue("NegocioLinea", ref _fNegocioLinea, value); }
         }
 
-        [Association(@"IntermediarioComisionReferencesRamo")]
+        //[Association(@"IntermediarioComisionReferencesRamo")]
         public Ramo Ramo
         {
             get { return _fRamo; }

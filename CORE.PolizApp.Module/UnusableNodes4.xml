@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DashboardView Id="Dashboard1">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutItem Id="Personas" ViewItem="Personas" />
+          <LayoutItem Id="Libro IVA" ViewItem="Libro IVA" />
+        </LayoutGroup>
+      </Layout>
+    </DashboardView>
+    <ListView Id="CORE.PolizApp.PolizApp.Documento_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="ComprobantesComprobantesIdComprobante" Width="20" Index="-1" />
+        <ColumnInfo Id="IdAceptadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdAcuseDeReciboUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdAnuladaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdAseguradoraR" Width="20" Index="-1" />
+        <ColumnInfo Id="IdCargadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdDespachadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdDocumentoEstado" Width="20" Index="-1" />
+        <ColumnInfo Id="IdDocumentoPilotoRol" Width="20" Index="-1" />
+        <ColumnInfo Id="IdDocumentoTipo" Width="20" Index="-1" />
+        <ColumnInfo Id="IdEnviadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdNegocioLinea" Width="20" Index="-1" />
+        <ColumnInfo Id="IdPlanDePago" Width="20" Index="-1" />
+        <ColumnInfo Id="IdProductorR" Width="20" Index="-1" />
+        <ColumnInfo Id="IdRecepcionPropuestaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdRegularizadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdTomadorR" Width="20" Index="-1" />
+        <ColumnInfo Id="IdValidadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="IdVentaTipo" Width="20" Index="-1" />
+        <ColumnInfo Id="PagoAnticipoTasa" Width="20" Index="-1" />
+        <ColumnInfo Id="PagoDescuentoImporte" Width="20" Index="-1" />
+        <ColumnInfo Id="PagoDescuentoTasa" Width="20" Index="-1" />
+        <ColumnInfo Id="PedidoDeEmision" Width="20" Index="-1" />
+        <ColumnInfo Id="RecepcionPropuestaAceptada" Width="20" Index="-1" />
+        <ColumnInfo Id="VigenciaDias" Width="20" Index="-1" />
+        <ColumnInfo Id="VigenciaDiasAlVencimiento" Width="20" Index="-1" />
+        <ColumnInfo Id="VigenciaMeses" Width="20" Index="-1" />
+        <ColumnInfo Id="AceptadaNotas" Removed="True" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

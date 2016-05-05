@@ -1,11 +1,14 @@
 ﻿using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace CORE.PolizApp.PolizApp
 {
     [DefaultClassOptions]
     [Persistent(@"polizapp.RamoClase")]
+    [DefaultProperty("Nombre")]
+
     public class RamoClase : BasicObject
     {
         private string _fNombre;

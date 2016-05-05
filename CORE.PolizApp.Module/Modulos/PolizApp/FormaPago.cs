@@ -1,11 +1,14 @@
 ﻿using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace CORE.PolizApp.PolizApp
 {
     [DefaultClassOptions]
     [Persistent(@"polizapp.FormaPago")]
+    [DefaultProperty("Codigo")]
+
     public class FormaPago : BasicObject
     {
         private string _fCodigo;

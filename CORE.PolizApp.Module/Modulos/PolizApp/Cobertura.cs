@@ -21,7 +21,7 @@ namespace CORE.PolizApp.PolizApp
         {
         }
 
-        [Association(@"CoberturaReferencesRamo")]
+        //[Association(@"CoberturaReferencesRamo")]
         public Ramo Ramo
         {
             get { return _fRamo; }

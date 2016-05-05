@@ -5,30 +5,34 @@ using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using FDIT.Core.Sistema;
+using CORE.PolizApp.Fondos;
+using System.ComponentModel;
 
 namespace CORE.PolizApp.PolizApp
 {
     [DefaultClassOptions]
     [Persistent(@"polizapp.Documento")]
+    [DefaultProperty("Numero")]
+
     public class Documento : BasicObject, IObjetoPorEmpresa
     {
-        private string _faceptadaNotas;
+        //private string _faceptadaNotas;
         private DateTime _fAceptadaFecha;
         private string _fAceptadaHost;
         private string _fAceptadaUsuario;
-        private string _facuseDeReciboNotas;
+        //private string _facuseDeReciboNotas;
         private DateTime _fAcuseReciboFecha;
         private string _fAcuseReciboHost;
         private string _fAcuseReciboUsuario;
         private decimal _fAdicionalFinanciero;
         private decimal _fAdicionalFinancieroTasa;
-        private string _fanuladaNotas;
+        //private string _fanuladaNotas;
         private DateTime _fAnuladaFecha;
         private string _fAnuladaHost;
         private string _fAnuladaUsuario;
         private Aseguradora _fAseguradora;
         private decimal _fCambio;
-        private string _fcargadaNotas;
+        //private string _fcargadaNotas;
         private DateTime _fCargadaFecha;
         private string _fCargadaHost;
         private string _fCargadaUsuario;
@@ -36,10 +40,10 @@ namespace CORE.PolizApp.PolizApp
         private decimal _fComisionPremioTasaProductor;
         private decimal _fComisionPrimaTasa;
         private decimal _fComisionPrimaTasaProductor;
-        private int _fcomprobantesComprobantesIdComprobante;
+        //private int _fcomprobantesComprobantesIdComprobante;
         private decimal _fDerechoEmision;
         private decimal _fDerechoEmisionTasa;
-        private string _fdespachadaNotas;
+        //private string _fdespachadaNotas;
         private DateTime _fDespachadaFecha;
         private string _fDespachadaHost;
         private string _fDespachadaUsuario;
@@ -52,36 +56,36 @@ namespace CORE.PolizApp.PolizApp
         private DateTime _fEmitidaFecha;
         private Empresa _fEmpresa;
         private string _fEndosoNumero;
-        private string _fenviadaNotas;
+        //private string _fenviadaNotas;
         private DateTime _fEnviadaFecha;
         private string _fEnviadaHost;
         private string _fEnviadaUsuario;
-        private int _fEspecie;
+        private Especie _fEspecie;
         private int _fFacturaCuotas;
         private FacturaPeriodicidad _fFacturaPeriodicidad;
         private string _fFacturaReferencia;
         private FacturaTipo _fFacturaTipo;
         private FormaPago _fFormaPago;
         private string _fFormaPagoDetalle;
-        private int _fidAceptadaUsuario;
-        private int _fidAcuseDeReciboUsuario;
-        private int _fidAnuladaUsuario;
-        private int _fidAseguradoraR;
-        private int _fidCargadaUsuario;
-        private int _fidDespachadaUsuario;
-        private int _fidDocumentoEstado;
-        private int _fidDocumentoPilotoRol;
-        private int _fidDocumentoTipo;
-        private int _fidEnviadaUsuario;
-        private int _fidNegocioLinea;
-        private int _fidPlanDePago;
+        //private int _fidAceptadaUsuario;
+        //private int _fidAcuseDeReciboUsuario;
+        //private int _fidAnuladaUsuario;
+        //private int _fidAseguradoraR;
+        //private int _fidCargadaUsuario;
+        //private int _fidDespachadaUsuario;
+        //private int _fidDocumentoEstado;
+        //private int _fidDocumentoPilotoRol;
+        //private int _fidDocumentoTipo;
+        //private int _fidEnviadaUsuario;
+        //private int _fidNegocioLinea;
+        //private int _fidPlanDePago;
 
-        private int _fidProductorR;
-        private int _fidRecepcionPropuestaUsuario;
-        private int _fidRegularizadaUsuario;
-        private int _fidTomadorR;
-        private int _fidValidadaUsuario;
-        private int _fidVentaTipo;
+        //private int _fidProductorR;
+        //private int _fidRecepcionPropuestaUsuario;
+        //private int _fidRegularizadaUsuario;
+        //private int _fidTomadorR;
+        //private int _fidValidadaUsuario;
+        //private int _fidVentaTipo;
         private decimal _fImpuestosOtros;
         private decimal _fIva;
         private decimal _fIvaTasa;
@@ -89,10 +93,10 @@ namespace CORE.PolizApp.PolizApp
         private string _fNotaInterna;
         private string _fNotaTomador;
         private int _fNumero;
-        private decimal _fpagoAnticipoTasa;
-        private decimal _fpagoDescuentoImporte;
-        private decimal _fpagoDescuentoTasa;
-        private bool _fpedidoDeEmision;
+        //private decimal _fpagoAnticipoTasa;
+        //private decimal _fpagoDescuentoImporte;
+        //private decimal _fpagoDescuentoTasa;
+        //private bool _fpedidoDeEmision;
         private string _fPolizaNumero;
         private decimal _fPremio;
         private decimal _fPrimaComisionable;
@@ -104,12 +108,9 @@ namespace CORE.PolizApp.PolizApp
         private RamoTipo _fRamoTipo;
         private decimal _fRecargoAdministrativo;
         private decimal _fRecargoAdministrativoTasa;
-        private bool _frecepcionPropuestaAceptada;
-        private string _frecepcionPropuestaNotas;
         private DateTime _fRecepcionFecha;
         private string _fRecepcionHost;
         private string _fRecepcionUsuario;
-        private string _fregularizadaNotas;
         private DateTime _fRegularizadaFecha;
         private string _fRegularizadaHost;
         private string _fRegularizadaUsuario;
@@ -123,16 +124,20 @@ namespace CORE.PolizApp.PolizApp
         private Categoria _fTomadorCategoriaIVA;
         private Direccion _fTomadorDireccion;
         private Identificacion _fTomadorIdentificacion;
-        private string _fvalidadaNotas;
         private DateTime _fValidadaFecha;
         private string _fValidadaHost;
         private string _fValidadaUsuario;
-        private int _fvigenciaDias;
-        private int _fvigenciaDiasAlVencimiento;
-        private int _fvigenciaMeses;
         private DateTime _fVigenciaFin;
         private DateTime _fVigenciaFinPoliza;
         private DateTime _fVigenciaInicio;
+
+        //private bool _frecepcionPropuestaAceptada;
+        //private string _frecepcionPropuestaNotas;
+        //private string _fregularizadaNotas;
+        //private string _fvalidadaNotas;
+        //private int _fvigenciaDias;
+        //private int _fvigenciaDiasAlVencimiento;
+        //private int _fvigenciaMeses;
 
         public Documento(Session session) : base(session)
         {
@@ -172,16 +177,19 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue("DocumentoPiloto", ref _fDocumentoPiloto, value); }
         }
 
-        [Association(@"DocumentoReferencesDocumentoClase")]
+        //[Association(@"DocumentoReferencesDocumentoClase")]
         [Persistent("DocumentoClase")]
+        [LookupEditorMode(LookupEditorMode.AllItems)]
         public DocumentoClase Clase
         {
             get { return _clase; }
             set { SetPropertyValue("Clase", ref _clase, value); }
         }
 
-        [Association(@"DocumentoReferencesDocumentoClaseTipo")]
+        //[Association(@"DocumentoReferencesDocumentoClaseTipo")]
         [Persistent("DocumentoClaseTipo")]
+        [DataSourceProperty("Clase.DocumentoClaseTipos")]
+        [LookupEditorMode(LookupEditorMode.AllItems)]
         public DocumentoClaseTipo ClaseTipo
         {
             get { return _fClaseTipo; }
@@ -194,18 +202,31 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue<int>("Numero", ref _fNumero, value); }
         }
 
-        [Association(@"DocumentoReferencesAseguradora")]
+        //[Association(@"DocumentoReferencesAseguradora")]
+        [LookupEditorMode(LookupEditorMode.AllItems)]
         public Aseguradora Aseguradora
         {
             get { return _fAseguradora; }
             set { SetPropertyValue("Aseguradora", ref _fAseguradora, value); }
         }
 
-        [Association(@"DocumentoReferencesAseguradoraProductor")]
+        //[Association(@"DocumentoReferencesAseguradoraProductor")]
+        [VisibleInListView(false)]
+        [System.ComponentModel.DisplayName(@"AseguradoraProductor")]
+        [DataSourceProperty("Aseguradora.Productores")]
+        [LookupEditorMode(LookupEditorMode.AllItems)]
         public AseguradoraProductor Productor
         {
             get { return _fProductor; }
             set { SetPropertyValue("Productor", ref _fProductor, value); }
+        }
+
+        [VisibleInDetailView(false)]
+        [System.ComponentModel.DisplayName(@"Productor")]
+        [PersistentAlias("Productor.Productor")]
+        public Persona ProductorPersona
+        {
+            get { return (Persona)(EvaluateAlias("ProductorPersona")); }
         }
 
         public Persona Tomador
@@ -214,32 +235,40 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue("Tomador", ref _fTomador, value); }
         }
 
+        [LookupEditorMode(LookupEditorMode.AllItems)]
+        [DataSourceProperty("Tomador.Direcciones")]
         public Direccion TomadorDireccion
         {
             get { return _fTomadorDireccion; }
             set { SetPropertyValue<Direccion>("TomadorDireccion", ref _fTomadorDireccion, value); }
         }
 
+        [LookupEditorMode(LookupEditorMode.AllItems)]
+        [DataSourceProperty("Tomador.Identificaciones")]
         public Identificacion TomadorIdentificacion
         {
             get { return _fTomadorIdentificacion; }
             set { SetPropertyValue<Identificacion>("TomadorIdentificacion", ref _fTomadorIdentificacion, value); }
         }
 
+        [LookupEditorMode(LookupEditorMode.AllItems)]
         public Categoria TomadorCategoriaIVA
         {
             get { return _fTomadorCategoriaIVA; }
             set { SetPropertyValue<Categoria>("TomadorCategoriaIVA", ref _fTomadorCategoriaIVA, value); }
         }
 
-        [Association(@"DocumentoReferencesRamo")]
+        //[Association(@"DocumentoReferencesRamo")]
+        [LookupEditorMode(LookupEditorMode.AllItems)]
         public Ramo Ramo
         {
             get { return _fRamo; }
             set { SetPropertyValue("Ramo", ref _fRamo, value); }
         }
 
-        [Association(@"DocumentoReferencesRamoTipo")]
+        //[Association(@"DocumentoReferencesRamoTipo")]
+        [DataSourceProperty("Ramo.RamoTipos")]
+        [LookupEditorMode(LookupEditorMode.AllItems)]
         public RamoTipo RamoTipo
         {
             get { return _fRamoTipo; }
@@ -317,11 +346,12 @@ namespace CORE.PolizApp.PolizApp
             get { return _fRenuevaDetalle; }
             set { SetPropertyValue("RenuevaDetalle", ref _fRenuevaDetalle, value); }
         }
-
-        public int Especie
+        
+        [DataSourceCriteria("[ExpresaMoneda] = true")]
+        public Especie Especie
         {
             get { return _fEspecie; }
-            set { SetPropertyValue<int>("Especie", ref _fEspecie, value); }
+            set { SetPropertyValue("Especie", ref _fEspecie, value); }
         }
 
         public decimal Cambio
@@ -665,7 +695,7 @@ namespace CORE.PolizApp.PolizApp
             get { return _fAnuladaHost; }
             set { SetPropertyValue("AnuladaHost", ref _fAnuladaHost, value); }
         }
-
+        /*
         public int IdProductorR
         {
             get { return _fidProductorR; }
@@ -894,38 +924,50 @@ namespace CORE.PolizApp.PolizApp
             get { return _fidDocumentoPilotoRol; }
             set { SetPropertyValue<int>("id_documento_piloto_rol", ref _fidDocumentoPilotoRol, value); }
         }
-
+        */
+        [Browsable(false)]
         [Association(@"DocumentoReferencesDocumento")]
         public XPCollection<Documento> DocumentoCollection => GetCollection<Documento>("DocumentoCollection");
 
+        [Browsable(false)]
         [Association(@"DocumentoReferencesDocumento1")]
         public XPCollection<Documento> DocumentoCollection1 => GetCollection<Documento>("DocumentoCollection1");
 
+        [Browsable(false)]
         [Association(@"DocumentoReferencesDocumento2")]
         public XPCollection<Documento> DocumentoCollection2 => GetCollection<Documento>("DocumentoCollection2");
 
+        [Browsable(false)]
         [Association(@"DocumentoReferencesDocumento3")]
         public XPCollection<Documento> DocumentoCollection3 => GetCollection<Documento>("DocumentoCollection3");
 
+        //[Browsable(false)]
         [Association(@"DocumentoCuotaReferencesDocumento")]
         public XPCollection<DocumentoCuota> Cuotas => GetCollection<DocumentoCuota>("Cuotas");
 
+        //[Browsable(false)]
         [Association(@"DocumentoIntervinienteReferencesDocumento")]
         public XPCollection<DocumentoInterviniente> Intervinientes => GetCollection<DocumentoInterviniente>("Intervinientes");
 
+        //[Browsable(false)]
         [Association(@"DocumentoItemReferencesDocumento")]
         public XPCollection<DocumentoItem> Items => GetCollection<DocumentoItem>("Items");
 
+        [Browsable(false)]
         [Association(@"RefacturacionItemReferencesDocumento")]
         public XPCollection<RefacturacionItem> ItemsRefacturacion => GetCollection<RefacturacionItem>("ItemsRefacturacion");
 
+        [Browsable(false)]
         [Association(@"RendicionArtItemReferencesDocumento")]
         public XPCollection<RendicionARTItem> ItemsRendicionART => GetCollection<RendicionARTItem>("ItemsRendicionART");
 
+        [Browsable(false)]
         [Association(@"RendicionVoItemReferencesDocumento")]
         public XPCollection<RendicionVOItem> ItemsRendicionVO => GetCollection<RendicionVOItem>("ItemsRendicionVO");
 
+        [Browsable(false)]
         [Association(@"SiniestroReferencesDocumento")]
         public XPCollection<Siniestro> Siniestros => GetCollection<Siniestro>("Siniestros");
+        
     }
 }

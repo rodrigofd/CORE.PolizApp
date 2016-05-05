@@ -3,11 +3,14 @@ using CORE.PolizApp.Personas;
 using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace CORE.PolizApp.PolizApp
 {
     [DefaultClassOptions]
     [Persistent(@"polizapp.AseguradoraProductor")]
+    [DefaultProperty("Productor")]
+
     public class AseguradoraProductor : BasicObject
     {
         private Aseguradora _fAseguradora;
@@ -52,7 +55,7 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue<DateTime>("Hasta", ref _fHasta, value); }
         }
 
-        [Association(@"DocumentoReferencesAseguradoraProductor")]
-        public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
+        //[Association(@"DocumentoReferencesAseguradoraProductor")]
+        //public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
     }
 }

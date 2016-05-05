@@ -185,15 +185,11 @@
           <Item Id="CORE.PolizApp.Personas.Identificacion_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.Personas.IdentificacionClase_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.Personas.IdentificacionTipo_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Personas.Persona_ListView" Caption="Maestro de Personas" />
           <Item Id="CORE.PolizApp.Personas.PersonaContacto_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.Personas.PersonaImpuesto_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.Personas.PersonaPropiedad_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.Personas.Propiedad_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.Personas.PropiedadValor_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Personas.Relacion_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Personas.RelacionTipo_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Personas.VRelacion_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.PolizApp.Aseguradora_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.PolizApp.AseguradoraProductor_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.PolizApp.Cobertura_ListView" Removed="True" />
@@ -257,11 +253,6 @@
           <Item Id="CORE.PolizApp.Seguridad.Rol_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.Seguridad.Usuario_ListView" Removed="True" />
           <Item Id="CORE.PolizApp.Sistema.Archivo_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Sistema.ArchivoAdjunto_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Sistema.Empresa_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Sistema.IdentificadoresBase`1[[CORE.PolizApp.Regionales.Identificadores, CORE.PolizApp.Module, Version=1.0.5962.27000, Culture=neutral, PublicKeyToken=null]]_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Sistema.Nota_ListView" Removed="True" />
-          <Item Id="CORE.PolizApp.Sistema.Vinculo_ListView" Removed="True" />
           <Item Id="CpaResultItem_ListView" Removed="True" />
           <Item Id="LocalidadResultItem_ListView" Removed="True" />
         </Items>
@@ -274,8 +265,169 @@
   <SchemaModules>
     <SchemaModule Name="CloneObjectModule" Version="15.2.9.0" IsNewNode="True" />
     <SchemaModule Name="SystemModule" Version="15.2.9.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="15.2.9.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <ListView Id="CORE.PolizApp.Fondos.Especie_LookupListView" GroupSummary="Empty" />
+    <ListView Id="CORE.PolizApp.Personas.Direccion_LookupListView" GroupSummary="Empty" />
+    <ListView Id="CORE.PolizApp.Personas.Identificacion_LookupListView" GroupSummary="Empty" />
+    <ListView Id="CORE.PolizApp.Personas.Persona_ListView">
+      <Columns>
+        <ColumnInfo Id="ApellidosMaterno" Index="-1" />
+        <ColumnInfo Id="ApellidosPaterno" Index="-1" />
+        <ColumnInfo Id="Edad" Index="-1" />
+        <ColumnInfo Id="Nacionalidad" Index="-1" />
+        <ColumnInfo Id="Sexo" Index="-1" />
+        <ColumnInfo Id="Tratamiento" Index="-1" />
+        <ColumnInfo Id="NombreCompleto" Width="193" />
+        <ColumnInfo Id="Tipo" Width="33" />
+        <ColumnInfo Id="Nombre" Width="203" Index="2" />
+        <ColumnInfo Id="NombreFantasia" Width="22" Index="3" />
+        <ColumnInfo Id="NacimientoFecha" Width="22" Index="4" />
+        <ColumnInfo Id="AniversarioFecha" Width="22" Index="5" />
+        <ColumnInfo Id="NacimientoPais" Width="22" Index="6" />
+        <ColumnInfo Id="FallecimientoFecha" Width="22" Index="7" />
+        <ColumnInfo Id="FallecimientoPais" Width="22" Index="8" />
+        <ColumnInfo Id="IdentificacionPrimaria" Width="22" Index="9" />
+        <ColumnInfo Id="DireccionPrimaria" Width="22" Index="10" />
+        <ColumnInfo Id="ClienteComprobanteTipoPredeterminado" Width="22" Index="11" />
+        <ColumnInfo Id="ClienteCondicionDePagoPredeterminada" Width="22" Index="12" />
+        <ColumnInfo Id="ClienteDescuento" Width="20" Index="13" />
+        <ColumnInfo Id="ClienteDireccionEntrega" Width="22" Index="14" />
+        <ColumnInfo Id="ClienteEmailEnvioFacturacion" Width="22" Index="15" />
+        <ColumnInfo Id="ProveedorComprobanteTipoPredeterminado" Width="22" Index="16" />
+        <ColumnInfo Id="ProveedorCondicionDePagoPredeterminada" Width="22" Index="17" />
+        <ColumnInfo Id="ProveedorDireccionRetiro" Width="22" Index="18" />
+        <ColumnInfo Id="ProveedorEmailAvisoPago" Width="48" Index="19" />
+      </Columns>
+    </ListView>
+    <ListView Id="CORE.PolizApp.Personas.RelacionTipo_ListView">
+      <Columns>
+        <ColumnInfo Id="Descripcion" Width="249" />
+        <ColumnInfo Id="Nombre" Width="393" />
+        <ColumnInfo Id="NombreInverso" Width="399" />
+      </Columns>
+    </ListView>
+    <ListView Id="CORE.PolizApp.Personas.RelacionTipo_LookupListView" GroupSummary="Empty" />
+    <ListView Id="CORE.PolizApp.PolizApp.Aseguradora_ListView">
+      <Columns>
+        <ColumnInfo Id="Codigo" Width="58" Index="0" />
+        <ColumnInfo Id="Persona" Width="569" Index="1" />
+        <ColumnInfo Id="SsnAseguradora" Width="192" />
+        <ColumnInfo Id="SmartixId" Width="198" />
+      </Columns>
+    </ListView>
+    <ListView Id="CORE.PolizApp.PolizApp.Documento_ListView" Filter="[Clase!] = ##XpoObject#CORE.PolizApp.PolizApp.DocumentoClase(1)#" ShowAutoFilterRow="True" FilterEnabled="True">
+      <Columns>
+        <ColumnInfo Id="AceptadaFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="AceptadaHost" Width="20" Index="-1" />
+        <ColumnInfo Id="AceptadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="AcuseReciboFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="AcuseReciboHost" Width="20" Index="-1" />
+        <ColumnInfo Id="AcuseReciboUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="AdicionalFinanciero" Width="20" Index="-1" />
+        <ColumnInfo Id="AdicionalFinancieroTasa" Width="20" Index="-1" />
+        <ColumnInfo Id="AnuladaFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="AnuladaHost" Width="20" Index="-1" />
+        <ColumnInfo Id="AnuladaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="Cambio" Width="20" Index="-1" />
+        <ColumnInfo Id="CargadaFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="CargadaHost" Width="20" Index="-1" />
+        <ColumnInfo Id="CargadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="ComisionPremioTasa" Width="20" Index="-1" />
+        <ColumnInfo Id="ComisionPremioTasaProductor" Width="20" Index="-1" />
+        <ColumnInfo Id="ComisionPrimaTasa" Width="20" Index="-1" />
+        <ColumnInfo Id="ComisionPrimaTasaProductor" Width="20" Index="-1" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="DerechoEmision" Width="20" Index="-1" />
+        <ColumnInfo Id="DerechoEmisionTasa" Width="20" Index="-1" />
+        <ColumnInfo Id="DespachadaFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="DespachadaHost" Width="20" Index="-1" />
+        <ColumnInfo Id="DespachadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="DocumentoCotizacion" Width="28" Index="-1" />
+        <ColumnInfo Id="EmitidaFecha" Width="21" Index="-1" />
+        <ColumnInfo Id="Empresa" Index="-1" />
+        <ColumnInfo Id="EnviadaFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="EnviadaHost" Width="20" Index="-1" />
+        <ColumnInfo Id="EnviadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="FacturaCuotas" Width="20" Index="-1" />
+        <ColumnInfo Id="ImpuestosOtros" Width="20" Index="-1" />
+        <ColumnInfo Id="Iva" Width="20" Index="-1" />
+        <ColumnInfo Id="IvaTasa" Width="20" Index="-1" />
+        <ColumnInfo Id="PrimaNoGravada" Width="20" Index="-1" />
+        <ColumnInfo Id="PrimaPremioIndice" Width="20" Index="-1" />
+        <ColumnInfo Id="RamoTipo" Width="70" Index="-1" />
+        <ColumnInfo Id="RecargoAdministrativo" Width="20" Index="-1" />
+        <ColumnInfo Id="RecargoAdministrativoTasa" Width="20" Index="-1" />
+        <ColumnInfo Id="RecepcionFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="RecepcionHost" Width="20" Index="-1" />
+        <ColumnInfo Id="RecepcionUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="RegularizadaFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="RegularizadaHost" Width="20" Index="-1" />
+        <ColumnInfo Id="RegularizadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="SmartixId" Width="20" Index="-1" />
+        <ColumnInfo Id="TasaRiesgo" Width="20" Index="-1" />
+        <ColumnInfo Id="TasaRiesgoUm" Width="20" Index="-1" />
+        <ColumnInfo Id="TomadorCategoriaIVA" Width="24" Index="-1" />
+        <ColumnInfo Id="TomadorDireccion" Width="24" Index="-1" />
+        <ColumnInfo Id="TomadorIdentificacion" Width="24" Index="-1" />
+        <ColumnInfo Id="ValidadaFecha" Width="20" Index="-1" />
+        <ColumnInfo Id="ValidadaHost" Width="20" Index="-1" />
+        <ColumnInfo Id="ValidadaUsuario" Width="20" Index="-1" />
+        <ColumnInfo Id="Numero" Width="67" Index="0" SortIndex="0" SortOrder="Descending" />
+        <ColumnInfo Id="DocumentoPoliza" Width="104" Index="1" />
+        <ColumnInfo Id="DocumentoRenueva" Width="28" Index="2" />
+        <ColumnInfo Id="DocumentoPiloto" Width="28" Index="3" />
+        <ColumnInfo Id="Clase" Width="28" Index="4" />
+        <ColumnInfo Id="ClaseTipo" Width="28" Index="5" />
+        <ColumnInfo Id="Aseguradora" Width="98" Index="6" />
+        <ColumnInfo Id="Productor" Width="95" Index="7" />
+        <ColumnInfo Id="Tomador" Width="127" Index="8" />
+        <ColumnInfo Id="Ramo" Width="46" Index="9" />
+        <ColumnInfo Id="PolizaNumero" Width="20" Index="10" />
+        <ColumnInfo Id="EndosoNumero" Width="20" Index="11" />
+        <ColumnInfo Id="VigenciaInicio" Width="20" Index="12" />
+        <ColumnInfo Id="VigenciaFin" Width="20" Index="13" />
+        <ColumnInfo Id="VigenciaFinPoliza" Width="20" Index="14" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="Renueva" Width="20" Index="15" />
+        <ColumnInfo Id="Especie" Width="32" Index="16" />
+        <ColumnInfo Id="SumaAsegurada" Width="20" Index="17" />
+        <ColumnInfo Id="PrimaGravada" Width="20" Index="18" />
+        <ColumnInfo Id="PrimaComisionable" Width="20" Index="19" />
+        <ColumnInfo Id="Premio" Width="20" Index="20" />
+        <ColumnInfo Id="FacturaTipo" Width="20" Index="21" />
+        <ColumnInfo Id="FacturaPeriodicidad" Width="20" Index="22" />
+        <ColumnInfo Id="FacturaReferencia" Width="67" Index="23" />
+        <ColumnInfo Id="FormaPago" Width="70" Index="24" />
+      </Columns>
+    </ListView>
+    <ListView Id="CORE.PolizApp.PolizApp.DocumentoClase_LookupListView" GroupSummary="Empty">
+      <Columns>
+        <ColumnInfo Id="Codigo" SortOrder="Descending" />
+      </Columns>
+    </ListView>
+    <ListView Id="CORE.PolizApp.PolizApp.DocumentoClaseTipo_LookupListView" GroupSummary="Empty">
+      <Columns>
+        <ColumnInfo Id="Codigo" Width="128" />
+        <ColumnInfo Id="Nombre" PropertyName="Nombre" Index="1" Width="251" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="CORE.PolizApp.PolizApp.DocumentoEstado_ListView">
+      <Columns>
+        <ColumnInfo Id="Codigo" Width="108" />
+        <ColumnInfo Id="Nombre" Width="362" />
+        <ColumnInfo Id="Texto" Width="225" />
+        <ColumnInfo Id="Orden" Width="397" />
+      </Columns>
+    </ListView>
+    <ListView Id="CORE.PolizApp.PolizApp.Ramo_LookupListView" GroupSummary="Empty" />
+    <ListView Id="CORE.PolizApp.PolizApp.RamoClase_LookupListView" GroupSummary="Empty" />
+    <ListView Id="CORE.PolizApp.PolizApp.RamoTipo_LookupListView" GroupSummary="Empty">
+      <Columns>
+        <ColumnInfo Id="Codigo" Width="91" />
+        <ColumnInfo Id="Nombre" PropertyName="Nombre" Index="1" Width="247" SortIndex="1" SortOrder="Ascending" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="CORE.PolizApp.Regionales.Pais_LookupListView" GroupSummary="Empty" />
     <DashboardView Id="Dashboard1" IsNewNode="True">
       <Items IsNewNode="True">
         <StaticText Id="Texto" IsNewNode="True" />
@@ -287,5 +439,11 @@
         </LayoutGroup>
       </Layout>
     </DashboardView>
+    <ListView Id="DevExpress.Persistent.BaseImpl.ModelDifference_ListView">
+      <Columns>
+        <ColumnInfo Id="UserName" Width="567" />
+        <ColumnInfo Id="ContextId" Width="508" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>

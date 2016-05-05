@@ -1,11 +1,14 @@
 ﻿using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace CORE.PolizApp.PolizApp
 {
     [DefaultClassOptions]
     [Persistent(@"polizapp.DocumentoClaseTipo")]
+    [DefaultProperty("Codigo")]
+
     public class DocumentoClaseTipo : BasicObject
     {
         private string _fCodigo;
@@ -44,8 +47,9 @@ namespace CORE.PolizApp.PolizApp
             get { return _fssnOperacion; }
             set { SetPropertyValue<int>("SSNOperacion", ref _fssnOperacion, value); }
         }
-
+        /*
         [Association(@"DocumentoReferencesDocumentoClaseTipo")]
         public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
+        */
     }
 }

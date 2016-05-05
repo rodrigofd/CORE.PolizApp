@@ -1,11 +1,14 @@
 ﻿using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace CORE.PolizApp.PolizApp
 {
     [DefaultClassOptions]
     [Persistent(@"polizapp.Ramo")]
+    [DefaultProperty("Codigo")]
+
     public class Ramo : BasicObject
     {
         private string _fCodigo;
@@ -43,7 +46,7 @@ namespace CORE.PolizApp.PolizApp
             get { return _fssnRamo; }
             set { SetPropertyValue<int>("SSNRamo", ref _fssnRamo, value); }
         }
-
+        /*
         [Association(@"CoberturaReferencesRamo")]
         public XPCollection<Cobertura> Coberturas => GetCollection<Cobertura>("Coberturas");
 
@@ -53,13 +56,14 @@ namespace CORE.PolizApp.PolizApp
         [Association(@"IntermediarioComisionReferencesRamo")]
         public XPCollection<IntermediarioComision> IntermediarioComisiones => GetCollection<IntermediarioComision>("IntermediarioComisiones");
 
-        [Association(@"RamoTipoReferencesRamo")]
-        public XPCollection<RamoTipo> RamoTipos => GetCollection<RamoTipo>("RamoTipos");
-
         [Association(@"RefacturacionItemReferencesRamo")]
         public XPCollection<RefacturacionItem> RefacturacionItems => GetCollection<RefacturacionItem>("RefacturacionItems");
 
         [Association(@"RendicionItemImportadoReferencesRamo")]
         public XPCollection<RendicionItemImportado> RendicionItemImportados => GetCollection<RendicionItemImportado>("RendicionItemImportados");
+        */
+        [Association(@"RamoTipoReferencesRamo")]
+        public XPCollection<RamoTipo> RamoTipos => GetCollection<RamoTipo>("RamoTipos");
+
     }
 }

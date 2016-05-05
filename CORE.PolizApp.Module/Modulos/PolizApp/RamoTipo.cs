@@ -1,11 +1,14 @@
 ﻿using CORE.PolizApp.Sistema;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace CORE.PolizApp.PolizApp
 {
     [DefaultClassOptions]
     [Persistent(@"polizapp.RamoTipo")]
+    [DefaultProperty("Codigo")]
+
     public class RamoTipo : BasicObject
     {
         private string _fCodigo;
@@ -35,8 +38,9 @@ namespace CORE.PolizApp.PolizApp
             get { return _fNombre; }
             set { SetPropertyValue("Nombre", ref _fNombre, value); }
         }
-
+        /*
         [Association(@"DocumentoReferencesRamoTipo")]
         public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
+        */
     }
 }

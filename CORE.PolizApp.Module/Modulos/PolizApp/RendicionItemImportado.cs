@@ -58,7 +58,7 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue("Detalle", ref _fDetalle, value); }
         }
 
-        [Association(@"RendicionItemImportadoReferencesRamo")]
+        //[Association(@"RendicionItemImportadoReferencesRamo")]
         public Ramo Ramo
         {
             get { return _fRamo; }
