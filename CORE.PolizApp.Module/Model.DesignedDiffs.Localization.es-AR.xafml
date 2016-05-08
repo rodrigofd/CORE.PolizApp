@@ -1,6 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <Views>
+    <DetailView Id="CORE.PolizApp.PolizApp.Documento_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <TabbedGroup Id="Item1">
+              <LayoutGroup Id="Documento">
+                <LayoutGroup Id="Documento_col1">
+                  <LayoutGroup Id="Item6" Caption="Importes">
+                    <LayoutGroup Id="Autoa9bfc960-0bf5-4ce8-9e74-60a3685cf2c2" Caption="" />
+                    <LayoutGroup Id="Autoc1829953-8870-4119-b9a3-8388c323b307" Caption="" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Item7" Caption="Comisiones">
+                    <LayoutGroup Id="Auto763db358-c84d-44d3-ac91-83a94288ab6c" Caption="" />
+                    <LayoutGroup Id="Auto80998408-f903-4970-a0e9-fee1c8df71d5" Caption="" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Item8" Caption="Facturación" />
+                  <LayoutGroup Id="Item5" Caption="Notas" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item2" Caption="Controles">
+                <LayoutGroup Id="Auto3f60d7f4-5d84-4616-ba90-c032a92deaea" Caption="">
+                  <LayoutGroup Id="Auto9588b9aa-6d00-4fa1-930a-30f3ab4440bd" Caption="" />
+                  <LayoutGroup Id="Auto5a5e53ab-0511-41d4-a1a4-78efeb039897" Caption="" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </TabbedGroup>
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="RuleSetValidationResult_ByTarget_Error_DetailView">
       <Items>
         <StaticText Id="ValidationResultsText" Text="Se encontraron problemas durante la validación de datos. Por favor, lea la siguiente información para entender cuáles son los problemas y cómo se pueden corregir." />

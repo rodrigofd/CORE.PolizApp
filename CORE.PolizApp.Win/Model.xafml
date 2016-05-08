@@ -31,4 +31,24 @@
     <SchemaModule Name="SystemModule" Version="15.2.9.0" IsNewNode="True" />
     <SchemaModule Name="SystemWindowsFormsModule" Version="15.2.9.0" IsNewNode="True" />
   </SchemaModules>
+  <Views>
+    <DetailView Id="CORE.PolizApp.PolizApp.Documento_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Cuotas" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Cuotas" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="Intervinientes" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Intervinientes" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="Items" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Items" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="CORE.PolizApp.PolizApp.RamoTipo_LookupListView" ShowFindPanel="True" />
+  </Views>
 </Application>
