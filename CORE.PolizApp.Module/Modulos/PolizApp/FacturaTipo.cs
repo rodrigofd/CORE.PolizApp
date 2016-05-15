@@ -36,7 +36,7 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue<int>("Signo", ref _fSigno, value); }
         }
 
-        [Association(@"DocumentoReferencesFacturaTipo")]
-        public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
+        //[Association(@"DocumentoReferencesFacturaTipo")]
+        //public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
     }
 }

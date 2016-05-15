@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DashboardView Id="Dashboard1">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutItem Id="Personas" ViewItem="Personas" />
+          <LayoutItem Id="Libro IVA" ViewItem="Libro IVA" />
+        </LayoutGroup>
+      </Layout>
+    </DashboardView>
+    <DetailView Id="CORE.PolizApp.PolizApp.Documento_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <TabbedGroup Id="Item1">
+              <LayoutGroup Id="Documento">
+                <LayoutGroup Id="Documento_col1">
+                  <LayoutItem Id="Productor" ViewItem="Productor" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="CORE.PolizApp.PolizApp.Documento_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Productor" Width="186" Index="-1" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

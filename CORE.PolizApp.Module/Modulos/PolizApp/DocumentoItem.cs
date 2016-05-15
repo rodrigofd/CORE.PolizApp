@@ -12,10 +12,10 @@ namespace CORE.PolizApp.PolizApp
         private string _fCobertura;
         private bool _fCoberturaApertura;
         private string _fCoberturaArea;
-        private string _fDeducible;
+        private string _fDeducible; 
         private Documento _fDocumento;
         private DocumentoItemTipo _tipo;
-        private int _finfoautoVehiculo;
+        private int _fInfoautoID;
         private decimal _fIva;
         private decimal _fIvaTasa;
         private string _fMateriaAsegurada;
@@ -179,10 +179,10 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue<decimal>("Premio", ref _fPremio, value); }
         }
 
-        public int InfoautoVehiculo
+        public int InfoautoID
         {
-            get { return _finfoautoVehiculo; }
-            set { SetPropertyValue<int>("infoauto_Vehiculo", ref _finfoautoVehiculo, value); }
+            get { return _fInfoautoID; }
+            set { SetPropertyValue<int>("InfoautoID", ref _fInfoautoID, value); }
         }
 
         [Association(@"DocumentoItemReferencesVehiculoTipo")]

@@ -32,6 +32,32 @@
     <SchemaModule Name="SystemWindowsFormsModule" Version="15.2.9.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="CORE.PolizApp.Personas.Persona_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Direcciones" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Direcciones" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="Identificaciones" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Identificaciones" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="Contactos" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Contactos" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="DatosImpositivos" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="DatosImpositivos" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="Propiedades" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Propiedades" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="Relaciones" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Relaciones" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="CORE.PolizApp.PolizApp.Documento_DetailView">
       <Layout>
         <LayoutGroup Id="Main">

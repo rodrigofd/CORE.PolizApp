@@ -51,7 +51,7 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue<int>("SmartixId", ref _fsmartixId, value); }
         }
 
-        [Association(@"DocumentoReferencesFacturaPeriodicidad")]
-        public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
+        //[Association(@"DocumentoReferencesFacturaPeriodicidad")]
+        //public XPCollection<Documento> Documentos => GetCollection<Documento>("Documentos");
     }
 }

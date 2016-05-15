@@ -7,6 +7,7 @@ using DevExpress.Xpo;
 using FDIT.Core.Sistema;
 using CORE.PolizApp.Fondos;
 using System.ComponentModel;
+using DevExpress.ExpressApp.Model;
 
 namespace CORE.PolizApp.PolizApp
 {
@@ -103,7 +104,7 @@ namespace CORE.PolizApp.PolizApp
         private decimal _fPrimaGravada;
         private decimal _fPrimaNoGravada;
         private decimal _fPrimaPremioIndice;
-        private AseguradoraProductor _fProductor;
+        private AseguradoraProductor _fAseguradoraProductor;
         private Ramo _fRamo;
         private RamoTipo _fRamoTipo;
         private decimal _fRecargoAdministrativo;
@@ -143,34 +144,47 @@ namespace CORE.PolizApp.PolizApp
         {
         }
 
+        [System.ComponentModel.DisplayName(@"Organizador")]
         public Empresa Empresa
         {
             get { return _fEmpresa; }
             set { SetPropertyValue("Empresa", ref _fEmpresa, value); }
         }
 
-        [Association(@"DocumentoReferencesDocumento")]
+        [System.ComponentModel.DisplayName(@"Doc")]
+        [ModelDefault("DisplayFormat", "{0:D}"), ModelDefault("EditMask", "D")]
+        public int Numero
+        {
+            get { return _fNumero; }
+            set { SetPropertyValue<int>("Numero", ref _fNumero, value); }
+        }
+
+        //[Association(@"DocumentoReferencesDocumento")]
+        [System.ComponentModel.DisplayName(@"DocCotiz")]
         public Documento DocumentoCotizacion
         {
             get { return _fDocumentoCotizacion; }
             set { SetPropertyValue("DocumentoCotizacion", ref _fDocumentoCotizacion, value); }
         }
 
-        [Association(@"DocumentoReferencesDocumento1")]
+        //[Association(@"DocumentoReferencesDocumento1")]
+        [System.ComponentModel.DisplayName(@"DocPol")]
         public Documento DocumentoPoliza
         {
             get { return _fDocumentoPoliza; }
             set { SetPropertyValue("DocumentoPoliza", ref _fDocumentoPoliza, value); }
         }
 
-        [Association(@"DocumentoReferencesDocumento2")]
+        //[Association(@"DocumentoReferencesDocumento2")]
+        [System.ComponentModel.DisplayName(@"DocRenuA")]
         public Documento DocumentoRenueva
         {
             get { return _fDocumentoRenueva; }
             set { SetPropertyValue("DocumentoRenueva", ref _fDocumentoRenueva, value); }
         }
 
-        [Association(@"DocumentoReferencesDocumento3")]
+        //[Association(@"DocumentoReferencesDocumento3")]
+        [System.ComponentModel.DisplayName(@"DocPil")]
         public Documento DocumentoPiloto
         {
             get { return _fDocumentoPiloto; }
@@ -190,16 +204,11 @@ namespace CORE.PolizApp.PolizApp
         [Persistent("DocumentoClaseTipo")]
         [DataSourceProperty("Clase.DocumentoClaseTipos")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
+        [System.ComponentModel.DisplayName(@"CTipo")]
         public DocumentoClaseTipo ClaseTipo
         {
             get { return _fClaseTipo; }
             set { SetPropertyValue("ClaseTipo", ref _fClaseTipo, value); }
-        }
-
-        public int Numero
-        {
-            get { return _fNumero; }
-            set { SetPropertyValue<int>("Numero", ref _fNumero, value); }
         }
 
         //[Association(@"DocumentoReferencesAseguradora")]
@@ -210,20 +219,29 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue("Aseguradora", ref _fAseguradora, value); }
         }
 
+        private decimal _fAseguradoraParticipacion;
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"Part%")]
+        public decimal AseguradoraParticipacion
+        {
+            get { return _fAseguradoraParticipacion; }
+            set { SetPropertyValue<decimal>("AseguradoraParticipacion", ref _fAseguradoraParticipacion, value); }
+        }
+
         //[Association(@"DocumentoReferencesAseguradoraProductor")]
         [VisibleInListView(false)]
         [System.ComponentModel.DisplayName(@"AseguradoraProductor")]
         [DataSourceProperty("Aseguradora.Productores")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
-        public AseguradoraProductor Productor
+        public AseguradoraProductor AseguradoraProductor
         {
-            get { return _fProductor; }
-            set { SetPropertyValue("Productor", ref _fProductor, value); }
+            get { return _fAseguradoraProductor; }
+            set { SetPropertyValue("AseguradoraProductor", ref _fAseguradoraProductor, value); }
         }
 
         [VisibleInDetailView(false)]
         [System.ComponentModel.DisplayName(@"Productor")]
-        [PersistentAlias("Productor.Productor")]
+        [PersistentAlias("AseguradoraProductor.Productor")]
         public Persona ProductorPersona
         {
             get { return (Persona)(EvaluateAlias("ProductorPersona")); }
@@ -237,6 +255,7 @@ namespace CORE.PolizApp.PolizApp
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [DataSourceProperty("Tomador.Direcciones")]
+        [System.ComponentModel.DisplayName(@"Dirección")]
         public Direccion TomadorDireccion
         {
             get { return _fTomadorDireccion; }
@@ -245,6 +264,7 @@ namespace CORE.PolizApp.PolizApp
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
         [DataSourceProperty("Tomador.Identificaciones")]
+        [System.ComponentModel.DisplayName(@"Identificación")]
         public Identificacion TomadorIdentificacion
         {
             get { return _fTomadorIdentificacion; }
@@ -252,6 +272,7 @@ namespace CORE.PolizApp.PolizApp
         }
 
         [LookupEditorMode(LookupEditorMode.AllItems)]
+        [System.ComponentModel.DisplayName(@"CatIVA")]
         public Categoria TomadorCategoriaIVA
         {
             get { return _fTomadorCategoriaIVA; }
@@ -269,6 +290,7 @@ namespace CORE.PolizApp.PolizApp
         //[Association(@"DocumentoReferencesRamoTipo")]
         [DataSourceProperty("Ramo.RamoTipos")]
         [LookupEditorMode(LookupEditorMode.AllItems)]
+        [System.ComponentModel.DisplayName(@"RTipo")]
         public RamoTipo RamoTipo
         {
             get { return _fRamoTipo; }
@@ -276,6 +298,7 @@ namespace CORE.PolizApp.PolizApp
         }
 
         [Size(SizeAttribute.Unlimited)]
+        [System.ComponentModel.DisplayName(@"NotaAseg")]
         public string NotaAseguradora
         {
             get { return _fNotaAseguradora; }
@@ -297,6 +320,7 @@ namespace CORE.PolizApp.PolizApp
         }
 
         [Size(50)]
+        [System.ComponentModel.DisplayName(@"PolNro")]
         public string PolizaNumero
         {
             get { return _fPolizaNumero; }
@@ -304,6 +328,7 @@ namespace CORE.PolizApp.PolizApp
         }
 
         [Size(50)]
+        [System.ComponentModel.DisplayName(@"EndNro")]
         public string EndosoNumero
         {
             get { return _fEndosoNumero; }
@@ -348,18 +373,22 @@ namespace CORE.PolizApp.PolizApp
         }
         
         [DataSourceCriteria("[ExpresaMoneda] = true")]
+        [System.ComponentModel.DisplayName(@"Mon")]
         public Especie Especie
         {
             get { return _fEspecie; }
             set { SetPropertyValue("Especie", ref _fEspecie, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n4}"), ModelDefault("EditMask", "n4")]
         public decimal Cambio
         {
             get { return _fCambio; }
             set { SetPropertyValue<decimal>("Cambio", ref _fCambio, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"Suma")]
         public decimal SumaAsegurada
         {
             get { return _fSumaAsegurada; }
@@ -367,140 +396,184 @@ namespace CORE.PolizApp.PolizApp
         }
 
         [Association(@"DocumentoReferencesTasaRiesgoUM")]
+        [System.ComponentModel.DisplayName(@"TasaUM")]
         public TasaRiesgoUm TasaRiesgoUm
         {
             get { return _fTasaRiesgoUm; }
             set { SetPropertyValue("TasaRiesgoUM", ref _fTasaRiesgoUm, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n4}"), ModelDefault("EditMask", "n4")]
+        [System.ComponentModel.DisplayName(@"Tasa")]
         public decimal TasaRiesgo
         {
             get { return _fTasaRiesgo; }
             set { SetPropertyValue<decimal>("TasaRiesgo", ref _fTasaRiesgo, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"Prima")]
         public decimal PrimaGravada
         {
             get { return _fPrimaGravada; }
             set { SetPropertyValue<decimal>("PrimaGravada", ref _fPrimaGravada, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"DerEmiTasa")]
         public decimal DerechoEmisionTasa
         {
             get { return _fDerechoEmisionTasa; }
             set { SetPropertyValue<decimal>("DerechoEmisionTasa", ref _fDerechoEmisionTasa, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"DerEmi")]
         public decimal DerechoEmision
         {
             get { return _fDerechoEmision; }
             set { SetPropertyValue<decimal>("DerechoEmision", ref _fDerechoEmision, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"RecAdmTasa")]
         public decimal RecargoAdministrativoTasa
         {
             get { return _fRecargoAdministrativoTasa; }
             set { SetPropertyValue<decimal>("RecargoAdministrativoTasa", ref _fRecargoAdministrativoTasa, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"RecAdm")]
         public decimal RecargoAdministrativo
         {
             get { return _fRecargoAdministrativo; }
             set { SetPropertyValue<decimal>("RecargoAdministrativo", ref _fRecargoAdministrativo, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"RecFinTasa")]
         public decimal AdicionalFinancieroTasa
         {
             get { return _fAdicionalFinancieroTasa; }
             set { SetPropertyValue<decimal>("AdicionalFinancieroTasa", ref _fAdicionalFinancieroTasa, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"RecFin")]
         public decimal AdicionalFinanciero
         {
             get { return _fAdicionalFinanciero; }
             set { SetPropertyValue<decimal>("AdicionalFinanciero", ref _fAdicionalFinanciero, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"IvaTasa")]
         public decimal IvaTasa
         {
             get { return _fIvaTasa; }
             set { SetPropertyValue<decimal>("IvaTasa", ref _fIvaTasa, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"Iva")]
         public decimal Iva
         {
             get { return _fIva; }
             set { SetPropertyValue<decimal>("Iva", ref _fIva, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"ImpOtros")]
         public decimal ImpuestosOtros
         {
             get { return _fImpuestosOtros; }
             set { SetPropertyValue<decimal>("ImpuestosOtros", ref _fImpuestosOtros, value); }
         }
 
+        [Browsable(false)]
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
         public decimal PrimaNoGravada
         {
             get { return _fPrimaNoGravada; }
             set { SetPropertyValue<decimal>("PrimaNoGravada", ref _fPrimaNoGravada, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"PrimaCom")]
         public decimal PrimaComisionable
         {
             get { return _fPrimaComisionable; }
             set { SetPropertyValue<decimal>("PrimaComisionable", ref _fPrimaComisionable, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"Premio")]
         public decimal Premio
         {
             get { return _fPremio; }
             set { SetPropertyValue<decimal>("Premio", ref _fPremio, value); }
         }
 
+        [Browsable(false)]
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"IndCom")]
         public decimal PrimaPremioIndice
         {
             get { return _fPrimaPremioIndice; }
             set { SetPropertyValue<decimal>("PrimaPremioIndice", ref _fPrimaPremioIndice, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"ComPriTasa")]
         public decimal ComisionPrimaTasa
         {
             get { return _fComisionPrimaTasa; }
             set { SetPropertyValue<decimal>("ComisionPrimaTasa", ref _fComisionPrimaTasa, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"ComPreTasa")]
         public decimal ComisionPremioTasa
         {
             get { return _fComisionPremioTasa; }
             set { SetPropertyValue<decimal>("ComisionPremioTasa", ref _fComisionPremioTasa, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"ComPriProdTasa")]
         public decimal ComisionPrimaTasaProductor
         {
             get { return _fComisionPrimaTasaProductor; }
             set { SetPropertyValue<decimal>("ComisionPrimaTasaProductor", ref _fComisionPrimaTasaProductor, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:n2}"), ModelDefault("EditMask", "n2")]
+        [System.ComponentModel.DisplayName(@"ComPreProdTasa")]
         public decimal ComisionPremioTasaProductor
         {
             get { return _fComisionPremioTasaProductor; }
             set { SetPropertyValue<decimal>("ComisionPremioTasaProductor", ref _fComisionPremioTasaProductor, value); }
         }
 
-        [Association(@"DocumentoReferencesFacturaTipo")]
+        //[Association(@"DocumentoReferencesFacturaTipo")]
+        [System.ComponentModel.DisplayName(@"FacTipo")]
         public FacturaTipo FacturaTipo
         {
             get { return _fFacturaTipo; }
             set { SetPropertyValue("FacturaTipo", ref _fFacturaTipo, value); }
         }
 
-        [Association(@"DocumentoReferencesFacturaPeriodicidad")]
+        //[Association(@"DocumentoReferencesFacturaPeriodicidad")]
+        [System.ComponentModel.DisplayName(@"FacPeri")]
         public FacturaPeriodicidad FacturaPeriodicidad
         {
             get { return _fFacturaPeriodicidad; }
             set { SetPropertyValue("FacturaPeriodicidad", ref _fFacturaPeriodicidad, value); }
         }
 
+        [ModelDefault("DisplayFormat", "{0:D}"), ModelDefault("EditMask", "D")]
+        [System.ComponentModel.DisplayName(@"FacCuotas")]
         public int FacturaCuotas
         {
             get { return _fFacturaCuotas; }
@@ -508,13 +581,15 @@ namespace CORE.PolizApp.PolizApp
         }
 
         [Size(50)]
+        [System.ComponentModel.DisplayName(@"FacNro")]
         public string FacturaReferencia
         {
             get { return _fFacturaReferencia; }
             set { SetPropertyValue("FacturaReferencia", ref _fFacturaReferencia, value); }
         }
 
-        [Association(@"DocumentoReferencesFormaPago")]
+        //[Association(@"DocumentoReferencesFormaPago")]
+        [System.ComponentModel.DisplayName(@"FormPago")]
         public FormaPago FormaPago
         {
             get { return _fFormaPago; }
@@ -522,12 +597,14 @@ namespace CORE.PolizApp.PolizApp
         }
 
         [Size(SizeAttribute.Unlimited)]
+        [System.ComponentModel.DisplayName(@"FormPagoDeta")]
         public string FormaPagoDetalle
         {
             get { return _fFormaPagoDetalle; }
             set { SetPropertyValue("FormaPagoDetalle", ref _fFormaPagoDetalle, value); }
         }
 
+        [Browsable(false)]
         public int SmartixId
         {
             get { return _fsmartixId; }
@@ -925,6 +1002,7 @@ namespace CORE.PolizApp.PolizApp
             set { SetPropertyValue<int>("id_documento_piloto_rol", ref _fidDocumentoPilotoRol, value); }
         }
         */
+        /*
         [Browsable(false)]
         [Association(@"DocumentoReferencesDocumento")]
         public XPCollection<Documento> DocumentoCollection => GetCollection<Documento>("DocumentoCollection");
@@ -940,7 +1018,7 @@ namespace CORE.PolizApp.PolizApp
         [Browsable(false)]
         [Association(@"DocumentoReferencesDocumento3")]
         public XPCollection<Documento> DocumentoCollection3 => GetCollection<Documento>("DocumentoCollection3");
-
+        */
         //[Browsable(false)]
         [Association(@"DocumentoCuotaReferencesDocumento")]
         public XPCollection<DocumentoCuota> Cuotas => GetCollection<DocumentoCuota>("Cuotas");
